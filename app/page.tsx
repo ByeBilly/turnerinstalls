@@ -40,126 +40,91 @@ export default function Home() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-5 py-12 md:py-16">
-        <div className="grid md:grid-cols-[1.4fr_1.1fr] gap-8 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/40 rounded-full px-3 py-1 mb-4 text-xs uppercase tracking-wider text-gray-400">
-              <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_0_4px_rgba(34,197,94,0.2)]"></div>
-              BRISBANE · FLOORING CONTRACTOR
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-              Flawless floors start with{" "}
-              <span className="text-yellow-400">flawless preparation</span>
-            </h1>
-            <p className="text-sm text-gray-400 max-w-lg mb-5">
-              Turner Installs delivers vinyl plank, hybrid, timber and laminate installations with
-              professional floor preparation, engineered flood levelling and immaculate clean-up for
-              residential homes, property managers and premium flooring retailers.
-            </p>
-            <div className="flex flex-wrap gap-2 md:gap-4 text-xs text-gray-400 mb-5">
-              <span className="before:content-['•'] before:text-yellow-400 before:mr-1">
-                Vinyl, hybrid, timber & laminate
-              </span>
-              <span className="before:content-['•'] before:text-yellow-400 before:mr-1">
-                Engineered flood levelling
-              </span>
-              <span className="before:content-['•'] before:text-yellow-400 before:mr-1">
-                Carpet uplift & disposal
-              </span>
-              <span className="before:content-['•'] before:text-yellow-400 before:mr-1">
-                Zero-mess completion
-              </span>
-              <span className="before:content-['•'] before:text-yellow-400 before:mr-1">
-                15+ years' experience
-              </span>
-            </div>
-            <div className="flex flex-wrap gap-3 items-center mb-4">
-              <CTAButton href="/contact">Request a quote</CTAButton>
-              <a
-                href="tel:0748022388"
-                className="text-xs text-gray-400 hover:text-gray-100 transition-colors"
-              >
-                Or call: <span className="text-yellow-400 font-semibold">07 4802 2388</span>
-              </a>
-            </div>
-            <div className="inline-flex items-center gap-2 text-xs text-gray-400 bg-white/5 border border-gray-800 rounded-full px-3 py-1">
-              <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-              No use of client bins · Floors left vacuumed and dust-free
-            </div>
+      {/* NEW HERO SECTION */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+            alt="Turner Installs Premium Flooring"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-5 text-center">
+          <div className="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-8 text-sm uppercase tracking-widest text-yellow-400 backdrop-blur-sm">
+            <div className="w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_0_4px_rgba(250,204,21,0.2)]"></div>
+            Brisbane Flooring Specialist
           </div>
 
-          <div className="relative">
-            <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5 shadow-2xl">
-              <div className="flex justify-between items-center mb-3">
-                <div className="text-xs uppercase tracking-wider text-gray-400">Installation Workflow</div>
-                <div className="text-xs px-2 py-1 rounded-full bg-yellow-400/15 border border-yellow-400/50 text-yellow-400 uppercase tracking-wider">
-                  Full-Service
-                </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1]">
+            Flawless floors start with <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+              flawless preparation
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+            From residential upgrades to commercial fit-outs. We deliver engineered flood levelling,
+            precision installation, and zero-mess completion.
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="px-8 py-4 bg-yellow-400 text-black font-bold text-lg rounded-full hover:bg-yellow-300 transition-all hover:scale-105 shadow-[0_0_20px_rgba(250,204,21,0.3)]"
+            >
+              Request a Quote
+            </Link>
+            <a
+              href="tel:0748022388"
+              className="px-8 py-4 bg-white/10 text-white font-medium text-lg rounded-full border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm"
+            >
+              Call 07 4802 2388
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* LEGACY / STORY SECTION */}
+      <section className="py-24 md:py-32 relative bg-black">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-gray-800">
+                <Image
+                  src="/images/family_photo.png"
+                  alt="Liam Turner and Family"
+                  fill
+                  className="object-cover"
+                />
+                {/* Decorative element */}
+                <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
               </div>
-              <div className="space-y-2.5 mb-3">
-                <div className="bg-white/5 border border-gray-800 rounded-lg p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">
-                    Step 1 · Uplift & Removal
-                  </div>
-                  <div className="text-sm font-semibold mb-1">Old floor out, waste off-site.</div>
-                  <div className="text-xs text-gray-400">
-                    Existing carpet or hard flooring is uplifted, removed from site and disposed of — never
-                    in your bins.
-                  </div>
-                </div>
-                <div className="bg-white/5 border border-gray-800 rounded-lg p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">
-                    Step 2 · Professional Floor Prep
-                  </div>
-                  <div className="text-sm font-semibold mb-1">Engineered flood levelling.</div>
-                  <div className="text-xs text-gray-400">
-                    Subfloors are corrected, patched and flood-levelled with engineered compounds for
-                    mirror-flat finishes.
-                  </div>
-                </div>
-                <div className="bg-white/5 border border-gray-800 rounded-lg p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">
-                    Step 3 · Precision Installation
-                  </div>
-                  <div className="text-sm font-semibold mb-1">Showroom-ready finish.</div>
-                  <div className="text-xs text-gray-400">
-                    Planks are installed with tight transitions, clean trims and a dust-free,
-                    ready-to-furnish handover.
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-between items-center text-xs text-gray-400 mt-2">
-                <div>
-                  Built for <span className="text-yellow-400 font-semibold">homeowners, property managers & retailers</span>.
-                </div>
-                <div className="text-[10px]">Brisbane · Ipswich · Surrounds</div>
-              </div>
-              {/* Image strip */}
-              <div className="grid grid-cols-3 gap-1.5 mt-3">
-                <div className="relative h-16 rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
-                  <Image
-                    src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
-                    alt="Full-service flooring"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-16 rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
-                  <Image
-                    src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
-                    alt="Old floor removal"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-16 rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
-                  <Image
-                    src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
-                    alt="Flawless floors"
-                    fill
-                    className="object-cover"
-                  />
+            </div>
+            <div>
+              <div className="text-yellow-400 font-bold tracking-wider uppercase mb-4">Our Heritage</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Three generations of <br />
+                <span className="text-gray-500">flooring expertise.</span>
+              </h2>
+              <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
+                <p>
+                  Flooring isn't just a trade for us—it's in our blood. From grandfather, to father, to son.
+                </p>
+                <p>
+                  Liam Turner represents the third generation of floor layers in our family. The skills,
+                  techniques, and obsessive attention to detail passed down through the decades mean you aren't
+                  getting someone who learned from a quick course. You're getting a lifetime of knowledge in every square metre.
+                </p>
+                <div className="flex items-center gap-4 pt-4">
+                  <div className="h-px flex-1 bg-gray-800"></div>
+                  <span className="text-sm uppercase tracking-widest text-gray-500">Since Day One</span>
                 </div>
               </div>
             </div>
@@ -167,273 +132,119 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Turner Installs */}
-      <Section>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-6">
-          <h2 className="text-lg uppercase tracking-wider">Why Turner Installs</h2>
-          <p className="text-xs text-gray-400 max-w-md">
-            The difference between "just laid" and "built to last" is in the details.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Expertise</div>
-            <div className="text-sm font-semibold mb-1">Engineered Floor Preparation</div>
-            <div className="text-xs text-gray-400">
-              Mirror-flat surfaces achieved through professional flood levelling techniques.
-            </div>
+      {/* WHY TURNER INSTALLS - Redesigned */}
+      <section className="py-24 bg-zinc-900/30 border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Turner Installs?</h2>
+            <p className="text-gray-400">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
           </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Precision</div>
-            <div className="text-sm font-semibold mb-1">Showroom-Quality Installation</div>
-            <div className="text-xs text-gray-400">
-              Tight transitions, clean trims, and attention to every detail.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Cleanliness</div>
-            <div className="text-sm font-semibold mb-1">Immaculate Clean-Up</div>
-            <div className="text-xs text-gray-400">
-              No mess, no use of client bins. Floors left vacuumed and dust-free.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Trust</div>
-            <div className="text-sm font-semibold mb-1">Trusted by Premium Partners</div>
-            <div className="text-xs text-gray-400">
-              Property managers and premium flooring retailers rely on our reliability.
-            </div>
-          </div>
-        </div>
-      </Section>
 
-      {/* Services Overview */}
-      <Section id="services">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-6">
-          <h2 className="text-lg uppercase tracking-wider">Services</h2>
-          <p className="text-xs text-gray-400 max-w-md">
-            Full-service flooring — from uplift and floor preparation through to final installation and
-            clean-up.
-          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Expertise", subtitle: "Engineered Prep", desc: "Mirror-flat surfaces through professional flood levelling." },
+              { title: "Precision", subtitle: "Showroom Finish", desc: "Tight transitions, clean trims, and zero corners cut." },
+              { title: "Cleanliness", subtitle: "Immaculate Clean-Up", desc: "No mess left behind. We treat your home like our own." },
+              { title: "Legacy", subtitle: "3rd Generation", desc: "Decades of passed-down knowledge ensuring perfect results." }
+            ].map((item, i) => (
+              <div key={i} className="group p-8 rounded-3xl bg-black border border-gray-800 hover:border-yellow-400/30 transition-all hover:bg-zinc-900/50">
+                <div className="text-xs font-bold text-yellow-400 uppercase tracking-widest mb-4 opacity-70">{item.title}</div>
+                <h3 className="text-xl font-bold mb-3">{item.subtitle}</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Link
-            href="/services/floor-preparation"
-            className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 hover:border-yellow-400/50 transition-colors"
-          >
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Installations</div>
-            <div className="text-sm font-semibold mb-1">Vinyl Plank Installs</div>
-            <div className="text-xs text-gray-400">
-              Professional installation of luxury vinyl plank flooring with precision transitions and
-              clean finishes.
-            </div>
-          </Link>
-          <Link
-            href="/services/floor-preparation"
-            className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 hover:border-yellow-400/50 transition-colors"
-          >
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Installations</div>
-            <div className="text-sm font-semibold mb-1">Timber & Laminate Installs</div>
-            <div className="text-xs text-gray-400">
-              Expert installation of engineered timber and laminate systems with attention to detail.
-            </div>
-          </Link>
-          <Link
-            href="/services/floor-preparation"
-            className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 hover:border-yellow-400/50 transition-colors"
-          >
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Installations</div>
-            <div className="text-sm font-semibold mb-1">Hybrid Flooring Installs</div>
-            <div className="text-xs text-gray-400">
-              Professional hybrid flooring installation combining the best of vinyl and laminate.
-            </div>
-          </Link>
-          <Link
-            href="/commercial"
-            className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 hover:border-yellow-400/50 transition-colors"
-          >
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Commercial</div>
-            <div className="text-sm font-semibold mb-1">Commercial Plank Installs</div>
-            <div className="text-xs text-gray-400">
-              Reliable commercial flooring solutions for offices, retail spaces, and multi-site projects.
-            </div>
-          </Link>
-          <Link
-            href="/services/floor-preparation"
-            className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 hover:border-yellow-400/50 transition-colors"
-          >
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Preparation</div>
-            <div className="text-sm font-semibold mb-1">Floor Preparation & Levelling</div>
-            <div className="text-xs text-gray-400">
-              Engineered flood levelling, subfloor corrections, and mirror-flat surface preparation.
-            </div>
-          </Link>
-          <Link
-            href="/services/floor-preparation"
-            className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 hover:border-yellow-400/50 transition-colors"
-          >
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Removal</div>
-            <div className="text-sm font-semibold mb-1">Removal & Disposal</div>
-            <div className="text-xs text-gray-400">
-              Clean removal and off-site disposal of existing floors. Never use client bins.
-            </div>
-          </Link>
-        </div>
-      </Section>
+      </section>
 
-      {/* Our Process */}
-      <Section>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-6">
-          <h2 className="text-lg uppercase tracking-wider">Our Process</h2>
-          <p className="text-xs text-gray-400 max-w-md">
-            A proven workflow that ensures flawless results from start to finish.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-yellow-400 text-2xl font-bold mb-2">1</div>
-            <div className="text-sm font-semibold mb-1">Old Floor Removal</div>
-            <div className="text-xs text-gray-400">
-              Existing flooring is carefully removed and disposed of off-site. We never use your bins.
+      {/* SERVICES - Redesigned */}
+      <section className="py-24" id="services">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Services</h2>
+              <p className="text-gray-400 max-w-xl text-lg">Full-service from uplift to final shine.</p>
             </div>
+            <CTAButton href="/contact" variant="secondary">View All Services</CTAButton>
           </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-yellow-400 text-2xl font-bold mb-2">2</div>
-            <div className="text-sm font-semibold mb-1">Subfloor Assessment & Preparation</div>
-            <div className="text-xs text-gray-400">
-              Thorough inspection followed by engineered preparation including flood levelling for
-              mirror-flat surfaces.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-yellow-400 text-2xl font-bold mb-2">3</div>
-            <div className="text-sm font-semibold mb-1">Precision Laying</div>
-            <div className="text-xs text-gray-400">
-              Expert installation with tight transitions, clean trims, and showroom-quality finishes.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-yellow-400 text-2xl font-bold mb-2">4</div>
-            <div className="text-sm font-semibold mb-1">Final Clean & Inspection</div>
-            <div className="text-xs text-gray-400">
-              Floors are vacuumed, wiped down, and inspected. Ready for you to move back in immediately.
-            </div>
-          </div>
-        </div>
-      </Section>
 
-      {/* Who We Work With */}
-      <Section id="clients">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-6">
-          <h2 className="text-lg uppercase tracking-wider">Who We Work With</h2>
-          <p className="text-xs text-gray-400 max-w-md">
-            Built for clients who value reliability, cleanliness and work that "just gets handled" —
-            without call-backs or supervision.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Residential</div>
-            <div className="text-base font-semibold mb-2">Homeowners & Renovators</div>
-            <div className="text-xs text-gray-400 mb-4">
-              Upgrading living spaces, replacing tired carpet or modernising with planks. We protect
-              existing finishes, keep dust under control and leave homes ready to move straight back
-              into.
-            </div>
-            <ul className="text-xs text-gray-400 space-y-1">
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                New builds and renovations
-              </li>
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                Rental property upgrades
-              </li>
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                Quiet, respectful teams
-              </li>
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                Immaculate clean-up
-              </li>
-            </ul>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Commercial</div>
-            <div className="text-base font-semibold mb-2">Property Managers & Premium Retailers</div>
-            <div className="text-xs text-gray-400 mb-4">
-              Fast, no-drama flooring for rentals and reliable trade partner for premium flooring
-              retailers. When your name is on the product, you need installers who protect your
-              reputation.
-            </div>
-            <ul className="text-xs text-gray-400 space-y-1">
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                Time-sensitive bookings
-              </li>
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                Staging work to minimise downtime
-              </li>
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                Consistent quality across multiple sites
-              </li>
-              <li className="before:content-['–'] before:text-yellow-400 before:mr-2">
-                White-label installation partner
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Section>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <Link href="/services/floor-preparation" className="group relative h-[400px] rounded-3xl overflow-hidden block">
+              <Image
+                src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                alt="Residential Flooring"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
+              <div className="absolute bottom-0 left-0 p-8">
+                <div className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">Residential</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Home Installation</h3>
+                <p className="text-gray-300 text-sm line-clamp-2">Vinyl, hybrid, timber & laminate installation for new builds and renovations.</p>
+              </div>
+            </Link>
 
-      {/* Testimonials */}
-      <Section>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-6">
-          <h2 className="text-lg uppercase tracking-wider">What Our Clients Say</h2>
-          <p className="text-xs text-gray-400 max-w-md">
-            {/* Dummy testimonials - replace with real ones */}
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          {/* Dummy testimonial 1 */}
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-xs text-gray-400 mb-2 italic">
-              "Turner Installs transformed our home. The floor preparation was flawless and the installation
-              was perfect. They left everything spotless."
-            </div>
-            <div className="text-xs text-gray-500">— Homeowner, Brisbane</div>
-          </div>
-          {/* Dummy testimonial 2 */}
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-xs text-gray-400 mb-2 italic">
-              "As a property manager, I rely on Turner Installs for quick turnarounds. They're always
-              professional, clean, and reliable."
-            </div>
-            <div className="text-xs text-gray-500">— Property Manager, Brisbane</div>
-          </div>
-          {/* Dummy testimonial 3 */}
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4">
-            <div className="text-xs text-gray-400 mb-2 italic">
-              "We've used Turner Installs for years. Their floor preparation work is exceptional and
-              protects our brand reputation."
-            </div>
-            <div className="text-xs text-gray-500">— Premium Flooring Retailer</div>
-          </div>
-        </div>
-      </Section>
+            {/* Card 2 */}
+            <Link href="/commercial" className="group relative h-[400px] rounded-3xl overflow-hidden block">
+              <Image
+                src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                alt="Commercial Flooring"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
+              <div className="absolute bottom-0 left-0 p-8">
+                <div className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">Commercial</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Commercial Projects</h3>
+                <p className="text-gray-300 text-sm line-clamp-2">Reliable solutions for offices, retail spaces, and multi-site fit-outs.</p>
+              </div>
+            </Link>
 
-      {/* Final CTA */}
-      <Section>
-        <div className="bg-gradient-to-r from-yellow-400/10 via-black to-black rounded-2xl border border-yellow-400/40 p-8 text-center">
-          <h2 className="text-xl md:text-2xl font-bold mb-3">Ready for a Flawless Finish?</h2>
-          <p className="text-sm text-gray-400 mb-6 max-w-2xl mx-auto">
-            Get in touch today for a quote or site visit. We're here to help you achieve the perfect
-            floor.
+            {/* Card 3 */}
+            <Link href="/services/floor-preparation" className="group relative h-[400px] rounded-3xl overflow-hidden block">
+              <Image
+                src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                alt="Floor Preparation"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
+              <div className="absolute bottom-0 left-0 p-8">
+                <div className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">Preparation</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Flood Levelling</h3>
+                <p className="text-gray-300 text-sm line-clamp-2">Engineered subfloor correction and mirror-flat preparation.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="py-24 bg-yellow-400 text-black">
+        <div className="max-w-4xl mx-auto px-5 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to transform your floor?</h2>
+          <p className="text-xl text-black/80 mb-10 max-w-2xl mx-auto">
+            Get the finish you deserve with the team that cares about the details.
           </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <CTAButton href="/contact">Request a Quote</CTAButton>
-            <CTAButton href="tel:0748022388" variant="secondary">
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="px-10 py-5 bg-black text-white font-bold text-xl rounded-full hover:bg-gray-900 transition-all hover:scale-105"
+            >
+              Get a Quote
+            </Link>
+            <a
+              href="tel:0748022388"
+              className="px-10 py-5 bg-transparent border-2 border-black/20 text-black font-bold text-xl rounded-full hover:bg-black/5 transition-all"
+            >
               Call 07 4802 2388
-            </CTAButton>
+            </a>
           </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }
-

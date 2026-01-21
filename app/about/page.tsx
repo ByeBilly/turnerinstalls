@@ -1,123 +1,130 @@
+import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 
 export const metadata = {
-  title: "About Turner Installs | Expert Flooring Contractors Brisbane",
+  title: "About Us | Turner Installs - 3 Generations of Flooring Excellence",
   description:
-    "Turner Installs is a Brisbane-based flooring contractor with 15+ years of experience. We specialise in precision installation, professional floor preparation, and immaculate clean-up.",
+    "Meet the team behind Turner Installs. A third-generation family business delivering expert flooring installation and preparation in Brisbane.",
 };
 
-export default function AboutPage() {
+export default function About() {
   return (
     <>
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-5 py-12 md:py-16">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          About <span className="text-yellow-400">Turner Installs</span>
-        </h1>
-        <p className="text-sm text-gray-400 max-w-2xl mb-6">
-          For over 15 years, Turner Installs has been Brisbane's trusted flooring contractor. We're a
-          small, expert team focused on doing things properly — no shortcuts, no compromises, just quality
-          work that stands the test of time.
-        </p>
+      {/* HERO SECTION */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/family_photo.png"
+            alt="Turner Installs Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-5 text-center">
+          <div className="text-yellow-400 font-bold uppercase tracking-widest mb-4 text-sm">Our Story</div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+            Flooring is in our blood.
+          </h1>
+          <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            Three generations of knowledge passed down from grandfather, to father, to son.
+            We don't just lay floors; we carry on a legacy of craftsmanship.
+          </p>
+        </div>
       </section>
 
-      {/* Our Story */}
-      <Section>
-        <h2 className="text-lg uppercase tracking-wider mb-6">Our Story</h2>
-        <div className="prose prose-invert max-w-3xl">
-          <p className="text-xs text-gray-400 mb-4">
-            Turner Installs was founded on a simple principle: do it right, or don't do it at all. With
-            15+ years of experience in Brisbane's flooring industry, we've built our reputation on
-            precision, reliability, and an unwavering commitment to customer satisfaction.
-          </p>
-          <p className="text-xs text-gray-400 mb-4">
-            We're not a giant, faceless company. We're a small, expert team that takes pride in every
-            project. Whether it's a residential renovation or a commercial fit-out, we approach each job
-            with the same attention to detail and commitment to excellence.
-          </p>
-          <p className="text-xs text-gray-400">
-            Our focus on floor preparation sets us apart. We understand that flawless floors start with
-            flawless preparation. That's why we treat subfloor preparation as a specialised trade, not an
-            afterthought. We invest the time and expertise needed to create mirror-flat surfaces that
-            ensure your flooring looks perfect and performs flawlessly.
-          </p>
+      {/* THE LEGACY STORY */}
+      <section className="py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+                From Grandfather <br />
+                <span className="text-gray-500">to Father to Son.</span>
+              </h2>
+              <div className="prose prose-invert prose-lg text-gray-400">
+                <p>
+                  It started decades ago with my grandfather, a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all. He taught my father everything he knew—not just the how, but the <em>why</em>.
+                </p>
+                <p>
+                  Growing up, I watched my father work with the same obsessive attention to detail. I learned the trade at his side, absorbing the tricks of the trade that you can't learn in a classroom.
+                </p>
+                <p>
+                  Today, as the third generation, <strong>Liam Turner</strong> brings that lifetime of inherited knowledge to every project. When we walk onto a site, we bring history with us. That's why we don't cut corners. That's why our prep is mirror-flat. Because our family name is on the line.
+                </p>
+              </div>
+              <div className="pt-4">
+                <CTAButton href="/contact">Work With Us</CTAButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square relative rounded-3xl overflow-hidden border border-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500">
+                <Image
+                  src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                  alt="Flooring Craftsmanship"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-10 -left-10 bg-zinc-900 border border-gray-800 p-6 rounded-2xl max-w-xs shadow-2xl">
+                <div className="text-4xl font-bold text-yellow-400 mb-2">3rd</div>
+                <div className="text-sm font-semibold text-white">Generation Craftsman</div>
+                <div className="text-xs text-gray-400 mt-1">Carrying the torch of excellence.</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Our Values */}
-      <Section>
-        <h2 className="text-lg uppercase tracking-wider mb-6">Our Values</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 text-center">
-            <div className="text-sm font-semibold mb-2">Quality Work</div>
-            <div className="text-xs text-gray-400">No shortcuts, no compromises</div>
+      {/* CORE VALUES */}
+      <section className="py-24 bg-zinc-900/30 border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Stand For</h2>
+            <p className="text-gray-400">The values that have kept us in business for decades.</p>
           </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 text-center">
-            <div className="text-sm font-semibold mb-2">Customer Satisfaction</div>
-            <div className="text-xs text-gray-400">Your satisfaction is our priority</div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 text-center">
-            <div className="text-sm font-semibold mb-2">Specialised Expertise</div>
-            <div className="text-xs text-gray-400">15+ years of experience</div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 text-center">
-            <div className="text-sm font-semibold mb-2">Reliability</div>
-            <div className="text-xs text-gray-400">On-time, every time</div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-4 text-center">
-            <div className="text-sm font-semibold mb-2">Integrity</div>
-            <div className="text-xs text-gray-400">Honest, transparent, trustworthy</div>
-          </div>
-        </div>
-      </Section>
 
-      {/* Our Approach */}
-      <Section>
-        <h2 className="text-lg uppercase tracking-wider mb-6">Our Approach</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">Do It Properly</div>
-            <div className="text-xs text-gray-400">
-              We don't take shortcuts. Every step of the process — from subfloor preparation to final
-              clean-up — is done with care and attention to detail.
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-black border border-gray-800 p-8 rounded-3xl">
+              <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center text-yellow-400 font-bold mb-6">01</div>
+              <h3 className="text-xl font-bold mb-3">Honest Advice</h3>
+              <p className="text-gray-400">We'll tell you exactly what your floor needs, even if it means telling you not to spend money on something you don't need.</p>
             </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">Leave It Cleaner</div>
-            <div className="text-xs text-gray-400">
-              Our "leave it cleaner than we found it" ethos means we never use your bins, we vacuum
-              thoroughly, and we ensure every speck of dust is gone before we leave.
+            <div className="bg-black border border-gray-800 p-8 rounded-3xl">
+              <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center text-yellow-400 font-bold mb-6">02</div>
+              <h3 className="text-xl font-bold mb-3">Zero Mess</h3>
+              <p className="text-gray-400">We respect your property. We don't use your bins, we vacuum every speck of dust, and we leave your place spotless.</p>
             </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">No Supervision Required</div>
-            <div className="text-xs text-gray-400">
-              Our teams are professional and self-managing. You don't need to supervise — we just get the
-              job done right, every time.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">Trusted by Premium Partners</div>
-            <div className="text-xs text-gray-400">
-              Property managers and premium flooring retailers rely on us because we protect their
-              reputation with consistent, professional results.
+            <div className="bg-black border border-gray-800 p-8 rounded-3xl">
+              <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center text-yellow-400 font-bold mb-6">03</div>
+              <h3 className="text-xl font-bold mb-3">No Shortcuts</h3>
+              <p className="text-gray-400">From the subfloor up. If the prep isn't right, the floor isn't right. We do it once, and we do it perfectly.</p>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* CTA */}
-      <Section>
-        <div className="bg-gradient-to-r from-yellow-400/10 via-black to-black rounded-2xl border border-yellow-400/40 p-8 text-center">
-          <h2 className="text-xl font-bold mb-3">Ready to Work With Us?</h2>
-          <p className="text-sm text-gray-400 mb-6">
-            Get in touch to discuss your flooring project.
+      {/* FINAL CTA */}
+      <section className="py-24 bg-yellow-400 text-black">
+        <div className="max-w-4xl mx-auto px-5 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to meet the team?</h2>
+          <p className="text-xl text-black/80 mb-10 max-w-2xl mx-auto">
+            Let's discuss your project and how we can bring our expertise to your floor.
           </p>
-          <CTAButton href="/contact">Get in Touch</CTAButton>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTAButton href="/contact" variant="primary" className="!bg-black !text-white hover:!bg-gray-900 border-none">
+              Get in Touch
+            </CTAButton>
+            <CTAButton href="tel:0748022388" variant="secondary" className="!border-black/20 !text-black hover:!bg-black/5">
+              Call 07 4802 2388
+            </CTAButton>
+          </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }
-

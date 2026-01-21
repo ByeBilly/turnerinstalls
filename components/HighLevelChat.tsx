@@ -17,16 +17,11 @@ import { useEffect } from "react";
  */
 export default function HighLevelChat() {
   useEffect(() => {
-    const webchatSnippet = process.env.NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET;
-
-    if (!webchatSnippet) {
-      // Silently fail if env var is not set - this allows the site to work without HighLevel
-      return;
-    }
-
     // Create a script element and inject the HighLevel web chat snippet
     const script = document.createElement("script");
-    script.innerHTML = webchatSnippet;
+    script.src = "https://widgets.leadconnectorhq.com/loader.js";
+    script.setAttribute("data-resources-url", "https://widgets.leadconnectorhq.com/chat-widget/loader.js");
+    script.setAttribute("data-widget-id", "6970f8c4572f85258cc11eb8");
     script.async = true;
 
     // Append to document body

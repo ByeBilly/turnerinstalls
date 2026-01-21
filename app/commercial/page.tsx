@@ -1,126 +1,126 @@
+import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 
 export const metadata = {
-  title: "Commercial Flooring Installation Brisbane | Turner Installs",
+  title: "Commercial Flooring Brisbane | Turner Installs",
   description:
-    "Reliable commercial flooring solutions for property managers, strata, offices, and retail spaces. Trusted by premium flooring retailers as a white-label installation partner.",
+    "Reliable commercial flooring contractors. We partner with property managers, shop fitters, and businesses for on-time, on-budget installations.",
 };
 
-export default function CommercialPage() {
+export default function Commercial() {
   return (
     <>
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-5 py-12 md:py-16">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          Commercial Flooring <span className="text-yellow-400">Solutions</span>
-        </h1>
-        <p className="text-sm text-gray-400 max-w-2xl mb-6">
-          When your business needs reliable flooring installation, Turner Installs delivers. We work with
-          property managers, strata bodies, office fit-outs, retail spaces, and premium flooring retailers
-          who need consistent, professional results.
-        </p>
-        <CTAButton href="/contact">Request a Quote</CTAButton>
+      {/* HERO SECTION */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+            alt="Commercial Office Flooring"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-5 text-center">
+          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/30 rounded-full px-4 py-1.5 mb-6 text-sm uppercase tracking-widest text-blue-400 backdrop-blur-sm">
+            Business Solutions
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+            Built for <span className="text-blue-400">Time-Critical</span> <br />Commercial Projects.
+          </h1>
+          <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-10">
+            We understand that downtime is lost revenue. That's why we deliver reliable, high-speed installations for offices, retail, and multi-site fit-outs.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <CTAButton href="/contact">Discuss Project</CTAButton>
+          </div>
+        </div>
       </section>
 
-      {/* Who We Serve */}
-      <Section>
-        <h2 className="text-lg uppercase tracking-wider mb-6">Who We Work With</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2">Property Managers</div>
-            <div className="text-xs text-gray-400">
-              Fast, no-drama flooring for rental turnovers and make-goods. Carpet uplift, subfloor prep,
-              new planks down and keys back — with minimal tenant disruption.
+      {/* WHY PARTNER WITH US */}
+      <section className="py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-gray-800">
+              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 font-bold text-2xl mb-6">🗓️</div>
+              <h3 className="text-xl font-bold mb-3">Strict Deadlines</h3>
+              <p className="text-gray-400">We stick to the schedule. If we say we'll be done by Monday morning, we'll be done by Monday morning.</p>
             </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2">Strata Bodies</div>
-            <div className="text-xs text-gray-400">
-              Reliable flooring solutions for common areas, lobbies, and unit upgrades. We understand
-              strata requirements and work within your timelines.
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-gray-800">
+              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 font-bold text-2xl mb-6">📋</div>
+              <h3 className="text-xl font-bold mb-3">Compliance Ready</h3>
+              <p className="text-gray-400">Fully insured, SWMS provided, and safety compliant. We tick all the boxes so you don't have to worry.</p>
             </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2">Office & Retail</div>
-            <div className="text-xs text-gray-400">
-              Professional flooring installation for commercial spaces. We stage work to minimise business
-              downtime and ensure clean handovers.
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-gray-800">
+              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 font-bold text-2xl mb-6">🔨</div>
+              <h3 className="text-xl font-bold mb-3">Defect-Free Handover</h3>
+              <p className="text-gray-400">We act as your quality control. Our finishes are inspected rigourously before we hand back the keys.</p>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Why Commercial Clients Choose Us */}
-      <Section>
-        <h2 className="text-lg uppercase tracking-wider mb-6">Why Commercial Clients Choose Us</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">Time-Sensitive Bookings</div>
-            <div className="text-xs text-gray-400">
-              We understand commercial deadlines. We schedule efficiently and deliver on time, every time.
+      {/* WHO WE WORK WITH */}
+      <section className="py-24 bg-zinc-900/30 border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Partners, not just subcontractors.</h2>
+              <p className="text-gray-400 text-lg mb-8">
+                We work with property managers, shop fitters, and premium flooring retailers who need a team they can trust to represent their brand.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-black border border-gray-800">
+                  <div className="text-blue-400 font-bold pt-1">01</div>
+                  <div>
+                    <h4 className="font-bold text-white">Property Managers</h4>
+                    <p className="text-sm text-gray-400">Fast turnarounds for rental properties. We collect keys, do the job, and return them without drama.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-black border border-gray-800">
+                  <div className="text-blue-400 font-bold pt-1">02</div>
+                  <div>
+                    <h4 className="font-bold text-white">Flooring Retailers</h4>
+                    <p className="text-sm text-gray-400">White-label installation services that protect your reputation and delight your customers.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">Minimise Business Downtime</div>
-            <div className="text-xs text-gray-400">
-              We stage work to minimise disruption. For retail and office spaces, we work around your
-              operations where possible.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">Consistent Quality</div>
-            <div className="text-xs text-gray-400">
-              Whether it's one site or multiple locations, we deliver consistent, professional results across
-              all projects.
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-gray-900 via-black to-black rounded-2xl border border-gray-800 p-5">
-            <div className="text-sm font-semibold mb-2 text-yellow-400">No Supervision Required</div>
-            <div className="text-xs text-gray-400">
-              Our teams are professional and self-managing. You don't need to supervise — we just get the
-              job done right.
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* For Flooring Retailers */}
-      <Section>
-        <div className="bg-gradient-to-r from-yellow-400/10 via-black to-black rounded-2xl border border-yellow-400/40 p-6">
-          <h2 className="text-lg font-semibold mb-3">For Flooring Retailers</h2>
-          <p className="text-xs text-gray-400 mb-4">
-            Turner Installs operates as a white-label installation partner for premium flooring retailers.
-            When your name is on the product, you need installers who protect your reputation.
-          </p>
-          <div className="space-y-2 text-xs text-gray-400">
-            <div className="before:content-['–'] before:text-yellow-400 before:mr-2">
-              We act as a quiet, reliable extension of your brand
-            </div>
-            <div className="before:content-['–'] before:text-yellow-400 before:mr-2">
-              Professional crews and tidy sites
-            </div>
-            <div className="before:content-['–'] before:text-yellow-400 before:mr-2">
-              Consistent quality that reflects your standards
-            </div>
-            <div className="before:content-['–'] before:text-yellow-400 before:mr-2">
-              No callbacks, no complaints — just reliable results
+            <div className="relative h-[500px] rounded-3xl overflow-hidden border border-gray-800">
+              <Image src="/images/resource_9fVqoabE10H5PDfVW4rOXY.png" alt="Commercial Project" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="bg-black/80 backdrop-blur-md p-6 rounded-2xl border border-gray-700">
+                  <div className="text-sm text-gray-400 uppercase tracking-widest mb-1">Recent Project</div>
+                  <h3 className="text-xl font-bold">Office Fit-out, Brisbane CBD</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* CTA */}
-      <Section>
-        <div className="bg-gradient-to-r from-yellow-400/10 via-black to-black rounded-2xl border border-yellow-400/40 p-8 text-center">
-          <h2 className="text-xl font-bold mb-3">Ready to Partner With Us?</h2>
-          <p className="text-sm text-gray-400 mb-6">
-            Get in touch to discuss your commercial flooring needs.
+      <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div className="max-w-4xl mx-auto px-5 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Need a reliable commercial team?</h2>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            Get a quote within 24 hours for your next project.
           </p>
-          <CTAButton href="/contact">Request a Quote</CTAButton>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <CTAButton href="/contact" variant="primary" className="!bg-white !text-blue-900 hover:!bg-blue-50 border-none shadow-xl">
+              Get Proposal
+            </CTAButton>
+            <CTAButton href="tel:0748022388" variant="secondary" className="!border-white/20 !text-white hover:!bg-white/10">
+              Call 07 4802 2388
+            </CTAButton>
+          </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }
-
