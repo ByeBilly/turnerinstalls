@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Turner Installs | Expert Flooring & Professional Floor Preparation – Brisbane</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Turner Installs is a Brisbane-based flooring contractor specialising in vinyl plank, timber, laminate and hybrid installations, professional floor preparation, flood levelling, and clean removals for residential clients, property managers and premium retailers."
+  />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-alt: #151515;
+      --fg: #f5f5f5;
+      --accent: #f5b546;
+      --accent-soft: rgba(245, 181, 70, 0.15);
+      --muted: #a0a0a0;
+      --border: #262626;
+      --danger: #d9534f;
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.55);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top left, #202020 0, #050505 52%, #000000 100%);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(10, 10, 10, 0.95));
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-box {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 20% 0, #ffe6a3, #f5b546 40%, #e48715 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 9px 22px rgba(245, 181, 70, 0.6);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--fg);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-phone {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-phone span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: radial-gradient(circle at top left, #ffe6a3 0, #f5b546 30%, #e48715 80%);
+      color: #111;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 44px 20px 36px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-inner {
+        padding-inline: 16px;
+      }
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 181, 70, 0.06);
+      border-radius: 999px;
+      border: 1px solid rgba(245, 181, 70, 0.45);
+      padding: 4px 10px 4px 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #32cd32;
+      box-shadow: 0 0 0 4px rgba(50, 205, 50, 0.2);
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 3.2vw, 36px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    .hero-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-list span::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      margin-top: 4px;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #202020 0, #050505 52%, #000 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .badge-soft {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(245, 181, 70, 0.55);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-steps {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .step-card {
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      padding: 10px 11px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.03));
+      font-size: 12px;
+    }
+
+    .step-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-body {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-tagline {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-accent {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-img-strip {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      font-size: 9px;
+      color: var(--muted);
+    }
+
+    .hero-img-slot {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #111;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 20px 30px;
+    }
+
+    .section + .section {
+      border-top: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      gap: 14px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 440px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 880px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #191919 0, #050505 60%, #000000 100%);
+      padding: 16px 14px;
+      font-size: 13px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .list li::before {
+      content: "– ";
+      color: var(--accent);
+    }
+
+    .cols-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 880px) {
+      .cols-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .callout {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(245, 181, 70, 0.4);
+      background: linear-gradient(90deg, rgba(245, 181, 70, 0.12), rgba(5, 5, 5, 0.96));
+      padding: 14px 14px;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 18px 20px 24px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="page">
+  <header>
+    <div class="nav-inner">
+      <div class="logo-mark">
+        <div class="logo-box">T</div>
+        <div>
+          <div class="logo-text-main">TURNER INSTALLS</div>
+          <div class="logo-text-sub">FLOORING & PREPARATION</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#floor-prep">Floor Prep</a>
+        <a href="#clients">Who We Work With</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <div class="nav-phone">
+          Call: <span><!-- TODO: put Liam’s main number here --> 04XX XXX XXX</span>
+        </div>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Book a site visit
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-tag">
+          <div class="hero-tag-dot"></div>
+          BRISBANE · FLOORING CONTRACTOR
+        </div>
+        <h1 class="hero-title">
+          The foundation of <span>flawless flooring</span>.
+        </h1>
+        <p class="hero-sub">
+          Turner Installs delivers vinyl plank, hybrid, timber and laminate installations with professional floor
+          preparation, engineered flood levelling and immaculate clean-up for residential homes, property managers and
+          premium flooring retailers.
+        </p>
+        <div class="hero-list">
+          <span>Vinyl, hybrid, timber & laminate</span>
+          <span>Engineered flood levelling</span>
+          <span>Carpet uplift & disposal</span>
+          <span>Zero-mess completion</span>
+          <span>15+ years’ experience</span>
+        </div>
+        <div class="hero-cta-row">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Request a quote
+          </button>
+          <div class="hero-note">
+            Prefer email? <br/>
+            <span><!-- TODO: put Liam’s email here --> liam@turnerinstalls.com</span>
+          </div>
+        </div>
+        <div class="hero-pill">
+          <div class="hero-pill-dot"></div>
+          No use of client bins · Floors left vacuumed and dust-free
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Installation Workflow</div>
+            <div class="badge-soft">Full-Service · Zero Stress</div>
+          </div>
+          <div class="hero-steps">
+            <div class="step-card">
+              <div class="step-label">Step 1 · Uplift & Removal</div>
+              <div class="step-title">Old floor out, waste off-site.</div>
+              <div class="step-body">
+                Existing carpet or hard flooring is uplifted, removed from site and disposed of — never in your bins.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-label">Step 2 · Professional Floor Prep</div>
+              <div class="step-title">Engineered flood levelling.</div>
+              <div class="step-body">
+                Subfloors are corrected, patched and flood-levelled with engineered compounds for mirror-flat finishes.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-label">Step 3 · Precision Installation</div>
+              <div class="step-title">Showroom-ready finish.</div>
+              <div class="step-body">
+                Planks are installed with tight transitions, clean trims and a dust-free, ready-to-furnish handover.
+              </div>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <div class="hero-tagline">
+              Built for <span class="hero-accent">homeowners, property managers & retailers</span>.
+            </div>
+            <div style="font-size: 10px; color: var(--muted);">
+              Brisbane · Ipswich · Surrounds
+            </div>
+          </div>
+
+          <!-- OPTIONAL: Replace text with your campaign images -->
+          <div class="hero-img-strip">
+            <div class="hero-img-slot">
+              <!-- Example: <img src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png" alt="Full-Service Flooring, Zero Stress" /> -->
+              Full-service flooring<br/> zero stress.
+            </div>
+            <div class="hero-img-slot">
+              Step 1:<br/>Old floor removal.
+            </div>
+            <div class="hero-img-slot">
+              The foundation<br/> of flawless floors.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="section-header">
+        <div class="section-title">Services</div>
+        <div class="section-kicker">
+          Full-service flooring — from uplift and floor preparation through to final installation and clean-up.
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label">Installations</div>
+          <div class="card-title">Vinyl, Hybrid, Timber & Laminate</div>
+          <div class="card-body">
+            Supply-ready installations for vinyl plank, hybrid, engineered timber and laminate systems, with attention to
+            detail at doorways, trims and transitions.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">Preparation</div>
+          <div class="card-title">Subfloor Corrections & Flood Levelling</div>
+          <div class="card-body">
+            Grinding, patch repairs, moisture awareness and engineered cement flood levelling to achieve flatter-than-spec
+            substrates for long planks and reflective surfaces.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">Uplift & Clean-up</div>
+          <div class="card-title">Carpet Removal & Zero-Mess Completion</div>
+          <div class="card-body">
+            Clean removal and off-site disposal of existing floor coverings. No use of client bins. Floors are vacuumed and
+            wiped down so you’re ready to furnish or hand keys back.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOOR PREP FOCUS -->
+    <section class="section" id="floor-prep">
+      <div class="section-header">
+        <div class="section-title">Floor Preparation</div>
+        <div class="section-kicker">
+          The difference between “just laid” and “built to last” is the substrate. Turner Installs treats preparation as a
+          specialised trade, not an afterthought.
+        </div>
+      </div>
+
+      <div class="cols-2">
+        <div>
+          <ul class="list">
+            <li>Engineered flood levelling for mirror-flat finishes.</li>
+            <li>Correction of waves, dips and high spots before planks go down.</li>
+            <li>Moisture-aware decisions to protect manufacturer warranties.</li>
+            <li>Subfloor preparation for reflective and long-board products.</li>
+            <li>Consistent, repeatable process trusted by premium retailers.</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <strong>The Foundation of Flawless.</strong>
+          <span>
+            For high-end vinyl and hybrid floors, imperfections in the slab show through. Turner Installs uses engineered
+            compounds to “flood” and level the surface, creating a smooth, consistent base that looks right — and feels right
+            — underfoot.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE WORK WITH -->
+    <section class="section" id="clients">
+      <div class="section-header">
+        <div class="section-title">Who We Work With</div>
+        <div class="section-kicker">
+          Built for clients who value reliability, cleanliness and work that “just gets handled” — without call-backs or
+          supervision.
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label">Residential</div>
+          <div class="card-title">Homeowners & Renovators</div>
+          <div class="card-body">
+            Upgrading living spaces, replacing tired carpet or modernising with planks. We protect existing finishes, keep dust
+            under control and leave homes ready to move straight back into.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">Property Managers</div>
+          <div class="card-title">Make-Goods & Turnovers</div>
+          <div class="card-body">
+            Fast, no-drama flooring for rentals. Carpet uplift, subfloor prep, new planks down and keys back — with minimal
+            tenant disruption and no mess left behind.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">Retail & Trade</div>
+          <div class="card-title">Premium Flooring Retailers</div>
+          <div class="card-body">
+            When your name is on the product, you need installers who protect your reputation. We act as a quiet, reliable
+            extension of your brand with professional crews and tidy sites.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <div class="section-title">Contact & Bookings</div>
+        <div class="section-kicker">
+          Share a few details and we’ll arrange a site visit or quote. For urgent turnaround on rentals or fit-outs, mention
+          your required dates.
+        </div>
+      </div>
+
+      <div class="cols-2">
+        <div>
+          <div class="card">
+            <div class="card-label">Contact</div>
+            <div class="card-title">Turner Installs – Brisbane</div>
+            <div class="card-body">
+              <p><strong>Phone:</strong> <!-- TODO: Liam’s number --> 04XX XXX XXX</p>
+              <p><strong>Email:</strong> <!-- TODO: Liam’s email --> liam@turnerinstalls.com</p>
+              <p><strong>Service Area:</strong> Brisbane, Ipswich & surrounding suburbs</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-label">Quick Brief</div>
+            <div class="card-body">
+              <p>When you reach out, it helps if you can share:</p>
+              <ul class="list">
+                <li>Location / suburb</li>
+                <li>Rough floor area or room count</li>
+                <li>Existing floor type (carpet, tiles, vinyl, etc.)</li>
+                <li>Preferred flooring material (vinyl, hybrid, timber, laminate)</li>
+                <li>Any timing or access requirements</li>
+              </ul>
+              <p>Our team will follow up to confirm details and schedule a site assessment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Turner Installs. All rights reserved.</div>
+      <div>Quality Work · Reliability · Clean Handover · Brisbane</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
