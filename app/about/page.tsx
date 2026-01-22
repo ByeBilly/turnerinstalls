@@ -119,8 +119,8 @@ export default function About() {
             <CTAButton href="/contact" variant="primary" className="!bg-black !text-white hover:!bg-gray-900 border-none">
               Get in Touch
             </CTAButton>
-            <CTAButton href="tel:0748022388" variant="secondary" className="!border-black/20 !text-black hover:!bg-black/5">
-              Call 07 4802 2388
+            <CTAButton href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} variant="secondary" className="!border-black/20 !text-black hover:!bg-black/5">
+              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
             </CTAButton>
           </div>
         </div>

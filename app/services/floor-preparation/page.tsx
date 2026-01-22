@@ -27,7 +27,7 @@ export default function FloorPrep() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-5 text-center">
           <div className="text-gray-400 font-mono text-sm mb-4 tracking-widest border border-gray-700 inline-block px-3 py-1 rounded bg-black/50">
-             // TECHNICAL_SERVICES
+            {/* // TECHNICAL_SERVICES */}
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
             The Science of <br /> <span className="text-yellow-500">Flat Surfaces</span>.

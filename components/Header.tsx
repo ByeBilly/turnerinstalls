@@ -44,10 +44,10 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <div className="hidden lg:block text-xs text-gray-400">
-              Call: <span className="text-yellow-400 font-semibold">07 4802 2388</span>
+              Call: <span className="text-yellow-400 font-semibold">{process.env.NEXT_PUBLIC_SUPPORT_PHONE}</span>
             </div>
             <a
-              href="tel:0748022388"
+              href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
               className="px-3.5 py-1.5 rounded-full border border-yellow-400 bg-gradient-to-br from-yellow-200 via-yellow-400 to-orange-500 text-black text-xs font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
             >
               Call Now

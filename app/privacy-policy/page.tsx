@@ -128,8 +128,8 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p>
                   <strong>Phone:</strong>{" "}
-                  <a href="tel:0748022388" className="text-yellow-400 hover:text-yellow-300">
-                    07 4802 2388
+                  <a href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} className="text-yellow-400 hover:text-yellow-300">
+                    {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
                   </a>
                 </p>
                 <p>

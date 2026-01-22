@@ -82,10 +82,10 @@ export default function Home() {
               Request a Quote
             </Link>
             <a
-              href="tel:0748022388"
+              href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
               className="px-8 py-4 bg-white/10 text-white font-medium text-lg rounded-full border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm"
             >
-              Call 07 4802 2388
+              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
             </a>
           </div>
         </div>
@@ -237,10 +237,10 @@ export default function Home() {
               Get a Quote
             </Link>
             <a
-              href="tel:0748022388"
+              href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
               className="px-10 py-5 bg-transparent border-2 border-black/20 text-black font-bold text-xl rounded-full hover:bg-black/5 transition-all"
             >
-              Call 07 4802 2388
+              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
             </a>
           </div>
         </div>

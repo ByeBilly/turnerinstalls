@@ -115,8 +115,8 @@ export default function Commercial() {
             <CTAButton href="/contact" variant="primary" className="!bg-white !text-blue-900 hover:!bg-blue-50 border-none shadow-xl">
               Get Proposal
             </CTAButton>
-            <CTAButton href="tel:0748022388" variant="secondary" className="!border-white/20 !text-white hover:!bg-white/10">
-              Call 07 4802 2388
+            <CTAButton href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} variant="secondary" className="!border-white/20 !text-white hover:!bg-white/10">
+              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
             </CTAButton>
           </div>
         </div>
