@@ -74,7 +74,7 @@ turnerinstallswebsite/
 
 - **Reception**: 07 4802 2388
 - **Liam Direct**: 0413 592 054
-- **Email**: liam@turnerinstalls.com.au
+- **Email**: liam@turnerinstalls.com
 - **Operating Hours**: 7am - 5pm, Monday to Friday
 - **Service Area**: Brisbane, Ipswich & surrounding suburbs
 

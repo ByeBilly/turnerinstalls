@@ -48,5 +48,5 @@ Each page must include:
 -   **Brand:** Turner Installs
 -   **Tagline:** Flooring & Preparation
 -   **Phone:** +61 7480 223 88 (07 4802 2388)
--   **Email:** liam@turnerinstalls.com.au
+-   **Email:** liam@turnerinstalls.com
 -   **Story:** 3 generations of flooring expertise, family-owned.

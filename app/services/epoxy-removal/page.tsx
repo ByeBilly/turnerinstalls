@@ -127,7 +127,7 @@ export default function EpoxyRemoval() {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
                             "telephone": "+61 7480 223 88",
-                            "email": "liam@turnerinstalls.com.au"
+                            "email": "liam@turnerinstalls.com"
                         },
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
                     })

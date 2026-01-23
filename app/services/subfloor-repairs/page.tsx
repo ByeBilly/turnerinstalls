@@ -136,7 +136,7 @@ export default function SubfloorRepairs() {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
                             "telephone": "+61 7480 223 88",
-                            "email": "liam@turnerinstalls.com.au"
+                            "email": "liam@turnerinstalls.com"
                         },
                         "description": "Subfloor repair services including crack stitching, ramping, and patching in Brisbane.",
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]

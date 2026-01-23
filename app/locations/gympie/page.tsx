@@ -106,7 +106,7 @@ export default function Gympie() {
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Gympie",
                         "telephone": "+61 7480 223 88",
-                        "email": "liam@turnerinstalls.com.au",
+                        "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": "Gympie",

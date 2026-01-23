@@ -122,8 +122,8 @@ export default function PrivacyPolicyPage() {
               <div className="mt-2 space-y-1">
                 <p>
                   <strong>Email:</strong>{" "}
-                  <a href="mailto:liam@turnerinstalls.com.au" className="text-yellow-400 hover:text-yellow-300">
-                    liam@turnerinstalls.com.au
+                  <a href="mailto:liam@turnerinstalls.com" className="text-yellow-400 hover:text-yellow-300">
+                    liam@turnerinstalls.com
                   </a>
                 </p>
                 <p>

@@ -107,7 +107,7 @@ export default function GoldCoast() {
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Gold Coast",
                         "telephone": "+61 7480 223 88",
-                        "email": "liam@turnerinstalls.com.au",
+                        "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": "Gold Coast",

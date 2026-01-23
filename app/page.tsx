@@ -23,7 +23,7 @@ export default function Home() {
             description: "Expert flooring contractor specialising in installation, preparation and repair",
             url: "https://turnerinstalls.com.au",
             telephone: "+61748022388",
-            email: "liam@turnerinstalls.com.au",
+            email: "liam@turnerinstalls.com",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Brisbane",

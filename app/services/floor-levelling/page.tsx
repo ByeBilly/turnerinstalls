@@ -160,7 +160,7 @@ export default function FloorLevelling() {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
                             "telephone": "+61 7480 223 88",
-                            "email": "liam@turnerinstalls.com.au"
+                            "email": "liam@turnerinstalls.com"
                         },
                         "description": "Expert self-levelling and flood coating services to create perfectly flat subfloors in Brisbane.",
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]

@@ -112,7 +112,7 @@ export default function Brisbane() {
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Brisbane",
                         "telephone": "+61 7480 223 88",
-                        "email": "liam@turnerinstalls.com.au",
+                        "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": "Brisbane",

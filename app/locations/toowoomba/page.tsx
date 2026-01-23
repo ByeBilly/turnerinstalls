@@ -106,7 +106,7 @@ export default function Toowoomba() {
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Toowoomba",
                         "telephone": "+61 7480 223 88",
-                        "email": "liam@turnerinstalls.com.au",
+                        "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": "Toowoomba",

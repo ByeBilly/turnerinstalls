@@ -157,7 +157,7 @@ export default function ConcreteGrinding() {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
                             "telephone": "+61 7480 223 88",
-                            "email": "liam@turnerinstalls.com.au"
+                            "email": "liam@turnerinstalls.com"
                         },
                         "description": "Dust-free concrete grinding services for adhesive removal, surface prep, and slab rectification in Brisbane.",
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]

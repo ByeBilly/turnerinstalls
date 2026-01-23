@@ -136,7 +136,7 @@ export default function AdhesiveRemoval() {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
                             "telephone": "+61 7480 223 88",
-                            "email": "liam@turnerinstalls.com.au"
+                            "email": "liam@turnerinstalls.com"
                         },
                         "description": "Mechanical removal of floor adhesives including tile glue, carpet glue, and vinyl adhesive.",
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]

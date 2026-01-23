@@ -7,7 +7,7 @@ export default function ServiceSchema({ title, description, url }: { title: stri
             "@type": "LocalBusiness",
             "name": "Turner Installs",
             "telephone": "+61748022388",
-            "email": "liam@turnerinstalls.com.au",
+            "email": "liam@turnerinstalls.com",
             "url": "https://turnerinstalls.com.au",
             "image": "https://turnerinstalls.com.au/logo.png",
             "address": {
