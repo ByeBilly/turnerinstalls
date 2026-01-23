@@ -59,7 +59,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-5 text-center">
           <div className="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-8 text-sm uppercase tracking-widest text-yellow-400 backdrop-blur-sm">
             <div className="w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_0_4px_rgba(250,204,21,0.2)]"></div>
-            Brisbane Flooring Specialist
+            Brisbane & SE Qld Area Flooring Specialist
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1]">
@@ -223,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-yellow-400 text-black">
+      <section className="py-24 bg-yellow-400 text-black border-b border-black/10">
         <div className="max-w-4xl mx-auto px-5 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to transform your floor?</h2>
           <p className="text-xl text-black/80 mb-10 max-w-2xl mx-auto">
@@ -245,6 +245,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SERVICE AREA MAP */}
+      <section className="py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Service Area</h2>
+            <p className="text-gray-400">Serving Brisbane, Ipswich, Gold Coast, Sunshine Coast, and Northern NSW.</p>
+          </div>
+
+          <ServiceAreaMapWrapper />
+
+        </div>
+      </section>
     </>
   );
 }
+
+// Wrapper for Map to handle Client Side Loading properly if needed, but the component handles it.
+import dynamic from 'next/dynamic';
+const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'), {
+  ssr: false,
+  loading: () => <div className="h-[500px] w-full bg-zinc-900 animate-pulse rounded-2xl border border-gray-800" />
+});
