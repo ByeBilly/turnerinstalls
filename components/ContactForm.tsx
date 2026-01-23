@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
         email: "",
+        serviceType: "",
         message: ""
     });
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -26,11 +27,23 @@ export default function ContactForm() {
                 return;
             }
 
+            // Map Service Type to HighLevel Custom Field Value
+            const serviceTypeMapping: Record<string, string> = {
+                "vinyl_plank": "Vinyl Plank Installation",
+                "hybrid": "Hybrid Flooring",
+                "timber": "Timber Flooring",
+                "carpet_removal": "Carpet Removal",
+                "floor_prep": "Floor Preparation / Levelling",
+                "commercial": "Commercial Project"
+            };
+
             const response = await fetch(webhookUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     ...formData,
+                    flooring_type: formData.serviceType, // Map to GHL Custom Field
+                    service_name: serviceTypeMapping[formData.serviceType] || "General Enquiry", // Readable name
                     source: "Turner Installs Website",
                     timestamp: new Date().toISOString()
                 }),
@@ -38,7 +51,7 @@ export default function ContactForm() {
 
             if (response.ok) {
                 setStatus("success");
-                setFormData({ name: "", phone: "", email: "", message: "" });
+                setFormData({ name: "", phone: "", email: "", serviceType: "", message: "" });
             } else {
                 setStatus("error");
             }
@@ -48,18 +61,39 @@ export default function ContactForm() {
         }
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
     };
+
+    useEffect(() => {
+        if (status === "success") {
+            const script = document.createElement("script");
+            script.src = "https://api.inurpc.com/js/form_embed.js";
+            script.async = true;
+            document.body.appendChild(script);
+            return () => {
+                if (document.body.contains(script)) {
+                    document.body.removeChild(script);
+                }
+            }
+        }
+    }, [status]);
 
     return (
         <div className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 md:p-10 backdrop-blur-sm">
             <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
             {status === "success" ? (
-                <div className="bg-green-500/10 border border-green-500/20 text-green-400 p-6 rounded-xl text-center">
-                    <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-                    <p>Thanks for reaching out. Liam or the team will get back to you shortly.</p>
-                    <button onClick={() => setStatus("idle")} className="mt-4 text-sm underline hover:text-green-300">Send another</button>
+                <div className="bg-white rounded-xl overflow-hidden">
+                    <div className="p-6 text-center border-b border-gray-100">
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">Message Received!</h3>
+                        <p className="text-gray-600 text-sm">Select a time below for your Free Measure & Quote.</p>
+                    </div>
+                    <iframe
+                        src={process.env.NEXT_PUBLIC_GHL_CALENDAR_URL}
+                        style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '650px' }}
+                        scrolling="no"
+                        id="ghl-calendar-embed"
+                    />
                 </div>
             ) : (
                 <form className="space-y-6" onSubmit={handleSubmit}>
@@ -89,17 +123,37 @@ export default function ContactForm() {
                             />
                         </div>
                     </div>
-                    <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors"
-                            placeholder="you@example.com"
-                        />
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                            <label htmlFor="email" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors"
+                                placeholder="you@example.com"
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <label htmlFor="serviceType" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Service Needed</label>
+                            <select
+                                id="serviceType"
+                                value={formData.serviceType}
+                                onChange={handleChange}
+                                required
+                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors appearance-none text-gray-300"
+                            >
+                                <option value="" disabled>Select a Service...</option>
+                                <option value="vinyl_plank">Vinyl Plank Installation</option>
+                                <option value="hybrid">Hybrid Flooring</option>
+                                <option value="timber">Timber Flooring</option>
+                                <option value="floor_prep">Floor Preparation / Levelling</option>
+                                <option value="carpet_removal">Carpet Removal</option>
+                                <option value="commercial">Commercial Project</option>
+                            </select>
+                        </div>
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="message" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Project Details</label>
