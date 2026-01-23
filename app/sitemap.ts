@@ -11,6 +11,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/residential',
         '/commercial',
         '/services/floor-preparation',
+        '/services/concrete-grinding',
+        '/services/floor-levelling',
+        '/services/moisture-barriers',
+        '/services/subfloor-repairs',
+        '/services/adhesive-removal',
+        '/services/epoxy-removal',
+        '/services/industrial-prep',
+        '/locations/brisbane',
+        '/locations/gold-coast',
+        '/locations/sunshine-coast',
+        '/locations/toowoomba',
+        '/locations/gympie',
         '/privacy-policy',
     ]
 
