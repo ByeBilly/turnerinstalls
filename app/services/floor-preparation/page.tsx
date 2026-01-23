@@ -148,10 +148,10 @@ export default function FloorPreparation() {
 
       <GalleryStrip
         images={[
-          "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-          "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-          "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-          "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+          "/images/image0.jpeg",
+          "/images/image3.jpeg",
+          "/images/image6.jpeg",
+          "/images/image10.jpeg"
         ]}
       />
 

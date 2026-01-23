@@ -88,10 +88,10 @@ export default function Brisbane() {
 
             <GalleryStrip
                 images={[
-                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                    "/images/image6.jpeg",
+                    "/images/image3.jpeg",
+                    "/images/image1.jpeg",
+                    "/images/image7.jpeg"
                 ]}
             />
 

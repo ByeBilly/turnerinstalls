@@ -83,10 +83,10 @@ export default function GoldCoast() {
 
             <GalleryStrip
                 images={[
-                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+                    "/images/image0.jpeg", // Using image12 or similar beachy ones if known, but random is safer
+                    "/images/image12.jpeg",
+                    "/images/image4.jpeg",
+                    "/images/image7.jpeg"
                 ]}
             />
 

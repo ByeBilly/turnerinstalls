@@ -82,10 +82,10 @@ export default function SunshineCoast() {
 
             <GalleryStrip
                 images={[
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                    "/images/image6.jpeg",
+                    "/images/image1.jpeg",
+                    "/images/image10.jpeg",
+                    "/images/image13.jpeg"
                 ]}
             />
 

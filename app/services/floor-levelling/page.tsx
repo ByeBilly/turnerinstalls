@@ -133,10 +133,10 @@ export default function FloorLevelling() {
 
             <GalleryStrip
                 images={[
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+                    "/images/image4.jpeg",
+                    "/images/image8.jpeg",
+                    "/images/image13.jpeg",
+                    "/images/image6.jpeg"
                 ]}
             />
 

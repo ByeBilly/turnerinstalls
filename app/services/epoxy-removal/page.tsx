@@ -100,10 +100,10 @@ export default function EpoxyRemoval() {
 
             <GalleryStrip
                 images={[
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                    "/images/image5.jpeg",
+                    "/images/image11.jpeg",
+                    "/images/image3.jpeg",
+                    "/images/image8.jpeg"
                 ]}
             />
 
