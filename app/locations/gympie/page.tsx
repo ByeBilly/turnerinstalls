@@ -2,7 +2,7 @@ import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import GalleryStrip from "@/components/GalleryStrip";
+import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -80,12 +80,12 @@ export default function Gympie() {
                 columns={4}
             />
 
-            <GalleryStrip
+            <ModernGallery
                 images={[
-                    "/images/image11.jpeg",
+                    "/images/gen/concrete_grinding.png",
                     "/images/image5.jpeg",
                     "/images/image8.jpeg",
-                    "/images/image3.jpeg"
+                    "/images/gen/floor_levelling.png"
                 ]}
             />
 

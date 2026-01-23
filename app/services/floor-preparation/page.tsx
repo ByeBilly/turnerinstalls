@@ -2,7 +2,7 @@ import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import GalleryStrip from "@/components/GalleryStrip";
+import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -146,11 +146,11 @@ export default function FloorPreparation() {
         </div>
       </div>
 
-      <GalleryStrip
+      <ModernGallery
         images={[
-          "/images/image0.jpeg",
+          "/images/gen/concrete_grinding.png",
           "/images/image3.jpeg",
-          "/images/image6.jpeg",
+          "/images/gen/floor_levelling.png",
           "/images/image10.jpeg"
         ]}
       />

@@ -2,7 +2,7 @@ import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import GalleryStrip from "@/components/GalleryStrip";
+import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -131,10 +131,10 @@ export default function FloorLevelling() {
                 </div>
             </div>
 
-            <GalleryStrip
+            <ModernGallery
                 images={[
+                    "/images/gen/floor_levelling.png",
                     "/images/image4.jpeg",
-                    "/images/image8.jpeg",
                     "/images/image13.jpeg",
                     "/images/image6.jpeg"
                 ]}

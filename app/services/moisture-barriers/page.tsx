@@ -2,7 +2,7 @@ import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import GalleryStrip from "@/components/GalleryStrip";
+import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -111,12 +111,12 @@ export default function MoistureBarriers() {
                 steps={processSteps}
             />
 
-            <GalleryStrip
+            <ModernGallery
                 images={[
-                    "/images/image7.jpeg",
+                    "/images/gen/concrete_texture.png",
                     "/images/image10.jpeg",
                     "/images/image11.jpeg",
-                    "/images/image1.jpeg"
+                    "/images/gen/luxury_vinyl.png"
                 ]}
             />
 

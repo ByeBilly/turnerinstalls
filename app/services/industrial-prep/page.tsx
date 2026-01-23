@@ -1,6 +1,6 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
-import GalleryStrip from "@/components/GalleryStrip";
+import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 
@@ -71,11 +71,11 @@ export default function IndustrialPrep() {
                 features={specs}
             />
 
-            <GalleryStrip
+            <ModernGallery
                 images={[
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
+                    "/images/gen/concrete_grinding.png",
                     "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
+                    "/images/gen/floor_levelling.png",
                     "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
                 ]}
             />

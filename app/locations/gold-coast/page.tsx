@@ -2,7 +2,7 @@ import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import GalleryStrip from "@/components/GalleryStrip";
+import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -81,12 +81,12 @@ export default function GoldCoast() {
                 columns={3}
             />
 
-            <GalleryStrip
+            <ModernGallery
                 images={[
-                    "/images/image0.jpeg", // Using image12 or similar beachy ones if known, but random is safer
+                    "/images/gen/luxury_vinyl.png",
                     "/images/image12.jpeg",
                     "/images/image4.jpeg",
-                    "/images/image7.jpeg"
+                    "/images/gen/concrete_texture.png"
                 ]}
             />
 
