@@ -1,91 +1,147 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Subfloor Repairs Brisbane | Timber & Concrete Fixes",
-    description:
-        "Structural subfloor repairs for timber and concrete. We fix squeaks, rot, cracks, and uneven joists across Brisbane and Gold Coast.",
+export const metadata: Metadata = {
+    title: "Subfloor Repairs Brisbane | Crack Fixing & Concrete Repair",
+    description: "Expert subfloor repair services in Brisbane. Fixing cracks, divots, ramping height differences, and stabilising loose areas.",
 };
 
 export default function SubfloorRepairs() {
     const specs = [
         {
-            icon: "🪵",
-            title: "Yellow Tongue Replacements",
-            description: "Cut out and replace rotted or water-damaged yellow tongue particle board sections."
-        },
-        {
-            icon: "🔇",
-            title: "Squeak Removal",
-            description: "Screw down loose boards and plane joists to eliminate annoying creaks and groans."
-        },
-        {
-            icon: "🏚️",
-            title: "Concrete Crack Stitching",
-            description: "Epoxy injection and stitching to stabilize cracks in concrete slabs before tiling."
-        },
-        {
             icon: "🔨",
-            title: "Joist Packing",
-            description: "Correcting uneven timber subfloors by packing or planing joists for a flat finish."
+            title: "Crack Stitching",
+            description: "Stabilising moving cracks with cross-stitching steel staples and structural epoxy."
+        },
+        {
+            icon: "📉",
+            title: "Ramping",
+            description: "Creating smooth transitions between different floor heights (e.g., tile to vinyl)."
+        },
+        {
+            icon: "🩹",
+            title: "Divot Filling",
+            description: "Patching holes from removed carpet gripper, nails, or dynabolts."
+        },
+        {
+            icon: "🚧",
+            title: "Joint Repair",
+            description: "Rectifying expansion joints and cold joints in concrete slabs."
         }
+    ];
+
+    const processSteps = [
+        {
+            title: "Diagnosis",
+            description: "We inspect the cause of the damage—is it settling, moisture, or structural movement?"
+        },
+        {
+            title: "Preparation",
+            description: "Chasing out cracks with a V-blade grinder to open them up for filling."
+        },
+        {
+            title: "Reinforcement",
+            description: "Inserting steel pins/staples if required to mechanically lock the crack."
+        },
+        {
+            title: "Filling",
+            description: "Injecting rapid-set epoxy or structural mortar to bond and seal the repair."
+        }
+    ];
+
+    const suitableFor = [
+        { label: "Cracked Slabs" },
+        { label: "Renovation Damage" },
+        { label: "Height Differences" },
+        { label: "Trip Hazards" }
     ];
 
     const faqs = [
         {
-            question: "Why does my floor squeak?",
-            answer: "Squeaks are usually caused by movement—nails pulling out of joists or boards rubbing together. We re-fix the subfloor with screws to lock it down tight."
+            question: "Will the cracks come back?",
+            answer: "We use structural stitching to minimize return cracking. However, if the house has major foundation movement, some re-cracking can occur. Our repairs are stronger than the original concrete."
         },
         {
-            question: "Can you fix water-damaged termite floors?",
-            answer: "We can replace damaged particle board or plywood sheeting. For structural termite damage to bearers/joists, we recommend a builder inspection first."
+            question: "Can you fix squeaky timber floors?",
+            answer: "Yes, we can re-screw loose particleboard (yellow tongue) or plywood subfloors to joists to silence squeaks."
         },
         {
-            question: "Do you sand timber floors?",
-            answer: "We focus on **subfloor preparation** (the structure underneath). We prepare timber subfloors for new coverings (vinyl/carpet) but we don't sand/polish floorboards as a finish."
-        },
-        {
-            question: "How do you fix large concrete cracks?",
-            answer: "We chase the crack (open it up), insert metal staples ('stitching'), and fill it with high-strength epoxy to bond the slab back together."
+            question: "What is 'ramping'?",
+            answer: "Ramping is creating a gentle slope to join a lower floor (like a bedroom) to a higher floor (like a tiled hallway) so there is no step or trip hazard."
         }
     ];
 
     return (
         <>
             <ServiceHero
-                title={<>Structural <span className="text-yellow-500">Subfloor Repairs</span>.</>}
-                subtitle="Fixing the squeaks, rot, and cracks before the new floor goes down."
-                imagePath="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
-                label="STRUCTURAL_REPAIR"
+                title={<>Subfloor <span className="text-yellow-500">Repairs</span>.</>}
+                subtitle="Fixing the cracks, holes, and hazards before the new floor goes down."
+                imagePath="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+                label="STRUCTURAL_FIX"
             />
 
             <TechSpecs
-                title="Solid Foundations."
+                title="Solid Ground."
                 description={<>
-                    <p className="mb-4">Never install a new floor over a compromised subfloor. Rot, movement, and uneven joists will ruin your investment quickly.</p>
-                    <p>We specialize in surgical repairs—cutting out the bad, reinforcing the structure, and ensuring you have a rock-solid, silent base for your renovation.</p>
+                    <p className="mb-4">You can't build a great floor on a broken foundation. Minor cracks can telescope through to your new vinyl, and height differences can create trip hazards.</p>
+                    <p>We provide targeted repairs to stabilize your subfloor, creating a monolithic, continuous surface ready for installation.</p>
                 </>}
                 features={specs}
+            />
+
+            <FeaturesGrid
+                title="Repair Services"
+                features={suitableFor}
+                columns={4}
+            />
+
+            <ProcessSteps
+                title="Crack Repair Process"
+                steps={processSteps}
             />
 
             <GalleryStrip
                 images={[
                     "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
+                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
+                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="locations" />
+
             <SEOCTA
-                title="Stop the squeak."
-                subtitle="Get expert advice on repairing your timber or concrete subfloor."
+                title="Fix It Once."
+                subtitle="Structure and stability are key. Let us repair your subfloor correctly."
                 buttonText="Get Repair Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Subfloor Repairs",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Turner Installs",
+                            "telephone": "+61 7480 223 88",
+                            "email": "liam@turnerinstalls.com.au"
+                        },
+                        "description": "Subfloor repair services including crack stitching, ramping, and patching in Brisbane.",
+                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
+                    })
+                }}
             />
         </>
     );

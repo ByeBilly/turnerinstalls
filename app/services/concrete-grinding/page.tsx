@@ -1,91 +1,168 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Concrete Grinding Brisbane | Dust-Free Surface Prep",
-    description:
-        "Expert concrete grinding in Brisbane. Remove glues, paint, and high spots with our dust-free industrial grinding setup. Get a quote today.",
+export const metadata: Metadata = {
+    title: "Concrete Grinding Services Brisbane | Dust-Free Floor Prep",
+    description: "Professional concrete grinding in Brisbane. Remove old adhesives, paint, and high spots with our dust-free grinding systems.",
 };
 
 export default function ConcreteGrinding() {
     const specs = [
         {
-            icon: "🌪️",
-            title: "Dust-Free HEPA Extraction",
-            description: "Our industrial vacuums capture 99.9% of silica dust, keeping your home or site clean and safe."
+            icon: "🌫️",
+            title: "Dust-Free System",
+            description: "High-powered M-Class vacuum attachment captures 99.9% of silica dust."
         },
         {
-            icon: "💎",
-            title: "Diamond Tooling",
-            description: "We use various diamond grits to aggressively remove coatings or polish surfaces to a smooth finish."
-        },
-        {
-            icon: "🧹",
-            title: "Glue & Paint Removal",
-            description: "Effortlessly strip old tile adhesive, vinyl glue, epoxy, and carpet foam residue."
+            icon: "🧼",
+            title: "Contaminant Removal",
+            description: "Strips away old glue, paint, curing compounds, and surface grime."
         },
         {
             icon: "📏",
-            title: "High Spot Correction",
-            description: "Grinding down humps in concrete slabs to ensure flat flooring installation."
+            title: "Surface Profiling",
+            description: "Creates the correct 'key' or porosity for new adhesives to bond securely."
+        },
+        {
+            icon: "🔨",
+            title: "Hump Removal",
+            description: "Aggressive diamond tooling to grind down high spots and ridges in the slab."
         }
+    ];
+
+    const processSteps = [
+        {
+            title: "Surface Analysis",
+            description: "We identify the hardness of the concrete to select the correct diamond grit segments."
+        },
+        {
+            title: "Coarse Grinding",
+            description: "Initial pass with aggressive diamonds to remove bulk adhesive or high spots."
+        },
+        {
+            title: "Refinement",
+            description: "Secondary passes to smooth the profile and open the concrete pores."
+        },
+        {
+            title: "Vacuum & Seal",
+            description: "Thorough vacuuming followed by priming if levelling is required immediately after."
+        }
+    ];
+
+    const suitableFor = [
+        { label: "Garage Floors", sublabel: "Epoxy Prep" },
+        { label: "Renovations", sublabel: "Tile Removal" },
+        { label: "Commercial", sublabel: "Make Good" },
+        { label: "Warehouses", sublabel: "Line Marking Removal" }
     ];
 
     const faqs = [
         {
             question: "Is concrete grinding messy?",
-            answer: "Not with us. We use high-powered industrial vacuums connected directly to our grinders (HEPA filters), capturing dust at the source. Your property is left clean."
+            answer: "Our system is virtually dust-free. We connect our large grinders to industrial HEPA vacuums that capture dust at the source."
         },
         {
-            question: "Can you grind outdoor concrete?",
-            answer: "Yes, we grind driveways, patios, and pool surrounds to remove old coatings, expose aggregate, or prepare for resurfacing."
+            question: "Can you grind wet concrete?",
+            answer: "No, the concrete must be relatively dry for effective grinding. If moisture is a broad issue, we may need to investigate moisture barriers."
         },
         {
-            question: "How much does it cost per m2?",
-            answer: "Rates depend on the concrete hardness and what needs removing (glue vs. high spots). Contact us for a precise per-meter or project rate."
+            question: "Do you grind rain-damaged slabs?",
+            answer: "Yes, we can grind off the soft, dusty top layer of a rain-damaged slab to reveal the solid concrete underneath."
         },
         {
-            question: "Do I need grinding before tiling?",
-            answer: "Ideally, yes. Grinding opens the concrete 'pores' (providing a mechanical key), allowing the new tile adhesive to bond much stronger than on a smooth or contaminated surface."
+            question: "Does this level the floor?",
+            answer: "Grinding removes high spots. To fill low spots, we use a combination of grinding (highs) and self-levelling compound (lows)."
+        },
+        {
+            question: "How much can you grind off?",
+            answer: "Typically up to 3-5mm safely. Taking off more might expose aggregate or affect slab structural integrity, which we assess on-site."
         }
     ];
 
     return (
         <>
             <ServiceHero
-                title={<>Precision <span className="text-yellow-500">Concrete Grinding</span>.</>}
-                subtitle="Dust-free removal of adhesives, coatings, and imperfections. The ultimate prep for any floor."
+                title={<>Concrete <span className="text-yellow-500">Grinding</span>.</>}
+                subtitle="Dust-free mechanical preparation to clean, flatten, and profile your slab."
                 imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
                 label="SURFACE_PREP"
             />
 
             <TechSpecs
-                title="Surface Perfection"
+                title="The Foundation of Adhesion."
                 description={<>
-                    <p className="mb-4">Concrete grinding is the heavy lifting of floor prep. Whether you need to remove stubborn <strong>tile glue</strong>, level out a <strong>rain-damaged slab</strong>, or prepare for a <strong>polished finish</strong>, our machines make short work of it.</p>
-                    <p>We operate 3-phase industrial grinders that are powerful enough for commercial sites but compact enough for residential renovations.</p>
+                    <p className="mb-4">You cannot stick new flooring to old paint, glue, or dusty concrete. It simply won't bond.</p>
+                    <p>Concrete grinding is the essential first step in most renovation projects. It exposes fresh, clean concrete that is ready to accept primers, levelling compounds, or direct-stick adhesives.</p>
                 </>}
                 features={specs}
             />
 
+            <FeaturesGrid
+                title="Ideal Applications"
+                features={suitableFor}
+                columns={4}
+            />
+
+            <ProcessSteps
+                title="The Grinding Workflow"
+                steps={processSteps}
+            />
+
+            <div className="py-24 bg-zinc-900 border-y border-white/5">
+                <div className="max-w-4xl mx-auto px-5 text-center">
+                    <h2 className="text-3xl font-bold mb-8">Our Grinding Fleet</h2>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {["Planetary Grinders", "Hand Grinders (Edging)", "PCD Diamonds (Glue Removal)", "Soft Bond Diamonds (Hard Concrete)", "Hard Bond Diamonds (Soft Concrete)"].map((item, i) => (
+                            <span key={i} className="px-6 py-3 bg-black border border-white/10 rounded-full text-gray-300 text-sm font-mono">
+                                {item}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
             <GalleryStrip
                 images={[
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
                     "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
                     "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
+                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="locations" />
+
             <SEOCTA
-                title="Start with a clean slate."
-                subtitle="Remove the old, prepare for the new. Book your concrete grinding service today."
-                buttonText="Get a Grinding Quote"
+                title="Start with a Clean Slate."
+                subtitle="Need old adhesive gone or a rain-damaged slab fixed? We have the machines to handle it."
+                buttonText="Get Grinding Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Concrete Grinding",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Turner Installs",
+                            "telephone": "+61 7480 223 88",
+                            "email": "liam@turnerinstalls.com.au"
+                        },
+                        "description": "Dust-free concrete grinding services for adhesive removal, surface prep, and slab rectification in Brisbane.",
+                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
+                    })
+                }}
             />
         </>
     );

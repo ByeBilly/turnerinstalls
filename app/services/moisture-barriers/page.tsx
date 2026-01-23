@@ -1,91 +1,151 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Moisture Barriers Brisbane | Stop Rising Damp",
-    description:
-        "Protect your flooring from rising damp with professional epoxy moisture barriers. Essential for Brisbane concrete slabs.",
+export const metadata: Metadata = {
+    title: "Moisture Barriers Brisbane | Damp Proofing Concrete Slabs",
+    description: "Protect your flooring from rising damp. Professional epoxy moisture barrier application for concrete slabs in Brisbane & SE QLD.",
 };
 
 export default function MoistureBarriers() {
     const specs = [
         {
-            icon: "🛑",
-            title: "Block Rising Damp",
-            description: "Creates an impermeable seal against ground moisture vapour rising through the concrete capillaries."
+            icon: "💧",
+            title: "Stops Rising Damp",
+            description: "Blocks hydrostatic pressure and capillary moisture rising through the concrete slab."
         },
         {
             icon: "🛡️",
-            title: "Protect Inventory",
-            description: "Prevents mould growth and water damage to timber, carpet, and stored goods."
+            title: "Floor Protection",
+            description: "Prevents adhesive failure, timber warping, and mould growth under your floor."
         },
         {
-            icon: "💪",
-            title: "Two-Part Epoxy",
-            description: "We use industrial-grade two-part epoxy systems that penetrate and cap the slab surface."
+            icon: "🧪",
+            title: "Epoxy Systems",
+            description: "We use 2-part water-based or solvent-free epoxy barriers for maximum suppression."
         },
         {
             icon: "✅",
-            title: "Australian Standards",
-            description: "Compliant application for commercial and residential slabs exceeding RH limits."
+            title: "Warranty Safe",
+            description: "Essential for validating warranties on timber and vinyl floors installed over recent slabs."
         }
+    ];
+
+    const processSteps = [
+        {
+            title: "Moisture Testing",
+            description: "We use hygrometers and relative humidity (RH) probes to determine the moisture content of your slab."
+        },
+        {
+            title: "Surface Prep",
+            description: "The slab must be clean and porous. We grind open the surface to ensure the barrier penetrates."
+        },
+        {
+            title: "Application",
+            description: "Rolling out the 2-part epoxy moisture barrier in a uniform, cross-linked coat."
+        },
+        {
+            title: "Curing & Priming",
+            description: "After curing, the surface creates a sealed membrane ready for levelling or glue."
+        }
+    ];
+
+    const suitableFor = [
+        { label: "New Concrete Slabs", sublabel: "High moisture content" },
+        { label: "Ground Floor Units", sublabel: "Moisture ingress risk" },
+        { label: "Converted Garages", sublabel: "No existing vapour barrier" },
+        { label: "Timber Installations", sublabel: "Highly sensitive to damp" }
     ];
 
     const faqs = [
         {
             question: "How do I know if I need a moisture barrier?",
-            answer: "We perform a hygrometer test. If your concrete relative humidity (RH) is above 75% (or 85% for specific products), a barrier is required to prevent floor failure."
+            answer: "If you have a new slab (under 6 months old) or a ground-floor slab with no plastic vapour barrier underneath, testing is essential. Dark spots or mouldy smells are also signs."
         },
         {
-            question: "What happens if I ignore moisture?",
-            answer: "Timber floors will cup and warp. Vinyl adhesive will emulsify (turn to soup) and bubble. Carpet creates a mould hazard. It is the #1 cause of flooring insurance claims."
+            question: "What happens if I don't use one?",
+            answer: "Trapped moisture breaks down adhesives (glues turn to mush) and causes timber/bamboo to cup and warp. It creates a perfect environment for mould."
         },
         {
-            question: "Can you apply it over old concrete?",
-            answer: "Yes, but we must grind the surface first to open the pores and ensure the epoxy penetrates deeply."
+            question: "Is it expensive?",
+            answer: "It is an added cost, but it acts as an insurance policy for your flooring. The cost of replacing a ruined floor far outweighs the cost of a barrier."
         },
         {
-            question: "Is it tailored for new slabs?",
-            answer: "New slabs ('green concrete') hold massive amounts of water. A moisture barrier allows you to install flooring months earlier than waiting for natural drying."
+            question: "Can you level over the barrier?",
+            answer: "Yes, once the barrier cures, we apply a specific primer and then the self-levelling compound bonds directly to that system."
         }
     ];
 
     return (
         <>
             <ServiceHero
-                title={<>Epoxy <span className="text-yellow-500">Moisture Barriers</span>.</>}
-                subtitle="Stop rising damp in its tracks. Protect your health and your investment."
-                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png"
+                title={<>Moisture <span className="text-yellow-500">Barriers</span>.</>}
+                subtitle="Seal your slab against rising damp and protect your flooring investment."
+                imagePath="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
                 label="DAMP_PROOFING"
             />
 
             <TechSpecs
-                title="The Invisible Killer of Floors."
+                title="Stop Moisture at the Source."
                 description={<>
-                    <p className="mb-4">Brisbane's humid climate and clay soils mean concrete slabs are constantly wicking moisture from the ground. This <strong>'rising damp'</strong> is silent until it destroys your new timber or vinyl.</p>
-                    <p>We apply roll-on epoxy membranes that lock moisture into the slab, creating a safe, dry surface for installation.</p>
+                    <p className="mb-4">Concrete is like a hard sponge; it can wick moisture from the ground up. This 'rising damp' is the silent killer of floor coverings.</p>
+                    <p>Our epoxy moisture mitigation systems create an impermeable layer between your slab and your floor, ensuring a dry, stable installation surface.</p>
                 </>}
                 features={specs}
+            />
+
+            <FeaturesGrid
+                title="Critical Protection For"
+                features={suitableFor}
+                columns={4}
+            />
+
+            <ProcessSteps
+                title="Moisture Mitigation Process"
+                steps={processSteps}
             />
 
             <GalleryStrip
                 images={[
                     "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
                     "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
+                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="locations" />
+
             <SEOCTA
-                title="Dry slab, safe floor."
-                subtitle="Don't let moisture void your warranty. Ask us for a moisture test today."
-                buttonText="Request Moisture Test"
+                title="Keep it Dry."
+                subtitle="Worried about damp? Let us test and seal your slab before you install."
+                buttonText="Get Moisture Check"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Moisture Barriers",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Turner Installs",
+                            "telephone": "+61 7480 223 88",
+                            "email": "liam@turnerinstalls.com.au"
+                        },
+                        "description": "Application of epoxy moisture barriers to prevent rising damp in concrete slabs.",
+                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
+                    })
+                }}
             />
         </>
     );

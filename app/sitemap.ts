@@ -23,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/locations/sunshine-coast',
         '/locations/toowoomba',
         '/locations/gympie',
+        '/services',
+        '/reviews',
         '/privacy-policy',
     ]
 

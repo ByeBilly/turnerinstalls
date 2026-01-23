@@ -1,13 +1,16 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Floor Preparation Toowoomba | Concrete Grinding & Prep",
-    description:
-        "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.",
+    description: "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.",
 };
 
 export default function Toowoomba() {
@@ -32,6 +35,14 @@ export default function Toowoomba() {
             title: "Cold Climate Curing",
             description: "Using accelerators and specific compounds that set correctly in cooler mountain temperatures."
         }
+    ];
+
+    const suitableFor = [
+        { label: "Toowoomba City" },
+        { label: "Highfields" },
+        { label: "Withcott" },
+        { label: "Westbrook" },
+        { label: "Darling Downs" }
     ];
 
     const faqs = [
@@ -63,6 +74,12 @@ export default function Toowoomba() {
                 features={specs}
             />
 
+            <FeaturesGrid
+                title="Service Areas"
+                features={suitableFor}
+                columns={4}
+            />
+
             <GalleryStrip
                 images={[
                     "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
@@ -74,10 +91,31 @@ export default function Toowoomba() {
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="services" />
+
             <SEOCTA
                 title="Toowoomba Tough."
                 subtitle="Get your floor prepped right. Contact us for a quote in the Garden City."
                 buttonText="Get Toowoomba Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": "Turner Installs Toowoomba",
+                        "telephone": "+61 7480 223 88",
+                        "email": "liam@turnerinstalls.com.au",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Toowoomba",
+                            "addressRegion": "QLD",
+                            "addressCountry": "AU"
+                        },
+                        "areaServed": "Toowoomba"
+                    })
+                }}
             />
         </>
     );

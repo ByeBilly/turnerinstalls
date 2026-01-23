@@ -1,91 +1,137 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Epoxy Removal & Concrete Stripping Brisbane",
-    description:
-        "Professional removal of failing epoxy coatings, paint, and sealers. We return concrete to a raw, porous state ready for resurfacing.",
+export const metadata: Metadata = {
+    title: "Epoxy Removal Services Brisbane | Coating Stripping",
+    description: "Specialised removal of epoxy coatings, polyurethane, and garage flake systems. Grind back to clean concrete.",
 };
 
 export default function EpoxyRemoval() {
     const specs = [
         {
-            icon: "🔥",
-            title: "Heavy Coating Removal",
-            description: "Stripping thick industrial epoxy, polyurethane, and seamless flake flooring systems."
+            icon: "🧪",
+            title: "Coating stripper",
+            description: "Removing failed or old epoxy flake floors, paint, and industrial sealers."
         },
         {
             icon: "⚙️",
-            title: "PCD Grinding",
-            description: "Using 'Pre-Cut Diamond' tooling to aggressively shred coatings without smearing them."
+            title: "Aggressive Tooling",
+            description: "Utilising heavy grit PCD diamonds to 'slice' under the coating rather than just grinding it."
         },
         {
-            icon: "🌦️",
-            title: "Sealer Stripping",
-            description: "Removing UV-damaged or flaking concrete sealers from driveways and patios."
-        },
-        {
-            icon: "🏁",
-            title: "Surface Profiling",
-            description: "Leaving the concrete with a CSP (Concrete Surface Profile) of 2-3, ideal for re-coating."
+            icon: "🔄",
+            title: "Restoration",
+            description: "Returning the floor to bare concrete ready for a new coating or new flooring."
         }
+    ];
+
+    const processSteps = [
+        {
+            title: "Evaluation",
+            description: "Checking coating thickness and bond strength to determine the right tooling."
+        },
+        {
+            title: "PCD Stripping",
+            description: "First pass with toothed PCD blades to rip the main body of the epoxy off the slab."
+        },
+        {
+            title: "Grind & Smoothing",
+            description: "Cleaning up remaining residue and smoothing the gouges left by the aggressive stripping."
+        },
+        {
+            title: "Surface Prep",
+            description: "Final vacuum and inspection, ensuring no bond-breakers remain."
+        }
+    ];
+
+    const suitableFor = [
+        { label: "Garage Floors", sublabel: "Old flake removal" },
+        { label: "Commercial Kitchens", sublabel: "Failed coatings" },
+        { label: "Warehouses", sublabel: "Line marking" },
+        { label: "Driveways", sublabel: "Sealer stripping" }
     ];
 
     const faqs = [
         {
-            question: "Why is my epoxy peeling?",
-            answer: "Epoxy usually peels because the concrete wasn't ground correctly before application, or moisture was trapped underneath. We remove the failed coating and fix the underlying issue."
+            question: "Why is epoxy hard to remove?",
+            answer: "Epoxy is designed to bond permanently. Removing it requires sufficient weight and specialized cutting teeth to break that bond."
         },
         {
-            question: "Can you grind off driveway paint?",
-            answer: "Yes. Driveway paint (stencilcrete or plain sealer) can be ground off to reveal the natural concrete or prepare for a new covercrete application."
-        },
-        {
-            question: "Is it noisy?",
-            answer: "Concrete grinding is industrial work, so it does create noise. However, we work efficiently to minimize disruption and can schedule works around your trading hours."
-        },
-        {
-            question: "How fast can you remove it?",
-            answer: "Our machines can strip 50-100m² of standard coatings per day, usually completing residential garages or shops in a single shift."
+            question: "Does it damage the concrete?",
+            answer: "The process is aggressive, but we follow up with smoothing passes to leave a flat, usable surface."
         }
     ];
 
     return (
         <>
             <ServiceHero
-                title={<>Epoxy & Coating <span className="text-yellow-500">Stripping</span>.</>}
-                subtitle="Removing failed epoxy, paint, and sealers to reveal fresh concrete."
-                imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                title={<>Epoxy <span className="text-yellow-500">Removal</span>.</>}
+                subtitle="Stripping back failed coatings and old garage floors."
+                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png"
                 label="COATING_REMOVAL"
             />
 
             <TechSpecs
-                title="Epoxy Gone Wrong?"
+                title="Strip It Back."
                 description={<>
-                    <p className="mb-4">There is nothing worse than a peeling garage floor. Attempting to sand it off yourself will just clog sandpaper in seconds.</p>
-                    <p>We use aggressive PCD tooling that literally cuts underneath the coating to lift it off the concrete, leaving a clean, open-pored surface ready for a new system.</p>
+                    <p className="mb-4">Do you have a peeling garage floor or an old industrial coating that needs to go? Epoxy is tough, but our machines are tougher.</p>
+                    <p>We systematically strip back layers of paint, epoxy, and polyurethane to reveal fresh concrete.</p>
                 </>}
                 features={specs}
             />
 
+            <FeaturesGrid
+                title="We Strip"
+                features={suitableFor}
+                columns={4}
+            />
+
+            <ProcessSteps
+                title="Stripping Workflow"
+                steps={processSteps}
+            />
+
             <GalleryStrip
                 images={[
+                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
                     "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
                     "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
                     "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="locations" />
+
             <SEOCTA
-                title="Strip it back."
-                subtitle="Get rid of that ugly, peeling coating. Contact us for a quote."
-                buttonText="Book Stripping Service"
+                title="Remove the Old."
+                subtitle="Get rid of that peeling paint or epoxy. Contact us for a stripping quote."
+                buttonText="Get Epoxy Removal Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Epoxy Removal",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Turner Installs",
+                            "telephone": "+61 7480 223 88",
+                            "email": "liam@turnerinstalls.com.au"
+                        },
+                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
+                    })
+                }}
             />
         </>
     );

@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "name": "Sarah Jenkins",
+        "suburb": "New Farm",
+        "service": "Floor Levelling",
+        "rating": 5,
+        "comment": "Liam and the team were fantastic. Our slab was a mess after removing the tiles, but they got it perfectly flat for our new hybrid flooring. Highly recommended!",
+        "date": "2025-10-15"
+    },
+    {
+        "id": "2",
+        "name": "Mike Stevens",
+        "suburb": "Burleigh Heads",
+        "service": "Concrete Grinding",
+        "rating": 5,
+        "comment": "Professional, on time, and dust-free as promised. Turned a nightmare glue removal job into a quick fix.",
+        "date": "2025-11-02"
+    },
+    {
+        "id": "3",
+        "name": "Amanda Clarke",
+        "suburb": "Toowoomba",
+        "service": "Floor Preparation",
+        "rating": 5,
+        "comment": "Great to find a team willing to travel up the range. They understood the red soil movement issues and prepped our heritage home accordingly.",
+        "date": "2025-12-10"
+    },
+    {
+        "id": "4",
+        "name": "David Ross",
+        "suburb": "Chermside",
+        "service": "Adhesive Removal",
+        "rating": 4,
+        "comment": "Good effective work. Removed all the old carpet glue. Left the site clean.",
+        "date": "2026-01-05"
+    }
+]

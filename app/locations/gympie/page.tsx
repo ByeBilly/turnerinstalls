@@ -1,47 +1,58 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Floor Preparation Gympie | Concrete Grinding",
-    description:
-        "Gympie's trusted concrete grinding and floor levelling service. From the Mary Valley to the Cooloola Coast.",
+export const metadata: Metadata = {
+    title: "Floor Preparation Gympie | Concrete Grinding & Levelling",
+    description: "Reliable floor preparation in Gympie. Servicing the Wide Bay region. Concrete grinding, floor levelling, and adhesive removal.",
 };
 
 export default function Gympie() {
     const specs = [
         {
-            icon: "⛏️",
-            title: "Gold City Prep",
-            description: "Servicing Gympie, Mary Valley, and surrounding regional areas."
+            icon: "🚜",
+            title: "Regional Service",
+            description: "Bringing city-standard flooring equipment to the Wide Bay region."
         },
         {
             icon: "🏚️",
-            title: "Flood Recovery",
-            description: "Experiencing in sanitizing, grinding, and restoring flood-affected concrete slabs."
+            title: "Old Home Renovations",
+            description: "Expertise in rectifying subfloors in Gympie's classic timber homes."
         },
         {
-            icon: "🌤️",
-            title: "Regional Service",
-            description: "Bringing city-spec commercial grinding equipment to regional projects."
+            icon: "🏭",
+            title: "Commercial & Industrial",
+            description: "Prep for sheds, workshops, and commercial spaces."
         },
         {
-            icon: "🚜",
-            title: "Hard Access",
-            description: "Equipped for rural properties and difficult access sites."
+            icon: "🛣️",
+            title: "Travel Friendly",
+            description: "Fully mobile setup allows us to work efficiently on remote sites."
         }
+    ];
+
+    const suitableFor = [
+        { label: "Gympie Town" },
+        { label: "Southside" },
+        { label: "Monkland" },
+        { label: "Curra" },
+        { label: "Mary Valley" }
     ];
 
     const faqs = [
         {
-            question: "Do you travel to Gympie?",
-            answer: "Yes. For larger residential or commercial jobs, we mobilize our truck and team to Gympie."
+            question: "Is there a travel charge for Gympie?",
+            answer: "We quote based on the job. For larger projects, travel is often absorbed into the cost. We are competitive with local rates while bringing specialized machinery."
         },
         {
-            question: "Can you remove flood damaged glue?",
-            answer: "Yes and it is critical to do so. Flood water contaminates the glue and concrete. We grind it back to a clean, hygienic surface."
+            question: "Can you level uneven concrete in a shed?",
+            answer: "Yes, we can grind high spots and fill low spots to create a flat, usable surface for workshops or conversions."
         }
     ];
 
@@ -49,35 +60,62 @@ export default function Gympie() {
         <>
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Gympie</span>.</>}
-                subtitle="Professional concrete grinding and levelling for the Gympie region."
-                imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                subtitle="High-quality concrete preparation for the Gold City region."
+                imagePath="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
                 label="WIDE_BAY"
             />
 
             <TechSpecs
-                title="Restoring the Region."
+                title="Gympie's Flooring Choice."
                 description={<>
-                    <p className="mb-4">Whether it's flood restoration or a new build, specialized floor preparation is often hard to find in regional areas. Turner Installs brings the full setup to you.</p>
-                    <p>We ensure your slab is ready for modern vinyl, hybrid, or timber flooring, backing our work with industry warranties.</p>
+                    <p className="mb-4">Renovating in Gympie doesn't mean you have to settle for second best. We bring our full fleet of concrete grinders and pump trucks to the region.</p>
+                    <p>Whether it's a new build in Southside or a classic Queenslander renovation, we ensure your floors are flat, smooth, and ready for installation.</p>
                 </>}
                 features={specs}
             />
 
+            <FeaturesGrid
+                title="Service Areas"
+                features={suitableFor}
+                columns={4}
+            />
+
             <GalleryStrip
                 images={[
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
                     "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
                     "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
+                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
                     "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="services" />
+
             <SEOCTA
-                title="Gympie Floor Services."
-                subtitle="Professional prep, done right. Contact us for regional rates."
+                title="Gympie Floors Done Right."
+                subtitle="Get a quote from the experts who travel to you."
                 buttonText="Get Gympie Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": "Turner Installs Gympie",
+                        "telephone": "+61 7480 223 88",
+                        "email": "liam@turnerinstalls.com.au",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Gympie",
+                            "addressRegion": "QLD",
+                            "addressCountry": "AU"
+                        },
+                        "areaServed": "Gympie"
+                    })
+                }}
             />
         </>
     );

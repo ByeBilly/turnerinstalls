@@ -1,51 +1,59 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Floor Preparation Gold Coast | Concrete Grinding GC",
-    description:
-        "Gold Coast's premier floor prep team. Servicing Southport, Surfers Paradise, Burleigh to Coolangatta. High-rise and residential specialists.",
+export const metadata: Metadata = {
+    title: "Floor Preparation Gold Coast | Concrete Grinding & Levelling",
+    description: "Expert floor prep on the Gold Coast. Servicing from Southport to Coolangatta. Concrete grinding, adhesive removal, and levelling.",
 };
 
 export default function GoldCoast() {
     const specs = [
         {
             icon: "🏖️",
-            title: "Coastal Conditions",
-            description: "Expertise in managing coastal humidity and salt air effects on concrete curing."
+            title: "Internal & External",
+            description: "Prepping internal living areas and external patios for tiles or coatings."
         },
         {
             icon: "🏢",
-            title: "High-Rise Specialist",
-            description: "Experienced in apartment strip-outs, acoustic flooring requirements, and lift access logistics."
+            title: "High Rise",
+            description: "Experienced in logistical challenges of working in Surfers Paradise apartments."
+        },
+        {
+            icon: "🌊",
+            title: "Salt Air Protection",
+            description: "Understanding coastal conditions and selecting corrosion-resistant materials."
         },
         {
             icon: "🛍️",
-            title: "Retail & Hospitality",
-            description: "Fast turnaround for cafes, restaurants, and shops in the busy GC tourism hubs."
-        },
-        {
-            icon: "📍",
-            title: "Gold Coast Local",
-            description: "Servicing the entire coast from Coomera to Coolangatta."
+            title: "Retail Fitouts",
+            description: "Fast turnaround prep for shops in Pacific Fair, Robina, and strip malls."
         }
+    ];
+
+    const suitableFor = [
+        { label: "Surfers Paradise" },
+        { label: "Broadbeach" },
+        { label: "Burleigh Heads" },
+        { label: "Coolangatta" },
+        { label: "Robina" },
+        { label: "Southport" }
     ];
 
     const faqs = [
         {
-            question: "Do you work in apartments?",
-            answer: "Yes, we specialize in high-rise work. We have sound-dampened equipment and dust extraction to adhere to strict Body Corporate bylaws."
+            question: "How far do you travel on the Gold Coast?",
+            answer: "We service the entire Gold Coast region, from the northern corridor down to the NSW border."
         },
         {
-            question: "Can you remove tiles on a balcony?",
-            answer: "Yes, we strip balcony tiles, grind the glue, and prepare the correct falls for re-waterproofing and tiling."
-        },
-        {
-            question: "How far south do you go?",
-            answer: "We cover the entire Gold Coast down to Coolangatta and Tweed Heads."
+            question: "Can you remove old tiles?",
+            answer: "Yes, we strip old ceramic and porcelain tiles, grind the adhesive, and level the floor ready for new hybrids or timber."
         }
     ];
 
@@ -53,35 +61,62 @@ export default function GoldCoast() {
         <>
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Gold Coast</span>.</>}
-                subtitle="Leveling the Gold Coast, one floor at a time. High-rise, residential, and commercial."
-                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png"
+                subtitle="High-end floor preparation for the Coast's luxury homes and apartments."
+                imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
                 label="GOLD_COAST"
             />
 
             <TechSpecs
-                title="Surfers to Coolangatta."
+                title="Coastal Quality."
                 description={<>
-                    <p className="mb-4">Renovating a unit in <strong>Surfers Paradise</strong> or a family home in <strong>Burleigh</strong>? We help GC locals get the perfect base for their new floors.</p>
-                    <p>We are experts in meeting the strict acoustic (soundproofing) and level requirements of Gold Coast body corporates.</p>
+                    <p className="mb-4">The Gold Coast demands a higher standard of finish. Whether it's a luxury penthouse or a family home in Burleigh, the subfloor must be perfect.</p>
+                    <p>We bring our full fleet of grinding and levelling equipment to the Coast, ensuring city-standard prep for your coastal project.</p>
                 </>}
                 features={specs}
             />
 
+            <FeaturesGrid
+                title="We Service"
+                features={suitableFor}
+                columns={3}
+            />
+
             <GalleryStrip
                 images={[
+                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
+                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
                     "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-                    "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="services" />
+
             <SEOCTA
-                title="Gold Coast Trusted."
-                subtitle="Get a quote from the team that knows the Coast. Book your free measure."
-                buttonText="Get GC Quote"
+                title="Gold Standard Prep."
+                subtitle="Renovating on the Coast? Ensure your base is solid."
+                buttonText="Get Gold Coast Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": "Turner Installs Gold Coast",
+                        "telephone": "+61 7480 223 88",
+                        "email": "liam@turnerinstalls.com.au",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Gold Coast",
+                            "addressRegion": "QLD",
+                            "addressCountry": "AU"
+                        },
+                        "areaServed": "Gold Coast"
+                    })
+                }}
             />
         </>
     );

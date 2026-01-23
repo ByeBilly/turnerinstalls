@@ -1,91 +1,147 @@
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import GalleryStrip from "@/components/GalleryStrip";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Floor Adhesive Removal Brisbane | Tile Glue & Carpet Stripping",
-    description:
-        "Fast removal of tile glue, vinyl adhesive, carpet foam, and bitumen. We strip floors back to bare concrete across Brisbane.",
+export const metadata: Metadata = {
+    title: "Adhesive & Glue Removal Brisbane | Tile, Carpet, Vinyl Removal",
+    description: "Professional removal of floor adhesives. We grind off tile glue, carpet adhesive, vinyl residue, and bitumen coatings.",
 };
 
 export default function AdhesiveRemoval() {
     const specs = [
         {
-            icon: "🔪",
-            title: "Tile Glue Singing",
-            description: "Aggressive removal of cement-based tile adhesive (thin-set) and bedding."
+            icon: "🚮",
+            title: "Clean Slate",
+            description: "Complete removal of stubborn adhesives leaving a clean concrete surface."
         },
         {
-            icon: "🧶",
-            title: "Carpet & Foam Stripping",
-            description: "Scraping and grinding away stubborn carpet underlay, foam, and tack strip glue."
+            icon: "🔋",
+            title: "Powerful Machinery",
+            description: "Using heavy 3-phase and petrol grinders with PCD (Polycrystalline Diamond) tooling."
         },
         {
-            icon: "⚫",
-            title: "Vinyl & Bitumen",
-            description: "Specialized removal of 'Black Jack' bitumen adhesive and vinyl plank glue."
+            icon: "🌫️",
+            title: "Dust Controlled",
+            description: "Industrial vacuums capture the toxic dust and old glue particles."
         },
         {
-            icon: "✨",
-            title: "Residue Free",
-            description: "We don't just scrape; we grind the substrate to ensure it's chemically clean for the next floor."
+            icon: "⏱️",
+            title: "Efficient",
+            description: "We can strip hundreds of square meters of glue in a single day."
         }
+    ];
+
+    const processSteps = [
+        {
+            title: "Bulk Removal",
+            description: "Scrapers or ride-on strippers remove the bulk of the floor covering."
+        },
+        {
+            title: "PCD Grinding",
+            description: " aggressively shaving off the thick ridges of hardened adhesive."
+        },
+        {
+            title: "Smoothing Pass",
+            description: "Changing to standard diamond segments to smooth the concrete after the glue is gone."
+        },
+        {
+            title: "Cleanup",
+            description: "All waste is bagged and removed, leaving the site ready for the next trade."
+        }
+    ];
+
+    const suitableFor = [
+        { label: "Tile Adhesive (Bedding)", sublabel: "Cement based" },
+        { label: "Carpet Glue", sublabel: "Yellow contacts" },
+        { label: "Vinyl Adhesive", sublabel: "Pressure sensitive" },
+        { label: "Bitumen / Magnesite", sublabel: "Old waterproofing" }
     ];
 
     const faqs = [
         {
-            question: "Can't I just chip the glue off myself?",
-            answer: "You can, but it's back-breaking work. Manual chipping leaves ridges that will telegraph through your new vinyl flooring. We grind it perfectly flat in a fraction of the time."
+            question: "Can I just lay over the old glue?",
+            answer: "No. Old glue is chemically incompatible with new adhesives and creates an uneven surface. It must be removed for a successful install."
         },
         {
-            question: "Do you remove 'Black Jack' glue?",
-            answer: "Yes. Old bitumen adhesive (often containing asbestos) requires careful handling. If confirmed non-friable/safe, we use wet grinding techniques to remove it safely."
+            question: "Is tile glue hard to remove?",
+            answer: "Yes, cement-based tile bedding is very hard. We use specialized grinding segments to cut through it without damaging the slab."
         },
         {
-            question: "Does it create dust?",
-            answer: "Old glue turns into fine powder when ground. Our HEPA-filtered extraction units capture this dust instantly to protect your home."
-        },
-        {
-            question: "What specific glues do you remove?",
-            answer: "Everything: Two-part epoxy, contact adhesive, pressure-sensitive vinyl glue, ceramic tile cement, and timber flooring polyurethane."
+            question: "Do you take away the rubbish?",
+            answer: "Yes, we can arrange for the disposal of the removed adhesive and flooring waste."
         }
     ];
 
     return (
         <>
             <ServiceHero
-                title={<>Industrial <span className="text-yellow-500">Adhesive Removal</span>.</>}
-                subtitle="We strip tile glue, vinyl adhesive, and carpet foam back to clean, bare concrete."
+                title={<>Adhesive <span className="text-yellow-500">Removal</span>.</>}
+                subtitle="The worst job in flooring, done right. We strip stubborn glues so you don't have to."
                 imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
-                label="STRIPPING & REMOVAL"
+                label="DEMOLITION_PREP"
             />
 
             <TechSpecs
-                title="Back to Bare."
+                title="Stubborn Glue Gone."
                 description={<>
-                    <p className="mb-4">Old adhesive is the enemy of new flooring. If you stick new vinyl over old glue ridges, it <strong>will fail</strong>. </p>
-                    <p>We use heavy planetary grinders with specific PCD (Polycrystalline Diamond) tooling to slice through thick glue and paint, leaving you with a pristine 'blank canvas' for your renovation.</p>
+                    <p className="mb-4">Removing old flooring is half the battle; the glue it leaves behind is the real challenge. Manual scraping is ineffective and back-breaking.</p>
+                    <p>We use industrial grinding technology to shred through layers of old adhesive, bitumen, and bedding, restoring your slab to its original state.</p>
                 </>}
                 features={specs}
             />
 
+            <FeaturesGrid
+                title="We Remove"
+                features={suitableFor}
+                columns={4}
+            />
+
+            <ProcessSteps
+                title="Removal Process"
+                steps={processSteps}
+            />
+
             <GalleryStrip
                 images={[
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
-                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
                     "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
-                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                    "/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png",
+                    "/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
+                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
                 ]}
             />
 
             <FAQSection items={faqs} />
 
+            <InternalLinks type="locations" />
+
             <SEOCTA
-                title="Don't fight the glue."
-                subtitle="Save your back and your schedule. Let our machines strip it in hours, not days."
+                title="Get it Clean."
+                subtitle="Don't fight the glue with a hand scraper. Let our machines do the work."
                 buttonText="Get Removal Quote"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Adhesive Removal",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Turner Installs",
+                            "telephone": "+61 7480 223 88",
+                            "email": "liam@turnerinstalls.com.au"
+                        },
+                        "description": "Mechanical removal of floor adhesives including tile glue, carpet glue, and vinyl adhesive.",
+                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
+                    })
+                }}
             />
         </>
     );

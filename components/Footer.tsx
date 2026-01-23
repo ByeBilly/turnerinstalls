@@ -35,8 +35,8 @@ export default function Footer() {
         <div className="mt-4 pt-4 border-t border-gray-800 flex flex-wrap gap-6 text-xs">
           <div>
             <strong className="text-gray-300">Phone:</strong>{" "}
-            <a href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} className="hover:text-yellow-400 transition-colors">
-              {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
+            <a href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "+61748022388").replace(/\s/g, "")}`} className="hover:text-yellow-400 transition-colors">
+              {process.env.NEXT_PUBLIC_SUPPORT_PHONE || "07 4802 2388"}
             </a>{" "}
             (Reception) |{" "}
             <a href="tel:0413592054" className="hover:text-yellow-400 transition-colors">
