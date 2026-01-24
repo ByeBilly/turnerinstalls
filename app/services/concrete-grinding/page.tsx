@@ -91,7 +91,7 @@ export default function ConcreteGrinding() {
             <ServiceHero
                 title={<>Concrete <span className="text-yellow-500">Grinding</span>.</>}
                 subtitle="Dust-free mechanical preparation to clean, flatten, and profile your slab."
-                imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="SURFACE_PREP"
             />
 

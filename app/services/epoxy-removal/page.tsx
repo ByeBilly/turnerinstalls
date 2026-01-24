@@ -74,7 +74,7 @@ export default function EpoxyRemoval() {
             <ServiceHero
                 title={<>Epoxy <span className="text-yellow-500">Removal</span>.</>}
                 subtitle="Stripping back failed coatings and old garage floors."
-                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="COATING_REMOVAL"
             />
 

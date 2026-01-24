@@ -87,7 +87,7 @@ export default function MoistureBarriers() {
             <ServiceHero
                 title={<>Moisture <span className="text-yellow-500">Barriers</span>.</>}
                 subtitle="Seal your slab against rising damp and protect your flooring investment."
-                imagePath="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="DAMP_PROOFING"
             />
 

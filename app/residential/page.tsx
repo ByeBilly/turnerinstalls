@@ -15,7 +15,7 @@ export default function Residential() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+            src="/images/brisbane_skyline.png"
             alt="Beautiful Residential Flooring"
             fill
             className="object-cover"

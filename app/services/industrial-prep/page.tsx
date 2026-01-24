@@ -58,7 +58,7 @@ export default function IndustrialPrep() {
             <ServiceHero
                 title={<>Industrial <span className="text-yellow-500">Surface Prep</span>.</>}
                 subtitle="High-volume grinding, leveling, and rectification for commercial projects."
-                imagePath="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="COMMERCIAL_INDUSTRIAL"
             />
 

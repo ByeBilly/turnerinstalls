@@ -83,7 +83,7 @@ export default function SubfloorRepairs() {
             <ServiceHero
                 title={<>Subfloor <span className="text-yellow-500">Repairs</span>.</>}
                 subtitle="Fixing the cracks, holes, and hazards before the new floor goes down."
-                imagePath="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="STRUCTURAL_FIX"
             />
 

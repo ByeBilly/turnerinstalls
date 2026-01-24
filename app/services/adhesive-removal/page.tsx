@@ -83,7 +83,7 @@ export default function AdhesiveRemoval() {
             <ServiceHero
                 title={<>Adhesive <span className="text-yellow-500">Removal</span>.</>}
                 subtitle="The worst job in flooring, done right. We strip stubborn glues so you don't have to."
-                imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="DEMOLITION_PREP"
             />
 

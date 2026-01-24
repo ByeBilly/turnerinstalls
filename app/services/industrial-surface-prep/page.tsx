@@ -70,7 +70,7 @@ export default function IndustrialPrep() {
             <ServiceHero
                 title={<>Industrial <span className="text-yellow-500">Prep</span>.</>}
                 subtitle="Large scale solutions for big concrete spaces."
-                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="INDUSTRIAL_SERVICES"
             />
 

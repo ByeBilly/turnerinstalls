@@ -93,7 +93,7 @@ export default function FloorLevelling() {
             <ServiceHero
                 title={<>Floor <span className="text-yellow-500">Levelling</span>.</>}
                 subtitle="Achieve a glass-smooth, structural finish for your new floor coverings."
-                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="FLOOD_COATING"
             />
 

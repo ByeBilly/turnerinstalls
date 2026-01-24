@@ -102,7 +102,7 @@ export default function FloorPreparation() {
       <ServiceHero
         title={<>Professional <span className="text-yellow-500">Floor Preparation</span>.</>}
         subtitle="The secret to a flawless floor is what lies beneath. We create mirror-flat, structural substrates for high-end installations."
-        imagePath="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+        imagePath="/images/brisbane_skyline.png"
         label="TECHNICAL_PREP"
       />
 
