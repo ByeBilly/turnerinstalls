@@ -131,6 +131,11 @@ export default function PrivacyPolicyPage() {
                   <a href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} className="text-yellow-400 hover:text-yellow-300">
                     {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
                   </a>
+                  <span className="text-gray-500 mx-2">|</span>
+                  <a href="tel:0413592054" className="text-yellow-400 hover:text-yellow-300">
+                    0413 592 054
+                  </a>{" "}
+                  (Liam Direct)
                 </p>
                 <p>
                   <strong>Address:</strong> Brisbane, QLD, Australia
