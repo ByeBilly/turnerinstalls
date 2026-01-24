@@ -52,7 +52,7 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30 pointer-events-none" />
         </div>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ContactForm from "@/components/ContactForm";
@@ -13,6 +14,18 @@ export default function Contact() {
   return (
     <>
       <section className="min-h-screen pt-20 pb-12 flex flex-col justify-center relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/skyline_v2.png"
+            alt="Contact Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
         {/* Background Decoration */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-400/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
