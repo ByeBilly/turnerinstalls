@@ -92,7 +92,7 @@ export default function Commercial() {
               </div>
             </div>
             <div className="relative h-[500px] rounded-3xl overflow-hidden border border-gray-800">
-              <Image src="/images/resource_9fVqoabE10H5PDfVW4rOXY.png" alt="Commercial Project" fill className="object-cover" />
+              <Image src="/images/brisbane_skyline.png" alt="Commercial Project" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-black/80 backdrop-blur-md p-6 rounded-2xl border border-gray-700">
