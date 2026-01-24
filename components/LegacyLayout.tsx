@@ -71,9 +71,8 @@ export default function LegacyLayout() {
                                     <div className="text-xl font-bold">ZERO</div>
                                     <div className="text-xs text-gray-400">STRESS</div>
                                 </div>
-                                <div className="bg-black p-2 rounded w-2/3 border border-gray-800 flex items-center justify-center bg-[url('/images/resource_9fVqoabE10H5PDfVW4rOXY.png')] bg-cover relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-black/60"></div>
-                                    <div className="relative z-10 text-sm font-bold italic">The Foundation of Flawless</div>
+                                <div className="bg-black p-2 rounded w-2/3 border border-gray-800 flex items-center justify-center relative overflow-hidden">
+                                    <div className="relative z-10 text-sm font-bold italic text-gray-500">The Foundation of Flawless</div>
                                 </div>
                             </div>
                         </div>
