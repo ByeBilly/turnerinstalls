@@ -1,0 +1,17 @@
+Scheduling Link
+One Time Link
+Embed Code
+
+Scheduling Link
+https://api.inurpc.com/widget/bookings/liam-turner-personal-calendar-nm0qoi41x
+
+The scheduling link is determined by the slug. Adjust the slug, and the scheduling link automatically adapts to the modification.
+
+Permanent Link
+https://api.inurpc.com/widget/booking/43UzFxRHyxTMWu6raGtm
+
+Ideal for funnels, website redirects, or ads, the permanent link remains constant, unaffected by slug changes.
+
+
+Embed Code
+<iframe src="https://api.inurpc.com/widget/booking/43UzFxRHyxTMWu6raGtm" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="43UzFxRHyxTMWu6raGtm_1769179688324"></iframe><br><script src="https://api.inurpc.com/js/form_embed.js" type="text/javascript"></script>

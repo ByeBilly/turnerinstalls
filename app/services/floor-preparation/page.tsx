@@ -148,10 +148,13 @@ export default function FloorPreparation() {
 
       <ModernGallery
         images={[
-          "/images/gen/concrete_grinding.png",
-          "/images/image3.jpeg",
-          "/images/gen/floor_levelling.png",
-          "/images/image10.jpeg"
+          "/images/new_prep_61729.jpg",
+          "/images/new_prep_61734.jpg",
+          "/images/new_prep_61801.jpg",
+          "/images/new_prep_61938.jpg",
+          "/images/new_prep_61961.jpg",
+          "/images/new_prep_61981.jpg",
+          "/images/new_prep_62113.jpg"
         ]}
       />
 

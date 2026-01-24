@@ -55,7 +55,7 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Locations Dropdown */}
+            {/* Locations Dropdown - TEMPORARILY HIDDEN
             <div className="group relative h-full flex items-center">
               <span className={`hover:text-gray-100 transition-colors cursor-pointer flex items-center gap-1 ${pathname.startsWith('/locations') ? "text-yellow-400" : ""}`}>
                 Locations ▾
@@ -69,7 +69,7 @@ export default function Header() {
                   <Link href="/locations/gympie" className="px-4 py-2 hover:bg-white/5 rounded-lg text-gray-300 hover:text-yellow-400 transition-colors">Gympie</Link>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <Link href="/about" className={`hover:text-gray-100 transition-colors ${pathname === "/about" ? "text-yellow-400" : ""}`}>
               About

@@ -100,10 +100,13 @@ export default function EpoxyRemoval() {
 
             <ModernGallery
                 images={[
-                    "/images/gen/concrete_grinding.png",
-                    "/images/image11.jpeg",
-                    "/images/gen/concrete_texture.png",
-                    "/images/image8.jpeg"
+                    "/images/new_prep_61729.jpg",
+                    "/images/new_prep_61734.jpg",
+                    "/images/new_prep_61801.jpg",
+                    "/images/new_prep_61938.jpg",
+                    "/images/new_prep_61961.jpg",
+                    "/images/new_prep_61981.jpg",
+                    "/images/new_prep_62113.jpg"
                 ]}
             />
 

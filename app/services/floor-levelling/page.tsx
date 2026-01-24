@@ -133,10 +133,13 @@ export default function FloorLevelling() {
 
             <ModernGallery
                 images={[
-                    "/images/gen/floor_levelling.png",
-                    "/images/image4.jpeg",
-                    "/images/image13.jpeg",
-                    "/images/image6.jpeg"
+                    "/images/new_prep_61729.jpg",
+                    "/images/new_prep_61734.jpg",
+                    "/images/new_prep_61801.jpg",
+                    "/images/new_prep_61938.jpg",
+                    "/images/new_prep_61961.jpg",
+                    "/images/new_prep_61981.jpg",
+                    "/images/new_prep_62113.jpg"
                 ]}
             />
 

@@ -109,10 +109,13 @@ export default function SubfloorRepairs() {
 
             <ModernGallery
                 images={[
-                    "/images/image12.jpeg",
-                    "/images/gen/floor_levelling.png",
-                    "/images/image0.jpeg",
-                    "/images/gen/concrete_texture.png"
+                    "/images/new_prep_61729.jpg",
+                    "/images/new_prep_61734.jpg",
+                    "/images/new_prep_61801.jpg",
+                    "/images/new_prep_61938.jpg",
+                    "/images/new_prep_61961.jpg",
+                    "/images/new_prep_61981.jpg",
+                    "/images/new_prep_62113.jpg"
                 ]}
             />
 

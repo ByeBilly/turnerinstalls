@@ -109,10 +109,13 @@ export default function AdhesiveRemoval() {
 
             <ModernGallery
                 images={[
-                    "/images/image13.jpeg",
-                    "/images/gen/concrete_grinding.png",
-                    "/images/image7.jpeg",
-                    "/images/image1.jpeg"
+                    "/images/new_prep_61729.jpg",
+                    "/images/new_prep_61734.jpg",
+                    "/images/new_prep_61801.jpg",
+                    "/images/new_prep_61938.jpg",
+                    "/images/new_prep_61961.jpg",
+                    "/images/new_prep_61981.jpg",
+                    "/images/new_prep_62113.jpg"
                 ]}
             />
 

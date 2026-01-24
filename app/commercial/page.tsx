@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import ModernGallery from "@/components/ModernGallery";
 
 export const metadata = {
   title: "Commercial Flooring Brisbane | Turner Installs",
@@ -103,6 +104,19 @@ export default function Commercial() {
           </div>
         </div>
       </section>
+
+      <ModernGallery
+        title="Recent Commercial Projects"
+        images={[
+          "/images/new_prep_61729.jpg",
+          "/images/new_prep_61734.jpg",
+          "/images/new_prep_61801.jpg",
+          "/images/new_prep_61938.jpg",
+          "/images/new_prep_61961.jpg",
+          "/images/new_prep_61981.jpg",
+          "/images/new_prep_62113.jpg"
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white">

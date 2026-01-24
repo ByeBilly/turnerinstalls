@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import ModernGallery from "@/components/ModernGallery";
 
 export const metadata = {
   title: "Turner Installs | Expert Flooring & Professional Floor Preparation – Brisbane",
@@ -45,14 +46,14 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
-            alt="Turner Installs Premium Flooring"
+            src="/images/brisbane_skyline.png"
+            alt="Turner Installs - Brisbane Flooring Specialists"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/70 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
@@ -221,6 +222,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* RECENT WORK GALLERY */}
+      <ModernGallery
+        title="Recent Transformations"
+        images={[
+          "/images/new_prep_62113.jpg",
+          "/images/new_prep_61981.jpg",
+          "/images/new_prep_61801.jpg",
+          "/images/new_prep_61734.jpg",
+          "/images/new_prep_61961.jpg",
+          "/images/new_prep_61938.jpg"
+        ]}
+      />
 
       {/* FINAL CTA */}
       <section className="py-24 bg-yellow-400 text-black border-b border-black/10">
