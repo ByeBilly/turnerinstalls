@@ -16,7 +16,7 @@ export default function Commercial() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+            src="/images/brisbane_skyline.png"
             alt="Commercial Office Flooring"
             fill
             className="object-cover"

@@ -73,7 +73,7 @@ export default function ServicesIndex() {
             <ServiceHero
                 title={<>Our <span className="text-yellow-500">Services</span>.</>}
                 subtitle="Expert floor preparation solutions for every substrate challenge."
-                imagePath="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                imagePath="/images/brisbane_skyline.png"
                 label="FULL_SERVICE"
             />
 
