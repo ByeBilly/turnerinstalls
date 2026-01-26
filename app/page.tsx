@@ -41,8 +41,8 @@ export default function Home() {
         }}
       />
 
-      {/* NEW HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* NEW HERO SECTION - Trade Style */}
+      <section className="relative min-h-[85vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -52,69 +52,100 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-5 text-center">
-          <div className="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-8 text-sm uppercase tracking-widest text-yellow-400 backdrop-blur-sm">
-            <div className="w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_0_4px_rgba(250,204,21,0.2)]"></div>
-            Brisbane & SE Qld Area Flooring Specialist
+        {/* Hero Content - Split Layout */}
+        <div className="relative z-10 max-w-7xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left text-white">
+            <div className="inline-flex items-center gap-2 bg-yellow-400 text-black px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
+              Brisbane & Ipswich Flooring Specialists
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">Perfect Floor</span><br />
+              <span className="text-yellow-400">Preparation.</span>
+            </h1>
+            <p className="text-xl text-gray-200 max-w-lg mb-8 leading-relaxed font-medium">
+              Don't risk your new floor on a bad foundation. We deliver mirror-flat subfloors and precision installation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-yellow-400 text-black font-black text-lg rounded hover:bg-yellow-300 transition-all shadow-[0_0_20px_rgba(250,204,21,0.4)] text-center uppercase tracking-wide"
+              >
+                Get a Free Quote
+              </Link>
+              <a
+                href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
+                className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded hover:bg-white hover:text-black transition-all text-center uppercase tracking-wide flex items-center justify-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
+              </a>
+            </div>
+
+            <div className="mt-12 flex items-center gap-8 text-sm font-bold text-gray-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-400 text-xl">✓</span> Commercial
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-400 text-xl">✓</span> Residential
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-400 text-xl">✓</span> Bonded
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1]">
-            Flawless floors start with <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
-              flawless preparation
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-            From residential upgrades to commercial fit-outs. We deliver engineered flood levelling,
-            precision installation, and zero-mess completion.
-          </p>
-
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-yellow-400 text-black font-bold text-lg rounded-full hover:bg-yellow-300 transition-all hover:scale-105 shadow-[0_0_20px_rgba(250,204,21,0.3)]"
-            >
-              Request a Quote
-            </Link>
-            <a
-              href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
-              className="px-8 py-4 bg-white/10 text-white font-medium text-lg rounded-full border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm"
-            >
-              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
-            </a>
+          {/* Hero Form / "Why Us" Box - Floating Card */}
+          <div className="hidden lg:block bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
+            <h3 className="text-2xl font-black text-black mb-2 uppercase">Fast Quote</h3>
+            <p className="text-gray-500 text-sm mb-6">Enter your details and we'll call you back instantly.</p>
+            <form className="space-y-4" action="/contact">
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Name</label>
+                <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all" placeholder="Your Name" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Phone</label>
+                <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all" placeholder="0400 000 000" />
+              </div>
+              <button className="w-full bg-black text-white font-bold py-4 rounded uppercase tracking-wide hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                Get Callback
+                <span className="text-yellow-400">→</span>
+              </button>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* LEGACY / STORY SECTION */}
-      <section className="py-24 md:py-32 relative bg-white">
+      {/* LEGACY / STORY SECTION - Alternating BG (Gray-100) */}
+      <section className="py-24 md:py-32 relative bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-gray-200 shadow-2xl">
+              <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white shadow-2xl">
+                <div className="absolute inset-0 border-2 border-black/10 z-10 pointer-events-none rounded-lg"></div>
                 <Image
                   src="/images/IMG_6636.jpeg"
                   alt="Staircase Flooring Installation"
                   fill
                   className="object-cover"
                 />
-                {/* Decorative element */}
-                <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
+              </div>
+              {/* Badge */}
+              <div className="absolute -bottom-6 -right-6 bg-black text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
+                <div className="text-3xl font-black text-yellow-400">15+</div>
+                <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
               </div>
             </div>
             <div>
-              <div className="text-yellow-600 font-bold tracking-wider uppercase mb-4">Our Heritage</div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
+              <div className="inline-block bg-white border border-gray-200 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-black mb-6 shadow-sm">Turners Installs</div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-black">
                 Three generations of <br />
-                <span className="text-gray-500">flooring expertise.</span>
+                <span className="text-yellow-500">flooring expertise.</span>
               </h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
                 <p>
                   Flooring isn't just a trade for us—it's in our blood. From grandfather, to father, to son.
                 </p>
@@ -123,9 +154,16 @@ export default function Home() {
                   techniques, and obsessive attention to detail passed down through the decades mean you aren't
                   getting someone who learned from a quick course. You're getting a lifetime of knowledge in every square metre.
                 </p>
-                <div className="flex items-center gap-4 pt-4">
-                  <div className="h-px flex-1 bg-gray-200"></div>
-                  <span className="text-sm uppercase tracking-widest text-gray-400">Since Day One</span>
+                <div className="flex items-center gap-6 pt-6">
+                  <div className="flex flex-col">
+                    <span className="text-3xl font-black text-black">100%</span>
+                    <span className="text-xs uppercase font-bold text-gray-500">Satisfaction</span>
+                  </div>
+                  <div className="w-px h-12 bg-gray-300"></div>
+                  <div className="flex flex-col">
+                    <span className="text-3xl font-black text-black">Zero</span>
+                    <span className="text-xs uppercase font-bold text-gray-500">Shortcuts Taken</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -133,25 +171,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY TURNER INSTALLS - Redesigned */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200">
+      {/* WHY TURNER INSTALLS - Solid BG White */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Turner Installs?</h2>
-            <p className="text-gray-600">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
+            <h2 className="text-3xl md:text-4xl font-black mb-4 text-black uppercase tracking-tight">Why Choose Turner Installs?</h2>
+            <div className="h-1 w-20 bg-yellow-400 mx-auto my-6"></div>
+            <p className="text-gray-600 font-medium">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Expertise", subtitle: "Engineered Prep", desc: "Mirror-flat surfaces through professional flood levelling." },
               { title: "Precision", subtitle: "Showroom Finish", desc: "Tight transitions, clean trims, and zero corners cut." },
               { title: "Cleanliness", subtitle: "Immaculate Clean-Up", desc: "No mess left behind. We treat your home like our own." },
               { title: "Legacy", subtitle: "3rd Generation", desc: "Decades of passed-down knowledge ensuring perfect results." }
             ].map((item, i) => (
-              <div key={i} className="group p-8 rounded-3xl bg-white border border-gray-200 hover:border-yellow-400/50 transition-all hover:shadow-xl shadow-sm">
-                <div className="text-xs font-bold text-yellow-600 uppercase tracking-widest mb-4 opacity-100">{item.title}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{item.subtitle}</h3>
-                <p className="text-gray-600 leading-relaxed">
+              <div key={i} className="group p-8 rounded-lg bg-white border border-gray-200 shadow-lg hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-yellow-400 transition-colors"></div>
+                <div className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">{item.title}</div>
+                <h3 className="text-xl font-bold mb-3 text-black">{item.subtitle}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
                   {item.desc}
                 </p>
               </div>
@@ -160,63 +200,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES - Redesigned */}
-      <section className="py-24" id="services">
+      {/* SERVICES - Alternating BG Gray */}
+      <section className="py-24 bg-gray-100" id="services">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-gray-300 pb-8">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Our Services</h2>
-              <p className="text-gray-600 max-w-xl text-lg">Full-service from uplift to final shine.</p>
+              <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-2">Our Capabilities</span>
+              <h2 className="text-4xl font-black text-black">Our Services</h2>
             </div>
-            <CTAButton href="/contact" variant="secondary">View All Services</CTAButton>
+            <Link href="/services" className="px-6 py-3 bg-white border-2 border-black text-black font-bold uppercase hover:bg-black hover:text-white transition-colors">
+              View All Services
+            </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <Link href="/services/floor-preparation" className="group relative h-[400px] rounded-3xl overflow-hidden block">
-              <Image
-                src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
-                alt="Residential Flooring"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <div className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">Residential</div>
-                <h3 className="text-2xl font-bold text-white mb-2">Home Installation</h3>
-                <p className="text-gray-300 text-sm line-clamp-2">Vinyl, hybrid, timber & laminate installation for new builds and renovations.</p>
+            <Link href="/services/floor-preparation" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                  alt="Residential Flooring"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                <div className="absolute bottom-0 left-0 bg-yellow-400 text-black text-xs font-bold uppercase px-4 py-2">Residential</div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow">
+                <h3 className="text-2xl font-black text-black mb-3 group-hover:text-yellow-600 transition-colors">Home Installation</h3>
+                <p className="text-gray-600 mb-6 flex-grow">Vinyl, hybrid, timber & laminate installation for new builds and renovations. We handle the entire process.</p>
+                <div className="inline-flex items-center text-black font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
+                  Learn More <span className="text-yellow-600">→</span>
+                </div>
               </div>
             </Link>
 
             {/* Card 2 */}
-            <Link href="/commercial" className="group relative h-[400px] rounded-3xl overflow-hidden block">
-              <Image
-                src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
-                alt="Commercial Flooring"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <div className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">Commercial</div>
-                <h3 className="text-2xl font-bold text-white mb-2">Commercial Projects</h3>
-                <p className="text-gray-300 text-sm line-clamp-2">Reliable solutions for offices, retail spaces, and multi-site fit-outs.</p>
+            <Link href="/commercial" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                  alt="Commercial Flooring"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                <div className="absolute bottom-0 left-0 bg-black text-white text-xs font-bold uppercase px-4 py-2">Commercial</div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow">
+                <h3 className="text-2xl font-black text-black mb-3 group-hover:text-yellow-600 transition-colors">Commercial Projects</h3>
+                <p className="text-gray-600 mb-6 flex-grow">Reliable solutions for offices, retail spaces, and multi-site fit-outs. On time and strictly to code.</p>
+                <div className="inline-flex items-center text-black font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
+                  Learn More <span className="text-yellow-600">→</span>
+                </div>
               </div>
             </Link>
 
             {/* Card 3 */}
-            <Link href="/services/floor-preparation" className="group relative h-[400px] rounded-3xl overflow-hidden block">
-              <Image
-                src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
-                alt="Floor Preparation"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <div className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2">Preparation</div>
-                <h3 className="text-2xl font-bold text-white mb-2">Flood Levelling</h3>
-                <p className="text-gray-300 text-sm line-clamp-2">Engineered subfloor correction and mirror-flat preparation.</p>
+            <Link href="/services/floor-preparation" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                  alt="Floor Preparation"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                <div className="absolute bottom-0 left-0 bg-yellow-400 text-black text-xs font-bold uppercase px-4 py-2">Preparation</div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow">
+                <h3 className="text-2xl font-black text-black mb-3 group-hover:text-yellow-600 transition-colors">Flood Levelling</h3>
+                <p className="text-gray-600 mb-6 flex-grow">Engineered subfloor correction and mirror-flat preparation. The most critical step for a perfect floor.</p>
+                <div className="inline-flex items-center text-black font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
+                  Learn More <span className="text-yellow-600">→</span>
+                </div>
               </div>
             </Link>
           </div>
