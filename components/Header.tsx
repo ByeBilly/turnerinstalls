@@ -92,7 +92,48 @@ export default function Header() {
           </div>
         </div>
       </div>
+      {/* Mobile Menu Bar - Fixed Top */}
+      <div className="md:hidden w-full flex flex-col border-t border-gray-800 bg-zinc-900/95 backdrop-blur-md sticky top-[60px] z-40">
+        <div className="flex items-center justify-between gap-2 p-2 border-b border-gray-800/50">
+          <a
+            href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "+61748022388").replace(/\s/g, "")}`}
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-yellow-500/30 bg-yellow-500/10 text-yellow-500 text-sm font-bold uppercase tracking-wide hover:bg-yellow-500/20 transition-all active:scale-95"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+            Call Now
+          </a>
+          <Link
+            href="/contact"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-600 text-black text-sm font-bold uppercase tracking-wide shadow-lg shadow-orange-500/20 hover:brightness-110 transition-all active:scale-95"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+            Get Quote
+          </Link>
+        </div>
+
+        {/* Scrollable Navigation Links */}
+        <div className="flex items-center gap-1 overflow-x-auto py-2 px-2 no-scrollbar">
+          {[
+            { label: "Home", href: "/" },
+            { label: "Residential", href: "/residential" },
+            { label: "Commercial", href: "/commercial" },
+            { label: "Floor Prep", href: "/services/floor-preparation" },
+            { label: "About", href: "/about" },
+            { label: "Contact", href: "/contact" },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors border border-white/5 ${pathname === link.href
+                  ? "bg-white/10 text-yellow-400 border-yellow-400/20"
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }
-

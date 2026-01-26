@@ -99,8 +99,8 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-gray-800">
                 <Image
-                  src="/images/family_photo.png"
-                  alt="Liam Turner and Family"
+                  src="/new_gen/cleanjob.png"
+                  alt="Professional Flooring Installation"
                   fill
                   className="object-cover"
                 />
