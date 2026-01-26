@@ -30,7 +30,7 @@ export default function About() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             Flooring is in our blood.
           </h1>
-          <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-gray-100 leading-relaxed max-w-2xl mx-auto font-medium">
             Three generations of knowledge passed down from grandfather, to father, to son.
             We don't just lay floors; we carry on a legacy of craftsmanship.
           </p>
@@ -38,15 +38,15 @@ export default function About() {
       </section>
 
       {/* THE LEGACY STORY */}
-      <section className="py-24 bg-black">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight text-gray-900">
                 From Grandfather <br />
                 <span className="text-gray-500">to Father to Son.</span>
               </h2>
-              <div className="prose prose-invert prose-lg text-gray-400">
+              <div className="prose prose-lg text-gray-600">
                 <p>
                   It started decades ago with my grandfather, a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all. He taught my father everything he knew—not just the how, but the <em>why</em>.
                 </p>
@@ -70,10 +70,10 @@ export default function About() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-10 -left-10 bg-zinc-900 border border-gray-800 p-6 rounded-2xl max-w-xs shadow-2xl">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">3rd</div>
-                <div className="text-sm font-semibold text-white">Generation Craftsman</div>
-                <div className="text-xs text-gray-400 mt-1">Carrying the torch of excellence.</div>
+              <div className="absolute -bottom-10 -left-10 bg-white border border-gray-200 p-6 rounded-2xl max-w-xs shadow-2xl">
+                <div className="text-4xl font-bold text-yellow-600 mb-2">3rd</div>
+                <div className="text-sm font-semibold text-black">Generation Craftsman</div>
+                <div className="text-xs text-gray-500 mt-1">Carrying the torch of excellence.</div>
               </div>
             </div>
           </div>
@@ -81,28 +81,28 @@ export default function About() {
       </section>
 
       {/* CORE VALUES */}
-      <section className="py-24 bg-zinc-900/30 border-y border-white/5">
+      <section className="py-24 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Stand For</h2>
-            <p className="text-gray-400">The values that have kept us in business for decades.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">What We Stand For</h2>
+            <p className="text-gray-600">The values that have kept us in business for decades.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-black border border-gray-800 p-8 rounded-3xl">
-              <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center text-yellow-400 font-bold mb-6">01</div>
-              <h3 className="text-xl font-bold mb-3">Honest Advice</h3>
-              <p className="text-gray-400">We'll tell you exactly what your floor needs, even if it means telling you not to spend money on something you don't need.</p>
+            <div className="bg-white border border-gray-200 p-8 rounded-3xl shadow-sm">
+              <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-700 font-bold mb-6">01</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Honest Advice</h3>
+              <p className="text-gray-600">We'll tell you exactly what your floor needs, even if it means telling you not to spend money on something you don't need.</p>
             </div>
-            <div className="bg-black border border-gray-800 p-8 rounded-3xl">
-              <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center text-yellow-400 font-bold mb-6">02</div>
-              <h3 className="text-xl font-bold mb-3">Zero Mess</h3>
-              <p className="text-gray-400">We respect your property. We don't use your bins, we vacuum every speck of dust, and we leave your place spotless.</p>
+            <div className="bg-white border border-gray-200 p-8 rounded-3xl shadow-sm">
+              <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-700 font-bold mb-6">02</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Zero Mess</h3>
+              <p className="text-gray-600">We respect your property. We don't use your bins, we vacuum every speck of dust, and we leave your place spotless.</p>
             </div>
-            <div className="bg-black border border-gray-800 p-8 rounded-3xl">
-              <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center text-yellow-400 font-bold mb-6">03</div>
-              <h3 className="text-xl font-bold mb-3">No Shortcuts</h3>
-              <p className="text-gray-400">From the subfloor up. If the prep isn't right, the floor isn't right. We do it once, and we do it perfectly.</p>
+            <div className="bg-white border border-gray-200 p-8 rounded-3xl shadow-sm">
+              <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-700 font-bold mb-6">03</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">No Shortcuts</h3>
+              <p className="text-gray-600">From the subfloor up. If the prep isn't right, the floor isn't right. We do it once, and we do it perfectly.</p>
             </div>
           </div>
         </div>

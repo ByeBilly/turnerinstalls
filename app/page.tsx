@@ -70,7 +70,7 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
             From residential upgrades to commercial fit-outs. We deliver engineered flood levelling,
             precision installation, and zero-mess completion.
           </p>
@@ -93,14 +93,14 @@ export default function Home() {
       </section>
 
       {/* LEGACY / STORY SECTION */}
-      <section className="py-24 md:py-32 relative bg-black">
+      <section className="py-24 md:py-32 relative bg-white">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-gray-800">
+              <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-gray-200 shadow-2xl">
                 <Image
-                  src="/new_gen/cleanjob.png"
-                  alt="Professional Flooring Installation"
+                  src="/images/IMG_6636.jpeg"
+                  alt="Staircase Flooring Installation"
                   fill
                   className="object-cover"
                 />
@@ -109,12 +109,12 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <div className="text-yellow-400 font-bold tracking-wider uppercase mb-4">Our Heritage</div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <div className="text-yellow-600 font-bold tracking-wider uppercase mb-4">Our Heritage</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
                 Three generations of <br />
                 <span className="text-gray-500">flooring expertise.</span>
               </h2>
-              <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
                   Flooring isn't just a trade for us—it's in our blood. From grandfather, to father, to son.
                 </p>
@@ -124,8 +124,8 @@ export default function Home() {
                   getting someone who learned from a quick course. You're getting a lifetime of knowledge in every square metre.
                 </p>
                 <div className="flex items-center gap-4 pt-4">
-                  <div className="h-px flex-1 bg-gray-800"></div>
-                  <span className="text-sm uppercase tracking-widest text-gray-500">Since Day One</span>
+                  <div className="h-px flex-1 bg-gray-200"></div>
+                  <span className="text-sm uppercase tracking-widest text-gray-400">Since Day One</span>
                 </div>
               </div>
             </div>
@@ -134,11 +134,11 @@ export default function Home() {
       </section>
 
       {/* WHY TURNER INSTALLS - Redesigned */}
-      <section className="py-24 bg-zinc-900/30 border-y border-white/5">
+      <section className="py-24 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Turner Installs?</h2>
-            <p className="text-gray-400">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Turner Installs?</h2>
+            <p className="text-gray-600">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -148,10 +148,10 @@ export default function Home() {
               { title: "Cleanliness", subtitle: "Immaculate Clean-Up", desc: "No mess left behind. We treat your home like our own." },
               { title: "Legacy", subtitle: "3rd Generation", desc: "Decades of passed-down knowledge ensuring perfect results." }
             ].map((item, i) => (
-              <div key={i} className="group p-8 rounded-3xl bg-black border border-gray-800 hover:border-yellow-400/30 transition-all hover:bg-zinc-900/50">
-                <div className="text-xs font-bold text-yellow-400 uppercase tracking-widest mb-4 opacity-70">{item.title}</div>
-                <h3 className="text-xl font-bold mb-3">{item.subtitle}</h3>
-                <p className="text-gray-400 leading-relaxed">
+              <div key={i} className="group p-8 rounded-3xl bg-white border border-gray-200 hover:border-yellow-400/50 transition-all hover:shadow-xl shadow-sm">
+                <div className="text-xs font-bold text-yellow-600 uppercase tracking-widest mb-4 opacity-100">{item.title}</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{item.subtitle}</h3>
+                <p className="text-gray-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -165,8 +165,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Services</h2>
-              <p className="text-gray-400 max-w-xl text-lg">Full-service from uplift to final shine.</p>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Our Services</h2>
+              <p className="text-gray-600 max-w-xl text-lg">Full-service from uplift to final shine.</p>
             </div>
             <CTAButton href="/contact" variant="secondary">View All Services</CTAButton>
           </div>
@@ -261,11 +261,11 @@ export default function Home() {
       </section>
 
       {/* SERVICE AREA MAP */}
-      <section className="py-24 bg-black">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Service Area</h2>
-            <p className="text-gray-400">Serving Brisbane, Ipswich, Gold Coast, Sunshine Coast, and Northern NSW.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Our Service Area</h2>
+            <p className="text-gray-600">Serving Brisbane, Ipswich, Gold Coast, Sunshine Coast, and Northern NSW.</p>
           </div>
 
           <ServiceAreaMapWrapper />
@@ -280,5 +280,5 @@ export default function Home() {
 import dynamic from 'next/dynamic';
 const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'), {
   ssr: false,
-  loading: () => <div className="h-[500px] w-full bg-zinc-900 animate-pulse rounded-2xl border border-gray-800" />
+  loading: () => <div className="h-[500px] w-full bg-gray-100 animate-pulse rounded-2xl border border-gray-200" />
 });

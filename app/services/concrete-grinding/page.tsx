@@ -115,12 +115,12 @@ export default function ConcreteGrinding() {
                 steps={processSteps}
             />
 
-            <div className="py-24 bg-zinc-900 border-y border-white/5">
+            <div className="py-24 bg-gray-50 border-y border-gray-200">
                 <div className="max-w-4xl mx-auto px-5 text-center">
-                    <h2 className="text-3xl font-bold mb-8">Our Grinding Fleet</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900">Our Grinding Fleet</h2>
                     <div className="flex flex-wrap justify-center gap-4">
                         {["Planetary Grinders", "Hand Grinders (Edging)", "PCD Diamonds (Glue Removal)", "Soft Bond Diamonds (Hard Concrete)", "Hard Bond Diamonds (Soft Concrete)"].map((item, i) => (
-                            <span key={i} className="px-6 py-3 bg-black border border-white/10 rounded-full text-gray-300 text-sm font-mono">
+                            <span key={i} className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 text-sm font-mono shadow-sm">
                                 {item}
                             </span>
                         ))}

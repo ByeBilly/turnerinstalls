@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
   body {
-    @apply bg-black text-gray-100 font-sans antialiased;
-    background: radial-gradient(circle at top left, #202020 0, #050505 52%, #000000 100%);
+    @apply bg-white text-gray-900 font-sans antialiased;
   }
-}
 
