@@ -64,7 +64,7 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square relative rounded-3xl overflow-hidden border border-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                  src="/images/resource_9JmHv_OmwMo1MpdbXVmkGM.png"
                   alt="Flooring Craftsmanship"
                   fill
                   className="object-cover"

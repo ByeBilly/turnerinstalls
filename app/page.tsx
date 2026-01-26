@@ -41,9 +41,9 @@ export default function Home() {
         }}
       />
 
-      {/* NEW HERO SECTION - Trade Style */}
+      {/* NEW HERO SECTION - Trade Style (Daytime) */}
       <section className="relative min-h-[85vh] flex items-center">
-        {/* Background Image with Overlay */}
+        {/* Background Image with Light Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/brisbane_skyline.png"
@@ -52,65 +52,67 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+          {/* Light/White Overlay for Daytime look */}
+          <div className="absolute inset-0 bg-white/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
         </div>
 
         {/* Hero Content - Split Layout */}
         <div className="relative z-10 max-w-7xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-left text-white">
-            <div className="inline-flex items-center gap-2 bg-yellow-400 text-black px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
+          <div className="text-left text-slate-900">
+            <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
               Brisbane & Ipswich Flooring Specialists
             </div>
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">Perfect Floor</span><br />
-              <span className="text-yellow-400">Preparation.</span>
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Perfect Floor</span><br />
+              <span className="text-yellow-500">Preparation.</span>
             </h1>
-            <p className="text-xl text-gray-200 max-w-lg mb-8 leading-relaxed font-medium">
+            <p className="text-xl text-slate-700 max-w-lg mb-8 leading-relaxed font-medium">
               Don't risk your new floor on a bad foundation. We deliver mirror-flat subfloors and precision installation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-yellow-400 text-black font-black text-lg rounded hover:bg-yellow-300 transition-all shadow-[0_0_20px_rgba(250,204,21,0.4)] text-center uppercase tracking-wide"
+                className="px-8 py-4 bg-slate-900 text-white font-black text-lg rounded hover:bg-slate-800 transition-all shadow-lg text-center uppercase tracking-wide hover:scale-105"
               >
                 Get a Free Quote
               </Link>
               <a
                 href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
-                className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded hover:bg-white hover:text-black transition-all text-center uppercase tracking-wide flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-transparent border-2 border-slate-900 text-slate-900 font-bold text-lg rounded hover:bg-slate-900 hover:text-white transition-all text-center uppercase tracking-wide flex items-center justify-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
               </a>
             </div>
 
-            <div className="mt-12 flex items-center gap-8 text-sm font-bold text-gray-400 uppercase tracking-widest">
+            <div className="mt-12 flex items-center gap-8 text-sm font-bold text-slate-600 uppercase tracking-widest">
               <div className="flex items-center gap-2">
-                <span className="text-yellow-400 text-xl">✓</span> Commercial
+                <span className="text-yellow-500 text-xl">✓</span> Commercial
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-yellow-400 text-xl">✓</span> Residential
+                <span className="text-yellow-500 text-xl">✓</span> Residential
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-yellow-400 text-xl">✓</span> Bonded
+                <span className="text-yellow-500 text-xl">✓</span> Bonded
               </div>
             </div>
           </div>
 
           {/* Hero Form / "Why Us" Box - Floating Card */}
           <div className="hidden lg:block bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
-            <h3 className="text-2xl font-black text-black mb-2 uppercase">Fast Quote</h3>
-            <p className="text-gray-500 text-sm mb-6">Enter your details and we'll call you back instantly.</p>
+            <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase">Fast Quote</h3>
+            <p className="text-slate-500 text-sm mb-6">Enter your details and we'll call you back instantly.</p>
             <form className="space-y-4" action="/contact">
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Name</label>
-                <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all" placeholder="Your Name" />
+                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
+                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900" placeholder="Your Name" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Phone</label>
-                <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all" placeholder="0400 000 000" />
+                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Phone</label>
+                <input type="tel" className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900" placeholder="0400 000 000" />
               </div>
-              <button className="w-full bg-black text-white font-bold py-4 rounded uppercase tracking-wide hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+              <button className="w-full bg-slate-900 text-white font-bold py-4 rounded uppercase tracking-wide hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
                 Get Callback
                 <span className="text-yellow-400">→</span>
               </button>
@@ -119,50 +121,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LEGACY / STORY SECTION - Alternating BG (Gray-100) */}
-      <section className="py-24 md:py-32 relative bg-gray-50 border-y border-gray-200">
+      {/* LEGACY / STORY SECTION - Alternating BG (Slate-50) */}
+      <section className="py-24 md:py-32 relative bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white shadow-2xl">
-                <div className="absolute inset-0 border-2 border-black/10 z-10 pointer-events-none rounded-lg"></div>
+                <div className="absolute inset-0 border-2 border-slate-900/10 z-10 pointer-events-none rounded-lg"></div>
                 <Image
-                  src="/images/IMG_6636.jpeg"
+                  src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
                   alt="Staircase Flooring Installation"
                   fill
                   className="object-cover"
                 />
               </div>
               {/* Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-black text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
+              <div className="absolute -bottom-6 -right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
                 <div className="text-3xl font-black text-yellow-400">15+</div>
                 <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
               </div>
             </div>
             <div>
-              <div className="inline-block bg-white border border-gray-200 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-black mb-6 shadow-sm">Turners Installs</div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-black">
-                Three generations of <br />
-                <span className="text-yellow-500">flooring expertise.</span>
+              <div className="inline-block bg-white border border-slate-200 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-slate-900 mb-6 shadow-sm">The Turner Standard</div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-slate-900">
+                Precision preparation. <br />
+                <span className="text-yellow-500">Flawless results.</span>
               </h2>
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
+              <div className="space-y-6 text-lg text-slate-700 leading-relaxed font-medium">
                 <p>
-                  Flooring isn't just a trade for us—it's in our blood. From grandfather, to father, to son.
+                  A stunning floor starts long before the planks are laid. It begins with a mirror-flat subfloor and obsessive attention to detail.
                 </p>
                 <p>
-                  Liam Turner represents the third generation of floor layers in our family. The skills,
-                  techniques, and obsessive attention to detail passed down through the decades mean you aren't
-                  getting someone who learned from a quick course. You're getting a lifetime of knowledge in every square metre.
+                  What you see here is the standard we deliver on every project. We don't just install flooring; we engineer the perfect foundation to ensure your investment looks incredible and stands the test of time. No bounces, no hollow spots, just perfection.
                 </p>
                 <div className="flex items-center gap-6 pt-6">
                   <div className="flex flex-col">
-                    <span className="text-3xl font-black text-black">100%</span>
-                    <span className="text-xs uppercase font-bold text-gray-500">Satisfaction</span>
+                    <span className="text-3xl font-black text-slate-900">100%</span>
+                    <span className="text-xs uppercase font-bold text-slate-500">Level Finish</span>
                   </div>
-                  <div className="w-px h-12 bg-gray-300"></div>
+                  <div className="w-px h-12 bg-slate-300"></div>
                   <div className="flex flex-col">
-                    <span className="text-3xl font-black text-black">Zero</span>
-                    <span className="text-xs uppercase font-bold text-gray-500">Shortcuts Taken</span>
+                    <span className="text-3xl font-black text-slate-900">Zero</span>
+                    <span className="text-xs uppercase font-bold text-slate-500">Compromises</span>
                   </div>
                 </div>
               </div>
@@ -175,9 +175,9 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-black mb-4 text-black uppercase tracking-tight">Why Choose Turner Installs?</h2>
+            <h2 className="text-3xl md:text-4xl font-black mb-4 text-slate-900 uppercase tracking-tight">Why Choose Turner Installs?</h2>
             <div className="h-1 w-20 bg-yellow-400 mx-auto my-6"></div>
-            <p className="text-gray-600 font-medium">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
+            <p className="text-slate-600 font-medium">The difference isn't just in how it looks on day one, but how it lasts for years to come.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -187,11 +187,11 @@ export default function Home() {
               { title: "Cleanliness", subtitle: "Immaculate Clean-Up", desc: "No mess left behind. We treat your home like our own." },
               { title: "Legacy", subtitle: "3rd Generation", desc: "Decades of passed-down knowledge ensuring perfect results." }
             ].map((item, i) => (
-              <div key={i} className="group p-8 rounded-lg bg-white border border-gray-200 shadow-lg hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-yellow-400 transition-colors"></div>
-                <div className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">{item.title}</div>
-                <h3 className="text-xl font-bold mb-3 text-black">{item.subtitle}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
+              <div key={i} className="group p-8 rounded-lg bg-white border border-slate-200 shadow-lg hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-slate-200 group-hover:bg-yellow-400 transition-colors"></div>
+                <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">{item.title}</div>
+                <h3 className="text-xl font-bold mb-3 text-slate-900">{item.subtitle}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
                   {item.desc}
                 </p>
               </div>
@@ -200,15 +200,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES - Alternating BG Gray */}
-      <section className="py-24 bg-gray-100" id="services">
+      {/* SERVICES - Alternating BG Slate-100 */}
+      <section className="py-24 bg-slate-100" id="services">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-gray-300 pb-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-slate-300 pb-8">
             <div>
               <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-2">Our Capabilities</span>
-              <h2 className="text-4xl font-black text-black">Our Services</h2>
+              <h2 className="text-4xl font-black text-slate-900">Our Services</h2>
             </div>
-            <Link href="/services" className="px-6 py-3 bg-white border-2 border-black text-black font-bold uppercase hover:bg-black hover:text-white transition-colors">
+            <Link href="/services" className="px-6 py-3 bg-white border-2 border-slate-900 text-slate-900 font-bold uppercase hover:bg-slate-900 hover:text-white transition-colors">
               View All Services
             </Link>
           </div>
@@ -223,13 +223,13 @@ export default function Home() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                <div className="absolute bottom-0 left-0 bg-yellow-400 text-black text-xs font-bold uppercase px-4 py-2">Residential</div>
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors" />
+                <div className="absolute bottom-0 left-0 bg-yellow-400 text-slate-900 text-xs font-bold uppercase px-4 py-2">Residential</div>
               </div>
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-black text-black mb-3 group-hover:text-yellow-600 transition-colors">Home Installation</h3>
-                <p className="text-gray-600 mb-6 flex-grow">Vinyl, hybrid, timber & laminate installation for new builds and renovations. We handle the entire process.</p>
-                <div className="inline-flex items-center text-black font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
+                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-yellow-600 transition-colors">Home Installation</h3>
+                <p className="text-slate-600 mb-6 flex-grow">Vinyl, hybrid, timber & laminate installation for new builds and renovations. We handle the entire process.</p>
+                <div className="inline-flex items-center text-slate-900 font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
                   Learn More <span className="text-yellow-600">→</span>
                 </div>
               </div>
@@ -244,13 +244,13 @@ export default function Home() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                <div className="absolute bottom-0 left-0 bg-black text-white text-xs font-bold uppercase px-4 py-2">Commercial</div>
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors" />
+                <div className="absolute bottom-0 left-0 bg-slate-900 text-white text-xs font-bold uppercase px-4 py-2">Commercial</div>
               </div>
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-black text-black mb-3 group-hover:text-yellow-600 transition-colors">Commercial Projects</h3>
-                <p className="text-gray-600 mb-6 flex-grow">Reliable solutions for offices, retail spaces, and multi-site fit-outs. On time and strictly to code.</p>
-                <div className="inline-flex items-center text-black font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
+                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-yellow-600 transition-colors">Commercial Projects</h3>
+                <p className="text-slate-600 mb-6 flex-grow">Reliable solutions for offices, retail spaces, and multi-site fit-outs. On time and strictly to code.</p>
+                <div className="inline-flex items-center text-slate-900 font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
                   Learn More <span className="text-yellow-600">→</span>
                 </div>
               </div>
@@ -265,13 +265,13 @@ export default function Home() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                <div className="absolute bottom-0 left-0 bg-yellow-400 text-black text-xs font-bold uppercase px-4 py-2">Preparation</div>
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors" />
+                <div className="absolute bottom-0 left-0 bg-yellow-400 text-slate-900 text-xs font-bold uppercase px-4 py-2">Preparation</div>
               </div>
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-black text-black mb-3 group-hover:text-yellow-600 transition-colors">Flood Levelling</h3>
-                <p className="text-gray-600 mb-6 flex-grow">Engineered subfloor correction and mirror-flat preparation. The most critical step for a perfect floor.</p>
-                <div className="inline-flex items-center text-black font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
+                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-yellow-600 transition-colors">Flood Levelling</h3>
+                <p className="text-slate-600 mb-6 flex-grow">Engineered subfloor correction and mirror-flat preparation. The most critical step for a perfect floor.</p>
+                <div className="inline-flex items-center text-slate-900 font-bold uppercase text-sm tracking-wide gap-2 group-hover:gap-3 transition-all">
                   Learn More <span className="text-yellow-600">→</span>
                 </div>
               </div>
@@ -294,22 +294,22 @@ export default function Home() {
       />
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-yellow-400 text-black border-b border-black/10">
+      <section className="py-24 bg-yellow-400 text-slate-900 border-b border-slate-900/10">
         <div className="max-w-4xl mx-auto px-5 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to transform your floor?</h2>
-          <p className="text-xl text-black/80 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-900/80 mb-10 max-w-2xl mx-auto">
             Get the finish you deserve with the team that cares about the details.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-10 py-5 bg-black text-white font-bold text-xl rounded-full hover:bg-gray-900 transition-all hover:scale-105"
+              className="px-10 py-5 bg-slate-900 text-white font-bold text-xl rounded-full hover:bg-slate-800 transition-all hover:scale-105"
             >
               Get a Quote
             </Link>
             <a
               href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
-              className="px-10 py-5 bg-transparent border-2 border-black/20 text-black font-bold text-xl rounded-full hover:bg-black/5 transition-all"
+              className="px-10 py-5 bg-transparent border-2 border-slate-900/20 text-slate-900 font-bold text-xl rounded-full hover:bg-slate-900/5 transition-all"
             >
               Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
             </a>

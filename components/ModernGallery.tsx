@@ -12,11 +12,11 @@ export default function ModernGallery({ images, title = "Recent Projects" }: Mod
     const displayImages = images.slice(0, 4);
 
     return (
-        <section className="py-24 bg-zinc-950 border-t border-white/5">
+        <section className="py-24 bg-white border-t border-slate-200">
             <div className="max-w-7xl mx-auto px-5">
                 <div className="text-center md:text-left mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">{title}</h2>
-                    <p className="text-gray-400 max-w-2xl">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900">{title}</h2>
+                    <p className="text-slate-600 max-w-2xl">
                         See the quality of our preparation and finishing work. Real projects, real results.
                     </p>
                 </div>
@@ -32,7 +32,7 @@ export default function ModernGallery({ images, title = "Recent Projects" }: Mod
                         if (i === 0 || i === 3) spanClass = "md:col-span-8";
 
                         return (
-                            <div key={i} className={`${spanClass} relative rounded-2xl overflow-hidden group bg-zinc-900 border border-white/5`}>
+                            <div key={i} className={`${spanClass} relative rounded-2xl overflow-hidden group bg-slate-100 border border-slate-200 shadow-sm`}>
                                 <Image
                                     src={src}
                                     alt={`Gallery Image ${i + 1}`}
@@ -40,7 +40,7 @@ export default function ModernGallery({ images, title = "Recent Projects" }: Mod
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                             </div>
                         )
                     })}

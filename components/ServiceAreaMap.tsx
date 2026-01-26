@@ -32,14 +32,14 @@ export default function ServiceAreaMap() {
     }, []);
 
     if (!isMounted) {
-        return <div className="h-[400px] w-full bg-zinc-900 animate-pulse rounded-xl" />;
+        return <div className="h-[400px] w-full bg-slate-100 animate-pulse rounded-xl" />;
     }
 
     const position: [number, number] = [-27.567, 152.963]; // Oxley coordinates approx
     const radius = 250000; // 250km in meters
 
     return (
-        <div className="h-[500px] w-full rounded-2xl overflow-hidden border border-gray-800 relative z-0">
+        <div className="h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200 relative z-0 shadow-md">
             <MapContainer
                 center={position}
                 zoom={7}
@@ -47,16 +47,17 @@ export default function ServiceAreaMap() {
                 style={{ height: "100%", width: "100%" }}
                 className="z-0"
             >
+                {/* Switch to Light Tiles for consistency */}
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                 />
 
-                {/* 250km Radius Circle */}
+                {/* 250km Radius Circle - Navy Blue Border */}
                 <Circle
                     center={position}
                     radius={radius}
-                    pathOptions={{ color: '#FACC15', fillColor: '#FACC15', fillOpacity: 0.1, weight: 2 }}
+                    pathOptions={{ color: '#0f172a', fillColor: '#3b82f6', fillOpacity: 0.1, weight: 1.5, dashArray: '5, 5' }}
                 />
 
                 {/* Center Marker */}
@@ -67,7 +68,7 @@ export default function ServiceAreaMap() {
                 </Marker>
 
                 <div className="leaflet-bottom leaflet-right" style={{ pointerEvents: 'none' }}>
-                    <div className="leaflet-control m-4 p-2 bg-black/80 text-yellow-500 text-xs font-bold rounded border border-yellow-500/50">
+                    <div className="leaflet-control m-4 p-2 bg-white/90 text-slate-900 text-xs font-bold rounded border border-slate-200 shadow-lg backdrop-blur-sm">
                         250km Service Radius
                     </div>
                 </div>
