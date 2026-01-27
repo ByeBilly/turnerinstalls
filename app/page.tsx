@@ -260,7 +260,7 @@ export default function Home() {
             <Link href="/services/floor-preparation" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                  src="/images/new_prep_61981.jpg"
                   alt="Floor Preparation"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -285,7 +285,7 @@ export default function Home() {
         title="Recent Transformations"
         images={[
           "/images/new_prep_62113.jpg",
-          "/images/new_prep_61981.jpg",
+          "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
           "/images/new_prep_61801.jpg",
           "/images/new_prep_61734.jpg",
           "/images/new_prep_61961.jpg",
