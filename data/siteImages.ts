@@ -9,29 +9,29 @@ export type ImageAsset = {
 export const siteImages = {
     floorPrep: {
         hero: {
-            src: "/installspics/prep/622022549_906959995126564_7888490141707035731_n.jpg",
-            alt: "Professional Concrete Floor Preparation",
+            src: "/installspics/prep/prepare/we can make even this slab look brand new.jpg",
+            alt: "Restoring Damaged Concrete Slabs to Like-New Condition",
             tags: ["prep", "hero"]
         },
         beforeAfter: [
             {
-                before: { src: "/installspics/damage/621166857_885739330891673_3503451650253763148_n.jpg", alt: "Cracked & Damaged Slab" },
-                after: { src: "/installspics/prep/622054382_2262228947636956_5246768817063027151_n.jpg", alt: "Repaired & Smoothed" }
+                before: { src: "/installspics/prep/damage/damage 1.jpg", alt: "Severely Damaged Substrate" },
+                after: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Mirror Finish Flood Levelling on Suspended Slab" }
             },
             {
-                before: { src: "/installspics/damage/622128087_4377674519131721_4905055129240349322_n.jpg", alt: "Uneven Substrate" },
-                after: { src: "/installspics/prep/floods/image7.jpeg", alt: "Flood Leveled Surface" }
+                before: { src: "/installspics/prep/level/lows identified and filled.jpg", alt: "Identifying Low Spots in Slab" },
+                after: { src: "/installspics/prep/level/levelled area using engineered floor levelling compounds.jpg", alt: "Levelled with Engineered Compounds" }
             }
         ],
         unacceptable: [
-            { src: "/installspics/damage/621166857_885739330891673_3503451650253763148_n.jpg", alt: "Structural Cracking" },
-            { src: "/installspics/damage/622128087_4377674519131721_4905055129240349322_n.jpg", alt: "Surface Contamination" },
-            { src: "/installspics/prep/floods/623811068_863910639969499_2854463971981847763_n.jpg", alt: "Rough Pour" }
+            { src: "/installspics/prep/damage/water damage.jpg", alt: "Water Damaged Substrate" },
+            { src: "/installspics/prep/uplift/glue.jpg", alt: "Heavy Glue Residue" },
+            { src: "/installspics/prep/repair/We would prefer not to have to fix other installers installations. These sorts of issues are avoided by choosing us first. Obvious cause non levelled floor.jpg", alt: "Installation Failure due to Poor Prep" }
         ] as ImageAsset[],
         process: [
-            { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Mechanical Grinding", tags: ["grinding"] },
-            { src: "/installspics/prep/622480460_1220199480269397_437481934661813736_n.jpg", alt: "Surface Priming", tags: ["priming"] },
-            { src: "/installspics/prep/floods/image7.jpeg", alt: "Levelling Compound", tags: ["levelling"] },
+            { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Clean Uplift & Removal", tags: ["uplift"] },
+            { src: "/installspics/prep/level/filling the low parts, this ensures a perfect install whrn the planks are laid.jpg", alt: "Filling Low Spots for Perfect Install", tags: ["levelling"] },
+            { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling", tags: ["flood"] },
         ] as ImageAsset[]
     },
     grinding: {
@@ -42,22 +42,22 @@ export const siteImages = {
         },
         actionShots: [
             { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Dustless Grinding System" },
-            { src: "/installspics/prep/622480460_1220199480269397_437481934661813736_n.jpg", alt: "Surface Profiling" },
-            { src: "/installspics/prep/624601652_1947091935846037_42213469209580663_n.jpg", alt: "Edging Work" },
+            { src: "/installspics/prep/level/showing how sliding doors are installed too low, if they cant be raised or replaced concrete needs grinding down to suitable height.jpg", alt: "Grinding for Height Clearance" },
+            { src: "/installspics/prep/grinding/619904184_2167234590687272_1260573441369883843_n.jpg", alt: "Surface Preparation Grinding" }
         ] as ImageAsset[],
         closeups: [
-            { src: "/installspics/prep/622022549_906959995126564_7888490141707035731_n.jpg", alt: "Clean Profiled Slab" },
+            { src: "/installspics/prep/level/filled lowsand high spots grinded.jpg", alt: "Filled Lows and Grinded Highs" },
         ] as ImageAsset[]
     },
     commercial: {
         hero: {
-            src: "/installspics/finished/resource_8hoRmbeN0wZaeTsIWHp4VF.png",
-            alt: "Commercial Office Flooring Project",
+            src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg",
+            alt: "Professional Commercial Installation Working with Other Trades",
             tags: ["commercial", "hero"]
         },
         projectShots: [
-            { src: "/installspics/finished/resource_8hoRmbeN0wZaeTsIWHp4VF.png", alt: "Office Fitout" },
-            { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Retail Space" },
+            { src: "/installspics/commercial/Commercial installations whilst working productively with other trades always.jpg", alt: "Coordinated Commercial Work" },
+            { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Retail Space Finishing" },
             { src: "/installspics/finished/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Commercial Lobby" },
             { src: "/installspics/finished/resource_9JmHv_OmwMo1MpdbXVmkGM.png", alt: "Showroom Floor" }
         ] as ImageAsset[],
@@ -65,17 +65,17 @@ export const siteImages = {
     },
     home: {
         transformations: [
-            { src: "/installspics/finished/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Staircase Installation" },
-            { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Living Area Transformation" },
-            { src: "/installspics/laying/619925254_908172228218921_6998300752197139231_n.jpg", alt: "Installation in Progress" },
-            { src: "/installspics/laying/621997835_1505921570505186_593915977347517883_n.jpg", alt: "Precision Cuts" },
-            { src: "/installspics/finished/resource_9fVqoabE10H5PDfVW4rOXY.png", alt: "Modern Timber Finish" },
-            { src: "/installspics/finished/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Hybrid Flooring" },
+            { src: "/installspics/laying/newly laid timber for stairs.jpeg", alt: "Newly Laid Timber for Stairs" },
+            { src: "/installspics/laying/We aim for minimal mess during the install with cutting tables set up in suitable areas.jpeg", alt: "Minimal Mess Installation with Setup Cutting Tables" },
+            { src: "/installspics/laying/Laying of the timber floors before Carpenters fit the skirting boards is the optimal way to unsure beautiful finish to walls.jpg", alt: "Timber Floors Laid Before Skirting for Perfect Finish" },
+            { src: "/installspics/laying/Furniture sometimes requires us to juggle it around during installation if it can't be removed.jpg", alt: "Careful Installation Around Furniture" },
+            { src: "/installspics/prep/floods/mirror glass level flood.jpg", alt: "Mirror Glass Level Flood" },
+            { src: "/installspics/finished/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Hybrid Flooring Finish" },
         ] as ImageAsset[],
         services: {
             residential: { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Residential Flooring" },
-            commercial: { src: "/installspics/finished/resource_8hoRmbeN0wZaeTsIWHp4VF.png", alt: "Commercial Flooring" },
-            prep: { src: "/installspics/prep/622022549_906959995126564_7888490141707035731_n.jpg", alt: "Floor Preparation" }
+            commercial: { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Commercial Flooring" },
+            prep: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Floor Preparation" }
         }
     }
 };
