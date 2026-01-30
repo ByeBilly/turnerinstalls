@@ -12,9 +12,22 @@ export interface SuburbData {
     archetype: HousingArchetype;
     landmarks?: string[];
     image?: { src: string; alt: string };
+    galleryImages?: { src: string; alt: string }[];
 }
 
 export const suburbs: SuburbData[] = [
+    // BRISBANE - GRACEVILLE
+    {
+        name: "Graceville",
+        slug: "graceville",
+        region: "brisbane",
+        postcode: "4075",
+        description: "Renowned for its heritage Queenslanders and riverfront homes. We provide expert subfloor preparation for Graceville renovations, ensuring old timber structures are stable and level.",
+        archetype: "historic",
+        landmarks: ["Graceville Ave", "Honour Ave"],
+        image: { src: "/new_gen/hero/Graceville.jpg", alt: "Graceville Floor Preparation" }
+    },
+
     // GOLD COAST - HIGHLIFE / APARTMENTS
     {
         name: "Surfers Paradise",

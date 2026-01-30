@@ -165,8 +165,8 @@ export default function SuburbPage({ params }: { params: { region: string; subur
             />
 
             <ModernGallery
-                title={`Work near ${suburb.name}`}
-                images={siteImages.home.transformations}
+                title={suburb.galleryImages ? `Recent ${suburb.name} Transformations` : `Work near ${suburb.name}`}
+                images={suburb.galleryImages || siteImages.home.transformations}
                 limit={4}
             />
 
