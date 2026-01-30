@@ -79,11 +79,11 @@ export const siteImages = {
             { src: "/installspics/finished/image6.jpeg", alt: "Premium Timber Finish" },
             { src: "/installspics/finished/image12.jpeg", alt: "Precision Joinery & Installation" },
             { src: "/installspics/finished/image8.jpeg", alt: "Rich Red Timber Flooring Detail" },
-            { src: "/installspics/finished/624334347_867521999407008_3752902728129270114_n.jpg", alt: "Seamless Timber Plank Installation" },
-            { src: "/installspics/finished/625202306_2029285471055177_1026514747943361388_n.jpg", alt: "Seamless Hybrid Flooring" },
-            { src: "/installspics/finished/619897238_955768730356309_1546209723191758279_n.jpg", alt: "Hallway Perfection" },
-            { src: "/installspics/finished/624097644_1270305948320730_2071884955805842883_n.jpg", alt: "Clean Lines & Transitions" },
-            { src: "/installspics/finished/620002964_1401786438066959_9031895244339768518_n.jpg", alt: "Expert Finish" }
+            { src: "/installspics/finished/newfarm1.jpeg", alt: "Seamless Timber Plank Installation" },
+            { src: "/installspics/finished/paddington2.jpg", alt: "Seamless Hybrid Flooring" },
+            { src: "/installspics/finished/thegap_staircase.jpg", alt: "Hallway & Stair Perfection" },
+            { src: "/installspics/finished/newfarm2.jpg", alt: "Clean Lines & Transitions" },
+            { src: "/installspics/finished/kenmore1.jpg", alt: "Expert Finish" }
         ] as ImageAsset[],
         installation: [
             // Work In Progress / Laying Shots
