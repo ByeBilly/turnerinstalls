@@ -8,10 +8,16 @@ interface GalleryImage {
 interface ModernGalleryProps {
     images: GalleryImage[];
     title?: string;
+    description?: string;
     limit?: number;
 }
 
-export default function ModernGallery({ images, title = "Recent Projects", limit = 4 }: ModernGalleryProps) {
+export default function ModernGallery({
+    images,
+    title = "Recent Projects",
+    description = "See the quality of our preparation and finishing work. Real projects, real results.",
+    limit = 4
+}: ModernGalleryProps) {
     const displayImages = limit > 0 ? images.slice(0, limit) : images;
 
     return (
@@ -20,7 +26,7 @@ export default function ModernGallery({ images, title = "Recent Projects", limit
                 <div className="text-center md:text-left mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900">{title}</h2>
                     <p className="text-slate-600 max-w-2xl">
-                        See the quality of our preparation and finishing work. Real projects, real results.
+                        {description}
                     </p>
                 </div>
 

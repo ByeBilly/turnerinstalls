@@ -116,101 +116,123 @@ export default function SuburbPage({ params }: { params: { region: string; subur
 
     return (
         <>
-            <ServiceHero
-                title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
-                subtitle={content.heroSubtitle}
-                imagePath={suburb.image?.src || "/images/brisbane_skyline.png"}
-                label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
-            >
-                {/* INJECT HERO FORM */}
-                <HeroForm />
-            </ServiceHero>
+    // --- HERO IMAGE LOGIC ---
+            // 1. Suburb Specific Image (Highest Priority)
+            // 2. Region Specific Fallback (Gold Coast vs Brisbane)
+            // 3. Default Site Hero
+            let heroImage = suburb.image?.src;
+            if (!heroImage) {
+        if (suburb.region === 'gold-coast') {
+                heroImage = "/images/gold_coast_skyline.jpg"; // You'll need to ensure this image exists or use a placeholder
+        } else {
+                heroImage = "/images/brisbane_skyline.png";
+        }
+    }
 
-            {/* INJECT TRUST BAR */}
-            <TrustBar />
+    // --- GALLERY LOGIC ---
+    // If we have specific gallery images for the suburb, use them.
+    // Otherwise, use the standard transformation set.
+    const galleryImages = suburb.galleryImages && suburb.galleryImages.length > 0
+            ? suburb.galleryImages
+            : siteImages.home.transformations;
 
-            {/* INJECT STORY SECTION */}
-            <StorySection locationName={suburb.name} />
+            return (
+            <>
+                <ServiceHero
+                    title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
+                    subtitle={content.heroSubtitle}
+                    imagePath={heroImage}
+                    label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
+                >
+                    {/* INJECT HERO FORM */}
+                    <HeroForm />
+                </ServiceHero>
 
-            <TechSpecs
-                title={content.introTitle}
-                description={<>
-                    <p className="mb-4">{content.introText}</p>
-                    {suburb.landmarks && suburb.landmarks.length > 0 && (
-                        <p className="text-sm text-gray-400 mt-2">
-                            <em>Serving projects near {suburb.landmarks.join(', ')} and surrounding streets of {suburb.name} ({suburb.postcode}).</em>
-                        </p>
-                    )}
-                </>}
-                features={specs}
-            />
+                {/* INJECT TRUST BAR */}
+                <TrustBar />
 
-            <FeaturesGrid
-                title={`Full Service Flooring in ${suburb.name}`}
-                features={suitableFor}
-                columns={4}
-            />
+                {/* INJECT STORY SECTION */}
+                <StorySection locationName={suburb.name} />
 
-            {/* INJECT WHY CHOOSE US */}
-            <WhyChooseUs locationName={suburb.name} />
+                <TechSpecs
+                    title={content.introTitle}
+                    description={<>
+                        <p className="mb-4">{content.introText}</p>
+                        {suburb.landmarks && suburb.landmarks.length > 0 && (
+                            <p className="text-sm text-gray-400 mt-2">
+                                <em>Serving projects near {suburb.landmarks.join(', ')} and surrounding streets of {suburb.name} ({suburb.postcode}).</em>
+                            </p>
+                        )}
+                    </>}
+                    features={specs}
+                />
 
-            <ProcessSteps
-                title="Our Process"
-                steps={[
-                    { title: "Consult", description: `We visit your ${suburb.name} site to assess specific access and power requirements.` },
-                    { title: "Prep", description: "Grinding, stripping, or repairing the subfloor." },
-                    { title: "Level", description: "Applying flood coating if required for a mirror finish." },
-                    { title: "Handover", description: "Site left clean, vacuumed, and ready for installation." }
-                ]}
-            />
+                <FeaturesGrid
+                    title={`Full Service Flooring in ${suburb.name}`}
+                    features={suitableFor}
+                    columns={4}
+                />
 
-            <ModernGallery
-                title={suburb.galleryImages ? `Recent ${suburb.name} Transformations` : `Work near ${suburb.name}`}
-                images={suburb.galleryImages || siteImages.home.transformations}
-                limit={4}
-            />
+                {/* INJECT WHY CHOOSE US */}
+                <WhyChooseUs locationName={suburb.name} />
 
+                <ProcessSteps
+                    title="Our Process"
+                    steps={[
+                        { title: "Consult", description: `We visit your ${suburb.name} site to assess specific access and power requirements.` },
+                        { title: "Prep", description: "Grinding, stripping, or repairing the subfloor." },
+                        { title: "Level", description: "Applying flood coating if required for a mirror finish." },
+                        { title: "Handover", description: "Site left clean, vacuumed, and ready for installation." }
+                    ]}
+                />
 
-            <FAQSection items={[
-                {
-                    question: `Do you charge for travel to ${suburb.name}?`,
-                    answer: "No, we have teams stationed across Brisbane and the Gold Coast, so we don't charge extra travel fees."
-                },
-                {
-                    question: "How quickly can you start?",
-                    answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
-                }
-            ]} />
+                <ModernGallery
+                    title={`Recent transformations in and around ${suburb.name}`}
+                    description="See the quality of our preparation and finishing work. Real projects, real results."
+                    images={galleryImages}
+                    limit={4}
+                />
 
-            <InternalLinks type="services" />
+                <FAQSection items={[
+                    {
+                        question: `Do you charge for travel to ${suburb.name}?`,
+                        answer: "No, we have teams stationed across Brisbane and the Gold Coast, so we don't charge extra travel fees."
+                    },
+                    {
+                        question: "How quickly can you start?",
+                        answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
+                    }
+                ]} />
 
-            <SEOCTA
-                title={`Ready to prep your ${suburb.name} property?`}
-                subtitle="Get a free quote from the local experts today."
-                buttonText="Get Local Quote"
-            />
+                <InternalLinks type="services" />
 
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": `Turner Installs - ${suburb.name}`,
-                        "description": `Professional floor preparation services in ${suburb.name}, ${suburb.region}.`,
-                        "telephone": "+61 7480 223 88",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": suburb.name,
-                            "addressRegion": "QLD",
-                            "postalCode": suburb.postcode,
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": [suburb.name],
-                        "priceRange": "$$"
-                    })
-                }}
-            />
-        </>
-    );
+                <SEOCTA
+                    title={`Ready to prep your ${suburb.name} property?`}
+                    subtitle="Get a free quote from the local experts today."
+                    buttonText="Get Local Quote"
+                />
+
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "LocalBusiness",
+                            "name": `Turner Installs - ${suburb.name}`,
+                            "description": `Professional floor preparation services in ${suburb.name}, ${suburb.region}.`,
+                            "telephone": "+61 7480 223 88",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": suburb.name,
+                                "addressRegion": "QLD",
+                                "postalCode": suburb.postcode,
+                                "addressCountry": "AU"
+                            },
+                            "areaServed": [suburb.name],
+                            "priceRange": "$$"
+                        })
+                    }}
+                />
+            </>
+            );
 }
