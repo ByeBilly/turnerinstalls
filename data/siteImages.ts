@@ -67,12 +67,9 @@ export const siteImages = {
         },
         projectShots: [
             { src: "/installspics/commercial/Commercial installations whilst working productively with other trades always.jpg", alt: "Coordinated Commercial Work" },
-            { src: "/installspics/promo/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Retail Space Finishing" },
-            { src: "/installspics/promo/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Commercial Lobby" },
-            { src: "/installspics/promo/resource_9JmHv_OmwMo1MpdbXVmkGM.png", alt: "Showroom Floor" },
-            // Expanded Commercial-Suitable Shots
-            { src: "/installspics/promo/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Large Area Hybrid Flooring" },
-            { src: "/installspics/promo/resource_8yJmk1mavUh27w1xuwpkOj.png", alt: "Clean Modern Installation" },
+            { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Large Scale Commercial Flooring" },
+            { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Commercial Concrete Preparation" },
+            { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Industrial Grade Levelling" },
         ] as ImageAsset[],
         teamShots: [] as ImageAsset[]
     },

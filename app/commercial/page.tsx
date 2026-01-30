@@ -100,12 +100,6 @@ export default function Commercial() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-lg">
-                  <div className="text-sm text-slate-500 uppercase tracking-widest mb-1 font-bold">Recent Project</div>
-                  <h3 className="text-xl font-bold text-slate-900">Office Fit-out, Brisbane CBD</h3>
-                </div>
-              </div>
             </div>
           </div>
         </div>
