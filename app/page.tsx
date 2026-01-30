@@ -61,11 +61,11 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-left text-slate-900">
-            <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
+          <div className="text-left text-slate-900 w-full overflow-hidden">
+            <div className="inline-block bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6 max-w-full whitespace-normal leading-relaxed">
               Brisbane & Ipswich Flooring Specialists
             </div>
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900 break-words">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Perfect Floor</span><br />
               <span className="text-yellow-500">Preparation.</span>
             </h1>
