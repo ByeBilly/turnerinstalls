@@ -18,8 +18,8 @@ export default function About() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/installspics/finished/image12.jpeg"
-            alt="Turner Installs Craftsmanship - Precision Joinery"
+            src="/installspics/finished/brisbane views.jpg"
+            alt="Brisbane Views - Turner Installs Projects"
             fill
             className="object-cover"
             priority
@@ -67,8 +67,8 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square relative rounded-3xl overflow-hidden border border-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="/installspics/finished/image6.jpeg"
-                  alt="Flooring Craftsmanship"
+                  src="/new_gen/hero/Graceville.jpg"
+                  alt="Turner Installs - Quality Flooring"
                   fill
                   className="object-cover"
                 />
