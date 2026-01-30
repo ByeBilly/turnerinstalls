@@ -78,22 +78,15 @@ export const siteImages = {
     },
     home: {
         transformations: [
-            // Main Transformation Gallery (Mixed Finished & Laying)
-            { src: "/installspics/laying/newly laid timber for stairs.jpeg", alt: "Newly Laid Timber for Stairs" },
-            { src: "/installspics/laying/We aim for minimal mess during the install with cutting tables set up in suitable areas.jpeg", alt: "Minimal Mess Installation with Setup Cutting Tables" },
-            { src: "/installspics/laying/Laying of the timber floors before Carpenters fit the skirting boards is the optimal way to unsure beautiful finish to walls.jpg", alt: "Timber Floors Laid Before Skirting for Perfect Finish" },
-            { src: "/installspics/laying/Furniture sometimes requires us to juggle it around during installation if it can't be removed.jpg", alt: "Careful Installation Around Furniture" },
-            { src: "/installspics/prep/floods/mirror glass level flood.jpg", alt: "Mirror Glass Level Flood" },
-            { src: "/installspics/promo/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Hybrid Flooring Finish" },
-            // Expanded "Finished" Set
-            { src: "/installspics/promo/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Staircase Installation" },
-            { src: "/installspics/promo/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Modern Living Room" },
-            { src: "/installspics/finished/image6.jpeg", alt: "Completed Flooring Install" },
-            { src: "/installspics/finished/image8.jpeg", alt: "Timber Finish" },
-            { src: "/installspics/finished/image12.jpeg", alt: "Precision Joinery" },
-            { src: "/installspics/finished/624334347_867521999407008_3752902728129270114_n.jpg", alt: "Living Space Upgrade" },
-            { src: "/installspics/finished/625202306_2029285471055177_1026514747943361388_n.jpg", alt: "Open Plan Finishing" },
-            { src: "/installspics/finished/619897238_955768730356309_1546209723191758279_n.jpg", alt: "Hallway Installation" }
+            // Main Transformation Gallery (Strictly Finished Shots)
+            { src: "/installspics/finished/image6.jpeg", alt: "Premium Timber Finish" },
+            { src: "/installspics/finished/image12.jpeg", alt: "Precision Joinery & Installation" },
+            { src: "/installspics/finished/image8.jpeg", alt: "Modern Living Space" },
+            { src: "/installspics/finished/624334347_867521999407008_3752902728129270114_n.jpg", alt: "Open Plan Transformation" },
+            { src: "/installspics/finished/625202306_2029285471055177_1026514747943361388_n.jpg", alt: "Seamless Hybrid Flooring" },
+            { src: "/installspics/finished/619897238_955768730356309_1546209723191758279_n.jpg", alt: "Hallway Perfection" },
+            { src: "/installspics/finished/624097644_1270305948320730_2071884955805842883_n.jpg", alt: "Clean Lines & Transitions" },
+            { src: "/installspics/finished/620002964_1401786438066959_9031895244339768518_n.jpg", alt: "Expert Finish" }
         ] as ImageAsset[],
         installation: [
             // Work In Progress / Laying Shots
