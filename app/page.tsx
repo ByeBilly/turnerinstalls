@@ -3,6 +3,7 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ModernGallery from "@/components/ModernGallery";
+import { siteImages } from "@/data/siteImages";
 
 export const metadata = {
   title: "Turner Installs | Expert Flooring & Professional Floor Preparation – Brisbane",
@@ -283,14 +284,8 @@ export default function Home() {
       {/* RECENT WORK GALLERY */}
       <ModernGallery
         title="Recent Transformations"
-        images={[
-          "/images/new_prep_62113.jpg",
-          "/images/resource_9P4V5A71bJ19uiTBiRV4_n.png",
-          "/images/new_prep_61801.jpg",
-          "/images/new_prep_61734.jpg",
-          "/images/new_prep_61961.jpg",
-          "/images/new_prep_61938.jpg"
-        ]}
+        images={siteImages.home.transformations}
+        limit={12}
       />
 
       {/* FINAL CTA */}

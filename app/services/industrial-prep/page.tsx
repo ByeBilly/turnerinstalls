@@ -3,6 +3,7 @@ import TechSpecs from "@/components/TechSpecs";
 import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import { siteImages } from "@/data/siteImages";
 
 export const metadata = {
     title: "Industrial & Commercial Floor Prep Brisbane",
@@ -41,7 +42,7 @@ export default function IndustrialPrep() {
         },
         {
             question: "Do you work nights/weekends?",
-            answer: "Yes. We understand commercial sites often require after-hours work to minimize trading downtime. We are fully flexible."
+            answer: "Yes. We understand commercial sites often require after-hours work to minimize downtime. We are fully flexible."
         },
         {
             question: "Are you insured for commercial sites?",
@@ -72,12 +73,8 @@ export default function IndustrialPrep() {
             />
 
             <ModernGallery
-                images={[
-                    "/images/gen/concrete_grinding.png",
-                    "/images/resource_avPl0dbJ2Se1Om54B2t_d-.png",
-                    "/images/gen/floor_levelling.png",
-                    "/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
-                ]}
+                title="Commercial Scale Projects"
+                images={siteImages.commercial.projectShots}
             />
 
             <FAQSection items={faqs} />

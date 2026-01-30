@@ -6,6 +6,7 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
+import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -112,15 +113,8 @@ export default function MoistureBarriers() {
             />
 
             <ModernGallery
-                images={[
-                    "/images/new_prep_61729.jpg",
-                    "/images/new_prep_61734.jpg",
-                    "/images/new_prep_61801.jpg",
-                    "/images/new_prep_61938.jpg",
-                    "/images/new_prep_61961.jpg",
-                    "/images/new_prep_61981.jpg",
-                    "/images/new_prep_62113.jpg"
-                ]}
+                title="Barrier Applications"
+                images={siteImages.floorPrep.process}
             />
 
             <FAQSection items={faqs} />

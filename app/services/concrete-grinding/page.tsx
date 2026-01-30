@@ -131,7 +131,7 @@ export default function ConcreteGrinding() {
 
             <ModernGallery
                 title="Grinding Projects"
-                images={siteImages.grinding.actionShots.concat(siteImages.grinding.closeups).map(img => img.src)}
+                images={siteImages.grinding.actionShots.concat(siteImages.grinding.closeups)}
             />
 
             <FAQSection items={faqs} />

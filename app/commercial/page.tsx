@@ -113,7 +113,7 @@ export default function Commercial() {
 
       <ModernGallery
         title="Recent Commercial Projects"
-        images={siteImages.commercial.projectShots.map(img => img.src)}
+        images={siteImages.commercial.projectShots}
       />
 
       {/* CTA */}

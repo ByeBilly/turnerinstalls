@@ -1,15 +1,18 @@
 import Image from "next/image";
 
-interface ModernGalleryProps {
-    images: string[];
-    title?: string;
+interface GalleryImage {
+    src: string;
+    alt: string;
 }
 
-export default function ModernGallery({ images, title = "Recent Projects" }: ModernGalleryProps) {
-    // Ensure we display exactly 4 images for the grid to look perfect.
-    // If fewer, we might duplicate or just show what's there (layout might break slightly but grid handles it).
-    // If more, we slice to 4.
-    const displayImages = images.slice(0, 4);
+interface ModernGalleryProps {
+    images: GalleryImage[];
+    title?: string;
+    limit?: number;
+}
+
+export default function ModernGallery({ images, title = "Recent Projects", limit = 4 }: ModernGalleryProps) {
+    const displayImages = limit > 0 ? images.slice(0, limit) : images;
 
     return (
         <section className="py-24 bg-white border-t border-slate-200">
@@ -22,25 +25,32 @@ export default function ModernGallery({ images, title = "Recent Projects" }: Mod
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[300px] md:auto-rows-[400px]">
-                    {displayImages.map((src, i) => {
-                        // Layout Logic:
-                        // Image 0: Wide (8 cols)
-                        // Image 1: Narrow (4 cols)
-                        // Image 2: Narrow (4 cols)
-                        // Image 3: Wide (8 cols)
+                    {displayImages.map((img, i) => {
+                        // Repeating pattern logic:
+                        // 0, 4, 8... -> Wide (8)
+                        // 1, 5, 9... -> Narrow (4)
+                        // 2, 6, 10... -> Narrow (4)
+                        // 3, 7, 11... -> Wide (8)
+
+                        const patternIndex = i % 4;
                         let spanClass = "md:col-span-4";
-                        if (i === 0 || i === 3) spanClass = "md:col-span-8";
+                        if (patternIndex === 0 || patternIndex === 3) spanClass = "md:col-span-8";
 
                         return (
                             <div key={i} className={`${spanClass} relative rounded-2xl overflow-hidden group bg-slate-100 border border-slate-200 shadow-sm`}>
                                 <Image
-                                    src={src}
-                                    alt={`Gallery Image ${i + 1}`}
+                                    src={img.src}
+                                    alt={img.alt}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+                                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <p className="text-white text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">
+                                        {img.alt}
+                                    </p>
+                                </div>
                             </div>
                         )
                     })}

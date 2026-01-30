@@ -6,6 +6,7 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
+import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -81,12 +82,9 @@ export default function Gympie() {
             />
 
             <ModernGallery
-                images={[
-                    "/images/gen/concrete_grinding.png",
-                    "/images/image5.jpeg",
-                    "/images/image8.jpeg",
-                    "/images/gen/floor_levelling.png"
-                ]}
+                title="Gympie Works"
+                images={siteImages.home.transformations}
+                limit={4}
             />
 
             <FAQSection items={faqs} />
