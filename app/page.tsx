@@ -116,7 +116,7 @@ export default function Home() {
               <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white shadow-2xl">
                 <div className="absolute inset-0 border-2 border-slate-900/10 z-10 pointer-events-none rounded-lg"></div>
                 <Image
-                  src={siteImages.commercial.projectShots[2].src}
+                  src="/new_gen/hero/Graceville.jpg"
                   alt="Quality Flooring Installation"
                   fill
                   className="object-cover"
