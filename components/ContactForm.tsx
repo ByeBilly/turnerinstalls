@@ -7,7 +7,6 @@ export default function ContactForm() {
         name: "",
         phone: "",
         email: "",
-        serviceType: "",
         message: ""
     });
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -27,23 +26,13 @@ export default function ContactForm() {
                 return;
             }
 
-            // Map Service Type to HighLevel Custom Field Value
-            const serviceTypeMapping: Record<string, string> = {
-                "vinyl_plank": "Vinyl Plank Installation",
-                "hybrid": "Hybrid Flooring",
-                "timber": "Timber Flooring",
-                "carpet_removal": "Carpet Removal",
-                "floor_prep": "Floor Preparation / Levelling",
-                "commercial": "Commercial Project"
-            };
-
             const response = await fetch(webhookUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     ...formData,
-                    flooring_type: formData.serviceType, // Map to GHL Custom Field
-                    service_name: serviceTypeMapping[formData.serviceType] || "General Enquiry", // Readable name
+                    flooring_type: "Not Specified",
+                    service_name: "General Project Enquiry",
                     source: "Turner Installs Website",
                     timestamp: new Date().toISOString()
                 }),
@@ -51,7 +40,7 @@ export default function ContactForm() {
 
             if (response.ok) {
                 setStatus("success");
-                setFormData({ name: "", phone: "", email: "", serviceType: "", message: "" });
+                setFormData({ name: "", phone: "", email: "", message: "" });
             } else {
                 setStatus("error");
             }
@@ -123,37 +112,18 @@ export default function ContactForm() {
                             />
                         </div>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
-                                placeholder="you@example.com"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <label htmlFor="serviceType" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Service Needed</label>
-                            <select
-                                id="serviceType"
-                                value={formData.serviceType}
-                                onChange={handleChange}
-                                required
-                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors appearance-none text-gray-300"
-                            >
-                                <option value="" disabled>Select a Service...</option>
-                                <option value="vinyl_plank">Vinyl Plank Installation</option>
-                                <option value="hybrid">Hybrid Flooring</option>
-                                <option value="timber">Timber Flooring</option>
-                                <option value="floor_prep">Floor Preparation / Levelling</option>
-                                <option value="carpet_removal">Carpet Removal</option>
-                                <option value="commercial">Commercial Project</option>
-                            </select>
-                        </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="email" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
+                            placeholder="you@example.com"
+                        />
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="message" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Project Details</label>
