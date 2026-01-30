@@ -6,6 +6,7 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
+import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -91,7 +92,7 @@ export default function ConcreteGrinding() {
             <ServiceHero
                 title={<>Concrete <span className="text-yellow-500">Grinding</span>.</>}
                 subtitle="Dust-free mechanical preparation to clean, flatten, and profile your slab."
-                imagePath="/images/brisbane_skyline.png"
+                imagePath={siteImages.grinding.hero.src}
                 label="SURFACE_PREP"
             />
 
@@ -129,15 +130,8 @@ export default function ConcreteGrinding() {
             </div>
 
             <ModernGallery
-                images={[
-                    "/images/new_prep_61729.jpg",
-                    "/images/new_prep_61734.jpg",
-                    "/images/new_prep_61801.jpg",
-                    "/images/new_prep_61938.jpg",
-                    "/images/new_prep_61961.jpg",
-                    "/images/new_prep_61981.jpg",
-                    "/images/new_prep_62113.jpg"
-                ]}
+                title="Grinding Projects"
+                images={siteImages.grinding.actionShots.concat(siteImages.grinding.closeups).map(img => img.src)}
             />
 
             <FAQSection items={faqs} />

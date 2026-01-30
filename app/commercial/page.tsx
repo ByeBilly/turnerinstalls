@@ -2,6 +2,7 @@ import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ModernGallery from "@/components/ModernGallery";
+import { siteImages } from "@/data/siteImages";
 
 export const metadata = {
   title: "Commercial Flooring Brisbane | Turner Installs",
@@ -16,8 +17,8 @@ export default function Commercial() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/brisbane_skyline.png"
-            alt="Commercial Office Flooring"
+            src={siteImages.commercial.hero.src}
+            alt={siteImages.commercial.hero.alt}
             fill
             className="object-cover"
             priority
@@ -92,7 +93,12 @@ export default function Commercial() {
               </div>
             </div>
             <div className="relative h-[500px] rounded-3xl overflow-hidden border border-slate-200 shadow-lg">
-              <Image src="/images/brisbane_skyline.png" alt="Commercial Project" fill className="object-cover" />
+              <Image
+                src={siteImages.commercial.projectShots[0]?.src || siteImages.commercial.hero.src}
+                alt="Commercial Project"
+                fill
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-lg">
@@ -107,15 +113,7 @@ export default function Commercial() {
 
       <ModernGallery
         title="Recent Commercial Projects"
-        images={[
-          "/images/new_prep_61729.jpg",
-          "/images/new_prep_61734.jpg",
-          "/images/new_prep_61801.jpg",
-          "/images/new_prep_61938.jpg",
-          "/images/new_prep_61961.jpg",
-          "/images/new_prep_61981.jpg",
-          "/images/new_prep_62113.jpg"
-        ]}
+        images={siteImages.commercial.projectShots.map(img => img.src)}
       />
 
       {/* CTA */}

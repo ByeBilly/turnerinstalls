@@ -6,6 +6,9 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
+import ImageGrid from "@/components/ImageGrid";
+import BeforeAfterGallery from "@/components/BeforeAfterGallery";
+import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -48,7 +51,7 @@ export default function FloorPreparation() {
     },
     {
       title: "Repairs & Moisture Barrier",
-      description: "filling cracks with epoxy and applying moisture mitigation systems if readings are high."
+      description: "Filling cracks with epoxy and applying moisture mitigation systems if readings are high."
     },
     {
       title: "Flood Levelling",
@@ -62,7 +65,7 @@ export default function FloorPreparation() {
     { label: "Industrial Spaces", sublabel: "Warehouses" },
     { label: "Medical Facilities", sublabel: "Hospitals & Clinics" },
     { label: "Education", sublabel: "Schools & Universities" },
-    { label: "Hospitality", sublabel: "restaurants & Cafes" }
+    { label: "Hospitality", sublabel: "Restaurants & Cafes" }
   ];
 
   const substrates = [
@@ -102,7 +105,7 @@ export default function FloorPreparation() {
       <ServiceHero
         title={<>Professional <span className="text-yellow-500">Floor Preparation</span>.</>}
         subtitle="The secret to a flawless floor is what lies beneath. We create mirror-flat, structural substrates for high-end installations."
-        imagePath="/images/brisbane_skyline.png"
+        imagePath={siteImages.floorPrep.hero.src}
         label="TECHNICAL_PREP"
       />
 
@@ -115,10 +118,25 @@ export default function FloorPreparation() {
         features={specs}
       />
 
+      {/* NEW: Before & After Showcase */}
+      <BeforeAfterGallery
+        title="The Turner Difference"
+        pairs={siteImages.floorPrep.beforeAfter}
+      />
+
       <FeaturesGrid
         title="Suitable For"
         features={suitableFor}
         columns={3}
+      />
+
+      {/* NEW: Unacceptable vs Ready */}
+      <ImageGrid
+        title="Before Prep: Not Acceptable"
+        description="We fix these common issues that cause flooring failure."
+        images={siteImages.floorPrep.unacceptable}
+        columns={3}
+        variant="warning"
       />
 
       <ProcessSteps
@@ -126,11 +144,20 @@ export default function FloorPreparation() {
         steps={processSteps}
       />
 
+      {/* NEW: Ready State */}
+      <ImageGrid
+        title="After Prep: Ready for Installation"
+        description="The standard we deliver. Clean, flat, and structurally sound."
+        images={siteImages.floorPrep.process.map(img => ({ ...img, caption: img.alt }))}
+        columns={3}
+        variant="success"
+      />
+
       <FeaturesGrid
         title="Substrates We Prepare"
         subtitle="We can rectify and prepare almost any existing surface."
         features={substrates}
-        columns={3} // Changed to 3 as 4 might be too wide for just label
+        columns={3}
       />
 
       <div className="py-24 bg-gray-50 border-y border-gray-200">
@@ -145,18 +172,6 @@ export default function FloorPreparation() {
           </div>
         </div>
       </div>
-
-      <ModernGallery
-        images={[
-          "/images/new_prep_61729.jpg",
-          "/images/new_prep_61734.jpg",
-          "/images/new_prep_61801.jpg",
-          "/images/new_prep_61938.jpg",
-          "/images/new_prep_61961.jpg",
-          "/images/new_prep_61981.jpg",
-          "/images/new_prep_62113.jpg"
-        ]}
-      />
 
       <FAQSection items={faqs} />
 
