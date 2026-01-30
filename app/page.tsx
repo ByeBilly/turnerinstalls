@@ -103,7 +103,7 @@ export default function Home() {
           {/* Hero Form */}
           <div className="hidden lg:block bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
             <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase">Fast Quote</h3>
-            <p className="text-slate-500 text-sm mb-6">Enter your details and we'll call you back instantly.</p>
+            <p className="text-slate-500 text-sm mb-6">Enter your details and Liam will call you back as soon as he can.</p>
             <form className="space-y-4" action="/contact">
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
