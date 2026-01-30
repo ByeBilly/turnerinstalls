@@ -69,12 +69,12 @@ export default function Residential() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4 mt-8">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-lg">
-                  <Image src="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png" alt="Living Room" fill className="object-cover" />
+                  <Image src="/installspics/promo/resource_bcHx5yFfMiH6FiD4JYkOpV.png" alt="Living Room" fill className="object-cover" />
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-lg">
-                  <Image src="/images/resource_aBEkaitrTCk72k87nfv_L8.png" alt="Bedroom Flooring" fill className="object-cover" />
+                  <Image src="/installspics/promo/resource_aBEkaitrTCk72k87nfv_L8.png" alt="Bedroom Flooring" fill className="object-cover" />
                 </div>
               </div>
             </div>
