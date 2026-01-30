@@ -3,6 +3,7 @@ import Link from "next/link";
 import dynamic from 'next/dynamic';
 import ModernGallery from "@/components/ModernGallery";
 import { siteImages } from "@/data/siteImages";
+import HeroForm from "@/components/HeroForm";
 
 export const metadata = {
   title: "Turner Installs | Expert Flooring & Professional Floor Preparation – Brisbane",
@@ -74,13 +75,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-slate-900 text-white font-black text-lg rounded hover:bg-slate-800 transition-all shadow-lg text-center uppercase tracking-wide hover:scale-105"
+                className="px-6 py-4 bg-slate-900 text-white font-black text-lg rounded hover:bg-slate-800 transition-all shadow-lg text-center uppercase tracking-wide hover:scale-105 w-full sm:w-auto flex justify-center"
               >
                 Get a Free Quote
               </Link>
               <a
                 href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
-                className="px-8 py-4 bg-transparent border-2 border-slate-900 text-slate-900 font-bold text-lg rounded hover:bg-slate-900 hover:text-white transition-all text-center uppercase tracking-wide flex items-center justify-center gap-2"
+                className="px-6 py-4 bg-transparent border-2 border-slate-900 text-slate-900 font-bold text-lg rounded hover:bg-slate-900 hover:text-white transition-all text-center uppercase tracking-wide flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
@@ -101,29 +102,14 @@ export default function Home() {
           </div>
 
           {/* Hero Form */}
-          <div className="hidden lg:block bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
-            <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase">Fast Quote</h3>
-            <p className="text-slate-500 text-sm mb-6">Enter your details and Liam will call you back as soon as he can.</p>
-            <form className="space-y-4" action="/contact">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
-                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900" placeholder="Your Name" />
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Phone</label>
-                <input type="tel" className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900" placeholder="0400 000 000" />
-              </div>
-              <button className="w-full bg-slate-900 text-white font-bold py-4 rounded uppercase tracking-wide hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                Get Callback
-                <span className="text-yellow-400">→</span>
-              </button>
-            </form>
+          <div className="hidden lg:block">
+            <HeroForm />
           </div>
         </div>
       </section>
 
       {/* STORY SECTION */}
-      <section className="py-24 md:py-32 relative bg-slate-50 border-y border-slate-200">
+      < section className="py-24 md:py-32 relative bg-slate-50 border-y border-slate-200" >
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -169,10 +155,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* WHY TURNER INSTALLS */}
-      <section className="py-24 bg-white">
+      < section className="py-24 bg-white" >
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-black mb-4 text-slate-900 uppercase tracking-tight">Why Choose Turner Installs?</h2>
@@ -198,10 +184,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SERVICES */}
-      <section className="py-24 bg-slate-100" id="services">
+      < section className="py-24 bg-slate-100" id="services" >
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-slate-300 pb-8">
             <div>
@@ -278,17 +264,17 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* RECENT WORK GALLERY */}
-      <ModernGallery
+      < ModernGallery
         title="Recent Transformations"
         images={siteImages.home.transformations}
         limit={4}
       />
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-yellow-400 text-slate-900 border-b border-slate-900/10">
+      < section className="py-24 bg-yellow-400 text-slate-900 border-b border-slate-900/10" >
         <div className="max-w-4xl mx-auto px-5 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to transform your floor?</h2>
           <p className="text-xl text-slate-900/80 mb-10 max-w-2xl mx-auto">
@@ -309,10 +295,10 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SERVICE AREA MAP */}
-      <section className="py-24 bg-white">
+      < section className="py-24 bg-white" >
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Our Service Area</h2>
@@ -322,7 +308,7 @@ export default function Home() {
           <ServiceAreaMapWrapper />
 
         </div>
-      </section>
+      </section >
     </>
   );
 }

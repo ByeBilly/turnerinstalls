@@ -1,0 +1,113 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function HeroForm() {
+    const router = useRouter();
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: ""
+    });
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("submitting");
+
+        try {
+            const webhookUrl = process.env.NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL;
+
+            // If no webhook, we can't really submit, but for UX we might just redirect to contact with params
+            if (!webhookUrl) {
+                console.warn("GHL Webhook URL not set");
+                // Fallback: Redirect to contact page with pre-filled data (if we implemented that) 
+                // or just alert the user for now since we are in dev mode.
+                // For proper flow:
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                router.push(`/contact?name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}`);
+                return;
+            }
+
+            const response = await fetch(webhookUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...formData,
+                    service_name: "Fast Callback Request",
+                    source: "Turner Installs Homepage Hero",
+                    timestamp: new Date().toISOString()
+                }),
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                // Redirect to a thank you page or show success state
+                // For this hero box, a success message overlay is nice.
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setStatus("error");
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    if (status === "success") {
+        return (
+            <div className="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto h-full flex flex-col justify-center items-center text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600 text-3xl">✓</div>
+                <h3 className="text-2xl font-black text-slate-900 mb-2">Received!</h3>
+                <p className="text-slate-600">Liam will be in touch shortly.</p>
+            </div>
+        );
+    }
+
+    return (
+        <div className="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
+            <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase">Fast Quote</h3>
+            <p className="text-slate-500 text-sm mb-6">Enter your details and Liam will call you back as soon as he can.</p>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900"
+                        placeholder="Your Name"
+                    />
+                </div>
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Phone</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900"
+                        placeholder="0400 000 000"
+                    />
+                </div>
+                <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="w-full bg-slate-900 text-white font-bold py-4 rounded uppercase tracking-wide hover:bg-slate-800 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                    {status === "submitting" ? "Sending..." : (
+                        <>
+                            Get Callback <span className="text-yellow-400">→</span>
+                        </>
+                    )}
+                </button>
+            </form>
+        </div>
+    );
+}

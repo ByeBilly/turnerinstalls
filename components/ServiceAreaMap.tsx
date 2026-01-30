@@ -39,11 +39,14 @@ export default function ServiceAreaMap() {
     const radius = 250000; // 250km in meters
 
     return (
-        <div className="h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200 relative z-0 shadow-md">
+        <div className="h-[300px] lg:h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200 relative z-0 shadow-md">
             <MapContainer
                 center={position}
                 zoom={7}
                 scrollWheelZoom={false}
+                dragging={false}
+                touchZoom={false}
+                doubleClickZoom={false}
                 style={{ height: "100%", width: "100%" }}
                 className="z-0"
             >
