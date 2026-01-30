@@ -288,7 +288,7 @@ export default function Home() {
               Get a Quote
             </Link>
             <a
-              href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`}
+              href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/[^\d]/g, "")}`}
               className="px-10 py-5 bg-transparent border-2 border-slate-900/20 text-slate-900 font-bold text-xl rounded-full hover:bg-slate-900/5 transition-all"
             >
               Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
