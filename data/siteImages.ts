@@ -81,8 +81,8 @@ export const siteImages = {
             // Main Transformation Gallery (Strictly Finished Shots)
             { src: "/installspics/finished/image6.jpeg", alt: "Premium Timber Finish" },
             { src: "/installspics/finished/image12.jpeg", alt: "Precision Joinery & Installation" },
-            { src: "/installspics/finished/image8.jpeg", alt: "Modern Living Space" },
-            { src: "/installspics/finished/624334347_867521999407008_3752902728129270114_n.jpg", alt: "Open Plan Transformation" },
+            { src: "/installspics/finished/image8.jpeg", alt: "Rich Red Timber Flooring Detail" },
+            { src: "/installspics/finished/624334347_867521999407008_3752902728129270114_n.jpg", alt: "Seamless Timber Plank Installation" },
             { src: "/installspics/finished/625202306_2029285471055177_1026514747943361388_n.jpg", alt: "Seamless Hybrid Flooring" },
             { src: "/installspics/finished/619897238_955768730356309_1546209723191758279_n.jpg", alt: "Hallway Perfection" },
             { src: "/installspics/finished/624097644_1270305948320730_2071884955805842883_n.jpg", alt: "Clean Lines & Transitions" },
