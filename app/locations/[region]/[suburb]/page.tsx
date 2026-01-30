@@ -123,7 +123,7 @@ export default function SuburbPage({ params }: { params: { region: string; subur
         if (suburb.region === 'gold-coast') {
             heroImage = "/images/gold_coast_skyline.jpg"; // You'll need to ensure this image exists or use a placeholder
         } else {
-            heroImage = "/images/brisbane_skyline.png";
+            heroImage = "/installspics/finished/brisbane views.jpg";
         }
     }
 

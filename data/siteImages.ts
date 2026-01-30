@@ -96,7 +96,8 @@ export const siteImages = {
             { src: "/installspics/laying/622122337_2401358896985815_216730946828062350_n.jpg", alt: "Plank Laying" },
             { src: "/installspics/laying/624294133_1572505330566282_4397485069894811667_n.jpg", alt: "Detail Work" },
             { src: "/installspics/laying/minimal mess and always a tidy up.jpg", alt: "Clean Worksite" },
-            { src: "/installspics/laying/staircases require time for adhesives to set before being climbed.jpg", alt: "Staircase Alignment" }
+            { src: "/installspics/laying/staircases require time for adhesives to set before being climbed.jpg", alt: "Staircase Alignment" },
+            { src: "/installspics/finished/stairs_laid.jpg", alt: "Components & Transitions" }
         ] as ImageAsset[],
         services: {
             residential: { src: "/installspics/finished/image6.jpeg", alt: "Residential Flooring" },
