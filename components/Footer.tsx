@@ -39,7 +39,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <div>
                 <strong className="text-slate-900 block mb-1">Phone</strong>
-                <a href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/\s/g, "")}`} className="text-slate-900 hover:text-yellow-600 transition-colors font-bold text-lg">
+                <a href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/[^\d]/g, "")}`} className="text-slate-900 hover:text-yellow-600 transition-colors font-bold text-lg">
                   {process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413 592 054"}
                 </a>
               </div>
