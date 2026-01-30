@@ -29,7 +29,7 @@ export const siteImages = {
         ],
         unacceptable: [
             { src: "/installspics/prep/damage/water damage.jpg", alt: "Water Damaged Substrate" },
-            { src: "/installspics/prep/repair/We would prefer not to have to fix other installers installations. These sorts of issues are avoided by choosing us first. Obvious cause non levelled floor.jpg", alt: "Installation Failure due to Poor Prep" }
+            { src: "/installspics/prep/repair/We would prefer not to have to fix other installers installations. These sorts of issues are avoided by choosing us first. Obvious cause non levelled floor.jpg", alt: "Zoom in on the yellow straight edge: Severe unevenness causing failure" }
         ] as ImageAsset[],
         process: [
             { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Clean Uplift & Removal" },

@@ -9,3 +9,10 @@
 
 ## [2026-01-XX] Initial Handover
 - Prepared deployment documentation.
+
+## [2026-01-30] Image Directory Semantics (User Definition)
+- `/public/installspics/finished`: **Completed** installations. Projects that are 100% done.
+- `/public/installspics/laying`: **In-Progress** shots. Used to show the "work happening" (e.g., cutting tables, glues, tools).
+- `/public/installspics/prep`: **Subfloor Preparation**. Contains specific subfolders for `damage`, `floods`, `level`, `grinding`, etc.
+- **Rule**: Gallery on Homepage should ONLY use `finished` images.
+- **Rule**: "Laying" images are for process explanation sections.
