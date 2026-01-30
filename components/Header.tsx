@@ -123,7 +123,7 @@ export default function Header() {
             { label: "Services", href: "/services" },
             { label: "Floor Prep", href: "/services/floor-preparation" },
             { label: "Grinding", href: "/services/concrete-grinding" },
-            { label: "Projects", href: "/about" }, // Assuming projects mapped to about or similar
+            { label: "About", href: "/about" }, // Changed from Projects to match Desktop
             { label: "Contact", href: "/contact" },
           ].map((link) => (
             <Link
