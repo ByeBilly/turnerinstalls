@@ -114,18 +114,16 @@ export default function SuburbPage({ params }: { params: { region: string; subur
         { label: "Commercial Fitouts" }
     ];
 
-    return (
-        <>
     // --- HERO IMAGE LOGIC ---
-            // 1. Suburb Specific Image (Highest Priority)
-            // 2. Region Specific Fallback (Gold Coast vs Brisbane)
-            // 3. Default Site Hero
-            let heroImage = suburb.image?.src;
-            if (!heroImage) {
+    // 1. Suburb Specific Image (Highest Priority)
+    // 2. Region Specific Fallback (Gold Coast vs Brisbane)
+    // 3. Default Site Hero
+    let heroImage = suburb.image?.src;
+    if (!heroImage) {
         if (suburb.region === 'gold-coast') {
-                heroImage = "/images/gold_coast_skyline.jpg"; // You'll need to ensure this image exists or use a placeholder
+            heroImage = "/images/gold_coast_skyline.jpg"; // You'll need to ensure this image exists or use a placeholder
         } else {
-                heroImage = "/images/brisbane_skyline.png";
+            heroImage = "/images/brisbane_skyline.png";
         }
     }
 
@@ -133,25 +131,8 @@ export default function SuburbPage({ params }: { params: { region: string; subur
     // If we have specific gallery images for the suburb, use them.
     // Otherwise, use the standard transformation set.
     const galleryImages = suburb.galleryImages && suburb.galleryImages.length > 0
-            ? suburb.galleryImages
-            : siteImages.home.transformations;
 
-            return (
-            <>
-                <ServiceHero
-                    title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
-                    subtitle={content.heroSubtitle}
-                    imagePath={heroImage}
-                    label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
-                >
-                    {/* INJECT HERO FORM */}
-                    <HeroForm />
-                </ServiceHero>
-
-                {/* INJECT TRUST BAR */}
-                <TrustBar />
-
-                {/* INJECT STORY SECTION */}
+    {/* INJECT STORY SECTION */ }
                 <StorySection locationName={suburb.name} />
 
                 <TechSpecs
@@ -173,7 +154,7 @@ export default function SuburbPage({ params }: { params: { region: string; subur
                     columns={4}
                 />
 
-                {/* INJECT WHY CHOOSE US */}
+    {/* INJECT WHY CHOOSE US */ }
                 <WhyChooseUs locationName={suburb.name} />
 
                 <ProcessSteps
