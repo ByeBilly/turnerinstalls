@@ -106,7 +106,7 @@ export default function ContactForm() {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors"
+                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
                                 placeholder="Your Name"
                             />
                         </div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors"
+                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
                                 placeholder="0400 000 000"
                             />
                         </div>
@@ -132,7 +132,7 @@ export default function ContactForm() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors"
+                                className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
                                 placeholder="you@example.com"
                             />
                         </div>
@@ -163,7 +163,7 @@ export default function ContactForm() {
                             value={formData.message}
                             onChange={handleChange}
                             required
-                            className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors"
+                            className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
                             placeholder="Tell us about your floor..."
                         ></textarea>
                     </div>
