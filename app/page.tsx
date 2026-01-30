@@ -284,7 +284,7 @@ export default function Home() {
       <ModernGallery
         title="Recent Transformations"
         images={siteImages.home.transformations}
-        limit={8}
+        limit={4}
       />
 
       {/* FINAL CTA */}

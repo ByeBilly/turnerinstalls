@@ -106,7 +106,7 @@ export const siteImages = {
             { src: "/installspics/laying/staircases require time for adhesives to set before being climbed.jpg", alt: "Staircase Alignment" }
         ] as ImageAsset[],
         services: {
-            residential: { src: "/installspics/promo/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Residential Flooring" },
+            residential: { src: "/installspics/finished/image6.jpeg", alt: "Residential Flooring" },
             commercial: { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Commercial Flooring" },
             prep: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Floor Preparation" }
         }
