@@ -80,7 +80,7 @@ export default function ContactForm() {
                     </div>
                     <h3 className="text-2xl font-black text-slate-900 mb-2">Message Received!</h3>
                     <p className="text-slate-600 mb-8 max-w-md mx-auto">
-                        Thanks for reaching out. Liam and the team will review your project details and give you a call shortly to arrange a quote.
+                        Thanks for reaching out. Liam and the team will review your project details and give you a call as soon as they can.
                     </p>
                     <a href="/" className="inline-block px-8 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors">
                         Return to Home
