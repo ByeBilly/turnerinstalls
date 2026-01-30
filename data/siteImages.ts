@@ -67,12 +67,12 @@ export const siteImages = {
         },
         projectShots: [
             { src: "/installspics/commercial/Commercial installations whilst working productively with other trades always.jpg", alt: "Coordinated Commercial Work" },
-            { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Retail Space Finishing" },
-            { src: "/installspics/finished/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Commercial Lobby" },
-            { src: "/installspics/finished/resource_9JmHv_OmwMo1MpdbXVmkGM.png", alt: "Showroom Floor" },
+            { src: "/installspics/promo/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Retail Space Finishing" },
+            { src: "/installspics/promo/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Commercial Lobby" },
+            { src: "/installspics/promo/resource_9JmHv_OmwMo1MpdbXVmkGM.png", alt: "Showroom Floor" },
             // Expanded Commercial-Suitable Shots
-            { src: "/installspics/finished/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Large Area Hybrid Flooring" },
-            { src: "/installspics/finished/resource_8yJmk1mavUh27w1xuwpkOj.png", alt: "Clean Modern Installation" },
+            { src: "/installspics/promo/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Large Area Hybrid Flooring" },
+            { src: "/installspics/promo/resource_8yJmk1mavUh27w1xuwpkOj.png", alt: "Clean Modern Installation" },
         ] as ImageAsset[],
         teamShots: [] as ImageAsset[]
     },
@@ -84,10 +84,10 @@ export const siteImages = {
             { src: "/installspics/laying/Laying of the timber floors before Carpenters fit the skirting boards is the optimal way to unsure beautiful finish to walls.jpg", alt: "Timber Floors Laid Before Skirting for Perfect Finish" },
             { src: "/installspics/laying/Furniture sometimes requires us to juggle it around during installation if it can't be removed.jpg", alt: "Careful Installation Around Furniture" },
             { src: "/installspics/prep/floods/mirror glass level flood.jpg", alt: "Mirror Glass Level Flood" },
-            { src: "/installspics/finished/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Hybrid Flooring Finish" },
+            { src: "/installspics/promo/resource_bkfeSZ7f1E421hciwg6kzd.png", alt: "Hybrid Flooring Finish" },
             // Expanded "Finished" Set
-            { src: "/installspics/finished/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Staircase Installation" },
-            { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Modern Living Room" },
+            { src: "/installspics/promo/resource_9P4V5A71bJ19uiTBiRV4_n.png", alt: "Staircase Installation" },
+            { src: "/installspics/promo/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Modern Living Room" },
             { src: "/installspics/finished/image6.jpeg", alt: "Completed Flooring Install" },
             { src: "/installspics/finished/image8.jpeg", alt: "Timber Finish" },
             { src: "/installspics/finished/image12.jpeg", alt: "Precision Joinery" },
@@ -106,7 +106,7 @@ export const siteImages = {
             { src: "/installspics/laying/staircases require time for adhesives to set before being climbed.jpg", alt: "Staircase Alignment" }
         ] as ImageAsset[],
         services: {
-            residential: { src: "/installspics/finished/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Residential Flooring" },
+            residential: { src: "/installspics/promo/resource_avPl0dbJ2Se1Om54B2t_d-.png", alt: "Residential Flooring" },
             commercial: { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Commercial Flooring" },
             prep: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Floor Preparation" }
         }
