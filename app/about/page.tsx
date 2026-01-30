@@ -8,6 +8,9 @@ export const metadata = {
     "Meet the team behind Turner Installs. A third-generation family business delivering expert flooring installation and preparation in Brisbane.",
 };
 
+import { siteImages } from "@/data/siteImages";
+import ModernGallery from "@/components/ModernGallery";
+
 export default function About() {
   return (
     <>
@@ -107,6 +110,13 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* PROJECT GALLERY */}
+      <ModernGallery
+        title="Our Recent Projects"
+        description="A showcase of our finest work across Brisbane and the Gold Coast."
+        images={siteImages.home.transformations}
+      />
 
       {/* FINAL CTA */}
       <section className="py-24 bg-yellow-400 text-black">
