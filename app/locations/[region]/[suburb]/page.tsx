@@ -143,7 +143,7 @@ export default function SuburbPage({ params }: { params: { region: string; subur
                 label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
             >
                 {/* INJECT HERO FORM */}
-                <HeroForm />
+                <HeroForm location={suburb.name} />
             </ServiceHero>
 
             {/* INJECT TRUST BAR */}
