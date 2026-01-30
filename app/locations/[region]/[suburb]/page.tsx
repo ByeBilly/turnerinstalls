@@ -8,10 +8,12 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
+import TrustBar from "@/components/TrustBar";
+import HeroForm from "@/components/HeroForm"; // Direct form injection
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
-// 1. Generate Static Params for SSG
+// 1. Generate StaticParams & Metadata (Unchanged)
 export async function generateStaticParams() {
     return suburbs.map((suburb) => ({
         region: suburb.region,
@@ -19,7 +21,6 @@ export async function generateStaticParams() {
     }));
 }
 
-// 2. Dynamic Metadata
 export async function generateMetadata({ params }: { params: { region: string; suburb: string } }): Promise<Metadata> {
     const suburb = getSuburb(params.suburb);
     if (!suburb) return {};
@@ -47,7 +48,6 @@ export default function SuburbPage({ params }: { params: { region: string; subur
     }
 
     // --- ARCHETYPE CONTENT LOGIC ---
-    // This defines what text we show based on the 'type' of suburb
     const archetypeContent = {
         'historic': {
             heroSubtitle: `Restoring ${suburb.name}'s classic homes from the ground up.`,
@@ -118,7 +118,13 @@ export default function SuburbPage({ params }: { params: { region: string; subur
                 subtitle={content.heroSubtitle}
                 imagePath={suburb.image?.src || "/images/brisbane_skyline.png"}
                 label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
-            />
+            >
+                {/* INJECT HERO FORM */}
+                <HeroForm />
+            </ServiceHero>
+
+            {/* INJECT TRUST BAR */}
+            <TrustBar />
 
             <TechSpecs
                 title={content.introTitle}
