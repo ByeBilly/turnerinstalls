@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
+import { suburbs } from '@/data/suburbs'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://turnerinstalls.com.au'
 
     // Define static routes
-    const routes = [
+    const staticRoutes = [
         '',
         '/about',
         '/contact',
@@ -28,7 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/privacy-policy',
     ]
 
-    return routes.map((route) => ({
+    const fullRoutes = [
+        ...staticRoutes,
+        ...suburbs.map(s => `/locations/${s.region}/${s.slug}`)
+    ]
+
+    return fullRoutes.map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
         changeFrequency: route === '' ? 'daily' : 'weekly',

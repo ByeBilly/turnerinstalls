@@ -11,12 +11,13 @@ interface ImageGridProps {
     title: string;
     description?: string;
     images: ImageItem[];
-    columns?: 3 | 4;
+    columns?: 2 | 3 | 4;
     variant?: "default" | "warning" | "success"; // Warning for "Unacceptable", Success for "Ready"
 }
 
 export default function ImageGrid({ title, description, images, columns = 3, variant = "default" }: ImageGridProps) {
     const gridCols = {
+        2: "md:grid-cols-2",
         3: "md:grid-cols-3",
         4: "md:grid-cols-2 lg:grid-cols-4"
     };
@@ -51,11 +52,6 @@ export default function ImageGrid({ title, description, images, columns = 3, var
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
-                                {variant !== "default" && (
-                                    <div className={`absolute top-2 right-2 px-2 py-1 text-xs font-bold uppercase rounded ${badgeColor[variant]}`}>
-                                        {variant === "warning" ? "Avoid" : "Target"}
-                                    </div>
-                                )}
                             </div>
                             <div className="p-4 bg-white text-center flex-grow">
                                 <h3 className="font-bold text-slate-900 mb-1">{img.alt}</h3>

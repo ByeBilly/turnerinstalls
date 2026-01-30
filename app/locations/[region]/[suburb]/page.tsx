@@ -1,0 +1,200 @@
+import { notFound } from 'next/navigation';
+import { suburbs, getSuburb, SuburbData } from '@/data/suburbs';
+import ServiceHero from "@/components/ServiceHero";
+import TechSpecs from "@/components/TechSpecs";
+import ProcessSteps from "@/components/ProcessSteps";
+import FeaturesGrid from "@/components/FeaturesGrid";
+import ModernGallery from "@/components/ModernGallery";
+import SEOCTA from "@/components/SEOCTA";
+import FAQSection from "@/components/FAQSection";
+import InternalLinks from "@/components/InternalLinks";
+import { siteImages } from "@/data/siteImages";
+import type { Metadata } from "next";
+
+// 1. Generate Static Params for SSG
+export async function generateStaticParams() {
+    return suburbs.map((suburb) => ({
+        region: suburb.region,
+        suburb: suburb.slug,
+    }));
+}
+
+// 2. Dynamic Metadata
+export async function generateMetadata({ params }: { params: { region: string; suburb: string } }): Promise<Metadata> {
+    const suburb = getSuburb(params.suburb);
+    if (!suburb) return {};
+
+    const title = `Floor Preparation ${suburb.name} | Concrete Grinding & Levelling ${suburb.postcode}`;
+    const desc = `${suburb.name} floor preparation specialists. Creating flat, smooth concrete subfloors for renovations and new builds in ${suburb.name}, ${suburb.postcode}.`;
+
+    return {
+        title: title,
+        description: desc,
+        openGraph: {
+            title: title,
+            description: desc,
+            images: suburb.image ? [suburb.image.src] : [],
+        }
+    };
+}
+
+// 3. Page Component
+export default function SuburbPage({ params }: { params: { region: string; suburb: string } }) {
+    const suburb = getSuburb(params.suburb);
+
+    if (!suburb) {
+        notFound();
+    }
+
+    // --- ARCHETYPE CONTENT LOGIC ---
+    // This defines what text we show based on the 'type' of suburb
+    const archetypeContent = {
+        'historic': {
+            heroSubtitle: `Restoring ${suburb.name}'s classic homes from the ground up.`,
+            introTitle: "Respecting the Past, Prepping for the Future.",
+            introText: `Renovating in ${suburb.name} often means dealing with decades of history—and the uneven subfloors that come with it. Whether it's a Queenslander with a moving frame or a post-war cottage with glue-riddled hardwood, we ensure your base is solid.`,
+            spec1: "Timber Floor Prep",
+            spec1Desc: "Stabilizing and ramping timber subfloors for new hybrid or engineered heavy flooring."
+        },
+        'apartment': {
+            heroSubtitle: `Low-dust, noise-compliant floor prep for ${suburb.name} apartments.`,
+            introTitle: "High-Rise Precision.",
+            introText: `Body Corporate bylaws in ${suburb.name} are strict. We specialize in low-noise, dust-extracted grinding and acoustic matting installation that meets ISO standards, ensuring your renovation doesn't disturb the neighbors.`,
+            spec1: "Acoustic Matting",
+            spec1Desc: "Supply and install of Regupol or similar acoustic underlays to meet Body Corp by-laws."
+        },
+        'new-build': {
+            heroSubtitle: `Correcting slab defects in ${suburb.name}'s new estates.`,
+            introTitle: "Don't Settle for uneven slabs.",
+            introText: `Builders often hand over slabs that aren't flat enough for modern vinyl planking. We come in post-handover to grind humps and flood-fill low spots, ensuring your warranty remains valid in ${suburb.name}.`,
+            spec1: "Slab Rectification",
+            spec1Desc: "Grinding rain-damaged slabs or levelling to the 3mm tolerance required by floor layers."
+        },
+        'commercial': {
+            heroSubtitle: `Industrial grade floor preparation in ${suburb.name}.`,
+            introTitle: "Business Grade Base.",
+            introText: `From retail defits in ${suburb.name} to warehouse make-goods, we provide the heavy machinery needed to strip 500m²+ of glue or epoxy in a single shift.`,
+            spec1: "Bulk Removal",
+            spec1Desc: "Ride-on stripping and 3-phase grinding for rapid turnaround."
+        }
+    };
+
+    const content = archetypeContent[suburb.archetype] || archetypeContent['historic'];
+
+    const specs = [
+        {
+            icon: "📍",
+            title: "Local Experts",
+            description: `We understand the specific building guidelines and unique soil/foundation challenges in ${suburb.name}.`
+        },
+        {
+            icon: "🛠️",
+            title: content.spec1,
+            description: content.spec1Desc
+        },
+        {
+            icon: "📉",
+            title: "Laser Levelling",
+            description: "Using rotary lasers to map your floor's topography and ensure a perfectly flat finish."
+        },
+        {
+            icon: "✨",
+            title: "Dust-Free Promise",
+            description: "Essential for occupied homes in " + suburb.name + ". Our H-Class vacuums capture 99.9% of dust."
+        }
+    ];
+
+    const suitableFor = [
+        { label: "Renovations" },
+        { label: "New Builds" },
+        { label: "Real Estate Pre-Sale" },
+        { label: "Commercial Fitouts" }
+    ];
+
+    return (
+        <>
+            <ServiceHero
+                title={<>{suburb.name} <span className="text-yellow-500">Floor Prep</span>.</>}
+                subtitle={content.heroSubtitle}
+                imagePath={suburb.image?.src || "/images/brisbane_skyline.png"}
+                label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
+            />
+
+            <TechSpecs
+                title={content.introTitle}
+                description={<>
+                    <p className="mb-4">{content.introText}</p>
+                    {suburb.landmarks && suburb.landmarks.length > 0 && (
+                        <p className="text-sm text-gray-400 mt-2">
+                            <em>Serving projects near {suburb.landmarks.join(', ')} and surrounding streets of {suburb.name} ({suburb.postcode}).</em>
+                        </p>
+                    )}
+                </>}
+                features={specs}
+            />
+
+            <FeaturesGrid
+                title={`Services in ${suburb.name}`}
+                features={suitableFor}
+                columns={4}
+            />
+
+            <ProcessSteps
+                title="Our Process"
+                steps={[
+                    { title: "Consult", description: `We visit your ${suburb.name} site to assess specific access and power requirements.` },
+                    { title: "Prep", description: "Grinding, stripping, or repairing the subfloor." },
+                    { title: "Level", description: "Applying flood coating if required for a mirror finish." },
+                    { title: "Handover", description: "Site left clean, vacuumed, and ready for installation." }
+                ]}
+            />
+
+            <ModernGallery
+                title={`Work near ${suburb.name}`}
+                images={siteImages.home.transformations} // We could filter this further if we tagged images by region
+                limit={4}
+            />
+
+            <FAQSection items={[
+                {
+                    question: `Do you charge for travel to ${suburb.name}?`,
+                    answer: "No, we have teams stationed across Brisbane and the Gold Coast, so we don't charge extra travel fees."
+                },
+                {
+                    question: "How quickly can you start?",
+                    answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
+                }
+            ]} />
+
+            <InternalLinks type="services" />
+
+            <SEOCTA
+                title={`Ready to prep your ${suburb.name} property?`}
+                subtitle="Get a free quote from the local experts today."
+                buttonText="Get Local Quote"
+            />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": `Turner Installs - ${suburb.name}`,
+                        "description": `Professional floor preparation services in ${suburb.name}, ${suburb.region}.`,
+                        "telephone": "+61 7480 223 88",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": suburb.name,
+                            "addressRegion": "QLD",
+                            "postalCode": suburb.postcode,
+                            "addressCountry": "AU"
+                        },
+                        "areaServed": [suburb.name],
+                        "priceRange": "$$"
+                    })
+                }}
+            />
+        </>
+    );
+}

@@ -118,10 +118,12 @@ export default function FloorPreparation() {
         features={specs}
       />
 
-      {/* NEW: Before & After Showcase */}
-      <BeforeAfterGallery
+      {/* MODIFIED: Turner Difference Section */}
+      <ImageGrid
         title="The Turner Difference"
-        pairs={siteImages.floorPrep.beforeAfter}
+        description="Perfect preparation for perfect floors."
+        images={siteImages.floorPrep.turnerDifference}
+        columns={2}
       />
 
       <FeaturesGrid
@@ -130,12 +132,12 @@ export default function FloorPreparation() {
         columns={3}
       />
 
-      {/* NEW: Unacceptable vs Ready */}
+      {/* MODIFIED: Unacceptable Section */}
       <ImageGrid
-        title="Before Prep: Not Acceptable"
+        title="Avoid these costly issues by choosing us first"
         description="We fix these common issues that cause flooring failure."
         images={siteImages.floorPrep.unacceptable}
-        columns={3}
+        columns={2}
         variant="warning"
       />
 
@@ -144,11 +146,11 @@ export default function FloorPreparation() {
         steps={processSteps}
       />
 
-      {/* NEW: Ready State */}
+      {/* MODIFIED: Ready State Section */}
       <ImageGrid
-        title="After Prep: Ready for Installation"
+        title="Preparations prior to installation"
         description="The standard we deliver. Clean, flat, and structurally sound."
-        images={siteImages.floorPrep.process.map(img => ({ ...img, caption: img.alt }))}
+        images={siteImages.floorPrep.process.slice(0, 3).map(img => ({ ...img, caption: img.alt }))}
         columns={3}
         variant="success"
       />

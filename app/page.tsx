@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Section from "@/components/Section";
-import CTAButton from "@/components/CTAButton";
+import dynamic from 'next/dynamic';
 import ModernGallery from "@/components/ModernGallery";
 import { siteImages } from "@/data/siteImages";
 
@@ -11,10 +10,14 @@ export const metadata = {
     "15+ years experience in Brisbane. Expert flooring installation, professional floor preparation, and immaculate clean-up for residential and commercial clients.",
 };
 
+const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'), {
+  ssr: false,
+  loading: () => <div className="h-[500px] w-full bg-gray-100 animate-pulse rounded-2xl border border-gray-200" />
+});
+
 export default function Home() {
   return (
     <>
-      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -42,9 +45,8 @@ export default function Home() {
         }}
       />
 
-      {/* NEW HERO SECTION - Trade Style (Daytime) */}
+      {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center">
-        {/* Background Image with Light Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/brisbane_skyline.png"
@@ -53,12 +55,10 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          {/* Light/White Overlay for Daytime look */}
           <div className="absolute inset-0 bg-white/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
         </div>
 
-        {/* Hero Content - Split Layout */}
         <div className="relative z-10 max-w-7xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-left text-slate-900">
             <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
@@ -100,7 +100,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Form / "Why Us" Box - Floating Card */}
+          {/* Hero Form */}
           <div className="hidden lg:block bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
             <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase">Fast Quote</h3>
             <p className="text-slate-500 text-sm mb-6">Enter your details and we'll call you back instantly.</p>
@@ -122,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LEGACY / STORY SECTION - Alternating BG (Slate-50) */}
+      {/* STORY SECTION */}
       <section className="py-24 md:py-32 relative bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -130,13 +130,12 @@ export default function Home() {
               <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white shadow-2xl">
                 <div className="absolute inset-0 border-2 border-slate-900/10 z-10 pointer-events-none rounded-lg"></div>
                 <Image
-                  src="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
-                  alt="Staircase Flooring Installation"
+                  src={siteImages.commercial.projectShots[2].src}
+                  alt="Quality Flooring Installation"
                   fill
                   className="object-cover"
                 />
               </div>
-              {/* Badge */}
               <div className="absolute -bottom-6 -right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
                 <div className="text-3xl font-black text-yellow-400">15+</div>
                 <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
@@ -172,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY TURNER INSTALLS - Solid BG White */}
+      {/* WHY TURNER INSTALLS */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -201,7 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES - Alternating BG Slate-100 */}
+      {/* SERVICES */}
       <section className="py-24 bg-slate-100" id="services">
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-slate-300 pb-8">
@@ -219,7 +218,7 @@ export default function Home() {
             <Link href="/services/floor-preparation" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                  src={siteImages.home.services.residential.src}
                   alt="Residential Flooring"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -240,7 +239,7 @@ export default function Home() {
             <Link href="/commercial" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                  src={siteImages.home.services.commercial.src}
                   alt="Commercial Flooring"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -261,7 +260,7 @@ export default function Home() {
             <Link href="/services/floor-preparation" className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/new_prep_61981.jpg"
+                  src={siteImages.home.services.prep.src}
                   alt="Floor Preparation"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -285,7 +284,7 @@ export default function Home() {
       <ModernGallery
         title="Recent Transformations"
         images={siteImages.home.transformations}
-        limit={12}
+        limit={8}
       />
 
       {/* FINAL CTA */}
@@ -327,10 +326,3 @@ export default function Home() {
     </>
   );
 }
-
-// Wrapper for Map to handle Client Side Loading properly if needed, but the component handles it.
-import dynamic from 'next/dynamic';
-const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'), {
-  ssr: false,
-  loading: () => <div className="h-[500px] w-full bg-gray-100 animate-pulse rounded-2xl border border-gray-200" />
-});
