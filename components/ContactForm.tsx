@@ -72,17 +72,19 @@ export default function ContactForm() {
         <div className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 md:p-10 backdrop-blur-sm">
             <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
             {status === "success" ? (
-                <div className="bg-white rounded-xl overflow-hidden">
-                    <div className="p-6 text-center border-b border-gray-100">
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">Message Received!</h3>
-                        <p className="text-gray-600 text-sm">Select a time below for your Free Measure & Quote.</p>
+                <div className="bg-white rounded-xl overflow-hidden p-8 text-center min-h-[300px] flex flex-col items-center justify-center">
+                    <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        </svg>
                     </div>
-                    <iframe
-                        src={process.env.NEXT_PUBLIC_GHL_CALENDAR_URL}
-                        style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '650px' }}
-                        scrolling="no"
-                        id="ghl-calendar-embed"
-                    />
+                    <h3 className="text-2xl font-black text-slate-900 mb-2">Message Received!</h3>
+                    <p className="text-slate-600 mb-8 max-w-md mx-auto">
+                        Thanks for reaching out. Liam and the team will review your project details and give you a call shortly to arrange a quote.
+                    </p>
+                    <a href="/" className="inline-block px-8 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors">
+                        Return to Home
+                    </a>
                 </div>
             ) : (
                 <form className="space-y-6" onSubmit={handleSubmit}>
