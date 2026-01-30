@@ -50,8 +50,8 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/brisbane_skyline.png"
-            alt="Turner Installs - Brisbane Flooring Specialists"
+            src="/installspics/finished/image6.jpeg"
+            alt="Premium Finished Flooring - Turner Installs"
             fill
             className="object-cover"
             priority
