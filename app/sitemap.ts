@@ -1,43 +1,49 @@
-import { MetadataRoute } from 'next'
-import { suburbs } from '@/data/suburbs'
+import { MetadataRoute } from 'next';
+import { suburbs } from '@/data/suburbs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://turnerinstalls.com.au'
+    const baseUrl = 'https://turnerinstalls.com.au';
 
-    // Define static routes
-    const staticRoutes = [
+    // 1. Static Pages
+    const staticPages = [
         '',
         '/about',
         '/contact',
-        '/residential',
+        '/services',
         '/commercial',
         '/services/floor-preparation',
-        '/services/concrete-grinding',
-        '/services/floor-levelling',
-        '/services/moisture-barriers',
-        '/services/subfloor-repairs',
-        '/services/adhesive-removal',
-        '/services/epoxy-removal',
-        '/services/industrial-prep',
-        '/locations/brisbane',
-        '/locations/gold-coast',
-        '/locations/sunshine-coast',
-        '/locations/toowoomba',
-        '/locations/gympie',
-        '/services',
-        '/reviews',
-        '/privacy-policy',
-    ]
-
-    const fullRoutes = [
-        ...staticRoutes,
-        ...suburbs.map(s => `/locations/${s.region}/${s.slug}`)
-    ]
-
-    return fullRoutes.map((route) => ({
+        '/services/subfloor-levelling',
+        '/services/diamond-grinding',
+        '/services/carpet-removal',
+        '/services/timber-flooring'
+    ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
-        changeFrequency: route === '' ? 'daily' : 'weekly',
-        priority: route === '' ? 1 : 0.8,
-    }))
+        changeFrequency: 'monthly' as const,
+        priority: route === '' ? 1.0 : 0.8,
+    }));
+
+    // 2. Dynamic Location Pages (The "Twin Engine")
+    const locationPages = suburbs.flatMap((suburb) => {
+        const suburbPath = `/locations/${suburb.region}/${suburb.slug}`;
+
+        return [
+            // Engine 1: Suburb Home
+            {
+                url: `${baseUrl}${suburbPath}`,
+                lastModified: new Date(),
+                changeFrequency: 'weekly' as const,
+                priority: 0.9, // High priority for local domination
+            },
+            // Engine 2: Floor Prep Specialist
+            {
+                url: `${baseUrl}${suburbPath}/floor-preparation`,
+                lastModified: new Date(),
+                changeFrequency: 'weekly' as const,
+                priority: 0.9, // High priority for "money keywords"
+            }
+        ];
+    });
+
+    return [...staticPages, ...locationPages];
 }

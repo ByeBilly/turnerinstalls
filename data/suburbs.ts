@@ -25,7 +25,23 @@ export const suburbs: SuburbData[] = [
         description: "Renowned for its heritage Queenslanders and riverfront homes. We provide expert subfloor preparation for Graceville renovations, ensuring old timber structures are stable and level.",
         archetype: "historic",
         landmarks: ["Graceville Ave", "Honour Ave"],
-        image: { src: "/new_gen/hero/Graceville.jpg", alt: "Graceville Floor Preparation" }
+        image: { src: "/new_gen/hero/Graceville.jpg", alt: "Graceville Floor Preparation" },
+        galleryImages: [
+            { src: "/new_gen/hero/graceville1.png", alt: "Graceville Subfloor Correction" },
+            { src: "/new_gen/hero/gracevillechelmer.png", alt: "Graceville & Chelmer Renovation" }
+        ]
+    },
+
+    // BRISBANE - THE GAP
+    {
+        name: "The Gap",
+        slug: "the-gap",
+        region: "brisbane",
+        postcode: "4061",
+        description: "Leafy, hilly, and full of renovations. The Gap presents unique challenges with split-level homes and rock foundations. We ensure your floors are dead flat regardless of the terrain.",
+        archetype: "historic",
+        landmarks: ["Waterworks Road", "Enoggera Reservoir"],
+        image: { src: "/new_gen/hero/thegap.png", alt: "The Gap Floor Preparation" }
     },
 
     // GOLD COAST - HIGHLIFE / APARTMENTS
