@@ -9,7 +9,9 @@ import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import TrustBar from "@/components/TrustBar";
-import HeroForm from "@/components/HeroForm"; // Direct form injection
+import HeroForm from "@/components/HeroForm";
+import StorySection from "@/components/StorySection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -25,8 +27,8 @@ export async function generateMetadata({ params }: { params: { region: string; s
     const suburb = getSuburb(params.suburb);
     if (!suburb) return {};
 
-    const title = `Floor Preparation ${suburb.name} | Concrete Grinding & Levelling ${suburb.postcode}`;
-    const desc = `${suburb.name} floor preparation specialists. Creating flat, smooth concrete subfloors for renovations and new builds in ${suburb.name}, ${suburb.postcode}.`;
+    const title = `Flooring Installation ${suburb.name} | Professional Floor Preparation`;
+    const desc = `Specalist flooring contractors in ${suburb.name}. We provide expert floor preparation, concrete grinding, and installation services for renovations in ${suburb.postcode}.`;
 
     return {
         title: title,
@@ -104,6 +106,7 @@ export default function SuburbPage({ params }: { params: { region: string; subur
         }
     ];
 
+    // Adapted from Homepage Services but tailored title
     const suitableFor = [
         { label: "Renovations" },
         { label: "New Builds" },
@@ -114,7 +117,7 @@ export default function SuburbPage({ params }: { params: { region: string; subur
     return (
         <>
             <ServiceHero
-                title={<>{suburb.name} <span className="text-yellow-500">Floor Prep</span>.</>}
+                title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
                 subtitle={content.heroSubtitle}
                 imagePath={suburb.image?.src || "/images/brisbane_skyline.png"}
                 label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
@@ -125,6 +128,9 @@ export default function SuburbPage({ params }: { params: { region: string; subur
 
             {/* INJECT TRUST BAR */}
             <TrustBar />
+
+            {/* INJECT STORY SECTION */}
+            <StorySection locationName={suburb.name} />
 
             <TechSpecs
                 title={content.introTitle}
@@ -140,10 +146,13 @@ export default function SuburbPage({ params }: { params: { region: string; subur
             />
 
             <FeaturesGrid
-                title={`Services in ${suburb.name}`}
+                title={`Full Service Flooring in ${suburb.name}`}
                 features={suitableFor}
                 columns={4}
             />
+
+            {/* INJECT WHY CHOOSE US */}
+            <WhyChooseUs locationName={suburb.name} />
 
             <ProcessSteps
                 title="Our Process"
@@ -157,9 +166,10 @@ export default function SuburbPage({ params }: { params: { region: string; subur
 
             <ModernGallery
                 title={`Work near ${suburb.name}`}
-                images={siteImages.home.transformations} // We could filter this further if we tagged images by region
+                images={siteImages.home.transformations}
                 limit={4}
             />
+
 
             <FAQSection items={[
                 {
