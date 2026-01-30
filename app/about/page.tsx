@@ -48,13 +48,13 @@ export default function About() {
               </h2>
               <div className="prose prose-lg text-gray-600">
                 <p>
-                  It started decades ago with my grandfather, a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all. He taught my father everything he knew—not just the how, but the <em>why</em>.
+                  It started decades ago with my grandfather, who founded <strong>Turners Floorcoverings Pty Ltd</strong> right here in Brisbane. He was a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all.
                 </p>
                 <p>
-                  Growing up, I watched my father work with the same obsessive attention to detail. I learned the trade at his side, absorbing the tricks of the trade that you can't learn in a classroom.
+                  My father continued the legacy with <strong>Carpet Craft</strong> in South Australia, where I was born. Growing up, I verified the trade at his side, absorbing the tricks that you can't learn in a classroom.
                 </p>
                 <p>
-                  Today, as the third generation, <strong>Liam Turner</strong> brings that lifetime of inherited knowledge to every project. When we walk onto a site, we bring history with us. That's why we don't cut corners. That's why our prep is mirror-flat. Because our family name is on the line.
+                  Although Brisbane is where our roots are, it took three generations to refine this craft to perfection. Today, <strong>Turner Installs</strong> represents the culmination of that history. We don't just carry the name; we carry the standard. That’s why professionalism is where I excel—because I've spent a lifetime getting rid of the kinks.
                 </p>
               </div>
               <div className="pt-4">
@@ -64,7 +64,7 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square relative rounded-3xl overflow-hidden border border-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="/images/resource_9JmHv_OmwMo1MpdbXVmkGM.png"
+                  src="/installspics/finished/image6.jpeg"
                   alt="Flooring Craftsmanship"
                   fill
                   className="object-cover"

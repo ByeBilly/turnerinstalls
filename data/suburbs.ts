@@ -41,7 +41,11 @@ export const suburbs: SuburbData[] = [
         description: "Leafy, hilly, and full of renovations. The Gap presents unique challenges with split-level homes and rock foundations. We ensure your floors are dead flat regardless of the terrain.",
         archetype: "historic",
         landmarks: ["Waterworks Road", "Enoggera Reservoir"],
-        image: { src: "/new_gen/hero/thegap.png", alt: "The Gap Floor Preparation" }
+        image: { src: "/new_gen/hero/thegap.png", alt: "The Gap Floor Preparation" },
+        galleryImages: [
+            { src: "/installspics/finished/thegap1.jpg", alt: "The Gap Flooring" },
+            { src: "/installspics/finished/thegap_staircase.jpg", alt: "The Gap Staircase Upgrade" }
+        ]
     },
 
     // GOLD COAST - HIGHLIFE / APARTMENTS
@@ -76,6 +80,22 @@ export const suburbs: SuburbData[] = [
         image: siteImages.home.transformations[2]
     },
 
+    // BRISBANE - KENMORE
+    {
+        name: "Kenmore",
+        slug: "kenmore",
+        region: "brisbane",
+        postcode: "4069",
+        description: "Large family homes on the western fringe. We handle floor prep for Kenmore extensions, kitchen renovations, and tile removal.",
+        archetype: "historic",
+        landmarks: ["Kenmore Plaza", "Moggill Rd"],
+        image: { src: "/installspics/finished/kenmore.jpg", alt: "Kenmore Floor Preparation" },
+        galleryImages: [
+            { src: "/installspics/finished/kenmore.jpg", alt: "Kenmore Project" },
+            { src: "/installspics/finished/kenmore1.jpg", alt: "Kenmore Flooring Upgrade" }
+        ]
+    },
+
     // BRISBANE - RENOVATION BELT
     {
         name: "New Farm",
@@ -85,7 +105,13 @@ export const suburbs: SuburbData[] = [
         description: "Restoring floors in historic New Farm Queenslanders requires care. We specialize in subfloor strengthening, removing old lino glue, and ramping for seamless extensions.",
         archetype: "historic",
         landmarks: ["New Farm Park", "Powerhouse"],
-        image: siteImages.home.transformations[1]
+        image: siteImages.home.transformations[1],
+        galleryImages: [
+            { src: "/installspics/finished/newfarm.jpg", alt: "New Farm Renovation" },
+            { src: "/installspics/finished/newfarm1.jpeg", alt: "New Farm Timber Prep" },
+            { src: "/installspics/finished/newfarm2.jpg", alt: "New Farm Flooring" },
+            { src: "/installspics/finished/newfarm_kitchen.jpg", alt: "New Farm Kitchen Prep" }
+        ]
     },
     {
         name: "Paddington",
@@ -95,7 +121,13 @@ export const suburbs: SuburbData[] = [
         description: "Dealing with uneven floors in a Paddington cottage? Our ramping and subfloor repair services ensure your new expensive timber floor sits perfectly flat.",
         archetype: "historic",
         landmarks: ["Latrobe Terrace"],
-        image: siteImages.floorPrep.process[0]
+        image: { src: "/installspics/finished/paddington.jpg", alt: "Paddington Cottage Floor" },
+        galleryImages: [
+            { src: "/installspics/finished/paddington.jpg", alt: "Paddington Floor Prep" },
+            { src: "/installspics/finished/paddington1.jpg", alt: "Paddington Subfloor" },
+            { src: "/installspics/finished/paddington2.jpg", alt: "Paddington Ramping" },
+            { src: "/installspics/finished/paddingtonstairs.jpeg", alt: "Paddington Staircase" }
+        ]
     },
     {
         name: "Teneriffe",
