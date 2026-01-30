@@ -57,14 +57,11 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <div>© {currentYear} Turner Installs. All rights reserved.</div>
-          <div className="flex items-center gap-2 text-slate-500">
-            <span>ABN: 12 345 678 901</span> {/* Placeholder ABN if not known, safe to leave generic format or remove if strictly needed */}
-            <span>|</span>
-            <span>Qbcc Lic: 12345678</span> {/* Placeholder Lic */}
-          </div>
+          <span>TURNER INSTALLS PTY LTD - ABN 36 623 763 566</span>
         </div>
       </div>
-    </footer>
+    </div>
+    </footer >
   );
 }
 
