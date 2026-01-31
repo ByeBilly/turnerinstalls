@@ -7,43 +7,59 @@ export default function HeroForm({ location }: { location?: string }) {
     const router = useRouter();
     const [formData, setFormData] = useState({
         name: "",
-        phone: ""
+        phone: "",
+        email: "" // Added Email field
     });
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setErrorMessage("");
+
+        // VALIDATION: Phone OR Email required
+        if (!formData.phone.trim() && !formData.email.trim()) {
+            setErrorMessage("Please enter a phone number or email so we can contact you.");
+            return;
+        }
+
         setStatus("submitting");
 
         try {
-            const webhookUrl = process.env.NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL;
+            // NORMALIZE PHONE: Remove spaces
+            const normalizedPhone = formData.phone.replace(/\s+/g, '');
 
-            // If no webhook, we can't really submit, but for UX we might just redirect to contact with params
-            if (!webhookUrl) {
-                console.warn("GHL Webhook URL not set");
-                // Fallback: Redirect to contact page with pre-filled data (if we implemented that) 
-                // or just alert the user for now since we are in dev mode.
-                // For proper flow:
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                router.push(`/contact?name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}`);
-                return;
-            }
+            // CONSTRUCT STANDARD PAYLOAD
+            const payload = {
+                schema_version: 1,
+                event: "lead.submitted",
+                occurred_at: new Date().toISOString(),
+                lead: {
+                    name: formData.name,
+                    phone: normalizedPhone,
+                    email: formData.email
+                },
+                meta: {
+                    form_id: "hero_fast_quote",
+                    source: location ? `Turner Installs Homepage Hero - ${location}` : "Turner Installs Homepage Hero",
+                    page_url: window.location.href
+                },
+                custom_fields: {
+                    service_name: "Fast Callback Request",
+                    message: "Callback requested from Homepage Hero.",
+                    flooring_type: "Not Specified"
+                },
+                raw: { ...formData, location }
+            };
 
-            const response = await fetch(webhookUrl, {
+            const response = await fetch("/api/lead", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...formData,
-                    service_name: "Fast Callback Request",
-                    source: location ? `Turner Installs Homepage Hero - ${location}` : "Turner Installs Homepage Hero",
-                    timestamp: new Date().toISOString()
-                }),
+                body: JSON.stringify(payload),
             });
 
             if (response.ok) {
                 setStatus("success");
-                // Redirect to a thank you page or show success state
-                // For this hero box, a success message overlay is nice.
             } else {
                 setStatus("error");
             }
@@ -71,7 +87,14 @@ export default function HeroForm({ location }: { location?: string }) {
         <div className="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-400 max-w-sm ml-auto">
             <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase">Fast Quote</h3>
             <p className="text-slate-500 text-sm mb-6">Enter your details and Liam will call you back as soon as he can.</p>
+
             <form className="space-y-4" onSubmit={handleSubmit}>
+                {errorMessage && (
+                    <div className="bg-red-50 text-red-600 text-xs p-3 rounded-lg border border-red-200 font-semibold">
+                        {errorMessage}
+                    </div>
+                )}
+
                 <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
                     <input
@@ -84,18 +107,32 @@ export default function HeroForm({ location }: { location?: string }) {
                         placeholder="Your Name"
                     />
                 </div>
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Phone</label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900"
-                        placeholder="0400 000 000"
-                    />
+
+                <div className="grid grid-cols-1 gap-4">
+                    <div>
+                        <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Phone</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900"
+                            placeholder="0400 000 000"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Email <span className="text-slate-400 font-normal lowercase">(optional)</span></label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-slate-900"
+                            placeholder="you@example.com"
+                        />
+                    </div>
                 </div>
+
                 <button
                     type="submit"
                     disabled={status === "submitting"}

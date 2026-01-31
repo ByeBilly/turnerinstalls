@@ -10,32 +10,51 @@ export default function ContactForm() {
         message: ""
     });
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setErrorMessage("");
+
+        // VALIDATION: Phone OR Email required
+        if (!formData.phone.trim() && !formData.email.trim()) {
+            setErrorMessage("Please enter a phone number or email so we can contact you.");
+            return;
+        }
+
         setStatus("submitting");
 
         try {
-            const webhookUrl = process.env.NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL;
+            // NORMALIZE PHONE: Remove spaces
+            const normalizedPhone = formData.phone.replace(/\s+/g, '');
 
-            if (!webhookUrl) {
-                console.warn("GHL Webhook URL not set");
-                // For demo purposes, simulate success
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                setStatus("success");
-                return;
-            }
+            // CONSTRUCT STANDARD PAYLOAD
+            const payload = {
+                schema_version: 1,
+                event: "lead.submitted",
+                occurred_at: new Date().toISOString(),
+                lead: {
+                    name: formData.name,
+                    phone: normalizedPhone,
+                    email: formData.email
+                },
+                meta: {
+                    form_id: "contact_page",
+                    source: "Turner Installs Website",
+                    page_url: window.location.href
+                },
+                custom_fields: {
+                    service_name: "General Project Enquiry",
+                    message: formData.message,
+                    flooring_type: "Not Specified"
+                },
+                raw: { ...formData }
+            };
 
-            const response = await fetch(webhookUrl, {
+            const response = await fetch("/api/lead", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...formData,
-                    flooring_type: "Not Specified",
-                    service_name: "General Project Enquiry",
-                    source: "Turner Installs Website",
-                    timestamp: new Date().toISOString()
-                }),
+                body: JSON.stringify(payload),
             });
 
             if (response.ok) {
@@ -88,6 +107,12 @@ export default function ContactForm() {
                 </div>
             ) : (
                 <form className="space-y-6" onSubmit={handleSubmit}>
+                    {errorMessage && (
+                        <div className="bg-red-500/10 border border-red-500/50 text-red-200 text-sm p-4 rounded-xl text-center">
+                            {errorMessage}
+                        </div>
+                    )}
+
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label htmlFor="name" className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Name</label>
@@ -108,7 +133,6 @@ export default function ContactForm() {
                                 id="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                required
                                 className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
                                 placeholder="0400 000 000"
                             />
@@ -122,7 +146,6 @@ export default function ContactForm() {
                             id="email"
                             value={formData.email}
                             onChange={handleChange}
-                            required
                             className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors text-white"
                             placeholder="you@example.com"
                         />
