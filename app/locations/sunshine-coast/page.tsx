@@ -62,7 +62,7 @@ export default function SunshineCoast() {
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Sunshine Coast</span>.</>}
                 subtitle="From Caloundra to Noosa, we deliver premium subfloors."
-                imagePath="/images/resource_8hoRmbeN0wZaeTsIWHp4VF.png"
+                imagePath="/installspics/finished/modern-timber-flooring-living-room.jpg"
                 label="SUNSHINE_COAST"
             />
 
@@ -83,7 +83,12 @@ export default function SunshineCoast() {
 
             <ModernGallery
                 title="Coastal Work"
-                images={siteImages.home.transformations}
+                images={[
+                    { src: "/installspics/finished/the-gap-timber-flooring.jpg", alt: "Coastal Timber Style" },
+                    { src: "/installspics/prep/floods/flood-work-preparation.jpg", alt: "Flood Prep Work" },
+                    { src: "/installspics/laying/newly-laid-stair-treads.jpg", alt: "Timber Stair Installation" },
+                    { src: "/installspics/prep/level/yellowtongue-levelling-buildup.jpg", alt: "Yellowtongue Levelling" }
+                ]}
                 limit={4}
             />
 

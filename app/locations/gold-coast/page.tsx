@@ -63,7 +63,7 @@ export default function GoldCoast() {
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Gold Coast</span>.</>}
                 subtitle="High-end floor preparation for the Coast's luxury homes and apartments."
-                imagePath="/images/resource_avPl0dbJ2Se1Om54B2t_d-.png"
+                imagePath="/installspics/finished/large-open-plan-timber-floor.jpg"
                 label="GOLD_COAST"
             />
 
@@ -84,7 +84,12 @@ export default function GoldCoast() {
 
             <ModernGallery
                 title="Gold Coast Projects"
-                images={siteImages.home.transformations}
+                images={[
+                    { src: "/installspics/finished/new-farm-kitchen-flooring.jpg", alt: "Luxury Kitchen Flooring" },
+                    { src: "/installspics/prep/floods/mirror-glass-level-flood.jpg", alt: "Mirror Level Flood Prep" },
+                    { src: "/installspics/laying/mobile-cutting-station.jpg", alt: "Clean Installation Process" },
+                    { src: "/installspics/prep/level/prepping-the-lows.jpg", alt: "Subfloor Rectification" }
+                ]}
                 limit={4}
             />
 

@@ -62,7 +62,7 @@ export default function Toowoomba() {
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Toowoomba</span>.</>}
                 subtitle="Bringing high-spec floor preparation to the Darling Downs."
-                imagePath="/images/resource_9P4V5A71bJ19uiTBiRV4_n.png"
+                imagePath="/installspics/finished/finished-timber-floor-display.jpg"
                 label="DARLING_DOWNS"
             />
 
@@ -83,7 +83,12 @@ export default function Toowoomba() {
 
             <ModernGallery
                 title="Toowoomba Projects"
-                images={siteImages.home.transformations}
+                images={[
+                    { src: "/installspics/finished/kenmore-timber-flooring.jpg", alt: "Regional Timber Flooring" },
+                    { src: "/installspics/prep/floods/absolute-perfect-flood-levelling.jpg", alt: "Concrete Slab Levelling" },
+                    { src: "/installspics/laying/staircase-adhesive-setting.jpg", alt: "Staircase Installation" },
+                    { src: "/installspics/prep/level/filled-lows-grinded-highs.jpg", alt: "Grinding and Filling" }
+                ]}
                 limit={4}
             />
 

@@ -62,7 +62,7 @@ export default function Gympie() {
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Gympie</span>.</>}
                 subtitle="High-quality concrete preparation for the Gold City region."
-                imagePath="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+                imagePath="/installspics/finished/paddington-staircase-timber.jpg"
                 label="WIDE_BAY"
             />
 
@@ -83,7 +83,12 @@ export default function Gympie() {
 
             <ModernGallery
                 title="Gympie Works"
-                images={siteImages.home.transformations}
+                images={[
+                    { src: "/installspics/finished/brisbane-city-view-flooring.jpg", alt: "High Quality Finish" },
+                    { src: "/installspics/prep/level/sliding-door-height-grinding-solution.jpg", alt: "Correcting Door Heights" },
+                    { src: "/installspics/laying/professional-cutting-station-setup.jpg", alt: "Mobile Workshop Setup" },
+                    { src: "/installspics/prep/floods/flood-work-preparation.jpg", alt: "Wide Area Levelling" }
+                ]}
                 limit={4}
             />
 
