@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     images: ["/images/resource_9fVqoabE10H5PDfVW4rOXY.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
   themeColor: "#ffffff",
 };
