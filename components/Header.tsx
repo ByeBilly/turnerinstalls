@@ -78,12 +78,12 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-2">
               <div className="flex flex-col items-end mr-2">
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Call for Advice</span>
-                <a href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/[^\d]/g, "")}`} className="text-sm font-black text-slate-900 hover:text-yellow-600 transition-colors">
+                <a href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/\s/g, "")}`} className="text-sm font-black text-slate-900 hover:text-yellow-600 transition-colors">
                   {process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413 592 054"}
                 </a>
               </div>
               <a
-                href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/[^\d]/g, "")}`}
+                href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/\s/g, "")}`}
                 className="px-5 py-3 rounded bg-slate-900 text-white text-sm font-bold uppercase tracking-wide shadow-lg hover:bg-slate-800 transition-all active:scale-95 flex items-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
@@ -108,7 +108,7 @@ export default function Header() {
             </div>
           </Link>
           <a
-            href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/[^\d]/g, "")}`}
+            href={`tel:${(process.env.NEXT_PUBLIC_SUPPORT_PHONE || "0413592054").replace(/\s/g, "")}`}
             className="px-4 py-2 rounded bg-yellow-400 text-slate-900 text-xs font-bold uppercase tracking-wide flex items-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
