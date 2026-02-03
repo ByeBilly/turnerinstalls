@@ -89,7 +89,12 @@ export default function Brisbane() {
 
             <ModernGallery
                 title="Recent Brisbane Projects"
-                images={siteImages.home.transformations}
+                images={[
+                    siteImages.home.transformations[0],
+                    siteImages.home.transformations[1],
+                    { src: "/installspics/locations/brisbane.jpg", alt: "Brisbane Transformation" },
+                    { src: "/installspics/locations/brisbane1.jpg", alt: "Modern Brisbane Living" }
+                ]}
                 limit={4}
             />
 

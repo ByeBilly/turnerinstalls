@@ -86,8 +86,8 @@ export default function SunshineCoast() {
                 images={[
                     { src: "/installspics/finished/the-gap-timber-flooring.jpg", alt: "Coastal Timber Style" },
                     { src: "/installspics/prep/floods/flood-work-preparation.jpg", alt: "Flood Prep Work" },
-                    { src: "/installspics/laying/newly-laid-stair-treads.jpg", alt: "Timber Stair Installation" },
-                    { src: "/installspics/prep/level/yellowtongue-levelling-buildup.jpg", alt: "Yellowtongue Levelling" }
+                    { src: "/installspics/locations/sunshinecoast.jpg", alt: "Sunshine Coast Flooring" },
+                    { src: "/installspics/locations/sunshinecoast1.jpg", alt: "Sunny Coast Living" }
                 ]}
                 limit={4}
             />

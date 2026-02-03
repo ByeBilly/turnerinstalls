@@ -44,15 +44,17 @@ export default function Ipswich() {
                         <CTAButton
                             href="/contact"
                             variant="primary"
-                            label="Get a Free Quote"
                             className="w-full sm:w-auto"
-                        />
+                        >
+                            Get a Free Quote
+                        </CTAButton>
                         <CTAButton
                             href="tel:0413592054"
-                            variant="outline"
-                            label="Call Liam: 0413 592 054"
+                            variant="secondary"
                             className="w-full sm:w-auto"
-                        />
+                        >
+                            Call Liam: 0413 592 054
+                        </CTAButton>
                     </div>
                 </div>
             </section>
@@ -199,10 +201,10 @@ export default function Ipswich() {
                         </div>
                         <div className="space-y-4">
                             <div className="relative h-32 rounded-lg overflow-hidden shadow-md">
-                                <Image src="/installspics/laying/professional-cutting-station-setup.jpg" alt="Cutting station setup" fill className="object-cover" />
+                                <Image src="/installspics/locations/ipswich.jpg" alt="Ipswich Project" fill className="object-cover" />
                             </div>
                             <div className="relative h-56 rounded-lg overflow-hidden shadow-md">
-                                <Image src="/installspics/laying/newly-laid-stair-treads.jpg" alt="Stair treads installation" fill className="object-cover" />
+                                <Image src="/installspics/locations/ipswich1.jpg" alt="Ipswich Floor" fill className="object-cover" />
                             </div>
                         </div>
                     </div>
@@ -249,15 +251,17 @@ export default function Ipswich() {
                         <CTAButton
                             href="/contact"
                             variant="primary"
-                            label="Book a Free Measure"
                             className="w-full"
-                        />
+                        >
+                            Book a Free Measure
+                        </CTAButton>
                         <CTAButton
                             href="tel:0413592054"
-                            variant="outline-light"
-                            label="Call Liam Now"
+                            variant="secondary"
                             className="w-full"
-                        />
+                        >
+                            Call Liam Now
+                        </CTAButton>
                     </div>
                 </div>
             </section>

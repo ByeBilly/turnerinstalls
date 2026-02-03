@@ -16,3 +16,9 @@
 - `/public/installspics/prep`: **Subfloor Preparation**. Contains specific subfolders for `damage`, `floods`, `level`, `grinding`, etc.
 - **Rule**: Gallery on Homepage should ONLY use `finished` images.
 - **Rule**: "Laying" images are for process explanation sections.
+
+## [2026-02-01] Asset Organization & Cleanup
+- Created `public/site_content_resources` to store text content (moved `ipswich.txt` there).
+- Moved finished installation images from `public/newlyadded` to `public/installspics/finished`.
+- Moved promo images (`hiddenmistake_promo.png`, `lifetime_foundation_promo.png`) from `public/newlyadded` to `public/installspics/promo`.
+- Verified build status (investigating current failure).

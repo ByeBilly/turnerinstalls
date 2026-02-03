@@ -87,8 +87,8 @@ export default function GoldCoast() {
                 images={[
                     { src: "/installspics/finished/new-farm-kitchen-flooring.jpg", alt: "Luxury Kitchen Flooring" },
                     { src: "/installspics/prep/floods/mirror-glass-level-flood.jpg", alt: "Mirror Level Flood Prep" },
-                    { src: "/installspics/laying/mobile-cutting-station.jpg", alt: "Clean Installation Process" },
-                    { src: "/installspics/prep/level/prepping-the-lows.jpg", alt: "Subfloor Rectification" }
+                    { src: "/installspics/locations/goldcoast.jpg", alt: "Gold Coast Interior" },
+                    { src: "/installspics/locations/goldcoastcleanfinish.jpg", alt: "Clean Gold Coast Finish" }
                 ]}
                 limit={4}
             />
