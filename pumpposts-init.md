@@ -29,7 +29,7 @@ This document is the "Master Seed" for our standalone social media infrastructur
 3.  **The "Bridge" API**:
     - Build the **Registration Endpoint** where you generate API Keys for client sites.
 4.  **Admin UI**:
-    - Build the **PumpPosts Master Dashboard** where you see all your connected client sites and their "Sync Health."
+    - Build the **PumpPosts Master Dashboard** where you see all your connected client sites and their "Engine Health."
 
 ---
 
