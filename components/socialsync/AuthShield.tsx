@@ -11,6 +11,7 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
     const [step, setStep] = useState<'email' | 'code'>('email');
     const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
+    const [verificationToken, setVerificationToken] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -29,6 +30,7 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
             const data = await response.json();
 
             if (response.ok) {
+                setVerificationToken(data.verificationToken);
                 setStep('code');
             } else {
                 setError(data.error || "Failed to request code.");
@@ -48,7 +50,12 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
         try {
             const response = await fetch('/api/socialsync/auth', {
                 method: 'POST',
-                body: JSON.stringify({ action: 'VERIFY_CODE', email, code }),
+                body: JSON.stringify({
+                    action: 'VERIFY_CODE',
+                    email,
+                    code,
+                    verificationToken
+                }),
                 headers: { 'Content-Type': 'application/json' }
             });
 
