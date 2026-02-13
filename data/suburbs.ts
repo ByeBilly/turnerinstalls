@@ -150,6 +150,68 @@ export const suburbs: SuburbData[] = [
         archetype: "new-build",
         landmarks: [],
         image: siteImages.floorPrep.process[1]
+    },
+
+    // OXLEY & WESTERN UP-MARKET METRO
+    {
+        name: "Oxley",
+        slug: "oxley",
+        region: "brisbane",
+        postcode: "4075",
+        description: "Turner Installs' home base. We specialise in both classic brick-and-tile homes and modern townhouses in Oxley. Our central proximity ensures rapid response for all local floor preparation needs.",
+        archetype: "historic",
+        landmarks: ["Oxley Station", "The Station Oxley"],
+        image: siteImages.home.transformations[0]
+    },
+    {
+        name: "Corinda",
+        slug: "corinda",
+        region: "brisbane",
+        postcode: "4075",
+        description: "High-end heritage and modern luxury. From sprawling estates to boutique apartments, Corinda demands a high standard of finish. We provide precision levelling for premium flooring installs.",
+        archetype: "historic",
+        landmarks: ["Corinda State High", "Dunlop Park"],
+        image: siteImages.home.transformations[1]
+    },
+    {
+        name: "Sherwood",
+        slug: "sherwood",
+        region: "brisbane",
+        postcode: "4075",
+        description: "Known for its beautiful arboretum and heritage homes. We help Sherwood residents restore their timber subfloors or prep new slabs for luxury hybrid flooring.",
+        archetype: "historic",
+        landmarks: ["Sherwood Arboretum"],
+        image: siteImages.home.transformations[2]
+    },
+    {
+        name: "Chelmer",
+        slug: "chelmer",
+        region: "brisbane",
+        postcode: "4068",
+        description: "Prestige riverfront properties. Chelmer's high-value renovations require meticulous floor preparation. We specialize in large-format tile prep and engineered timber subfloors.",
+        archetype: "historic",
+        landmarks: ["Chelmer Bridge", "Honour Ave"],
+        image: { src: "/new_gen/hero/gracevillechelmer.png", alt: "Chelmer Floor Prep" }
+    },
+    {
+        name: "Fig Tree Pocket",
+        slug: "fig-tree-pocket",
+        region: "brisbane",
+        postcode: "4069",
+        description: "Rural charm meets modern luxury. Fig Tree Pocket's large estates often feature expansive concrete slabs. We ensure they are perfectly level and moisture-protected.",
+        archetype: "new-build",
+        landmarks: ["Lone Pine Koala Sanctuary", "Fig Tree Pocket Rd"],
+        image: siteImages.floorPrep.process[0]
+    },
+    {
+        name: "Indooroopilly",
+        slug: "indooroopilly",
+        region: "brisbane",
+        postcode: "4068",
+        description: "A mix of classic homes and premium apartments. We provide noise-compliant grinding for high-rises and heritage-correct subfloor repairs for Indooroopilly renovations.",
+        archetype: "apartment",
+        landmarks: ["Indooroopilly Shopping Centre", "St Lucia Golf Links"],
+        image: siteImages.grinding.actionShots[1]
     }
 ];
 
