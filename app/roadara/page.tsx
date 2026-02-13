@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { Share2, Zap, BarChart3, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: "SocialSync | Next-Gen Social Integration",
+    title: "Roadara | Next-Gen Social Integration",
     description: "The unified dashboard for synchronizing your brand across the web.",
 };
 
-export default function SocialSyncLanding() {
+export default function RoadaraLanding() {
     return (
         <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30">
             {/* Ambient Background */}
@@ -23,10 +23,10 @@ export default function SocialSyncLanding() {
                     <div className="w-8 h-8 bg-gradient-to-tr from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20">
                         <Share2 className="w-5 h-5 text-black" strokeWidth={2.5} />
                     </div>
-                    <span className="text-xl font-bold tracking-tight uppercase">SocialSync</span>
+                    <span className="text-xl font-bold tracking-tight uppercase">Roadara</span>
                 </div>
                 <Link
-                    href="/socialsync/dashboard"
+                    href="/roadara/dashboard"
                     className="px-5 py-2 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all active:scale-95"
                 >
                     Access Dashboard
@@ -49,7 +49,7 @@ export default function SocialSyncLanding() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link
-                            href="/socialsync/dashboard"
+                            href="/roadara/dashboard"
                             className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-xl shadow-indigo-600/20 group"
                         >
                             Launch Prototype
@@ -87,7 +87,7 @@ export default function SocialSyncLanding() {
             <footer className="relative z-10 py-12 px-5 border-t border-white/5 bg-black">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-zinc-500 text-sm italic">
-                        SocialSync is a modular component designed for universal web integration.
+                        Roadara is a modular component designed for universal web integration.
                     </p>
                     <div className="flex items-center gap-6 text-zinc-400 text-sm">
                         <span>Turner Installs Case Study</span>

@@ -16,7 +16,7 @@ import {
     Smartphone,
     Layout
 } from 'lucide-react';
-import AuthShield from '@/components/socialsync/AuthShield';
+import AuthShield from '@/components/roadara/AuthShield';
 
 export default function CreatePost() {
     const [authorized, setAuthorized] = useState(false);
@@ -94,7 +94,7 @@ export default function CreatePost() {
                                 </div>
                                 <div className="text-center">
                                     <p className="text-sm font-semibold">Drop your project photos here</p>
-                                    <p className="text-xs text-zinc-500 mt-1">SocialSync will automatically optimize size for each platform.</p>
+                                    <p className="text-xs text-zinc-500 mt-1">Roadara will automatically optimize size for each platform.</p>
                                 </div>
                             </div>
                         </div>
@@ -188,8 +188,8 @@ function PlatformBtn({ id, icon, active, onClick }: { id: string, icon: React.Re
         <button
             onClick={onClick}
             className={`w-14 h-14 rounded-2xl border flex items-center justify-center transition-all ${active
-                    ? 'bg-zinc-100 text-black border-white shadow-lg'
-                    : `bg-zinc-900 border-white/5 text-zinc-500 ${colors[id as keyof typeof colors]}`
+                ? 'bg-zinc-100 text-black border-white shadow-lg'
+                : `bg-zinc-900 border-white/5 text-zinc-500 ${colors[id as keyof typeof colors]}`
                 }`}
         >
             {icon}

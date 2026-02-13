@@ -107,7 +107,7 @@ export default function TeamManagement() {
             {/* Master Key Indicator (Invisible to most, but helpful for UI) */}
             <div className="pt-4 border-t border-white/5 flex items-center gap-2 opacity-30 group hover:opacity-100 transition-opacity">
                 <ShieldCheck className="w-3 h-3 text-emerald-500" />
-                <span className="text-[10px] text-zinc-500 font-medium">Master Key Access Enabled for Developer Support</span>
+                <span className="text-[10px] text-zinc-500 font-medium">Master Key Access Enabled for Roadara Support</span>
             </div>
         </div>
     );

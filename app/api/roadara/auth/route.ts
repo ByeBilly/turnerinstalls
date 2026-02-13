@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-import { authConfig } from "@/data/socialsync-auth";
-import { createSession } from "@/lib/socialsync-auth";
+import { authConfig } from "@/data/roadara-auth";
+import { createSession } from "@/lib/roadara-auth";
 import { SignJWT, jwtVerify } from "jose";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,13 +36,13 @@ export async function POST(req: NextRequest) {
 
             // Send Email
             await resend.emails.send({
-                from: "SocialSync <onboarding@resend.dev>",
+                from: "Roadara <onboarding@resend.dev>",
                 to: [normalizedEmail],
-                subject: `${generatedCode} is your SocialSync Access Code`,
+                subject: `${generatedCode} is your Roadara Access Code`,
                 html: `
                     <div style="font-family: sans-serif; padding: 40px; background-color: #f9f9f9; color: #333;">
-                        <h2 style="color: #4f46e5;">SocialSync Authorization</h2>
-                        <p>You requested access to the SocialSync Dashboard for Turner Installs.</p>
+                        <h2 style="color: #4f46e5;">Roadara Authorization</h2>
+                        <p>You requested access to the Roadara Dashboard for Turner Installs.</p>
                         <div style="background-color: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; display: inline-block; margin: 20px 0;">
                             <span style="font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #000;">${generatedCode}</span>
                         </div>

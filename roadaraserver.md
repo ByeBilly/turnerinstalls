@@ -1,6 +1,6 @@
-# 🚀 SocialSync Hub: Master Implementation Plan
+# 🚀 Roadara Hub: Master Implementation Plan
 
-This document serves as the architectural blueprint for the **SocialSync Hub**—a standalone, open-source-powered social media engine designed to be "bolted onto" any website you build in the future.
+This document serves as the architectural blueprint for the **Roadara Hub**—a standalone, open-source-powered social media engine designed to be "bolted onto" any website you build in the future.
 
 ---
 
@@ -8,7 +8,7 @@ This document serves as the architectural blueprint for the **SocialSync Hub**�
 To build a **zero-cost, multi-tenant** social media infrastructure that allows any client website (e.g., Turner Installs) to manage posts, scheduling, and analytics without paying $600/month SaaS fees.
 
 ### Core Strategy: "The Central API"
-Instead of every website having its own "App" approved by Meta/LinkedIn, they will all act as **clients** to this single **SocialSync Hub**. 
+Instead of every website having its own "App" approved by Meta/LinkedIn, they will all act as **clients** to this single **Roadara Hub**. 
 *   **One Approval**: You only get Meta/LinkedIn approval once for the Hub.
 *   **Infinite Clients**: Add unlimited client websites to your hub.
 *   **Shared Costs**: Zero monthly costs by using the **Postiz** open-source engine.
@@ -46,7 +46,7 @@ The Hub will use an **API Key + Organization ID** system:
 *   [ ] Build `/api/v1/media` (The rescaling engine using `sharp`).
 
 ### Phase 3: Platform Approval (The "One-Time" Grind)
-*   [ ] Create the "Neutral Brand" identity for the Hub (e.g., `SocialSync.au`).
+*   [ ] Create the "Neutral Brand" identity for the Hub (e.g., `Roadara.com`).
 *   [ ] Set up the public-facing "Privacy Policy" and "Terms of Service" required by Meta.
 *   [ ] Submit for Meta (FB/IG) and LinkedIn Developer App approval.
 
@@ -65,8 +65,8 @@ To save data and meet platform requirements, the Hub will perform **Automatic Tr
 ---
 
 ## 🏁 6. Next Steps for Billiam
-1.  Initialize a new empty folder/repo for **SocialSync-Hub**.
-2.  Load this `socialsyncserver.md` into the root.
+1.  Initialize a new empty folder/repo for **Roadara-Hub**.
+2.  Load this `roadaraserver.md` into the root.
 3.  We will begin by installing the **Postiz** monorepo structure.
 
 ---

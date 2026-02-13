@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import AuthShield from '@/components/socialsync/AuthShield';
+import AuthShield from '@/components/roadara/AuthShield';
 import {
     LayoutDashboard,
     Share2,
@@ -18,15 +18,15 @@ import {
     MoreVertical,
     LogOut
 } from 'lucide-react';
-import TeamManagement from '@/components/socialsync/TeamManagement';
+import TeamManagement from '@/components/roadara/TeamManagement';
 
-export default function SocialSyncDashboard() {
+export default function RoadaraDashboard() {
     const [authorized, setAuthorized] = useState(false);
     const [checking, setChecking] = useState(true);
 
     useEffect(() => {
         // Quick check if there's already a session in local storage (for prototype)
-        const session = localStorage.getItem('socialsync_authorized');
+        const session = localStorage.getItem('roadara_authorized');
         if (session === 'true') {
             setAuthorized(true);
         }
@@ -35,12 +35,12 @@ export default function SocialSyncDashboard() {
 
     const handleAuthSuccess = () => {
         setAuthorized(true);
-        localStorage.setItem('socialsync_authorized', 'true');
+        localStorage.setItem('roadara_authorized', 'true');
     };
 
     const handleLogout = () => {
         setAuthorized(false);
-        localStorage.removeItem('socialsync_authorized');
+        localStorage.removeItem('roadara_authorized');
     };
 
     if (checking) return null;
@@ -57,15 +57,16 @@ export default function SocialSyncDashboard() {
                     <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
                         <Share2 className="w-5 h-5 text-white" />
                     </div>
-                    <span className="font-bold tracking-tight text-lg uppercase">SocialSync</span>
+                    <span className="font-bold tracking-tight text-lg uppercase">Roadara</span>
                 </div>
 
                 <nav className="flex flex-col gap-1">
-                    <NavItem icon={<LayoutDashboard className="w-4 h-4" />} label="Overview" active />
-                    <NavItem icon={<Globe className="w-4 h-4" />} label="Platforms" />
-                    <NavItem icon={<Activity className="w-4 h-4" />} label="Sync History" />
-                    <NavItem icon={<MessageSquare className="w-4 h-4" />} label="Mentions" />
-                    <NavItem icon={<Settings className="w-4 h-4" />} label="Settings" />
+                    <NavItem href="/roadara/dashboard" icon={<LayoutDashboard className="w-4 h-4" />} label="Overview" active />
+                    <NavItem href="/roadara/posts" icon={<Plus className="w-4 h-4" />} label="Create Post" />
+                    <NavItem href="/roadara/accounts" icon={<Globe className="w-4 h-4" />} label="Channel Auth" />
+                    <NavItem href="#" icon={<Activity className="w-4 h-4" />} label="Sync History" />
+                    <NavItem href="#" icon={<MessageSquare className="w-4 h-4" />} label="Mentions" />
+                    <NavItem href="#" icon={<Settings className="w-4 h-4" />} label="Settings" />
                 </nav>
 
                 <div className="mt-auto space-y-4">
@@ -198,12 +199,15 @@ export default function SocialSyncDashboard() {
     );
 }
 
-function NavItem({ icon, label, active = false }: { icon: React.ReactNode, label: string, active?: boolean }) {
+function NavItem({ icon, label, href, active = false }: { icon: React.ReactNode, label: string, href: string, active?: boolean }) {
     return (
-        <button className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all ${active ? 'bg-indigo-600/10 text-indigo-400 border border-indigo-500/10' : 'text-zinc-500 hover:text-white hover:bg-white/5'}`}>
+        <a
+            href={href}
+            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all ${active ? 'bg-indigo-600/10 text-indigo-400 border border-indigo-500/10' : 'text-zinc-500 hover:text-white hover:bg-white/5'}`}
+        >
             {icon}
             {label}
-        </button>
+        </a>
     );
 }
 

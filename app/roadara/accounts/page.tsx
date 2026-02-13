@@ -15,7 +15,7 @@ import {
     ShieldCheck,
     Globe
 } from 'lucide-react';
-import AuthShield from '@/components/socialsync/AuthShield';
+import AuthShield from '@/components/roadara/AuthShield';
 
 export default function AccountConnections() {
     const [authorized, setAuthorized] = useState(false);
@@ -37,7 +37,7 @@ export default function AccountConnections() {
                 <header className="mb-12 flex justify-between items-end">
                     <div>
                         <h1 className="text-4xl font-bold tracking-tight">Channel Authorization</h1>
-                        <p className="text-zinc-500 mt-2">Securely link Turner Installs' social presence to the SocialSync Engine.</p>
+                        <p className="text-zinc-500 mt-2">Securely link Turner Installs' social presence to the Roadara Engine.</p>
                     </div>
                     <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
                         <ShieldCheck className="w-4 h-4 text-emerald-500" />
@@ -63,8 +63,8 @@ export default function AccountConnections() {
                                 <button
                                     disabled={conn.status === 'pending'}
                                     className={`px-6 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${conn.status === 'disconnected'
-                                            ? 'bg-white text-black hover:bg-zinc-200'
-                                            : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
+                                        ? 'bg-white text-black hover:bg-zinc-200'
+                                        : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
                                         }`}
                                 >
                                     {conn.status === 'disconnected' ? <Plus className="w-4 h-4" /> : null}
@@ -84,7 +84,7 @@ export default function AccountConnections() {
                         <div className="space-y-4">
                             <h3 className="text-lg font-bold text-indigo-200">Architectural Note for Turner Installs</h3>
                             <p className="text-sm text-zinc-400 leading-relaxed">
-                                To ensure maximum cost-savings and data privacy, SocialSync is being deployed as a
+                                To ensure maximum cost-savings and data privacy, Roadara is being deployed as a
                                 <strong> Private Standalone Engine</strong>. While we finalize the one-time "Universal Approval"
                                 with Meta and LinkedIn, some channel links may remain in <span className="text-indigo-400 font-bold uppercase tracking-tighter">Pending</span> state.
                             </p>
