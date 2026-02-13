@@ -16,7 +16,7 @@ import {
     Smartphone,
     Layout
 } from 'lucide-react';
-import AuthShield from '@/components/roadara/AuthShield';
+import AuthShield from '@/components/pumpposts/AuthShield';
 
 export default function CreatePost() {
     const [authorized, setAuthorized] = useState(false);
@@ -94,7 +94,7 @@ export default function CreatePost() {
                                 </div>
                                 <div className="text-center">
                                     <p className="text-sm font-semibold">Drop your project photos here</p>
-                                    <p className="text-xs text-zinc-500 mt-1">Roadara will automatically optimize size for each platform.</p>
+                                    <p className="text-xs text-zinc-500 mt-1">PumpPosts will automatically optimize size for each platform.</p>
                                 </div>
                             </div>
                         </div>

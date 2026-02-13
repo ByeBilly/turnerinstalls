@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { Share2, Zap, BarChart3, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: "Roadara | Next-Gen Social Integration",
+    title: "PumpPosts | Next-Gen Social Integration",
     description: "The unified dashboard for synchronizing your brand across the web.",
 };
 
-export default function RoadaraLanding() {
+export default function PumpPostsLanding() {
     return (
         <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30">
             {/* Ambient Background */}
@@ -23,10 +23,10 @@ export default function RoadaraLanding() {
                     <div className="w-8 h-8 bg-gradient-to-tr from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20">
                         <Share2 className="w-5 h-5 text-black" strokeWidth={2.5} />
                     </div>
-                    <span className="text-xl font-bold tracking-tight uppercase">Roadara</span>
+                    <span className="text-xl font-bold tracking-tight uppercase">PumpPosts</span>
                 </div>
                 <Link
-                    href="/roadara/dashboard"
+                    href="/pumpposts/dashboard"
                     className="px-5 py-2 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all active:scale-95"
                 >
                     Access Dashboard
@@ -41,15 +41,15 @@ export default function RoadaraLanding() {
                         <span>v1.0 Internal Prototype</span>
                     </div>
                     <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40 leading-[1.1]">
-                        Synchronize your <br />
+                        Power your <br />
                         <span className="text-white">Social Presence.</span>
                     </h1>
                     <p className="text-xl text-zinc-400 mb-12 max-w-xl leading-relaxed">
-                        One unified layer for automated social proof, cross-platform syncing, and brand reputation management. Built to be integrated into any modern web architecture.
+                        One unified layer for automated social proof, cross-platform distribution, and brand reputation management. Built to be integrated into any modern web architecture.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link
-                            href="/roadara/dashboard"
+                            href="/pumpposts/dashboard"
                             className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-xl shadow-indigo-600/20 group"
                         >
                             Launch Prototype
@@ -72,8 +72,8 @@ export default function RoadaraLanding() {
                     />
                     <FeatureCard
                         icon={<Zap className="w-6 h-6 text-indigo-400" />}
-                        title="Real-time Sync"
-                        description="Push updates to all profiles instantly with zero-latency synchronization."
+                        title="Real-time Distribution"
+                        description="Push updates to all profiles instantly with zero-latency distribution."
                     />
                     <FeatureCard
                         icon={<ShieldCheck className="w-6 h-6 text-emerald-400" />}
@@ -87,7 +87,7 @@ export default function RoadaraLanding() {
             <footer className="relative z-10 py-12 px-5 border-t border-white/5 bg-black">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-zinc-500 text-sm italic">
-                        Roadara is a modular component designed for universal web integration.
+                        PumpPosts is a modular component designed for universal web integration.
                     </p>
                     <div className="flex items-center gap-6 text-zinc-400 text-sm">
                         <span>Turner Installs Case Study</span>

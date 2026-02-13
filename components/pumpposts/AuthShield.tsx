@@ -21,7 +21,7 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
         setError(null);
 
         try {
-            const response = await fetch('/api/roadara/auth', {
+            const response = await fetch('/api/pumpposts/auth', {
                 method: 'POST',
                 body: JSON.stringify({ action: 'REQUEST_CODE', email }),
                 headers: { 'Content-Type': 'application/json' }
@@ -48,7 +48,7 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
         setError(null);
 
         try {
-            const response = await fetch('/api/roadara/auth', {
+            const response = await fetch('/api/pumpposts/auth', {
                 method: 'POST',
                 body: JSON.stringify({
                     action: 'VERIFY_CODE',
@@ -85,7 +85,7 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
 
                 <div className="bg-zinc-900 border border-white/10 rounded-3xl p-8 shadow-2xl">
                     <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-2">Roadara Internal</h2>
+                        <h2 className="text-2xl font-bold text-white mb-2">PumpPosts Internal</h2>
                         <p className="text-zinc-400 text-sm">
                             {step === 'email'
                                 ? "Enter your authorized email to continue."
@@ -156,7 +156,7 @@ export default function AuthShield({ onSuccess }: AuthShieldProps) {
 
                     <div className="mt-8 flex items-center gap-2 justify-center py-3 border-t border-white/5">
                         <Sparkles className="w-3 h-3 text-indigo-400" />
-                        <span className="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">Secured by Roadara Engine</span>
+                        <span className="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">Secured by PumpPosts Engine</span>
                     </div>
                 </div>
 

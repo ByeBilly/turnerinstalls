@@ -6,7 +6,7 @@ export const authConfig = {
     authorizedEmails: ["Liam@turnerinstalls.com"],
 
     // In a real app, this would be in an environment variable
-    jwtSecret: "roadara-prototype-secret-key-12345",
+    jwtSecret: "pumpposts-prototype-secret-key-12345",
     // How long the session lasts (e.g., 7 days)
     sessionExpiry: "7d"
 };

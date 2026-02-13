@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import AuthShield from '@/components/roadara/AuthShield';
+import AuthShield from '@/components/pumpposts/AuthShield';
 import {
     LayoutDashboard,
     Share2,
@@ -18,29 +18,41 @@ import {
     MoreVertical,
     LogOut
 } from 'lucide-react';
-import TeamManagement from '@/components/roadara/TeamManagement';
+import TeamManagement from '@/components/pumpposts/TeamManagement';
 
-export default function RoadaraDashboard() {
+import { useSearchParams } from 'next/navigation';
+// ... existing imports
+
+export default function PumpPostsDashboard() {
+    const searchParams = useSearchParams();
     const [authorized, setAuthorized] = useState(false);
     const [checking, setChecking] = useState(true);
+    const [showBridgeSuccess, setShowBridgeSuccess] = useState(false);
 
     useEffect(() => {
+        // Check for bridge connection success
+        if (searchParams.get('bridge_connected') === 'true') {
+            setShowBridgeSuccess(true);
+            // Clear URL params cleaner
+            window.history.replaceState({}, '', '/pumpposts/dashboard');
+        }
+
         // Quick check if there's already a session in local storage (for prototype)
-        const session = localStorage.getItem('roadara_authorized');
+        const session = localStorage.getItem('pumpposts_authorized');
         if (session === 'true') {
             setAuthorized(true);
         }
         setChecking(false);
-    }, []);
+    }, [searchParams]);
 
     const handleAuthSuccess = () => {
         setAuthorized(true);
-        localStorage.setItem('roadara_authorized', 'true');
+        localStorage.setItem('pumpposts_authorized', 'true');
     };
 
     const handleLogout = () => {
         setAuthorized(false);
-        localStorage.removeItem('roadara_authorized');
+        localStorage.removeItem('pumpposts_authorized');
     };
 
     if (checking) return null;
@@ -50,21 +62,45 @@ export default function RoadaraDashboard() {
     }
 
     return (
-        <div className="flex min-h-screen bg-[#09090b] text-zinc-100 font-sans">
+        <div className="flex min-h-screen bg-[#09090b] text-zinc-100 font-sans relative">
+            {/* Bridge Success Notification */}
+            {showBridgeSuccess && (
+                <div className="fixed top-24 right-8 z-50 animate-in fade-in slide-in-from-top-5 duration-500">
+                    <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md">
+                        <div className="bg-emerald-500 rounded-full p-1">
+                            <CheckCircle2 className="w-4 h-4 text-[#09090b]" />
+                        </div>
+                        <div>
+                            <p className="font-bold text-sm">Bridge Connected</p>
+                            <p className="text-xs text-emerald-500/80">Successfully linked to PumpPosts Hub</p>
+                        </div>
+                        <button
+                            onClick={() => setShowBridgeSuccess(false)}
+                            className="ml-4 hover:bg-emerald-500/10 p-1 rounded-lg transition-colors"
+                        >
+                            <span className="sr-only">Dismiss</span>
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* Sidebar */}
             <aside className="w-64 border-r border-white/5 bg-[#09090b] p-6 hidden lg:flex flex-col gap-8">
                 <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
                         <Share2 className="w-5 h-5 text-white" />
                     </div>
-                    <span className="font-bold tracking-tight text-lg uppercase">Roadara</span>
+                    <span className="font-bold tracking-tight text-lg uppercase">PumpPosts</span>
                 </div>
 
                 <nav className="flex flex-col gap-1">
-                    <NavItem href="/roadara/dashboard" icon={<LayoutDashboard className="w-4 h-4" />} label="Overview" active />
-                    <NavItem href="/roadara/posts" icon={<Plus className="w-4 h-4" />} label="Create Post" />
-                    <NavItem href="/roadara/accounts" icon={<Globe className="w-4 h-4" />} label="Channel Auth" />
-                    <NavItem href="#" icon={<Activity className="w-4 h-4" />} label="Sync History" />
+                    <NavItem href="/pumpposts/dashboard" icon={<LayoutDashboard className="w-4 h-4" />} label="Overview" active />
+                    <NavItem href="/pumpposts/posts" icon={<Plus className="w-4 h-4" />} label="Create Post" />
+                    <NavItem href="/pumpposts/accounts" icon={<Globe className="w-4 h-4" />} label="Channel Auth" />
+                    <NavItem href="#" icon={<Activity className="w-4 h-4" />} label="Post History" />
                     <NavItem href="#" icon={<MessageSquare className="w-4 h-4" />} label="Mentions" />
                     <NavItem href="#" icon={<Settings className="w-4 h-4" />} label="Settings" />
                 </nav>
@@ -117,12 +153,12 @@ export default function RoadaraDashboard() {
                     {/* Welcome Title */}
                     <div className="flex items-end justify-between">
                         <div>
-                            <h2 className="text-3xl font-bold tracking-tight">Sync Dashboard</h2>
+                            <h2 className="text-3xl font-bold tracking-tight">PumpPosts Dashboard</h2>
                             <p className="text-zinc-500">Real-time status of your brand across 4 platforms.</p>
                         </div>
                         <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-semibold flex items-center gap-2 transition-all active:scale-95 shadow-lg shadow-indigo-600/10">
                             <Plus className="w-4 h-4" />
-                            Force Profile Sync
+                            Run Engine Check
                         </button>
                     </div>
 
@@ -130,7 +166,7 @@ export default function RoadaraDashboard() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <StatCard label="Total Mentions" value="1,248" change="+12.5%" trend="up" />
                         <StatCard label="Review Score" value="4.8" change="+0.2" trend="up" />
-                        <StatCard label="Sync Health" value="99.2%" change="Optimal" trend="neutral" />
+                        <StatCard label="Engine Health" value="99.2%" change="Optimal" trend="neutral" />
                         <StatCard label="Active Leads" value="42" change="+34%" trend="up" />
                     </div>
 
@@ -164,7 +200,7 @@ export default function RoadaraDashboard() {
                                     />
                                     <ActivityItem
                                         icon={<Share2 className="w-4 h-4 text-indigo-400" />}
-                                        title="Profile synchronization across 4 platforms"
+                                        title="Content distribution across 4 platforms"
                                         time="1 hour ago"
                                         category="Automation"
                                     />
@@ -181,12 +217,12 @@ export default function RoadaraDashboard() {
                         {/* Side Panels */}
                         <div className="space-y-6">
                             <div className="p-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white shadow-2xl shadow-indigo-600/10 border border-white/10">
-                                <h4 className="font-bold mb-2">Sync Intelligence</h4>
+                                <h4 className="font-bold mb-2">PumpPosts Intelligence</h4>
                                 <p className="text-indigo-100 text-xs mb-6 leading-relaxed">
-                                    AI is detecting a high-intent conversation regarding "Floor Levelling" in Corinda. Would you like to prioritize sync?
+                                    AI is detecting a high-intent conversation regarding "Floor Levelling" in Corinda. Would you like to prioritize engagement?
                                 </p>
                                 <button className="w-full py-2 bg-white text-indigo-600 rounded-lg text-xs font-bold hover:bg-zinc-100 transition-colors">
-                                    Enable Smart-Priority
+                                    Enable Smart-Response
                                 </button>
                             </div>
 
@@ -235,7 +271,7 @@ function PlatformStatus({ name, status, lastSync }: { name: string, status: 'ope
                 <span className="text-sm font-medium">{name}</span>
             </div>
             <div className="flex items-center gap-4">
-                <span className="text-xs text-zinc-500">Last sync: {lastSync}</span>
+                <span className="text-xs text-zinc-500">Last check: {lastSync}</span>
                 <MoreVertical className="w-4 h-4 text-zinc-700 cursor-pointer hover:text-zinc-400" />
             </div>
         </div>

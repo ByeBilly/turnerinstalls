@@ -1,6 +1,6 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import { authConfig } from "@/data/roadara-auth";
+import { authConfig } from "@/data/pumpposts-auth";
 
 const secret = new TextEncoder().encode(authConfig.jwtSecret);
 
@@ -12,7 +12,7 @@ export async function createSession(email: string) {
         .sign(secret);
 
     // Set the cookie
-    cookies().set("roadara_session", token, {
+    cookies().set("pumpposts_session", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
@@ -23,7 +23,7 @@ export async function createSession(email: string) {
 }
 
 export async function getSession() {
-    const token = cookies().get("roadara_session")?.value;
+    const token = cookies().get("pumpposts_session")?.value;
     if (!token) return null;
 
     try {
@@ -35,5 +35,5 @@ export async function getSession() {
 }
 
 export async function deleteSession() {
-    cookies().delete("roadara_session");
+    cookies().delete("pumpposts_session");
 }
