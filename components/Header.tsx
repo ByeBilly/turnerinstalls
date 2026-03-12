@@ -54,7 +54,9 @@ export default function Header() {
             <nav className="hidden md:flex gap-1 h-full items-center">
               {[
                 { href: "/", label: "Home" },
+                { href: "/flooring-installation-brisbane", label: "Flooring Brisbane" },
                 { href: "/service-areas", label: "Service Areas" },
+                { href: "/blog", label: "Blog" },
                 { href: "/services/floor-preparation", label: "Floor Prep" },
                 { href: "/services/concrete-grinding", label: "Grinding" },
                 { href: "/commercial", label: "Commercial" },
@@ -121,7 +123,9 @@ export default function Header() {
         <div className="flex items-center gap-1 overflow-x-auto py-2 px-2 no-scrollbar bg-slate-50">
           {[
             { label: "Home", href: "/" },
+            { label: "Flooring Brisbane", href: "/flooring-installation-brisbane" },
             { label: "Service Areas", href: "/service-areas" },
+            { label: "Blog", href: "/blog" },
             { label: "Services", href: "/services" },
             { label: "Floor Prep", href: "/services/floor-preparation" },
             { label: "Grinding", href: "/services/concrete-grinding" },

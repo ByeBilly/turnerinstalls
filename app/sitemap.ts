@@ -1,18 +1,26 @@
 import { MetadataRoute } from 'next';
 import { suburbs } from '@/data/suburbs';
 import { flooringInstallationSuburbs } from '@/data/flooringInstallationSuburbs';
+import { getAllBlogSlugs } from '@/data/blogPosts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://turnerinstalls.com.au';
 
-    // 1. Static Pages
+    // 1. Static Pages + AI Discovery Files
     const staticPages = [
         '',
         '/about',
         '/contact',
         '/services',
         '/service-areas',
+        '/blog',
+        '/flooring-installation-brisbane',
         '/commercial',
+        '/llms.txt',
+        '/ai.txt',
+        '/ai.json',
+        '/brand.txt',
+        '/identity.json',
         '/services/floor-preparation',
         '/services/subfloor-levelling',
         '/services/diamond-grinding',
@@ -33,7 +41,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    // 3. Dynamic Location Pages (The "Twin Engine")
+    // 3. Blog posts
+    const blogPages = getAllBlogSlugs().map((slug) => ({
+        url: `${baseUrl}/blog/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }));
+
+    // 4. Dynamic Location Pages (The "Twin Engine")
     const locationPages = suburbs.flatMap((suburb) => {
         const suburbPath = `/locations/${suburb.region}/${suburb.slug}`;
 
@@ -55,5 +71,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ];
     });
 
-    return [...staticPages, ...flooringInstallationPages, ...locationPages];
+    return [...staticPages, ...flooringInstallationPages, ...blogPages, ...locationPages];
 }

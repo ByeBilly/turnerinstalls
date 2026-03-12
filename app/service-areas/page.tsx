@@ -28,7 +28,7 @@ export default function ServiceAreas() {
                     {/* FLOORING INSTALLATION - BRISBANE WEST (Oxley catchment) */}
                     <div className="mb-20">
                         <h2 className="text-3xl font-black mb-4 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">Flooring Installation – Brisbane West</h2>
-                        <p className="mb-8 pl-6 text-slate-600 max-w-2xl">Based in Oxley, we specialise in flooring installation for suburbs within ~15 minutes. Timber, hybrid, vinyl and laminate floors for homeowners renovating quality homes.</p>
+                        <p className="mb-8 pl-6 text-slate-600 max-w-2xl">Based in Oxley with easy highway access, 30 minutes covers most of Brisbane and Ipswich; we also service Logan, Moreton Bay, and Narangba. Timber, hybrid, vinyl and laminate floors for Brisbane, Ipswich, Logan, and Moreton Bay. <Link href="/flooring-installation-brisbane" className="text-yellow-600 font-bold hover:underline">View full Brisbane hub →</Link></p>
                         <div className="flex flex-wrap gap-3 pl-6">
                             {flooringInstallationSuburbs.map((suburb) => (
                                 <Link

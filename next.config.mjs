@@ -14,6 +14,15 @@ const nextConfig = {
             },
         ];
     },
+    async rewrites() {
+        return [
+            { source: "/llms.txt", destination: "/api/llms-txt" },
+            { source: "/ai.txt", destination: "/api/ai-txt" },
+            { source: "/ai.json", destination: "/api/ai-json" },
+            { source: "/brand.txt", destination: "/api/brand-txt" },
+            { source: "/identity.json", destination: "/api/identity-json" },
+        ];
+    },
 };
 
 export default nextConfig;
