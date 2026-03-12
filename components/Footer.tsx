@@ -26,6 +26,7 @@ export default function Footer() {
             <h4 className="text-slate-900 font-bold uppercase tracking-wider mb-6 border-b border-slate-200 pb-2 inline-block">Navigation</h4>
             <div className="flex flex-col gap-3">
               <Link href="/" className="hover:text-yellow-600 transition-colors">Home</Link>
+              <Link href="/service-areas" className="hover:text-yellow-600 transition-colors">Service Areas</Link>
               <Link href="/services" className="hover:text-yellow-600 transition-colors">Services</Link>
               <Link href="/about" className="hover:text-yellow-600 transition-colors">About Us</Link>
               <Link href="/contact" className="hover:text-yellow-600 transition-colors">Contact</Link>
@@ -65,4 +66,3 @@ export default function Footer() {
     </footer>
   );
 }
-

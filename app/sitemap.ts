@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { suburbs } from '@/data/suburbs';
+import { flooringInstallationSuburbs } from '@/data/flooringInstallationSuburbs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://turnerinstalls.com.au';
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/about',
         '/contact',
         '/services',
+        '/service-areas',
         '/commercial',
         '/services/floor-preparation',
         '/services/subfloor-levelling',
@@ -23,7 +25,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1.0 : 0.8,
     }));
 
-    // 2. Dynamic Location Pages (The "Twin Engine")
+    // 2. Flooring Installation suburb pages (Oxley catchment)
+    const flooringInstallationPages = flooringInstallationSuburbs.map((suburb) => ({
+        url: `${baseUrl}/flooring-installation/${suburb.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+    }));
+
+    // 3. Dynamic Location Pages (The "Twin Engine")
     const locationPages = suburbs.flatMap((suburb) => {
         const suburbPath = `/locations/${suburb.region}/${suburb.slug}`;
 
@@ -45,5 +55,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ];
     });
 
-    return [...staticPages, ...locationPages];
+    return [...staticPages, ...flooringInstallationPages, ...locationPages];
 }

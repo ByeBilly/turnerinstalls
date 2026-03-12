@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { suburbs, getSuburbsByRegion } from "@/data/suburbs";
+import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs";
 import ServiceHero from "@/components/ServiceHero";
 
 export const metadata = {
@@ -23,6 +24,23 @@ export default function ServiceAreas() {
 
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-5">
+
+                    {/* FLOORING INSTALLATION - BRISBANE WEST (Oxley catchment) */}
+                    <div className="mb-20">
+                        <h2 className="text-3xl font-black mb-4 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">Flooring Installation – Brisbane West</h2>
+                        <p className="mb-8 pl-6 text-slate-600 max-w-2xl">Based in Oxley, we specialise in flooring installation for suburbs within ~15 minutes. Timber, hybrid, vinyl and laminate floors for homeowners renovating quality homes.</p>
+                        <div className="flex flex-wrap gap-3 pl-6">
+                            {flooringInstallationSuburbs.map((suburb) => (
+                                <Link
+                                    key={suburb.slug}
+                                    href={`/flooring-installation/${suburb.slug}`}
+                                    className="inline-block px-5 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors"
+                                >
+                                    {suburb.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* BRISBANE REGION */}
                     <div className="mb-20">

@@ -17,6 +17,7 @@ export default function InternalLinks({ type }: InternalLinksProps) {
     ];
 
     const locations = [
+        { name: "Service Areas", link: "/service-areas" },
         { name: "Brisbane", link: "/locations/brisbane" },
         { name: "Gold Coast", link: "/locations/gold-coast" },
         { name: "Sunshine Coast", link: "/locations/sunshine-coast" },

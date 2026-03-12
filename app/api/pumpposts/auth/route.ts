@@ -4,7 +4,11 @@ import { authConfig } from "@/data/pumpposts-auth";
 import { createSession } from "@/lib/pumpposts-auth";
 import { SignJWT, jwtVerify } from "jose";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) throw new Error("RESEND_API_KEY is not configured");
+    return new Resend(key);
+}
 const secret = new TextEncoder().encode(authConfig.jwtSecret);
 
 export async function POST(req: NextRequest) {
@@ -35,7 +39,7 @@ export async function POST(req: NextRequest) {
                 .sign(secret);
 
             // Send Email
-            await resend.emails.send({
+            await getResend().emails.send({
                 from: "PumpPosts <onboarding@resend.dev>",
                 to: [normalizedEmail],
                 subject: `${generatedCode} is your PumpPosts Access Code`,

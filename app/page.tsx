@@ -302,7 +302,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Our Service Area</h2>
-            <p className="text-gray-600">Serving Brisbane, Ipswich, Gold Coast, Sunshine Coast, and Northern NSW.</p>
+            <p className="text-gray-600 mb-6">Serving Brisbane, Ipswich, Gold Coast, Sunshine Coast, and Northern NSW.</p>
+            <Link
+              href="/service-areas"
+              className="inline-block px-6 py-3 bg-slate-900 text-white font-bold rounded hover:bg-slate-800 transition-colors"
+            >
+              View All Service Areas & Suburbs
+            </Link>
           </div>
 
           <ServiceAreaMapWrapper />

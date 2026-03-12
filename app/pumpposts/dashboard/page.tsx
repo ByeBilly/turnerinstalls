@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import AuthShield from '@/components/pumpposts/AuthShield';
 import {
     LayoutDashboard,
@@ -21,9 +21,8 @@ import {
 import TeamManagement from '@/components/pumpposts/TeamManagement';
 
 import { useSearchParams } from 'next/navigation';
-// ... existing imports
 
-export default function PumpPostsDashboard() {
+function DashboardContent() {
     const searchParams = useSearchParams();
     const [authorized, setAuthorized] = useState(false);
     const [checking, setChecking] = useState(true);
@@ -232,6 +231,14 @@ export default function PumpPostsDashboard() {
                 </div>
             </main>
         </div>
+    );
+}
+
+export default function PumpPostsDashboard() {
+    return (
+        <Suspense fallback={<div className="flex min-h-screen bg-[#09090b] items-center justify-center"><div className="animate-pulse text-zinc-500">Loading...</div></div>}>
+            <DashboardContent />
+        </Suspense>
     );
 }
 
