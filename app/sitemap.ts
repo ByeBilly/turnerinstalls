@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog',
         '/flooring-installation-brisbane',
         '/commercial',
+        '/llm.txt',
         '/llms.txt',
         '/ai.txt',
         '/ai.json',
