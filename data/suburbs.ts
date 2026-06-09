@@ -70,6 +70,22 @@ export const suburbs: SuburbData[] = [
         image: siteImages.home.transformations[0]
     },
     {
+        name: "Carrara",
+        slug: "carrara",
+        region: "gold-coast",
+        postcode: "4211",
+        description: "Commercial showroom and residential flooring installation on the Gold Coast. Carrara projects often need tidy floor covering removal, clean substrate preparation, and a sharp finish that is ready for customers, tenants, or handover.",
+        archetype: "commercial",
+        landmarks: ["Carrara Markets", "Nerang-Broadbeach Road", "Metricon Stadium precinct"],
+        image: { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Carrara Gold Coast showroom flooring installation" },
+        galleryImages: [
+            { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Carrara showroom flooring installation on the Gold Coast" },
+            { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Carrara showroom flooring install detail" },
+            { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Commercial vinyl flooring install detail" },
+            { src: "/images/Timber-Oxley.jpeg", alt: "Professional timber flooring installation detail" }
+        ]
+    },
+    {
         name: "Burleigh Heads",
         slug: "burleigh-heads",
         region: "gold-coast",

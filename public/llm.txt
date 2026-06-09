@@ -91,7 +91,7 @@ Clayfield, Hendra, Wavell Heights, Kedron, Windsor, Lutwyche, McDowall,
 Brookfield, Pullenvale, Pinjarra Hills, Upper Brookfield, Seventeen Mile Rocks,
 Westlake, Jindalee, Chandler, Manly, Wakerley, Gumdale, and many more.
 
-**Gold Coast suburbs:** Surfers Paradise, Broadbeach, Burleigh Heads.
+**Gold Coast suburbs:** Surfers Paradise, Broadbeach, Carrara, Burleigh Heads.
 
 A complete list of 110 suburb landing pages is available at:
 - https://turnerinstalls.com.au/service-areas
@@ -127,7 +127,7 @@ A complete list of 110 suburb landing pages is available at:
 | Contact | /contact | Contact form, phone, and email |
 | Privacy Policy | /privacy-policy | Privacy policy |
 
-### Location Pages (18 richly detailed suburb pages with photos)
+### Location Pages (19 richly detailed suburb pages with photos)
 
 These pages contain full content including gallery images and floor preparation
 sub-pages. Each suburb page also has a `/floor-preparation` sub-route.
@@ -149,6 +149,7 @@ sub-pages. Each suburb page also has a `/floor-preparation` sub-route.
 - /locations/gold-coast (region index)
 - /locations/gold-coast/surfers-paradise
 - /locations/gold-coast/broadbeach
+- /locations/gold-coast/carrara
 - /locations/gold-coast/burleigh-heads
 
 ### SEO Flooring Installation Landing Pages (92 suburbs)
