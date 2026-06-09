@@ -172,6 +172,24 @@ export default function FloorPreparation() {
               </span>
             ))}
           </div>
+          <div className="mt-12 rounded-lg border border-yellow-300 bg-white p-8 text-left shadow-sm">
+            <span className="mb-3 inline-block rounded bg-yellow-400 px-3 py-1 text-xs font-black uppercase tracking-widest text-slate-900">
+              Planning Tool
+            </span>
+            <h3 className="mb-3 text-2xl font-black text-slate-900">Working out flooring quantities?</h3>
+            <p className="mb-6 text-slate-600">
+              Before ordering boards or booking prep, it helps to estimate floor area, waste allowance, pack coverage, and rough material requirements. Use this free professional flooring calculator as a planning aid, then book Turner Installs for the site measure and final quote.
+            </p>
+            <a
+              href="https://www.calculationtime.com/calculators/professional-flooring-calculator/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded bg-slate-900 px-6 py-3 text-sm font-black uppercase tracking-wide text-white transition-colors hover:bg-slate-800"
+            >
+              Open Flooring Calculator
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </div>
 
