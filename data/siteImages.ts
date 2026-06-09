@@ -21,11 +21,16 @@ export const siteImages = {
             {
                 before: { src: "/installspics/prep/level/lows identified and filled.jpg", alt: "Identifying Low Spots in Slab" },
                 after: { src: "/installspics/prep/level/levelled area using engineered floor levelling compounds.jpg", alt: "Levelled with Engineered Compounds" }
+            },
+            {
+                before: { src: "/installspics/prep/floorprep.jpg", alt: "Floor Preparation in Progress" },
+                after: { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Perfectly Levelled Subfloor" }
             }
         ],
         turnerDifference: [
             { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Mirror Finish Flood Levelling" },
-            { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" }
+            { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
+            { src: "/installspics/prep/floods/floodprep.jpg", alt: "Professional Flood Levelling Preparation" }
         ],
         unacceptable: [
             { src: "/installspics/prep/damage/water damage.jpg", alt: "Water Damaged Substrate" },
@@ -39,7 +44,10 @@ export const siteImages = {
             { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "ACTION REQUIRED: Advise on Text" },
             { src: "/installspics/prep/uplift/smoothedge required to be removed.jpg", alt: "Carpet Smoothedge Removal" },
             { src: "/installspics/prep/level/quick mix of engineered cement will sort lows requiring just  light sanding.jpg", alt: "Engineered Cement Application" },
-            { src: "/installspics/prep/level/prepping the lows.jpg", alt: "Pre-filling Low Spots" }
+            { src: "/installspics/prep/level/prepping the lows.jpg", alt: "Pre-filling Low Spots" },
+            { src: "/installspics/prep/floorprep.jpg", alt: "Professional Subfloor Preparation" },
+            { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Floor Levelled Out — Mirror Flat Finish" },
+            { src: "/installspics/prep/floods/floodprep.jpg", alt: "Flood Levelling Compound Application" }
         ] as ImageAsset[]
     },
     grinding: {
@@ -68,6 +76,7 @@ export const siteImages = {
         projectShots: [
             { src: "/installspics/commercial/Commercial installations whilst working productively with other trades always.jpg", alt: "Coordinated Commercial Work" },
             { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Large Scale Commercial Flooring" },
+            { src: "/installspics/commercial/commercial_liam.jpg", alt: "Commercial Flooring Installation" },
             { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Commercial Concrete Preparation" },
             { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Industrial Grade Levelling" },
         ] as ImageAsset[],
@@ -76,6 +85,11 @@ export const siteImages = {
     home: {
         transformations: [
             // Main Transformation Gallery (Strictly Finished Shots)
+            { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Carrara Gold Coast showroom flooring installation" },
+            { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Carrara showroom flooring install detail" },
+            { src: "/images/Timber-Oxley.jpeg", alt: "Oxley timber flooring installation" },
+            { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Browns Plains vinyl flooring installation" },
+            { src: "/images/Vinyl-install-Murrarie.jpeg", alt: "Murrarie vinyl flooring installation" },
             { src: "/installspics/finished/image6.jpeg", alt: "Premium Timber Finish" },
             { src: "/installspics/finished/image12.jpeg", alt: "Precision Joinery & Installation" },
             { src: "/installspics/finished/image8.jpeg", alt: "Rich Red Timber Flooring Detail" },
@@ -83,7 +97,9 @@ export const siteImages = {
             { src: "/installspics/finished/paddington2.jpg", alt: "Seamless Hybrid Flooring" },
             { src: "/installspics/finished/thegap_staircase.jpg", alt: "Hallway & Stair Perfection" },
             { src: "/installspics/finished/newfarm2.jpg", alt: "Clean Lines & Transitions" },
-            { src: "/installspics/finished/kenmore1.jpg", alt: "Expert Finish" }
+            { src: "/installspics/finished/kenmore1.jpg", alt: "Expert Finish" },
+            { src: "/installspics/finished/bedroom.jpg", alt: "Bedroom Flooring — Flawless Finish" },
+            { src: "/installspics/finished/finishedfloor.jpg", alt: "Immaculate Finished Floor" }
         ] as ImageAsset[],
         installation: [
             // Work In Progress / Laying Shots
@@ -94,13 +110,32 @@ export const siteImages = {
             { src: "/installspics/laying/624294133_1572505330566282_4397485069894811667_n.jpg", alt: "Detail Work" },
             { src: "/installspics/laying/minimal mess and always a tidy up.jpg", alt: "Clean Worksite" },
             { src: "/installspics/laying/staircases require time for adhesives to set before being climbed.jpg", alt: "Staircase Alignment" },
-            { src: "/installspics/finished/stairs_laid.jpg", alt: "Components & Transitions" }
+            { src: "/installspics/finished/stairs_laid.jpg", alt: "Components & Transitions" },
+            { src: "/installspics/laying/layingthefloor.jpg", alt: "Laying the Floor — Precision Plank Placement" },
+            { src: "/installspics/laying/floorstep.jpg", alt: "Step-by-Step Floor Installation" }
         ] as ImageAsset[],
         services: {
             residential: { src: "/installspics/finished/image6.jpeg", alt: "Residential Flooring" },
             commercial: { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Commercial Flooring" },
             prep: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Floor Preparation" }
-        }
+        },
+        removalProjects: [
+            {
+                src: "/images/carpet-tile-removal-Murrarie.jpeg",
+                alt: "Carpet tile removal and install in Murrarie",
+                caption: "Old carpet tiles lifted cleanly, adhesive assessed, and the surface prepared for the new flooring system."
+            },
+            {
+                src: "/images/Vinyl-install-Murrarie.jpeg",
+                alt: "Vinyl installation in Murrarie",
+                caption: "Removal, preparation, and vinyl installation completed with neat edges and practical commercial durability."
+            },
+            {
+                src: "/images/vinyl_install-browns-plains.jpeg",
+                alt: "Vinyl installation in Browns Plains",
+                caption: "Fresh vinyl install after substrate checks, floor preparation, and clean finishing work."
+            }
+        ] as ImageAsset[]
     },
     promos: [
         { src: "/installspics/promo/resource_8P_Cj-OFJBd0sw4UnCskDO.png", alt: "Turner Installs Promo" },

@@ -157,6 +157,67 @@ export default function Home() {
         </div>
       </section >
 
+      {/* FLOOR COVERING REMOVAL */}
+      < section className="py-24 bg-white border-y border-slate-200" >
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
+            <div>
+              <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-3">Floor Covering Removal</span>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                Clean uplift before the new floor goes down.
+              </h2>
+              <div className="space-y-5 text-lg text-slate-700 leading-relaxed font-medium">
+                <p>
+                  Removing the old floor covering properly is one of the most important parts of a long-lasting install. Turner Installs removes carpet tiles, vinyl, smooth edge, old trims, loose material, and problem adhesives so the subfloor can be checked before any new product is laid.
+                </p>
+                <p>
+                  On projects like carpet tile removal and install in Murrarie, vinyl installs in Browns Plains and Murrarie, timber installation in Oxley, and Carrara showroom work, the goal is the same: leave a clean, stable surface ready for levelling, grinding, moisture checks, or direct installation where suitable.
+                </p>
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-3 gap-4">
+                {[
+                  { title: "Careful Uplift", desc: "Floor coverings lifted without rushing or damaging the areas that need to stay." },
+                  { title: "Adhesive Check", desc: "Glue, residue, and high spots assessed before grinding, patching, or levelling." },
+                  { title: "Ready to Install", desc: "The site is cleaned and prepared so the finished floor has the best foundation." }
+                ].map((item) => (
+                  <div key={item.title} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+                    <h3 className="font-black text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/services/floor-preparation"
+                className="mt-8 inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-white font-bold uppercase tracking-wide rounded hover:bg-slate-800 transition-colors"
+              >
+                See Floor Preparation Services
+              </Link>
+            </div>
+
+            <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-4">
+              {siteImages.home.removalProjects.map((img) => (
+                <div key={img.src} className="grid sm:grid-cols-[160px_1fr] lg:grid-cols-[220px_1fr] gap-4 rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                  <div className="relative min-h-[180px] sm:min-h-full bg-slate-100">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-5 flex flex-col justify-center">
+                    <h3 className="text-lg font-black text-slate-900 mb-2">{img.alt}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{img.caption}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section >
+
       {/* WHY TURNER INSTALLS */}
       < section className="py-24 bg-white" >
         <div className="max-w-7xl mx-auto px-5">
