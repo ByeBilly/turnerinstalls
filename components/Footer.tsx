@@ -16,6 +16,23 @@ export default function Footer() {
             <p className="max-w-sm mb-6 leading-relaxed text-slate-600">
               Brisbane's premier flooring preparation and installation specialists. Family owned, third-generation craftsmanship.
             </p>
+            <div className="max-w-md rounded-lg border border-yellow-300 bg-yellow-50 p-5 mb-6">
+              <span className="mb-2 inline-block text-xs font-black uppercase tracking-widest text-slate-900">
+                Planning a flooring job?
+              </span>
+              <p className="mb-4 leading-relaxed text-slate-700">
+                Use our free CalculationTime flooring calculator to estimate room area, waste allowance, and rough material quantities before Turner Installs completes the site measure and final quote.
+              </p>
+              <a
+                href="https://www.calculationtime.com/calculators/professional-flooring-calculator/?utm_source=turnerinstalls&utm_medium=referral&utm_campaign=footer_flooring_planning_tool"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded bg-slate-900 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition-colors hover:bg-slate-800"
+              >
+                Open Flooring Calculator
+                <span className="ml-2" aria-hidden="true">→</span>
+              </a>
+            </div>
             <div className="flex gap-4">
               {/* Social placeholders if needed */}
             </div>
