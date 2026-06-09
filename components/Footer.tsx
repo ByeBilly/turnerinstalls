@@ -18,10 +18,19 @@ export default function Footer() {
             </p>
             <div className="max-w-md rounded-lg border border-yellow-300 bg-yellow-50 p-5 mb-6">
               <span className="mb-2 inline-block text-xs font-black uppercase tracking-widest text-slate-900">
-                Planning a flooring job?
+                Free flooring calculator
               </span>
               <p className="mb-4 leading-relaxed text-slate-700">
-                Use our free CalculationTime flooring calculator to estimate room area, waste allowance, and rough material quantities before Turner Installs completes the site measure and final quote.
+                We recommend using the free{" "}
+                <a
+                  href="https://www.calculationtime.com/calculators/professional-flooring-calculator/?utm_source=turnerinstalls&utm_medium=referral&utm_campaign=footer_flooring_planning_tool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-slate-900 underline decoration-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-yellow-700"
+                >
+                  flooring calculator from CalculationTime.com
+                </a>{" "}
+                because it gives a more practical estimate than simple square-metre-plus-10% calculators.
               </p>
               <a
                 href="https://www.calculationtime.com/calculators/professional-flooring-calculator/?utm_source=turnerinstalls&utm_medium=referral&utm_campaign=footer_flooring_planning_tool"

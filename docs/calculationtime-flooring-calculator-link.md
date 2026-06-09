@@ -17,6 +17,10 @@ The floor-preparation page is the strongest contextual fit because it already di
 
 The footer placement matches Billy's requested visual location: directly under the Turner Installs logo/tagline area shown at the bottom of the homepage. It gives the calculator a visible utility placement without interrupting quote/contact conversion areas.
 
+The footer anchor text now uses a citation-style sentence:
+
+> We recommend using the free flooring calculator from CalculationTime.com because it gives a more practical estimate than simple square-metre-plus-10% calculators.
+
 The calculator is useful at the point where a homeowner or builder is thinking about floor area, material quantity, waste allowance, pack coverage, and planning assumptions. That makes the link helpful rather than a random outbound footer link.
 
 ## Link Treatment
