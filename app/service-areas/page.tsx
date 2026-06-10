@@ -26,20 +26,9 @@ export default function ServiceAreas() {
                 <div className="max-w-7xl mx-auto px-5">
 
                     {/* FLOORING INSTALLATION - BRISBANE WEST (Oxley catchment) */}
-                    <div className="mb-20">
+                    <div className="mb-16">
                         <h2 className="text-3xl font-black mb-4 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">Flooring Installation – Brisbane West</h2>
                         <p className="mb-8 pl-6 text-slate-600 max-w-2xl">Based in Oxley with easy highway access, 30 minutes covers most of Brisbane and Ipswich; we also service Logan, Moreton Bay, and Narangba. Timber, hybrid, vinyl and laminate floors for Brisbane, Ipswich, Logan, and Moreton Bay. <Link href="/flooring-installation-brisbane" className="text-yellow-600 font-bold hover:underline">View full Brisbane hub →</Link></p>
-                        <div className="flex flex-wrap gap-3 pl-6">
-                            {flooringInstallationSuburbs.map((suburb) => (
-                                <Link
-                                    key={suburb.slug}
-                                    href={`/flooring-installation/${suburb.slug}`}
-                                    className="inline-block px-5 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors"
-                                >
-                                    {suburb.name}
-                                </Link>
-                            ))}
-                        </div>
                     </div>
 
                     {/* BRISBANE REGION */}
@@ -88,7 +77,7 @@ export default function ServiceAreas() {
                     </div>
 
                     {/* GOLD COAST REGION */}
-                    <div>
+                    <div className="mb-20">
                         <h2 className="text-3xl font-black mb-8 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">Gold Coast</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {goldCoastSuburbs.map((suburb) => (
@@ -128,6 +117,22 @@ export default function ServiceAreas() {
                                         </div>
                                     </div>
                                 </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="border-t border-slate-200 pt-10">
+                        <h2 className="text-2xl font-black mb-3 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">More Suburbs We Service</h2>
+                        <p className="mb-5 pl-6 text-sm text-slate-600 max-w-3xl">Quick links for flooring installation suburbs across Brisbane, Ipswich, Logan, Moreton Bay, and nearby areas.</p>
+                        <div className="pl-6 flex flex-wrap gap-x-4 gap-y-2 text-sm leading-6">
+                            {flooringInstallationSuburbs.map((suburb) => (
+                                <Link
+                                    key={suburb.slug}
+                                    href={`/flooring-installation/${suburb.slug}`}
+                                    className="text-slate-600 underline-offset-4 hover:text-yellow-700 hover:underline"
+                                >
+                                    {suburb.name}
+                                </Link>
                             ))}
                         </div>
                     </div>
