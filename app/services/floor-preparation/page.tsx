@@ -21,7 +21,7 @@ export default function FloorPreparation() {
     {
       icon: "📏",
       title: "Dead Flat",
-      description: "Achieving tolerances of 3mm over 3m or better for premium vinyl and timber installs."
+      description: "Achieving tolerances of 1mm over 2m or better for premium vinyl and timber installs."
     },
     {
       icon: "🛡️",
