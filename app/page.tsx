@@ -157,29 +157,32 @@ export default function Home() {
         </div>
       </section >
 
-      {/* FLOOR COVERING REMOVAL */}
+      {/* START TO FINISH FLOORING */}
       < section className="py-24 bg-white border-y border-slate-200" >
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
             <div>
-              <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-3">Floor Covering Removal</span>
+              <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-3">Start To Finish Flooring</span>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                Clean uplift before the new floor goes down.
+                From the first uplift to the final finish, we handle the lot.
               </h2>
               <div className="space-y-5 text-lg text-slate-700 leading-relaxed font-medium">
                 <p>
-                  Removing the old floor covering properly is one of the most important parts of a long-lasting install. Turner Installs removes carpet tiles, vinyl, smooth edge, old trims, loose material, and problem adhesives so the subfloor can be checked before any new product is laid.
+                  Need the old floor pulled up and taken away? No problem. Turner Installs has the crew, tools, equipment, and trucks to lift and remove existing carpet tiles, vinyl, timber, smooth edge, trims, loose material, rubbish, glue, and problem adhesives before the new floor goes down.
                 </p>
                 <p>
-                  On projects like carpet tile removal and install in Murrarie, vinyl installs in Browns Plains and Murrarie, timber installation in Oxley, and Carrara showroom work, the goal is the same: leave a clean, stable surface ready for levelling, grinding, moisture checks, or direct installation where suitable.
+                  From there we prepare the surface properly: grinding, levelling, moisture checks, subfloor repairs, adhesive removal, epoxy removal, ramping, patching, trims, clean-up, and professional installation of vinyl, hybrid, timber, carpet tiles, and commercial flooring systems across Brisbane and South East Queensland.
                 </p>
               </div>
 
-              <div className="mt-8 grid sm:grid-cols-3 gap-4">
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
                 {[
-                  { title: "Careful Uplift", desc: "Floor coverings lifted without rushing or damaging the areas that need to stay." },
-                  { title: "Adhesive Check", desc: "Glue, residue, and high spots assessed before grinding, patching, or levelling." },
-                  { title: "Ready to Install", desc: "The site is cleaned and prepared so the finished floor has the best foundation." }
+                  { title: "Uplift & Removal", desc: "Old flooring, trims, smooth edge, loose material, and site waste removed cleanly." },
+                  { title: "Trucks & Equipment", desc: "The right gear on site for heavy uplift, disposal, grinding, and floor preparation." },
+                  { title: "Grinding & Levelling", desc: "High spots, uneven slabs, adhesive, and rough substrates corrected before install." },
+                  { title: "Moisture & Repairs", desc: "Moisture checks, barriers, subfloor repairs, patching, ramping, and make-good work." },
+                  { title: "Floor Installation", desc: "Vinyl, hybrid, timber, carpet tiles, planks, commercial flooring, trims, and finishes." },
+                  { title: "Clean Finish", desc: "A tidy site and a floor system prepared to last, not just look good on day one." }
                 ].map((item) => (
                   <div key={item.title} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
                     <h3 className="font-black text-slate-900 mb-2">{item.title}</h3>
