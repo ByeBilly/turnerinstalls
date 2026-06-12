@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import ModernGallery from "@/components/ModernGallery";
 import { siteImages } from "@/data/siteImages";
 import HeroForm from "@/components/HeroForm";
+import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 
 export const metadata = {
   title: "Turner Installs | Expert Flooring & Professional Floor Preparation – Brisbane",
@@ -85,6 +86,19 @@ export default function Home() {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 0413 592 054
+              </a>
+            </div>
+
+            <div className="mt-5">
+              <a
+                href={GOOGLE_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded border-2 border-yellow-400 bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-wide text-slate-900 shadow-md transition-all hover:bg-yellow-400 hover:shadow-lg active:scale-95"
+                aria-label="Leave Turner Installs a Google review"
+              >
+                <span className="text-yellow-500" aria-hidden="true">★★★★★</span>
+                Leave a Google Review
               </a>
             </div>
 
@@ -356,6 +370,14 @@ export default function Home() {
               className="px-10 py-5 bg-transparent border-2 border-slate-900/20 text-slate-900 font-bold text-xl rounded-full hover:bg-slate-900/5 transition-all"
             >
               Call 0413 592 054
+            </a>
+            <a
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-5 bg-white border-2 border-slate-900/20 text-slate-900 font-bold text-xl rounded-full hover:bg-slate-50 transition-all"
+            >
+              Leave a Google Review
             </a>
           </div>
         </div>

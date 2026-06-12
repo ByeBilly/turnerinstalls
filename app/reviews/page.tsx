@@ -4,6 +4,7 @@ import CTAButton from "@/components/CTAButton";
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from "next";
+import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 
 export const metadata: Metadata = {
     title: "Client Reviews | Turner Installs Flooring Brisbane",
@@ -65,7 +66,7 @@ export default async function ReviewsPage() {
                     <p className="text-gray-400 mb-10">
                         We value your feedback. Leave us a review on Google or contact us directly.
                     </p>
-                    <CTAButton href="https://g.page/r/YOUR_GOOGLE_LINK_HERE" variant="primary">
+                    <CTAButton href={GOOGLE_REVIEW_URL} variant="primary">
                         Review on Google
                     </CTAButton>
                 </div>
