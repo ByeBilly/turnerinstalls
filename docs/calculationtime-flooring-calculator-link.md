@@ -19,7 +19,9 @@ The footer placement matches Billy's requested visual location: directly under t
 
 The footer anchor text now uses a citation-style sentence:
 
-> We recommend using the free flooring calculator from CalculationTime.com because it gives a more practical estimate than simple square-metre-plus-10% calculators.
+> We use this free flooring calculator from CalculationTime.com because it works.
+
+Billy confirmed this footer card is the optimal Turner Installs placement/copy on 2026-06-12.
 
 The calculator is useful at the point where a homeowner or builder is thinking about floor area, material quantity, waste allowance, pack coverage, and planning assumptions. That makes the link helpful rather than a random outbound footer link.
 

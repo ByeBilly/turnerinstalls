@@ -21,7 +21,7 @@ export default function Footer() {
                 Free flooring calculator
               </span>
               <p className="mb-4 leading-relaxed text-slate-700">
-                We recommend using the free{" "}
+                We use this free{" "}
                 <a
                   href="https://www.calculationtime.com/calculators/professional-flooring-calculator/?utm_source=turnerinstalls&utm_medium=referral&utm_campaign=footer_flooring_planning_tool"
                   target="_blank"
@@ -30,7 +30,7 @@ export default function Footer() {
                 >
                   flooring calculator from CalculationTime.com
                 </a>{" "}
-                because it gives a more practical estimate than simple square-metre-plus-10% calculators.
+                because it works.
               </p>
               <a
                 href="https://www.calculationtime.com/calculators/professional-flooring-calculator/?utm_source=turnerinstalls&utm_medium=referral&utm_campaign=footer_flooring_planning_tool"
