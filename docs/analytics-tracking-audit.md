@@ -1,6 +1,6 @@
 # Turner Installs Tracking Audit
 
-Date: 2026-06-09
+Date: 2026-06-16
 
 ## Sitewide Tags
 
@@ -23,6 +23,21 @@ What it can track depends on what is configured inside the Google Tag Manager co
 - Current config call: `gtag('config', 'G-T6ZG4K0J3W')`
 
 GA4 will normally track page views, sessions, traffic source, device, browser, country/city, engagement time, and enhanced-measurement events if enabled in the GA4 web stream.
+
+### Call Liam Click Counter
+
+- Event name: `call_liam_click`
+- Code location: `app/layout.tsx`
+- First-party log endpoint: `app/api/call-liam-click/route.ts`
+- Tracked numbers: `0413592054`, `+61413592054`, `61413592054`
+
+The counter is intentionally hidden from the public website. It listens for clicks on Liam phone links, then sends the event to both `dataLayer`/GTM and direct GA4 `gtag`. It also sends a first-party POST to `/api/call-liam-click`, which logs the click in the site host's server/function logs with page path, page URL, link text, referrer, user agent, and timestamp.
+
+Where to see it:
+
+- GA4 Realtime and Events: look for `call_liam_click`.
+- GTM Preview: look for the `call_liam_click` dataLayer event.
+- Vercel/runtime logs: search for `Turner Installs call Liam click`.
 
 ## Lead And Chat Tracking
 
@@ -70,7 +85,7 @@ Keep both GTM and GA4 only if GTM is doing extra work beyond GA4 page tracking. 
 
 Add explicit events for the actions that matter most:
 
-- Phone number clicks
+- Phone number clicks: done for Liam's direct phone number as `call_liam_click`
 - Email clicks
 - Homepage fast quote submissions
 - Contact page submissions

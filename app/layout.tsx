@@ -87,6 +87,62 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-T6ZG4K0J3W');`}
         </Script>
+        <Script id="call-liam-click-tracking" strategy="afterInteractive">
+          {`(function () {
+  var liamNumbers = ['0413592054', '+61413592054', '61413592054'];
+
+  function cleanPhone(value) {
+    return String(value || '').replace(/^tel:/i, '').replace(/[^+\\d]/g, '');
+  }
+
+  function isLiamNumber(href) {
+    var phone = cleanPhone(href);
+    return liamNumbers.indexOf(phone) !== -1;
+  }
+
+  function trackCallClick(link) {
+    var payload = {
+      event: 'call_liam_click',
+      phone_number: '0413592054',
+      link_text: (link.textContent || '').trim().slice(0, 120),
+      page_path: window.location.pathname,
+      page_url: window.location.href
+    };
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'call_liam_click', {
+        phone_number: payload.phone_number,
+        link_text: payload.link_text,
+        page_path: payload.page_path
+      });
+    }
+
+    try {
+      var body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/call-liam-click', new Blob([body], { type: 'application/json' }));
+      } else {
+        fetch('/api/call-liam-click', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: body,
+          keepalive: true
+        });
+      }
+    } catch (error) {}
+  }
+
+  document.addEventListener('click', function (event) {
+    var target = event.target && event.target.closest ? event.target.closest('a[href^="tel:"]') : null;
+    if (target && isLiamNumber(target.getAttribute('href'))) {
+      trackCallClick(target);
+    }
+  }, true);
+})();`}
+        </Script>
       </head>
       <body>
         {/* Google Tag Manager (noscript) */}
@@ -108,4 +164,3 @@ gtag('config', 'G-T6ZG4K0J3W');`}
     </html>
   );
 }
-
