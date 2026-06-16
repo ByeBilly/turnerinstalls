@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+type TrackingWindow = Window &
+    typeof globalThis & {
+        dataLayer?: unknown[];
+        gtag?: (command: string, eventName: string, parameters: Record<string, string>) => void;
+    };
+
 export default function HeroForm({ location }: { location?: string }) {
     const router = useRouter();
     const [formData, setFormData] = useState({
@@ -12,6 +18,48 @@ export default function HeroForm({ location }: { location?: string }) {
     });
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
+
+    const trackFastQuoteSubmit = () => {
+        const trackingWindow = window as TrackingWindow;
+        const eventPayload = {
+            event: "fast_quote_submit",
+            form_id: "hero_fast_quote",
+            source: location ? `Turner Installs Homepage Hero - ${location}` : "Turner Installs Homepage Hero",
+            page_path: window.location.pathname,
+            page_url: window.location.href,
+            contact_method: formData.phone.trim() && formData.email.trim()
+                ? "phone_email"
+                : formData.phone.trim()
+                    ? "phone"
+                    : "email"
+        };
+
+        trackingWindow.dataLayer = trackingWindow.dataLayer || [];
+        trackingWindow.dataLayer.push(eventPayload);
+
+        if (typeof trackingWindow.gtag === "function") {
+            trackingWindow.gtag("event", "fast_quote_submit", {
+                form_id: eventPayload.form_id,
+                source: eventPayload.source,
+                page_path: eventPayload.page_path,
+                contact_method: eventPayload.contact_method
+            });
+        }
+
+        try {
+            const body = JSON.stringify(eventPayload);
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon("/api/fast-quote-submit", new Blob([body], { type: "application/json" }));
+            } else {
+                fetch("/api/fast-quote-submit", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body,
+                    keepalive: true
+                });
+            }
+        } catch (error) {}
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -59,6 +107,7 @@ export default function HeroForm({ location }: { location?: string }) {
             });
 
             if (response.ok) {
+                trackFastQuoteSubmit();
                 setStatus("success");
             } else {
                 setStatus("error");

@@ -39,6 +39,14 @@ Where to see it:
 - GTM Preview: look for the `call_liam_click` dataLayer event.
 - Vercel/runtime logs: search for `Turner Installs call Liam click`.
 
+### Dynamic Number Insertion Check
+
+Dynamic Number Insertion (DNI) is when a marketing script swaps the displayed phone number based on the visitor source, for example Google Ads traffic seeing a different tracking number from organic traffic.
+
+No obvious DNI code is present in the repo as of this audit. Liam's phone number is hard-coded in `app/page.tsx`, and there are no local scripts named for DNI, call tracking, or number replacement. However, GTM can load third-party DNI from inside the remote container without that script appearing in this repository. To confirm whether Just Digital Marketing is using DNI, inspect the live GTM container in Preview mode or load the live page and check whether the visible phone number or `tel:` link changes after GTM finishes running.
+
+If DNI is active, the `call_liam_click` listener still tracks Liam's direct number only. Add any DNI tracking numbers to the `liamNumbers` array in `app/layout.tsx` if those calls should also count as Liam call clicks.
+
 ## Lead And Chat Tracking
 
 ### HighLevel Web Chat
@@ -57,6 +65,23 @@ This can track chat starts, chat messages, contact details entered through the w
 - Contact page form ID: `contact_page`
 
 The submitted payload includes name, phone, email, page URL, form ID, source label, service name, message, and raw form values.
+
+### Fast Quote Counter
+
+- Event name: `fast_quote_submit`
+- Code location: `components/HeroForm.tsx`
+- First-party log endpoint: `app/api/fast-quote-submit/route.ts`
+- Form ID: `hero_fast_quote`
+
+The counter is intentionally hidden from the public website. After the homepage fast quote form successfully posts to `/api/lead`, it sends `fast_quote_submit` to `dataLayer`/GTM, direct GA4 `gtag`, and `/api/fast-quote-submit`.
+
+The extra counter log avoids duplicating personal contact details. It records form ID, source, page path, page URL, contact method type, referrer, user agent, and timestamp.
+
+Where to see it:
+
+- GA4 Realtime and Events: look for `fast_quote_submit`.
+- GTM Preview: look for the `fast_quote_submit` dataLayer event.
+- Vercel/runtime logs: search for `Turner Installs fast quote submit`.
 
 ## How To See What They Are Tracking
 
