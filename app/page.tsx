@@ -193,88 +193,90 @@ export default function Home() {
       </section >
 
       {/* START TO FINISH FLOORING */}
-      < section className="py-24 bg-white border-y border-slate-200" >
+      < section className="py-20 md:py-24 bg-slate-50 border-y border-slate-200" >
         <div className="max-w-7xl mx-auto px-5">
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
-            <div>
-              <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-3">Start To Finish Flooring</span>
-              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                From the first uplift to the final finish, we handle the lot.
-              </h2>
-              <div className="space-y-5 text-lg text-slate-700 leading-relaxed font-medium">
-                <p>
-                  Need the old floor pulled up and taken away? No problem. Turner Installs has the crew, tools, equipment, and trucks to lift and remove existing carpet tiles, vinyl, timber, smooth edge, trims, loose material, rubbish, glue, and problem adhesives before the new floor goes down.
-                </p>
-                <p>
-                  From there we prepare the surface properly: grinding, levelling, moisture checks, subfloor repairs, adhesive removal, epoxy removal, ramping, patching, trims, clean-up, and professional installation of vinyl, hybrid, timber, carpet tiles, and commercial flooring systems across Brisbane and South East Queensland.
-                </p>
+          <div>
+            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+              <div className="flex flex-col">
+                <span className="text-yellow-600 font-black uppercase tracking-widest text-sm block mb-3">Start To Finish Flooring</span>
+                <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                  From the first uplift to the final finish, we handle the lot.
+                </h2>
+                <div className="space-y-5 text-lg text-slate-700 leading-relaxed font-medium">
+                  <p>
+                    Need the old floor pulled up and taken away? No problem. Turner Installs has the crew, tools, equipment, and trucks to lift and remove existing carpet tiles, vinyl, timber, smooth edge, trims, loose material, rubbish, glue, and problem adhesives before the new floor goes down.
+                  </p>
+                  <p>
+                    From there we prepare the surface properly: grinding, levelling, moisture checks, subfloor repairs, adhesive removal, epoxy removal, ramping, patching, trims, clean-up, and professional installation of vinyl, hybrid, timber, carpet tiles, and commercial flooring systems across Brisbane and South East Queensland.
+                  </p>
+                </div>
+
+                <div className="mt-7 grid grid-cols-3 gap-3">
+                  {[
+                    "Uplift",
+                    "Load-out",
+                    "Install"
+                  ].map((step) => (
+                    <div key={step} className="rounded border border-yellow-300 bg-yellow-50 px-3 py-3 text-center text-xs font-black uppercase tracking-wide text-slate-900 sm:text-sm">
+                      {step}
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                {[
-                  { title: "Uplift & Removal", desc: "Old flooring, trims, smooth edge, loose material, and site waste removed cleanly." },
-                  { title: "Trucks & Equipment", desc: "The right gear on site for heavy uplift, disposal, grinding, and floor preparation." },
-                  { title: "Grinding & Levelling", desc: "High spots, uneven slabs, adhesive, and rough substrates corrected before install." },
-                  { title: "Moisture & Repairs", desc: "Moisture checks, barriers, subfloor repairs, patching, ramping, and make-good work." },
-                  { title: "Floor Installation", desc: "Vinyl, hybrid, timber, carpet tiles, planks, commercial flooring, trims, and finishes." },
-                  { title: "Clean Finish", desc: "A tidy site and a floor system prepared to last, not just look good on day one." }
-                ].map((item) => (
-                  <div key={item.title} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
-                    <h3 className="font-black text-slate-900 mb-2">{item.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+              <div className="flex flex-col gap-4">
+                <div className="rounded-lg border border-slate-800 bg-slate-900 p-5 text-white shadow-xl">
+                  <div className="text-xs font-black uppercase tracking-widest text-yellow-400">On-site capability</div>
+                  <p className="mt-3 text-2xl font-black leading-tight">
+                    Not just installers. The truck, tools, materials, removal, and clean-up come with the job.
+                  </p>
+                </div>
 
-              <Link
-                href="/services/floor-preparation"
-                className="mt-8 inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-white font-bold uppercase tracking-wide rounded hover:bg-slate-800 transition-colors"
-              >
-                See Floor Preparation Services
-              </Link>
+                <div className="grid gap-4 sm:grid-cols-3 lg:flex-1">
+                  {startToFinishLogistics.map((img, index) => (
+                    <div key={img.src} className="grid rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                      <div className="relative min-h-[170px] bg-slate-100 sm:min-h-[150px] lg:min-h-[190px]">
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          sizes="(min-width: 1024px) 240px, (min-width: 640px) 33vw, 100vw"
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      </div>
+                      <div className="p-5">
+                        <h3 className="text-lg font-black text-slate-900 mb-2">{img.title}</h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">{img.caption}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-5">
-              <div className="rounded-lg border border-slate-200 bg-slate-900 p-5 text-white shadow-xl">
-                <div className="text-xs font-black uppercase tracking-widest text-yellow-400">On-site capability</div>
-                <p className="mt-3 text-2xl font-black leading-tight">
-                  Not just installers. The truck, tools, materials, removal, and clean-up come with the job.
-                </p>
-              </div>
-
-              <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-4">
-                {startToFinishLogistics.map((img, index) => (
-                  <div key={img.src} className="grid sm:grid-rows-[180px_1fr] lg:grid-rows-none lg:grid-cols-[220px_1fr] gap-0 rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
-                    <div className="relative min-h-[180px] bg-slate-100">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        sizes="(min-width: 1024px) 220px, (min-width: 640px) 33vw, 100vw"
-                        className="object-cover"
-                        priority={index === 0}
-                      />
-                    </div>
-                    <div className="p-5 flex flex-col justify-center">
-                      <h3 className="text-lg font-black text-slate-900 mb-2">{img.title}</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{img.caption}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="grid sm:grid-cols-3 gap-3">
-                {[
-                  "Uplift",
-                  "Load-out",
-                  "Install"
-                ].map((step) => (
-                  <div key={step} className="rounded border border-yellow-300 bg-yellow-50 px-4 py-3 text-center text-sm font-black uppercase tracking-wide text-slate-900">
-                    {step}
-                  </div>
-                ))}
-              </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: "Uplift & Removal", desc: "Old flooring, trims, smooth edge, loose material, and site waste removed cleanly." },
+                { title: "Trucks & Equipment", desc: "The right gear on site for heavy uplift, disposal, grinding, and floor preparation." },
+                { title: "Grinding & Levelling", desc: "High spots, uneven slabs, adhesive, and rough substrates corrected before install." },
+                { title: "Moisture & Repairs", desc: "Moisture checks, barriers, subfloor repairs, patching, ramping, and make-good work." },
+                { title: "Floor Installation", desc: "Vinyl, hybrid, timber, carpet tiles, planks, commercial flooring, trims, and finishes." },
+                { title: "Clean Finish", desc: "A tidy site and a floor system prepared to last, not just look good on day one." }
+              ].map((item) => (
+                <div key={item.title} className="rounded-lg border border-slate-200 bg-white p-5">
+                  <h3 className="font-black text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
+
+            <Link
+              href="/services/floor-preparation"
+              className="mt-8 inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-white font-bold uppercase tracking-wide rounded hover:bg-slate-800 transition-colors"
+            >
+              See Floor Preparation Services
+            </Link>
           </div>
         </div>
       </section >
