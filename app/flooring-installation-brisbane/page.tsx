@@ -12,20 +12,6 @@ export const metadata: Metadata = {
         "Professional flooring installation across Brisbane. Timber, hybrid, vinyl & laminate. Oxley-based installer servicing 30+ suburbs. Free quotes. 15+ years experience.",
 };
 
-const brisbaneSuburbs = flooringInstallationSuburbs.filter(
-    (s) =>
-        !["springfield", "springfield-lakes", "redbank-plains", "springwood", "daisy-hill", "north-lakes"].includes(s.slug)
-);
-const ipswichSuburbs = flooringInstallationSuburbs.filter((s) =>
-    ["springfield", "springfield-lakes", "redbank-plains"].includes(s.slug)
-);
-const loganSuburbs = flooringInstallationSuburbs.filter((s) =>
-    ["springwood", "daisy-hill"].includes(s.slug)
-);
-const moretonSuburbs = flooringInstallationSuburbs.filter((s) =>
-    ["north-lakes", "narangba"].includes(s.slug)
-);
-
 export default function FlooringInstallationBrisbanePage() {
     return (
         <>
@@ -59,66 +45,29 @@ export default function FlooringInstallationBrisbanePage() {
 
             <section className="py-16 bg-slate-50 border-y border-slate-200">
                 <div className="max-w-6xl mx-auto px-5">
-                    <h2 className="text-2xl font-bold text-slate-900 mb-8">
-                        Flooring Installation by Suburb
+                    <h2 className="text-3xl font-black mb-4 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">
+                        Flooring Installation - Brisbane West
                     </h2>
-                    <div className="space-y-10">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-700 mb-4">Brisbane</h3>
-                            <div className="flex flex-wrap gap-3">
-                                {brisbaneSuburbs.map((s) => (
-                                    <Link
-                                        key={s.slug}
-                                        href={`/flooring-installation/${s.slug}`}
-                                        className="px-4 py-2 bg-white border border-slate-200 rounded hover:border-yellow-400 hover:bg-yellow-50 transition-colors text-slate-700 font-medium"
-                                    >
-                                        {s.name}
-                                    </Link>
-                                ))}
+                    <p className="mb-8 pl-6 text-slate-600 max-w-3xl">
+                        Based in Oxley, Turner Installs is positioned for fast site visits across Brisbane's western suburbs, Ipswich, Logan, Moreton Bay, and nearby areas. We focus on proper preparation, clean installation, and a high-end finish rather than treating every suburb as a separate sales pitch.
+                    </p>
+
+                    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                        {[
+                            ["Brisbane West", "Oxley, Graceville, Sherwood, Chelmer, Corinda, Jindalee, Kenmore and nearby suburbs."],
+                            ["Ipswich & Springfield", "Springfield, Springfield Lakes, Redbank Plains and surrounding growth areas."],
+                            ["Logan", "Springwood, Daisy Hill and reachable Logan renovation work."],
+                            ["Moreton Bay", "North Lakes, Narangba and suitable projects north of Brisbane."],
+                        ].map(([title, copy]) => (
+                            <div key={title} className="bg-white border border-slate-200 p-5 shadow-sm">
+                                <h3 className="text-base font-black text-slate-900 uppercase mb-3">
+                                    {title}
+                                </h3>
+                                <p className="text-sm leading-6 text-slate-600">
+                                    {copy}
+                                </p>
                             </div>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-700 mb-4">Ipswich & Springfield</h3>
-                            <div className="flex flex-wrap gap-3">
-                                {ipswichSuburbs.map((s) => (
-                                    <Link
-                                        key={s.slug}
-                                        href={`/flooring-installation/${s.slug}`}
-                                        className="px-4 py-2 bg-white border border-slate-200 rounded hover:border-yellow-400 hover:bg-yellow-50 transition-colors text-slate-700 font-medium"
-                                    >
-                                        {s.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-700 mb-4">Logan</h3>
-                            <div className="flex flex-wrap gap-3">
-                                {loganSuburbs.map((s) => (
-                                    <Link
-                                        key={s.slug}
-                                        href={`/flooring-installation/${s.slug}`}
-                                        className="px-4 py-2 bg-white border border-slate-200 rounded hover:border-yellow-400 hover:bg-yellow-50 transition-colors text-slate-700 font-medium"
-                                    >
-                                        {s.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-700 mb-4">Moreton Bay</h3>
-                            <div className="flex flex-wrap gap-3">
-                                {moretonSuburbs.map((s) => (
-                                    <Link
-                                        key={s.slug}
-                                        href={`/flooring-installation/${s.slug}`}
-                                        className="px-4 py-2 bg-white border border-slate-200 rounded hover:border-yellow-400 hover:bg-yellow-50 transition-colors text-slate-700 font-medium"
-                                    >
-                                        {s.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -152,6 +101,28 @@ export default function FlooringInstallationBrisbanePage() {
                 images={siteImages.home.transformations}
                 limit={4}
             />
+
+            <section className="py-12 bg-white border-t border-slate-200">
+                <div className="max-w-6xl mx-auto px-5">
+                    <h2 className="text-2xl font-black mb-3 border-l-8 border-yellow-400 pl-6 text-slate-900 uppercase">
+                        Suburbs We Service
+                    </h2>
+                    <p className="mb-5 pl-6 text-sm text-slate-600 max-w-3xl">
+                        Quick links for flooring installation suburbs across Brisbane, Ipswich, Logan, Moreton Bay, and nearby areas.
+                    </p>
+                    <div className="pl-6 flex flex-wrap gap-x-4 gap-y-2 text-sm leading-6">
+                        {flooringInstallationSuburbs.map((suburb) => (
+                            <Link
+                                key={suburb.slug}
+                                href={`/flooring-installation/${suburb.slug}`}
+                                className="text-slate-600 underline-offset-4 hover:text-yellow-700 hover:underline"
+                            >
+                                {suburb.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             <SEOCTA
                 title="Brisbane Flooring—Get a Quote"
