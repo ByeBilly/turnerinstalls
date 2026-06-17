@@ -17,6 +17,27 @@ const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'
   loading: () => <div className="h-[500px] w-full bg-gray-100 animate-pulse rounded-2xl border border-gray-200" />
 });
 
+const startToFinishLogistics = [
+  {
+    src: "/Liams-trucks/truck.jpeg",
+    alt: "Turner Installs truck ready for flooring removal and installation work",
+    title: "The truck comes with the crew",
+    caption: "Proper transport for gear, uplift waste, trims, adhesives, levelling products, and site clean-up."
+  },
+  {
+    src: "/Liams-trucks/packs-of-boards.jpeg",
+    alt: "Flooring packs loaded on the Turner Installs truck",
+    title: "Materials handled properly",
+    caption: "Boards, trims, and installation materials arrive organised so the job can move without delays."
+  },
+  {
+    src: "/Liams-trucks/removerubbish.jpeg",
+    alt: "Old flooring and rubbish loaded for removal by Turner Installs",
+    title: "Old flooring taken away",
+    caption: "Uplift rubbish, packaging, and loose site waste are loaded out instead of being left for the owner."
+  }
+];
+
 export default function Home() {
   return (
     <>
@@ -213,23 +234,46 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-4">
-              {siteImages.home.removalProjects.map((img) => (
-                <div key={img.src} className="grid sm:grid-cols-[160px_1fr] lg:grid-cols-[220px_1fr] gap-4 rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
-                  <div className="relative min-h-[180px] sm:min-h-full bg-slate-100">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover"
-                    />
+            <div className="space-y-5">
+              <div className="rounded-lg border border-slate-200 bg-slate-900 p-5 text-white shadow-xl">
+                <div className="text-xs font-black uppercase tracking-widest text-yellow-400">On-site capability</div>
+                <p className="mt-3 text-2xl font-black leading-tight">
+                  Not just installers. The truck, tools, materials, removal, and clean-up come with the job.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-4">
+                {startToFinishLogistics.map((img, index) => (
+                  <div key={img.src} className="grid sm:grid-rows-[180px_1fr] lg:grid-rows-none lg:grid-cols-[220px_1fr] gap-0 rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                    <div className="relative min-h-[180px] bg-slate-100">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        sizes="(min-width: 1024px) 220px, (min-width: 640px) 33vw, 100vw"
+                        className="object-cover"
+                        priority={index === 0}
+                      />
+                    </div>
+                    <div className="p-5 flex flex-col justify-center">
+                      <h3 className="text-lg font-black text-slate-900 mb-2">{img.title}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">{img.caption}</p>
+                    </div>
                   </div>
-                  <div className="p-5 flex flex-col justify-center">
-                    <h3 className="text-lg font-black text-slate-900 mb-2">{img.alt}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{img.caption}</p>
+                ))}
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-3">
+                {[
+                  "Uplift",
+                  "Load-out",
+                  "Install"
+                ].map((step) => (
+                  <div key={step} className="rounded border border-yellow-300 bg-yellow-50 px-4 py-3 text-center text-sm font-black uppercase tracking-wide text-slate-900">
+                    {step}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
