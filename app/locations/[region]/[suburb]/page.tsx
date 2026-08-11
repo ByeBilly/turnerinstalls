@@ -12,6 +12,8 @@ import TrustBar from "@/components/TrustBar";
 import HeroForm from "@/components/HeroForm";
 import StorySection from "@/components/StorySection";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -204,21 +206,66 @@ export default function SuburbPage({ params }: { params: { region: string; subur
 
             <InternalLinks type="services" />
 
+            {(() => {
+                const nearby = suburbs
+                    .filter((s) => s.region === suburb.region && s.slug !== suburb.slug)
+                    .slice(0, 6);
+                if (nearby.length === 0) return null;
+                return (
+                    <section className="py-12 bg-slate-900 border-t border-white/5">
+                        <div className="max-w-4xl mx-auto px-5">
+                            <h3 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest text-center">
+                                Other Floor Preparation Service Areas in {suburb.region.replace('-', ' ').toUpperCase()}
+                            </h3>
+                            <div className="flex flex-wrap justify-center gap-3">
+                                {nearby.map((s) => (
+                                    <a
+                                        key={s.slug}
+                                        href={`/locations/${s.region}/${s.slug}`}
+                                        className="text-xs text-yellow-400 hover:text-yellow-300 transition-colors border border-yellow-400/30 hover:border-yellow-400/60 px-3 py-1.5 rounded"
+                                    >
+                                        {s.name} Floor Prep
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                );
+            })()}
+
             <SEOCTA
                 title={`Ready to prep your ${suburb.name} property?`}
                 subtitle="Get a free quote from the local experts today."
                 buttonText="Get Local Quote"
             />
 
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: suburb.region.replace('-', ' ').toUpperCase(), url: `/locations/${suburb.region}` },
+                { name: suburb.name, url: `/locations/${suburb.region}/${suburb.slug}` }
+            ]} />
+
+            <FAQSchema faqs={[
+                {
+                    question: `Do you charge for travel to ${suburb.name}?`,
+                    answer: "No, we have teams stationed across Brisbane and the Gold Coast, so we don't charge extra travel fees."
+                },
+                {
+                    question: `How quickly can you start floor preparation in ${suburb.name}?`,
+                    answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
+                }
+            ]} />
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
+                        "@type": "FlooringContractor",
                         "name": `Turner Installs - ${suburb.name}`,
                         "description": `Professional floor preparation services in ${suburb.name}, ${suburb.region}.`,
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61413592054",
                         "address": {
                             "@type": "PostalAddress",
                             "addressLocality": suburb.name,
