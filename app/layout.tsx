@@ -7,7 +7,7 @@ import HighLevelChat from "@/components/HighLevelChat";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ? `https://${process.env.NEXT_PUBLIC_BASE_URL}`
-  : "https://turnerinstalls.com.au";
+  : "https://www.turnerinstalls.com.au";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

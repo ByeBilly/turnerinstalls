@@ -3,9 +3,18 @@ import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 
 export const metadata = {
-  title: "About Us | Turner Installs - 3 Generations of Flooring Excellence",
+  title: {
+    absolute: "About Turner Installs | Brisbane Flooring Specialists",
+  },
   description:
-    "Meet the team behind Turner Installs. A third-generation family business delivering expert flooring installation and preparation in Brisbane.",
+    "Meet Turner Installs, Brisbane flooring specialists with 15+ years of experience and three generations of expertise in preparation and installation.",
+  alternates: {
+    canonical: "/about",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 import { siteImages } from "@/data/siteImages";
@@ -31,7 +40,7 @@ export default function About() {
         <div className="relative z-10 max-w-4xl mx-auto px-5 text-center">
           <div className="text-yellow-400 font-bold uppercase tracking-widest mb-4 text-sm">Our Story</div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            Flooring is in our blood.
+            About Turner Installs
           </h1>
           <p className="text-xl text-gray-100 leading-relaxed max-w-2xl mx-auto font-medium">
             Three generations of knowledge passed down from grandfather, to father, to son.

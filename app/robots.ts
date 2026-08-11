@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://turnerinstalls.com.au/sitemap.xml',
+        sitemap: 'https://www.turnerinstalls.com.au/sitemap.xml',
     }
 }

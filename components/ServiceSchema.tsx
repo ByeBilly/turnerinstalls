@@ -4,12 +4,12 @@ export default function ServiceSchema({ title, description, url }: { title: stri
         "@type": "Service",
         "serviceType": title,
         "provider": {
-            "@type": "LocalBusiness",
+            "@type": "FlooringContractor",
             "name": "Turner Installs",
-            "telephone": "+61748022388",
+            "telephone": "+61413592054",
             "email": "liam@turnerinstalls.com",
-            "url": "https://turnerinstalls.com.au",
-            "image": "https://turnerinstalls.com.au/logo.png",
+            "url": "https://www.turnerinstalls.com.au",
+            "image": "https://www.turnerinstalls.com.au/logo.png",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Brisbane",

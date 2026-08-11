@@ -5,9 +5,18 @@ import CTAButton from "@/components/CTAButton";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact Us | Turner Installs - Brisbane Flooring Specialists",
+  title: {
+    absolute: "Contact Turner Installs | Brisbane Flooring Specialists",
+  },
   description:
-    "Get a quote for your flooring project. Contact Turner Installs for expert advice, free measures, and professional installation in Brisbane.",
+    "Contact Turner Installs for professional flooring installation, preparation and levelling in Brisbane. Request a quote for your residential project.",
+  alternates: {
+    canonical: "/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function Contact() {
@@ -18,7 +27,7 @@ export default function Contact() {
         <div className="bg-white border-b border-slate-200 py-16 mb-12">
           <div className="max-w-7xl mx-auto px-5 text-center">
             <div className="inline-block bg-yellow-400 text-slate-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-4">Get Started</div>
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-slate-900 tracking-tight">Let's Talk Floors.</h1>
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-slate-900 tracking-tight">Contact Turner Installs</h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto font-medium">
               Ready for a flawless finish? Fill out the form below or give us a call.
               We're here to help with honest advice and expert workmanship.

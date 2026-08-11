@@ -4,7 +4,7 @@ import { flooringInstallationSuburbs } from '@/data/flooringInstallationSuburbs'
 import { getAllBlogSlugs } from '@/data/blogPosts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://turnerinstalls.com.au';
+    const baseUrl = 'https://www.turnerinstalls.com.au';
 
     // 1. Static Pages + AI Discovery Files
     const staticPages = [

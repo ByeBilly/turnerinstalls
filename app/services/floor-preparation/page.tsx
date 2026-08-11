@@ -8,12 +8,21 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import ImageGrid from "@/components/ImageGrid";
 import BeforeAfterGallery from "@/components/BeforeAfterGallery";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Floor Preparation Services Brisbane | Concrete & Substrate Prep",
-  description: "Expert floor preparation services in Brisbane & SE Queensland. Concrete grinding, levelling, and moisture barriers for a perfect installation finish.",
+  title: "Floor Preparation Brisbane",
+  description: "Professional floor preparation in Brisbane for timber, laminate and other flooring, including grinding, levelling, repairs and substrate preparation.",
+  alternates: {
+    canonical: "/services/floor-preparation",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function FloorPreparation() {
@@ -103,7 +112,7 @@ export default function FloorPreparation() {
   return (
     <>
       <ServiceHero
-        title={<>Professional <span className="text-yellow-500">Floor Preparation</span>.</>}
+        title={<>Floor Preparation <span className="text-yellow-500">Brisbane</span></>}
         subtitle="The secret to a flawless floor is what lies beneath. We create mirror-flat, structural substrates for high-end installations."
         imagePath={siteImages.floorPrep.hero.src}
         label="TECHNICAL_PREP"
@@ -202,6 +211,12 @@ export default function FloorPreparation() {
         subtitle="Don't compromise on the foundation. Contact Turner Installs for expert floor preparation."
         buttonText="Get a Prep Quote"
       />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Floor Preparation", url: "/services/floor-preparation" }
+      ]} />
+      <FAQSchema faqs={faqs} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -210,11 +225,11 @@ export default function FloorPreparation() {
             "@type": "Service",
             "name": "Floor Preparation",
             "provider": {
-              "@type": "LocalBusiness",
+              "@type": "FlooringContractor",
               "name": "Turner Installs",
-              "telephone": "+61 7480 223 88",
+              "telephone": "+61413592054",
               "email": "liam@turnerinstalls.com",
-              "url": "https://turnerinstalls.com.au",
+              "url": "https://www.turnerinstalls.com.au",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Brisbane",

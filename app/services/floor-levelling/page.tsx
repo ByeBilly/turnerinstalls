@@ -10,8 +10,15 @@ import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Floor Levelling Services Brisbane | Self-Levelling Compound",
-    description: "Professional floor levelling and flood coating in Brisbane. Correcting uneven slabs and preparing for vinyl, timber, and hybrid floors.",
+    title: "Floor Levelling Brisbane",
+    description: "Expert floor levelling in Brisbane for uneven concrete and subfloors. Get a smooth, stable base ready for timber, laminate and other flooring.",
+    alternates: {
+        canonical: "/services/floor-levelling",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function FloorLevelling() {
@@ -92,7 +99,7 @@ export default function FloorLevelling() {
     return (
         <>
             <ServiceHero
-                title={<>Floor <span className="text-yellow-500">Levelling</span>.</>}
+                title={<>Floor Levelling <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Achieve a glass-smooth, structural finish for your new floor coverings."
                 imagePath="/images/brisbane_skyline.png"
                 label="FLOOD_COATING"
@@ -154,9 +161,9 @@ export default function FloorLevelling() {
                         "@type": "Service",
                         "name": "Floor Levelling",
                         "provider": {
-                            "@type": "LocalBusiness",
+                            "@type": "FlooringContractor",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61413592054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "description": "Expert self-levelling and flood coating services to create perfectly flat subfloors in Brisbane.",

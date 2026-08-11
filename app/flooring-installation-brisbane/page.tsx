@@ -7,9 +7,16 @@ import ModernGallery from "@/components/ModernGallery";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Flooring Installation Brisbane | Timber, Hybrid & Vinyl | Turner Installs",
+    title: "Flooring Installation Brisbane",
     description:
-        "Professional flooring installation across Brisbane. Timber, hybrid, vinyl & laminate. Oxley-based installer servicing 30+ suburbs. Free quotes. 15+ years experience.",
+        "Professional flooring installation in Brisbane for timber, laminate and residential renovations, with expert preparation and quality workmanship.",
+    alternates: {
+        canonical: "/flooring-installation-brisbane",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function FlooringInstallationBrisbanePage() {

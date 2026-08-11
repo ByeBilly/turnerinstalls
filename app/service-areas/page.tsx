@@ -5,8 +5,15 @@ import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs"
 import ServiceHero from "@/components/ServiceHero";
 
 export const metadata = {
-    title: "Service Areas | Turner Installs",
-    description: "View our active service locations across Brisbane and the Gold Coast.",
+    title: "Flooring Service Areas Brisbane",
+    description: "View Turner Installs' Brisbane flooring service areas for professional installation, floor preparation, levelling and residential flooring projects.",
+    alternates: {
+        canonical: "/service-areas",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function ServiceAreas() {
@@ -16,7 +23,7 @@ export default function ServiceAreas() {
     return (
         <>
             <ServiceHero
-                title={<>Where We <span className="text-yellow-500">Work</span>.</>}
+                title={<>Flooring Service Areas <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Our active service locations across South East Queensland."
                 imagePath="/images/brisbane_skyline.png"
                 label="SERVICE DIRECTORY"

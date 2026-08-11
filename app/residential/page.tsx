@@ -3,9 +3,16 @@ import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 
 export const metadata = {
-  title: "Residential Flooring | Turner Installs - Brisbane Home Specialists",
+  title: "Residential Flooring Brisbane",
   description:
-    "Expert residential flooring installation. We treat your home with respect — no mess, immaculate clean-up, and flawless finishes for vinyl, hybrid, and timber floors.",
+    "Upgrade your Brisbane home with professional residential flooring, expert preparation and quality installation for renovations and new interiors.",
+  alternates: {
+    canonical: "/residential",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function Residential() {
@@ -30,7 +37,7 @@ export default function Residential() {
             Home Specialists
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight">
-            Floors that make a house <br /> a <span className="text-yellow-500">home</span>.
+            Residential Flooring <span className="text-yellow-500">Brisbane</span>
           </h1>
           <p className="text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
             Whether you're renovating a single room or building your dream home, we deliver showroom-quality finishes with zero stress.

@@ -9,6 +9,8 @@ import SEOCTA from "@/components/SEOCTA";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -29,9 +31,17 @@ export async function generateMetadata({
     return {
         title: data.seoTitle,
         description: data.metaDescription,
+        alternates: {
+            canonical: `/flooring-installation/${data.slug}`,
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
         openGraph: {
             title: data.seoTitle,
             description: data.metaDescription,
+            url: `/flooring-installation/${data.slug}`,
         },
     };
 }
@@ -64,12 +74,7 @@ export default async function FlooringInstallationSuburbPage({
     return (
         <>
             <ServiceHero
-                title={
-                    <>
-                        Flooring Installation in{" "}
-                        <span className="text-yellow-500">{data.name}</span>
-                    </>
-                }
+                title={data.h1Title || <>Flooring Installation in <span className="text-yellow-500">{data.name}</span></>}
                 subtitle={`Premium timber, hybrid, vinyl and laminate flooring for ${data.name} homes. Local installer based near Oxley.`}
                 imagePath={
                     siteImages.home.transformations[0]?.src ||
@@ -161,21 +166,38 @@ export default async function FlooringInstallationSuburbPage({
                 buttonText={`Get ${data.name} Quote`}
             />
 
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Flooring Installation Brisbane", url: "/flooring-installation-brisbane" },
+                { name: data.name, url: `/flooring-installation/${data.slug}` }
+            ]} />
+
+            <FAQSchema faqs={[
+                {
+                    question: `Do you provide flooring installation quotes in ${data.name}?`,
+                    answer: `Yes, Turner Installs provides free site measures and detailed quotes for homes and businesses in ${data.name} and surrounding suburbs.`
+                },
+                {
+                    question: `What flooring types do you install in ${data.name}?`,
+                    answer: "We specialise in luxury vinyl plank (LVP), hybrid flooring, engineered timber, laminate, and commercial plank installation."
+                }
+            ]} />
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
+                        "@type": "FlooringContractor",
                         "name": `Turner Installs - Flooring Installation ${data.name}`,
                         "description": data.metaDescription,
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61413592054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",
-                            "addressLocality": "Oxley",
+                            "addressLocality": data.name,
                             "addressRegion": "QLD",
-                            "postalCode": "4074",
+                            "postalCode": data.postcode,
                             "addressCountry": "AU",
                         },
                         "areaServed": [data.name, "Brisbane"],

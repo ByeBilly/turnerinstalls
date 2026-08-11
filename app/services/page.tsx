@@ -4,8 +4,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Floor Preparation Services Brisbane | Turner Installs",
-    description: "Comprehensive floor preparation services including concrete grinding, levelling, moisture barriers, and adhesive removal across SE QLD.",
+    title: "Flooring Services Brisbane",
+    description: "Explore Brisbane flooring services including installation, preparation, levelling, concrete grinding and floor removal. Request expert advice today.",
+    alternates: {
+        canonical: "/services",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function ServicesIndex() {
@@ -71,7 +78,7 @@ export default function ServicesIndex() {
     return (
         <>
             <ServiceHero
-                title={<>Our <span className="text-yellow-500">Services</span>.</>}
+                title={<>Flooring Services <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Expert floor preparation solutions for every substrate challenge."
                 imagePath="/images/brisbane_skyline.png"
                 label="FULL_SERVICE"

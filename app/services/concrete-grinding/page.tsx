@@ -10,8 +10,15 @@ import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Concrete Grinding Services Brisbane | Dust-Free Floor Prep",
-    description: "Professional concrete grinding in Brisbane. Remove old adhesives, paint, and high spots with our dust-free grinding systems.",
+    title: "Concrete Grinding Brisbane",
+    description: "Professional concrete grinding in Brisbane to remove high spots, adhesives and contaminants, creating a clean surface ready for flooring installation.",
+    alternates: {
+        canonical: "/services/concrete-grinding",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function ConcreteGrinding() {
@@ -90,7 +97,7 @@ export default function ConcreteGrinding() {
     return (
         <>
             <ServiceHero
-                title={<>Concrete <span className="text-yellow-500">Grinding</span>.</>}
+                title={<>Concrete Grinding <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Dust-free mechanical preparation to clean, flatten, and profile your slab."
                 imagePath={siteImages.grinding.hero.src}
                 label="SURFACE_PREP"
@@ -151,9 +158,9 @@ export default function ConcreteGrinding() {
                         "@type": "Service",
                         "name": "Concrete Grinding",
                         "provider": {
-                            "@type": "LocalBusiness",
+                            "@type": "FlooringContractor",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61413592054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "description": "Dust-free concrete grinding services for adhesive removal, surface prep, and slab rectification in Brisbane.",

@@ -7,9 +7,18 @@ import HeroForm from "@/components/HeroForm";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 
 export const metadata = {
-  title: "Turner Installs | Expert Flooring & Professional Floor Preparation – Brisbane",
+  title: {
+    absolute: "Flooring Specialists Brisbane | Turner Installs",
+  },
   description:
-    "15+ years experience in Brisbane. Expert flooring installation, professional floor preparation, and immaculate clean-up for residential and commercial clients.",
+    "Brisbane flooring specialists for installation, preparation, levelling and residential renovations. Get expert flooring solutions from Turner Installs.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'), {
@@ -46,24 +55,43 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
+            "@type": "FlooringContractor",
             name: "Turner Installs",
-            description: "Expert flooring contractor specialising in installation, preparation and repair",
-            url: "https://turnerinstalls.com.au",
-            telephone: "+61748022388",
+            description: "Expert flooring contractor specialising in vinyl plank, timber, hybrid installation, floor levelling, and diamond grinding in Brisbane.",
+            url: "https://www.turnerinstalls.com.au",
+            telephone: "+61413592054",
             email: "liam@turnerinstalls.com",
+            image: "https://www.turnerinstalls.com.au/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Brisbane",
               addressRegion: "QLD",
+              postalCode: "4074",
               addressCountry: "AU",
             },
-            areaServed: {
-              "@type": "City",
-              name: "Brisbane",
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: -27.4698,
+              longitude: 153.0251,
             },
+            areaServed: [
+              { "@type": "City", name: "Brisbane" },
+              { "@type": "City", name: "Ipswich" },
+              { "@type": "City", name: "Gold Coast" },
+              { "@type": "City", name: "Sunshine Coast" }
+            ],
             priceRange: "$$",
-            openingHours: "Mo-Fr 07:00-17:00",
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "07:00",
+                closes: "17:00"
+              }
+            ],
+            sameAs: [
+              GOOGLE_REVIEW_URL
+            ]
           }),
         }}
       />
