@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from 'next/dynamic';
 import ModernGallery from "@/components/ModernGallery";
+import ServiceAreaMapWrapper from "@/components/ServiceAreaMapWrapper";
 import { siteImages } from "@/data/siteImages";
 import HeroForm from "@/components/HeroForm";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
@@ -20,11 +20,6 @@ export const metadata = {
     follow: true,
   },
 };
-
-const ServiceAreaMapWrapper = dynamic(() => import('@/components/ServiceAreaMap'), {
-  ssr: false,
-  loading: () => <div className="h-[500px] w-full bg-gray-100 animate-pulse rounded-2xl border border-gray-200" />
-});
 
 const startToFinishLogistics = [
   {
@@ -116,7 +111,7 @@ export default function Home() {
               Brisbane & Ipswich Flooring Specialists
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900 break-words">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Perfect Floor</span><br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Perfect Floor</span>{" "}<br />
               <span className="text-yellow-500">Preparation.</span>
             </h1>
             <p className="text-xl text-slate-700 max-w-lg mb-8 leading-relaxed font-medium">
@@ -151,7 +146,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-12 flex items-center gap-8 text-sm font-bold text-slate-600 uppercase tracking-widest">
+            <div className="mt-12 flex flex-wrap items-center gap-8 text-sm font-bold text-slate-600 uppercase tracking-widest">
               <div className="flex items-center gap-2">
                 <span className="text-yellow-500 text-xl">✓</span> Commercial
               </div>
@@ -185,7 +180,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
+              <div className="absolute -bottom-6 right-0 sm:-right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
                 <div className="text-3xl font-black text-yellow-400">15+</div>
                 <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
               </div>

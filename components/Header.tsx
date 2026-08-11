@@ -36,7 +36,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-50 border-b-4 border-yellow-400 bg-white shadow-md">
+      <header className="sticky top-0 z-50 hidden border-b-4 border-yellow-400 bg-white shadow-md md:block">
         <div className="max-w-7xl mx-auto px-5 py-4">
           <div className="flex items-center justify-between gap-4">
             {/* Logo Area */}
@@ -117,7 +117,7 @@ export default function Header() {
         </div>
 
         {/* Scrollable Navigation Links */}
-        <div className="flex items-center gap-1 overflow-x-auto py-2 px-2 no-scrollbar bg-slate-50">
+        <div className="flex max-w-full items-center gap-1 overflow-x-auto py-2 px-2 no-scrollbar bg-slate-50">
           {[
             { label: "Home", href: "/" },
             { label: "Service Areas", href: "/service-areas" },

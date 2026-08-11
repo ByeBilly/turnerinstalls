@@ -25,8 +25,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: { region: string; suburb: string } }): Promise<Metadata> {
-    const suburb = getSuburb(params.suburb);
+export async function generateMetadata({ params }: { params: Promise<{ region: string; suburb: string }> }): Promise<Metadata> {
+    const { suburb: suburbSlug } = await params;
+    const suburb = getSuburb(suburbSlug);
     if (!suburb) return {};
 
     const title = `Flooring Installation ${suburb.name} | Professional Floor Preparation`;
@@ -44,8 +45,9 @@ export async function generateMetadata({ params }: { params: { region: string; s
 }
 
 // 3. Page Component
-export default function SuburbPage({ params }: { params: { region: string; suburb: string } }) {
-    const suburb = getSuburb(params.suburb);
+export default async function SuburbPage({ params }: { params: Promise<{ region: string; suburb: string }> }) {
+    const { suburb: suburbSlug } = await params;
+    const suburb = getSuburb(suburbSlug);
 
     if (!suburb) {
         notFound();

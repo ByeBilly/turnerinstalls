@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -101,9 +102,9 @@ export default function ContactForm() {
                     <p className="text-slate-600 mb-8 max-w-md mx-auto">
                         Thanks for reaching out. Liam and the team will review your project details and give you a call as soon as they can.
                     </p>
-                    <a href="/" className="inline-block px-8 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors">
+                    <Link href="/" className="inline-block px-8 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors">
                         Return to Home
-                    </a>
+                    </Link>
                 </div>
             ) : (
                 <form className="space-y-6" onSubmit={handleSubmit}>

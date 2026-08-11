@@ -21,7 +21,7 @@ export default function StorySection({ className = "", locationName }: StorySect
                                 className="object-cover"
                             />
                         </div>
-                        <div className="absolute -bottom-6 -right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
+                        <div className="absolute -bottom-6 right-0 sm:-right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
                             <div className="text-3xl font-black text-yellow-400">15+</div>
                             <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
                         </div>
