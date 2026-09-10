@@ -90,7 +90,7 @@ export const suburbs: SuburbData[] = [
             { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Gold Coast showroom flooring project" },
             { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Gold Coast showroom flooring project detail" },
             { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Browns Plains commercial vinyl flooring install detail" },
-            { src: "/images/Timber-Oxley.jpeg", alt: "Gold Coast timber-look flooring project detail" }
+            { src: "/images/Timber-Oxley.jpeg", alt: "Youngs Crossing timber-look flooring project" }
         ]
     },
     {

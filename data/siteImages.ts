@@ -104,7 +104,7 @@ export const siteImages = {
             // Main Transformation Gallery (Strictly Finished Shots)
             { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Gold Coast showroom flooring project" },
             { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Gold Coast showroom flooring project detail" },
-            { src: "/images/Timber-Oxley.jpeg", alt: "Gold Coast timber-look flooring project detail" },
+            { src: "/images/Timber-Oxley.jpeg", alt: "Youngs Crossing timber-look flooring project" },
             { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Browns Plains vinyl flooring installation" },
             { src: "/images/Vinyl-install-Murrarie.jpeg", alt: "Murrarie vinyl flooring installation" },
             { src: "/installspics/finished/image6.jpeg", alt: "Premium Timber Finish" },
