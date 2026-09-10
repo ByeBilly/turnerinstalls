@@ -12,6 +12,7 @@ import ModernGallery from "@/components/ModernGallery";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
+import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -134,6 +135,11 @@ export default async function FlooringInstallationSuburbPage({
             </section>
 
             <FloorPrepUpliftModule suburbName={data.name} variantKey={data.slug} />
+
+            <SuburbLogisticsProof
+                suburbName={data.name}
+                regionName="Brisbane"
+            />
 
             <section className="py-16 bg-slate-50 border-y border-slate-200">
                 <div className="max-w-3xl mx-auto px-5">

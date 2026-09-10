@@ -11,6 +11,7 @@ import ImageGrid from "@/components/ImageGrid";
 import TrustBar from "@/components/TrustBar";
 import HeroForm from "@/components/HeroForm";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
+import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -215,6 +216,12 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                 suburbName={suburb.name}
                 variantKey={variantSeed}
                 regionName={regionLabel}
+            />
+
+            <SuburbLogisticsProof
+                suburbName={suburb.name}
+                regionName={regionLabel}
+                prepHref={`/locations/${suburb.region}/${suburb.slug}/floor-preparation`}
             />
 
             <ProcessSteps

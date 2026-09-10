@@ -15,6 +15,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
+import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -193,6 +194,12 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
             <FloorPrepUpliftModule
                 suburbName={suburb.name}
                 variantKey={`${suburb.region}-${suburb.slug}`}
+                regionName={regionLabel}
+                prepHref={`/locations/${suburb.region}/${suburb.slug}/floor-preparation`}
+            />
+
+            <SuburbLogisticsProof
+                suburbName={suburb.name}
                 regionName={regionLabel}
                 prepHref={`/locations/${suburb.region}/${suburb.slug}/floor-preparation`}
             />
