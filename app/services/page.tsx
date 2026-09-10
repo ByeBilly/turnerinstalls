@@ -18,6 +18,12 @@ export const metadata: Metadata = {
 export default function ServicesIndex() {
     const services = [
         {
+            title: "Levelling & Grinding",
+            description: "Combined slab assessment, diamond grinding, adhesive uplift and self-levelling for floor-ready substrates.",
+            link: "/services/floor-levelling-concrete-grinding",
+            icon: "📏"
+        },
+        {
             title: "Floor Preparation",
             description: "The complete package. Laser levelling, grinding, and smoothing for a flawless install.",
             link: "/services/floor-preparation",

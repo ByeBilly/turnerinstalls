@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/services/floor-preparation',
         '/services/subfloor-repairs',
         '/services/concrete-grinding',
+        '/services/floor-levelling-concrete-grinding',
         '/services/adhesive-removal',
         '/services/epoxy-removal',
         '/services/floor-levelling',
