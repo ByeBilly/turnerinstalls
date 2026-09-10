@@ -57,17 +57,64 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
         notFound();
     }
 
+    const variantSeed = `${suburb.region}-${suburb.slug}`;
+    const variant = variantSeed.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0) % 4;
+    const regionLabel = suburb.region.replace('-', ' ');
+    const landmarkLabel = suburb.landmarks?.length ? suburb.landmarks[0] : `${suburb.name} streets`;
+    const prepAngles = [
+        {
+            intro: `New flooring is a major investment. In ${suburb.name}, the safest install starts with a substrate that has been checked for high spots, low areas, loose residue and moisture risk before any boards go down.`,
+            standard: `We prepare ${suburb.name} floors with the same practical goal every time: clean concrete or timber, controlled dust, corrected levels and a surface that supports the flooring manufacturer's requirements.`,
+            process: "We check access, existing coverings and the likely problem areas around the home before the uplift or grinding work starts.",
+            dust: `Dust control matters in ${suburb.name} renovation work, so grinding is paired with extraction and a tidy handover.`,
+            timing: "Most straightforward prep jobs can be completed quickly, but levelling depth, humidity and moisture readings decide when the floor is ready for install.",
+        },
+        {
+            intro: `The floor you see depends on the surface underneath it. Around ${suburb.name}, we often find old adhesive, slab waves, extension joins and tired coverings that need fixing before hybrid, vinyl or timber is installed.`,
+            standard: `Turner Installs maps the surface, removes the old floor system where required, grinds contamination, patches defects and levels the areas that would otherwise move underfoot.`,
+            process: `We start by reading the ${suburb.name} site: driveway access, room layout, old floor type, slab condition and where waste can be loaded out cleanly.`,
+            dust: "Mechanical prep creates fine dust, but the equipment is run with extraction to keep the work controlled inside occupied homes and commercial spaces.",
+            timing: "Light grinding and patching may be same-day work; flood levelling usually needs moisture and cure checks before installation continues.",
+        },
+        {
+            intro: `A smooth-looking new floor can still fail if the base flexes, crumbles or dips. For ${suburb.name} projects, we focus on uplift, adhesive removal, grinding and levelling before the finish layer is even considered.`,
+            standard: `The aim is a floor-ready substrate: old coverings removed, glue and paint stripped back, high ridges reduced, low spots filled, and the surface left clean enough for primer or adhesive.`,
+            process: `We inspect the rooms near ${landmarkLabel}, measure the obvious highs and lows, and plan the prep sequence around access, dust and waste removal.`,
+            dust: `Homes and shops in ${suburb.name} need clean work habits. Dust extraction and staged clean-up are part of the prep, not an afterthought.`,
+            timing: "The timing depends on the system used: grinding can hand over fast, while levelling compounds need the right cure window before hard flooring is laid.",
+        },
+        {
+            intro: `In ${suburb.name}, good flooring prep is a mix of removal, correction and restraint. We do not hide slab problems with extra underlay; we correct the base so the new floor has proper support.`,
+            standard: `That means assessing flatness, removing old glue and residue, grinding the high spots, repairing defects and using self-levelling where the floor needs a flatter plane.`,
+            process: `Every ${regionLabel} job has its own site constraints, so we check access, noise, dust, waste, floor height and the selected flooring product before choosing the prep method.`,
+            dust: "Dust is managed with extraction and clean work practices, especially where families, tenants or neighbouring businesses are nearby.",
+            timing: "We plan around the next trade or installation date, with cure time and moisture checks deciding when the prepared floor is ready.",
+        },
+    ][variant];
+
     // Dynamic specs localized to the suburb where possible
     const specs = [
         {
             icon: "📏",
             title: `Dead Flat in ${suburb.name}`,
-            description: "Achieving tolerances of 1mm over 2m or better for premium vinyl and timber installs."
+            description: variant === 0
+                ? "Checking and correcting the highs and lows that cause hollow spots, movement and visible waves in new flooring."
+                : variant === 1
+                    ? "Laser checking slabs and subfloors so vinyl, hybrid and timber are not forced over avoidable dips or ridges."
+                    : variant === 2
+                        ? "Preparing the base so long boards and low-angle light do not reveal every old slab defect."
+                        : "Reducing floor movement by correcting the surface before the new flooring system is installed."
         },
         {
             icon: "🛡️",
             title: "Moisture Protection",
-            description: `Essential for ${suburb.name} homes. Identifying and resolving rising damp before it destroys your new floor.`
+            description: variant === 0
+                ? `Moisture readings matter in ${suburb.name}; damp slabs can ruin adhesive, timber and vinyl installs.`
+                : variant === 1
+                    ? "Checking moisture risk before primers, levellers or flooring adhesives lock a problem under the floor."
+                    : variant === 2
+                        ? `Identifying damp or suspect concrete around ${suburb.name} before the new floor traps the issue.`
+                        : "Moisture checks help protect warranties and reduce the risk of later cupping, lifting or bond failure."
         },
         {
             icon: "↥",
@@ -89,23 +136,31 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
     const processSteps = [
         {
             title: "Assessment",
-            description: `We scan your ${suburb.name} subfloor with laser levels to map every high and low spot.`
+            description: prepAngles.process
         },
         {
             title: "Uplift & Removal",
-            description: "Existing floor coverings, smoothedge, staples, tiles and site waste removed where required."
+            description: variant % 2 === 0
+                ? "Existing carpet, vinyl, laminate, tile, smoothedge, staples and loose waste removed where required."
+                : "Old floor coverings and loose materials are lifted, sorted and removed so the substrate can be assessed properly."
         },
         {
             title: "Grinding & Glue Removal",
-            description: "Mechanical removal of old adhesive, paint, and weak surface laitance."
+            description: variant % 2 === 0
+                ? "Mechanical removal of old adhesive, paint and weak surface laitance so primers and compounds can bond."
+                : "Diamond tooling strips contamination and opens the surface profile for levelling or direct-stick flooring."
         },
         {
             title: "Repair",
-            description: "Filling cracks and divots to ensure a monolithic substrate."
+            description: variant % 2 === 0
+                ? "Cracks, divots, ramps and broken edges are repaired before the levelling or installation stage."
+                : "Local defects are patched and feathered so the finished floor is not forced over avoidable weak points."
         },
         {
             title: "Levelling",
-            description: "Application of self-levelling compound for a mirror-flat finish."
+            description: variant % 2 === 0
+                ? "Self-levelling compound is used where the floor needs a flatter, more stable installation plane."
+                : "Primer and levelling compound are applied only where needed to support the selected floor covering."
         }
     ];
 
@@ -116,11 +171,11 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
         },
         {
             question: "How long does the prep take?",
-            answer: "Most residential jobs are completed in 1-2 days, depending on the need for flood levelling."
+            answer: prepAngles.timing
         },
         {
             question: "Is it dusty?",
-            answer: "We use high-end dust extraction systems to keep your home clean, capturing 99.9% of dust."
+            answer: prepAngles.dust
         }
     ];
 
@@ -140,8 +195,8 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             <TechSpecs
                 title={`Don't Risk Your ${suburb.name} Floor.`}
                 description={<>
-                    <p className="mb-4">New flooring is a huge investment. Installing it over the uneven or damp subfloors often found in {suburb.name} is the fastest way to void your warranty.</p>
-                    <p>We don't just lay floors; we engineer the substrate to Australian Standards.</p>
+                    <p className="mb-4">{prepAngles.intro}</p>
+                    <p>{prepAngles.standard}</p>
                 </>}
                 features={specs}
             />
@@ -153,7 +208,11 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                 columns={2}
             />
 
-            <FloorPrepUpliftModule suburbName={suburb.name} />
+            <FloorPrepUpliftModule
+                suburbName={suburb.name}
+                variantKey={variantSeed}
+                regionName={regionLabel}
+            />
 
             <ProcessSteps
                 title="Our Prep Process"

@@ -187,6 +187,8 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
 
             <FloorPrepUpliftModule
                 suburbName={suburb.name}
+                variantKey={`${suburb.region}-${suburb.slug}`}
+                regionName={suburb.region.replace('-', ' ')}
                 prepHref={`/locations/${suburb.region}/${suburb.slug}/floor-preparation`}
             />
 

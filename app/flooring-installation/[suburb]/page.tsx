@@ -133,7 +133,7 @@ export default async function FlooringInstallationSuburbPage({
                 </div>
             </section>
 
-            <FloorPrepUpliftModule suburbName={data.name} />
+            <FloorPrepUpliftModule suburbName={data.name} variantKey={data.slug} />
 
             <section className="py-16 bg-slate-50 border-y border-slate-200">
                 <div className="max-w-3xl mx-auto px-5">

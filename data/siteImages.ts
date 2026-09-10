@@ -37,7 +37,7 @@ export const siteImages = {
             { src: "/installspics/prep/repair/We would prefer not to have to fix other installers installations. These sorts of issues are avoided by choosing us first. Obvious cause non levelled floor.jpg", alt: "Zoom in on the yellow straight edge: Severe unevenness causing failure" }
         ] as ImageAsset[],
         process: [
-            { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Clean Uplift & Removal" },
+            { src: "/installspics/prep/uplift/messy-uplift-clean-web.jpg", alt: "Clean Uplift & Removal" },
             { src: "/installspics/prep/level/filling-low-parts-for-perfect-install.jpg", alt: "Filling Low Spots for Perfect Install" },
             { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
             { src: "/installspics/prep/uplift/exact description required.jpg", alt: "Floor Covering Uplift in Progress" },
@@ -51,7 +51,7 @@ export const siteImages = {
         ] as ImageAsset[],
         upliftRemoval: [
             {
-                src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg",
+                src: "/installspics/prep/uplift/messy-uplift-clean-web.jpg",
                 alt: "Clean flooring uplift and removal",
                 caption: "Existing floor coverings lifted with the work area kept controlled and ready for preparation."
             },
