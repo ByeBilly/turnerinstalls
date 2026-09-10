@@ -50,6 +50,7 @@ export default function ImageGrid({ title, description, images, columns = 3, var
                                     src={img.src}
                                     alt={img.alt}
                                     fill
+                                    sizes={columns === 4 ? "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" : columns === 2 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>

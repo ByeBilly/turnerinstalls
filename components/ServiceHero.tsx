@@ -24,6 +24,7 @@ export default function ServiceHero({
                     src={imagePath}
                     alt="Service Background"
                     fill
+                    sizes="100vw"
                     className="object-cover"
                     priority
                 />

@@ -48,6 +48,7 @@ export default function ModernGallery({
                                     src={img.src}
                                     alt={img.alt}
                                     fill
+                                    sizes={spanClass === "md:col-span-8" ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
