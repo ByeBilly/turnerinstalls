@@ -17,8 +17,29 @@ export const metadata = {
   },
 };
 
-import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
+
+const aboutProjectGallery = [
+  {
+    src: "/installspics/finished/new-farm-apartment-flooring.jpg",
+    alt: "New Farm apartment flooring project",
+  },
+  {
+    src: "/installspics/finished/paddington-queenslander-flooring.jpg",
+    alt: "Paddington Queenslander timber flooring project",
+  },
+  {
+    src: "/installspics/finished/thegap_staircase.jpg",
+    alt: "The Gap staircase flooring detail",
+  },
+  {
+    src: "/installspics/finished/kenmore-timber-flooring.jpg",
+    alt: "Kenmore timber flooring project",
+  },
+];
+
+const supportPhone = "0413 592 054";
+const supportPhoneHref = "tel:0413592054";
 
 export default function About() {
   return (
@@ -122,9 +143,9 @@ export default function About() {
 
       {/* PROJECT GALLERY */}
       <ModernGallery
-        title="Our Recent Projects"
-        description="A showcase of our finest work across Brisbane and the Gold Coast."
-        images={siteImages.home.transformations}
+        title="Projects Behind the Turner Name"
+        description="Finished flooring examples from Brisbane homes, apartments, and staircase work."
+        images={aboutProjectGallery}
       />
 
       {/* FINAL CTA */}
@@ -138,8 +159,8 @@ export default function About() {
             <CTAButton href="/contact" variant="primary" className="!bg-black !text-white hover:!bg-gray-900 border-none">
               Get in Touch
             </CTAButton>
-            <CTAButton href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} variant="secondary" className="!border-black/20 !text-black hover:!bg-black/5">
-              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
+            <CTAButton href={supportPhoneHref} variant="secondary" className="!border-black/20 !text-black hover:!bg-black/5">
+              Call {supportPhone}
             </CTAButton>
           </div>
         </div>
