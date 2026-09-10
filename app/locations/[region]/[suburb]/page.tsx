@@ -63,6 +63,11 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
         notFound();
     }
 
+    const regionLabel = suburb.region
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
     // --- ARCHETYPE CONTENT LOGIC ---
     const archetypeContent = {
         'historic': {
@@ -188,7 +193,7 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
             <FloorPrepUpliftModule
                 suburbName={suburb.name}
                 variantKey={`${suburb.region}-${suburb.slug}`}
-                regionName={suburb.region.replace('-', ' ')}
+                regionName={regionLabel}
                 prepHref={`/locations/${suburb.region}/${suburb.slug}/floor-preparation`}
             />
 

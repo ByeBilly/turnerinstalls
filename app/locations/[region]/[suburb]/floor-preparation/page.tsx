@@ -59,7 +59,10 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
 
     const variantSeed = `${suburb.region}-${suburb.slug}`;
     const variant = variantSeed.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0) % 4;
-    const regionLabel = suburb.region.replace('-', ' ');
+    const regionLabel = suburb.region
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
     const landmarkLabel = suburb.landmarks?.length ? suburb.landmarks[0] : `${suburb.name} streets`;
     const prepAngles = [
         {
