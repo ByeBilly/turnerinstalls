@@ -10,6 +10,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ImageGrid from "@/components/ImageGrid";
 import TrustBar from "@/components/TrustBar";
 import HeroForm from "@/components/HeroForm";
+import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -25,8 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     const suburb = getSuburb(suburbSlug);
     if (!suburb) return {};
 
-    const title = `Floor Preparation ${suburb.name} | Concrete Grinding Specialists`;
-    const desc = `Expert floor preparation in ${suburb.name}. Concrete grinding, levelling, and glue removal for renovations in ${suburb.postcode}. Dead flat finish guaranteed.`;
+    const title = `Floor Preparation ${suburb.name} | Uplift, Removal, Grinding & Levelling`;
+    const desc = `Expert floor preparation in ${suburb.name}. Old floor uplift, rubbish removal, adhesive removal, concrete grinding, levelling and glue removal for renovations in ${suburb.postcode}.`;
     const canonical = `/locations/${suburb.region}/${suburb.slug}/floor-preparation`;
 
     return {
@@ -69,6 +70,11 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             description: `Essential for ${suburb.name} homes. Identifying and resolving rising damp before it destroys your new floor.`
         },
         {
+            icon: "↥",
+            title: "Uplift & Removal",
+            description: "Removing carpet, vinyl, laminate, smoothedge, staples, old tiles and waste before preparation starts."
+        },
+        {
             icon: "🏗️",
             title: "Structural Integrity",
             description: "Repairing cracks, divots, and weak concrete to ensure a solid bond."
@@ -86,7 +92,11 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             description: `We scan your ${suburb.name} subfloor with laser levels to map every high and low spot.`
         },
         {
-            title: "Grinding",
+            title: "Uplift & Removal",
+            description: "Existing floor coverings, smoothedge, staples, tiles and site waste removed where required."
+        },
+        {
+            title: "Grinding & Glue Removal",
             description: "Mechanical removal of old adhesive, paint, and weak surface laitance."
         },
         {
@@ -142,6 +152,8 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                 images={siteImages.floorPrep.turnerDifference}
                 columns={2}
             />
+
+            <FloorPrepUpliftModule suburbName={suburb.name} />
 
             <ProcessSteps
                 title="Our Prep Process"

@@ -40,14 +40,31 @@ export const siteImages = {
             { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Clean Uplift & Removal" },
             { src: "/installspics/prep/level/filling the low parts, this ensures a perfect install whrn the planks are laid.jpg", alt: "Filling Low Spots for Perfect Install" },
             { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
-            { src: "/installspics/prep/uplift/exact description required.jpg", alt: "ACTION REQUIRED: Description Needed" },
-            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "ACTION REQUIRED: Advise on Text" },
+            { src: "/installspics/prep/uplift/exact description required.jpg", alt: "Floor Covering Uplift in Progress" },
+            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old Flooring Removed for Subfloor Prep" },
             { src: "/installspics/prep/uplift/smoothedge required to be removed.jpg", alt: "Carpet Smoothedge Removal" },
             { src: "/installspics/prep/level/quick mix of engineered cement will sort lows requiring just  light sanding.jpg", alt: "Engineered Cement Application" },
             { src: "/installspics/prep/level/prepping the lows.jpg", alt: "Pre-filling Low Spots" },
             { src: "/installspics/prep/floorprep.jpg", alt: "Professional Subfloor Preparation" },
             { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Floor Levelled Out — Mirror Flat Finish" },
             { src: "/installspics/prep/floods/floodprep.jpg", alt: "Flood Levelling Compound Application" }
+        ] as ImageAsset[],
+        upliftRemoval: [
+            {
+                src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg",
+                alt: "Clean flooring uplift and removal",
+                caption: "Existing floor coverings lifted with the work area kept controlled and ready for preparation."
+            },
+            {
+                src: "/images/carpet-tile-removal-Murrarie.jpeg",
+                alt: "Carpet tile removal and substrate clean-up",
+                caption: "Old carpet tiles removed, adhesive assessed and the base prepared for the new flooring system."
+            },
+            {
+                src: "/Liams-trucks/removerubbish.jpeg",
+                alt: "Turner Installs removal truck and site clean-up",
+                caption: "Waste is taken off site instead of being left in the client's bins or garage."
+            }
         ] as ImageAsset[]
     },
     grinding: {

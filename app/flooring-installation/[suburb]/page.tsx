@@ -11,6 +11,7 @@ import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
+import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -28,9 +29,12 @@ export async function generateMetadata({
     const data = getFlooringInstallationSuburb(suburb);
     if (!data) return {};
 
+    const title = `${data.name} Flooring Installation, Floor Prep, Uplift & Removal`;
+    const description = `Flooring installation in ${data.name} with floor preparation, old floor uplift, adhesive removal, rubbish removal, levelling and clean subfloor handover. Free quote.`;
+
     return {
-        title: data.seoTitle,
-        description: data.metaDescription,
+        title,
+        description,
         alternates: {
             canonical: `/flooring-installation/${data.slug}`,
         },
@@ -39,8 +43,8 @@ export async function generateMetadata({
             follow: true,
         },
         openGraph: {
-            title: data.seoTitle,
-            description: data.metaDescription,
+            title,
+            description,
             url: `/flooring-installation/${data.slug}`,
         },
     };
@@ -51,6 +55,10 @@ const services = [
     "Hybrid floor installation",
     "Vinyl plank flooring",
     "Laminate flooring",
+    "Old flooring uplift and removal",
+    "Tile, carpet and adhesive removal",
+    "Concrete grinding and floor preparation",
+    "Floor levelling before installation",
     "Floor replacements",
     "Renovation flooring upgrades",
 ];
@@ -70,6 +78,7 @@ export default async function FlooringInstallationSuburbPage({
     const nearbyLinks = data.nearbySuburbs
         .map((slug) => flooringInstallationSuburbs.find((s) => s.slug === slug))
         .filter(Boolean);
+    const serviceDescription = `Flooring installation in ${data.name} with floor preparation, old floor uplift, adhesive removal, rubbish removal, levelling and clean subfloor handover.`;
 
     return (
         <>
@@ -88,6 +97,12 @@ export default async function FlooringInstallationSuburbPage({
                     <p className="text-lg text-slate-700 leading-relaxed">
                         {data.introParagraph}
                     </p>
+                    <p className="mt-6 text-lg text-slate-700 leading-relaxed">
+                        If the existing floor in {data.name} needs to come up first, we can handle that
+                        before installation: carpet and vinyl uplift, ceramic tile removal, smoothedge
+                        and staple removal, adhesive grinding, rubbish removal, levelling and substrate
+                        preparation for a cleaner finished floor.
+                    </p>
                 </div>
             </section>
 
@@ -105,7 +120,7 @@ export default async function FlooringInstallationSuburbPage({
             <section className="py-16 bg-white">
                 <div className="max-w-3xl mx-auto px-5">
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                        Flooring Services in {data.name}
+                        Flooring, Uplift and Floor Preparation in {data.name}
                     </h2>
                     <ul className="space-y-3 text-slate-700">
                         {services.map((service, i) => (
@@ -117,6 +132,8 @@ export default async function FlooringInstallationSuburbPage({
                     </ul>
                 </div>
             </section>
+
+            <FloorPrepUpliftModule suburbName={data.name} />
 
             <section className="py-16 bg-slate-50 border-y border-slate-200">
                 <div className="max-w-3xl mx-auto px-5">
@@ -190,7 +207,7 @@ export default async function FlooringInstallationSuburbPage({
                         "@context": "https://schema.org",
                         "@type": "FlooringContractor",
                         "name": `Turner Installs - Flooring Installation ${data.name}`,
-                        "description": data.metaDescription,
+                        "description": serviceDescription,
                         "telephone": "+61413592054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
@@ -202,6 +219,25 @@ export default async function FlooringInstallationSuburbPage({
                         },
                         "areaServed": [data.name, "Brisbane"],
                         "priceRange": "$$",
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": `${data.name} flooring preparation and installation services`,
+                            "itemListElement": [
+                                "Flooring installation",
+                                "Old flooring uplift and removal",
+                                "Carpet tile removal",
+                                "Adhesive removal",
+                                "Concrete grinding",
+                                "Floor levelling"
+                            ].map((name) => ({
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": `${name} ${data.name}`,
+                                    "areaServed": data.name
+                                }
+                            }))
+                        }
                     }),
                 }}
             />

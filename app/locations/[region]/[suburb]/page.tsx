@@ -14,6 +14,7 @@ import StorySection from "@/components/StorySection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
+import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -30,8 +31,8 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     const suburb = getSuburb(suburbSlug);
     if (!suburb) return {};
 
-    const title = `Flooring Installation ${suburb.name} | Professional Floor Preparation`;
-    const desc = `Specialist flooring contractors in ${suburb.name}. We provide expert floor preparation, concrete grinding, and installation services for renovations in ${suburb.postcode}.`;
+    const title = `Floor Preparation ${suburb.name} | Uplift, Removal & Flooring Installation`;
+    const desc = `Specialist flooring contractors in ${suburb.name}. Floor preparation, old flooring uplift, adhesive removal, concrete grinding, levelling and installation in ${suburb.postcode}.`;
     const canonical = `/locations/${suburb.region}/${suburb.slug}`;
 
     return {
@@ -184,6 +185,11 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 columns={4}
             />
 
+            <FloorPrepUpliftModule
+                suburbName={suburb.name}
+                prepHref={`/locations/${suburb.region}/${suburb.slug}/floor-preparation`}
+            />
+
             {/* INJECT WHY CHOOSE US */}
             <WhyChooseUs locationName={suburb.name} />
 
@@ -191,7 +197,8 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 title="Our Process"
                 steps={[
                     { title: "Consult", description: `We visit your ${suburb.name} site to assess specific access and power requirements.` },
-                    { title: "Prep", description: "Grinding, stripping, or repairing the subfloor." },
+                    { title: "Uplift", description: "Carpet, vinyl, laminate, tile, smoothedge and waste removed where required." },
+                    { title: "Prep", description: "Grinding, adhesive removal, repair and levelling to get the subfloor ready." },
                     { title: "Level", description: "Applying flood coating if required for a mirror finish." },
                     { title: "Handover", description: "Site left clean, vacuumed, and ready for installation." }
                 ]}
