@@ -38,7 +38,7 @@ export const siteImages = {
         ] as ImageAsset[],
         process: [
             { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Clean Uplift & Removal" },
-            { src: "/installspics/prep/level/filling the low parts, this ensures a perfect install whrn the planks are laid.jpg", alt: "Filling Low Spots for Perfect Install" },
+            { src: "/installspics/prep/level/filling-low-parts-for-perfect-install.jpg", alt: "Filling Low Spots for Perfect Install" },
             { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
             { src: "/installspics/prep/uplift/exact description required.jpg", alt: "Floor Covering Uplift in Progress" },
             { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old Flooring Removed for Subfloor Prep" },
