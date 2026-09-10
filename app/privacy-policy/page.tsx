@@ -1,7 +1,9 @@
 import Section from "@/components/Section";
 
 export const metadata = {
-  title: "Privacy Policy | Turner Installs",
+  title: {
+    absolute: "Privacy Policy | Turner Installs",
+  },
   description: "Privacy policy for Turner Installs - how we collect, use and protect your personal information.",
   alternates: {
     canonical: "/privacy-policy",
@@ -13,6 +15,9 @@ export const metadata = {
 };
 
 export default function PrivacyPolicyPage() {
+  const supportPhone = process.env.NEXT_PUBLIC_SUPPORT_PHONE;
+  const supportPhoneHref = supportPhone?.replace(/\s/g, "");
+
   return (
     <>
       {/* Hero */}
@@ -126,7 +131,7 @@ export default function PrivacyPolicyPage() {
             <div>
               <h2 className="text-base font-semibold text-gray-100 mb-2">Contact Us</h2>
               <p>If you have questions about this Privacy Policy or wish to exercise your rights, please contact us:</p>
-              <div className="mt-2 space-y-1">
+              <div className="mt-2 space-y-1" data-nosnippet>
                 <p>
                   <strong>Email:</strong>{" "}
                   <a href="mailto:liam@turnerinstalls.com" className="text-yellow-400 hover:text-yellow-300">
@@ -135,10 +140,14 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p>
                   <strong>Phone:</strong>{" "}
-                  <a href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} className="text-yellow-400 hover:text-yellow-300">
-                    {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
-                  </a>
-                  <span className="text-gray-500 mx-2">|</span>
+                  {supportPhone && supportPhoneHref ? (
+                    <>
+                      <a href={`tel:${supportPhoneHref}`} className="text-yellow-400 hover:text-yellow-300">
+                        {supportPhone}
+                      </a>
+                      <span className="text-gray-500 mx-2">|</span>
+                    </>
+                  ) : null}
                   <a href="tel:0413592054" className="text-yellow-400 hover:text-yellow-300">
                     0413 592 054
                   </a>{" "}

@@ -45,7 +45,7 @@ export default function Contact() {
             {/* CONTACT INFO */}
             <div className="space-y-8">
               {/* Quick Contact Card */}
-              <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+              <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm" data-nosnippet>
                 <h3 className="text-xl font-black mb-6 text-slate-900 uppercase tracking-wide border-b border-slate-100 pb-2">Quick Contact</h3>
                 <div className="space-y-6">
                   <a href="tel:0413592054" className="flex items-center gap-4 group hover:bg-slate-50 p-2 rounded transition-colors -mx-2">
