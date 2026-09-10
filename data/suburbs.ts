@@ -101,7 +101,11 @@ export const suburbs: SuburbData[] = [
         description: "Renovating a beach shack or a modern apartment in Burleigh? We remove sand cement bedding, grind clean, and prep for timber or hybrid flooring.",
         archetype: "historic",
         landmarks: ["Burleigh Hill", "James St"],
-        image: siteImages.home.transformations[2]
+        image: {
+            src: "/installspics/finished/large-open-plan-timber-floor.jpg",
+            alt: "Gold Coast flooring project example by Turner Installs",
+            caption: "Gold Coast project example shown"
+        }
     },
 
     // BRISBANE - KENMORE
@@ -130,9 +134,9 @@ export const suburbs: SuburbData[] = [
         archetype: "historic",
         landmarks: ["New Farm Park", "Powerhouse"],
         image: {
-            src: "/images/Timber-Oxley.jpeg",
-            alt: "Gold Coast timber-look flooring project by Turner Installs",
-            caption: "Gold Coast project shown"
+            src: "/installspics/finished/new-farm-apartment-flooring.jpg",
+            alt: "New Farm apartment flooring project by Turner Installs",
+            caption: "New Farm project shown"
         },
         galleryImages: [
             { src: "/installspics/finished/newfarm.jpg", alt: "New Farm Renovation" },
@@ -190,9 +194,9 @@ export const suburbs: SuburbData[] = [
         archetype: "historic",
         landmarks: ["Oxley Station", "The Station Oxley"],
         image: {
-            src: "/images/Showroom-Carrara-Gold-Coast.jpeg",
-            alt: "Carrara Gold Coast showroom flooring installation by Turner Installs",
-            caption: "Carrara Gold Coast project shown"
+            src: "/installspics/finished/finished-timber-floor-display.jpg",
+            alt: "Turner Installs finished timber flooring display project",
+            caption: "Turner Installs project example"
         }
     },
     {
@@ -204,9 +208,9 @@ export const suburbs: SuburbData[] = [
         archetype: "historic",
         landmarks: ["Corinda State High", "Dunlop Park"],
         image: {
-            src: "/images/Showroom-Carrara-Gold-Coast1.jpeg",
-            alt: "Carrara Gold Coast showroom flooring install detail by Turner Installs",
-            caption: "Carrara Gold Coast project shown"
+            src: "/installspics/finished/finishedfloor.jpg",
+            alt: "Turner Installs finished flooring project example",
+            caption: "Turner Installs project example"
         }
     },
     {
@@ -217,7 +221,11 @@ export const suburbs: SuburbData[] = [
         description: "Known for its beautiful arboretum and heritage homes. We help Sherwood residents restore their timber subfloors or prep new slabs for luxury hybrid flooring.",
         archetype: "historic",
         landmarks: ["Sherwood Arboretum"],
-        image: siteImages.home.transformations[2]
+        image: {
+            src: "/installspics/finished/brisbane-city-view-flooring.jpg",
+            alt: "Brisbane flooring project example by Turner Installs",
+            caption: "Brisbane project example shown"
+        }
     },
     {
         name: "Chelmer",
