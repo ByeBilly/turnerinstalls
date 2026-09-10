@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Adhesive & Glue Removal Brisbane | Tile, Carpet, Vinyl Removal",
     description: "Professional removal of floor adhesives. We grind off tile glue, carpet adhesive, vinyl residue, and bitumen coatings.",
+    alternates: { canonical: "/services/adhesive-removal" },
+    robots: { index: true, follow: true },
 };
 
 export default function AdhesiveRemoval() {

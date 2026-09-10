@@ -31,14 +31,23 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     if (!suburb) return {};
 
     const title = `Flooring Installation ${suburb.name} | Professional Floor Preparation`;
-    const desc = `Specalist flooring contractors in ${suburb.name}. We provide expert floor preparation, concrete grinding, and installation services for renovations in ${suburb.postcode}.`;
+    const desc = `Specialist flooring contractors in ${suburb.name}. We provide expert floor preparation, concrete grinding, and installation services for renovations in ${suburb.postcode}.`;
+    const canonical = `/locations/${suburb.region}/${suburb.slug}`;
 
     return {
         title: title,
         description: desc,
+        alternates: {
+            canonical,
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
         openGraph: {
             title: title,
             description: desc,
+            url: canonical,
             images: suburb.image ? [suburb.image.src] : [],
         }
     };

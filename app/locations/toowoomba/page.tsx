@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Floor Preparation Toowoomba | Concrete Grinding & Prep",
     description: "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.",
+    alternates: { canonical: "/locations/toowoomba" },
+    robots: { index: true, follow: true },
 };
 
 export default function Toowoomba() {

@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Floor Preparation Gympie | Concrete Grinding & Levelling",
     description: "Reliable floor preparation in Gympie. Servicing the Wide Bay region. Concrete grinding, floor levelling, and adhesive removal.",
+    alternates: { canonical: "/locations/gympie" },
+    robots: { index: true, follow: true },
 };
 
 export default function Gympie() {

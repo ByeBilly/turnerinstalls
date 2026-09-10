@@ -6,7 +6,9 @@ import { getAllBlogSlugs } from '@/data/blogPosts';
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.turnerinstalls.com.au';
 
-    // 1. Static Pages + AI Discovery Files
+    // 1. Static public pages.
+    // AI discovery files are intentionally available at their public URLs,
+    // but they are not submitted as page URLs in the XML sitemap.
     const staticPages = [
         '',
         '/about',
@@ -19,12 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/commercial',
         '/reviews',
         '/privacy-policy',
-        '/llm.txt',
-        '/llms.txt',
-        '/ai.txt',
-        '/ai.json',
-        '/brand.txt',
-        '/identity.json',
         '/locations/brisbane',
         '/locations/gold-coast',
         '/locations/gympie',
@@ -37,7 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/services/adhesive-removal',
         '/services/epoxy-removal',
         '/services/floor-levelling',
-        '/services/industrial-prep',
         '/services/industrial-surface-prep',
         '/services/moisture-barriers',
     ].map((route) => ({

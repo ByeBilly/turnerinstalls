@@ -6,6 +6,13 @@ export const metadata = {
     title: "Flooring Blog | Guides & Local Tips | Turner Installs",
     description:
         "Expert flooring guides for Brisbane, Ipswich, and Logan. Queenslander flooring, humidity, renovation tips, and local suburb guides from Oxley-based installers.",
+    alternates: {
+        canonical: "/blog",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function BlogPage() {

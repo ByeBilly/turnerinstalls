@@ -24,11 +24,21 @@ export async function generateMetadata({
     if (!post) return {};
 
     return {
-        title: `${post.title} | Turner Installs Blog`,
+        title: {
+            absolute: `${post.title} | Turner Installs Blog`,
+        },
         description: post.metaDescription,
+        alternates: {
+            canonical: `/blog/${post.slug}`,
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
         openGraph: {
             title: post.title,
             description: post.metaDescription,
+            url: `/blog/${post.slug}`,
         },
     };
 }

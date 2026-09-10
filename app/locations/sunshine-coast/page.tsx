@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Floor Preparation Sunshine Coast | Grinding & Levelling",
     description: "Professional floor preparation Sunshine Coast. Caloundra to Noosa. Concrete grinding, floor levelling, and subfloor rectification.",
+    alternates: { canonical: "/locations/sunshine-coast" },
+    robots: { index: true, follow: true },
 };
 
 export default function SunshineCoast() {

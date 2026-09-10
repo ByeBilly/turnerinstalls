@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Floor Preparation Brisbane | Concrete Grinding & Levelling Services",
     description: "Premier floor preparation in Brisbane. Servicing all suburbs from Northside to Southside. Concrete grinding, levelling, and subfloor repairs.",
+    alternates: { canonical: "/locations/brisbane" },
+    robots: { index: true, follow: true },
 };
 
 export default function Brisbane() {

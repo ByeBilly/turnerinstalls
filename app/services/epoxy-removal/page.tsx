@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Epoxy Removal Services Brisbane | Coating Stripping",
     description: "Specialised removal of epoxy coatings, polyurethane, and garage flake systems. Grind back to clean concrete.",
+    alternates: { canonical: "/services/epoxy-removal" },
+    robots: { index: true, follow: true },
 };
 
 export default function EpoxyRemoval() {

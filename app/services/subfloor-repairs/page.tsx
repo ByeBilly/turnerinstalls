@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Subfloor Repairs Brisbane | Crack Fixing & Concrete Repair",
     description: "Expert subfloor repair services in Brisbane. Fixing cracks, divots, ramping height differences, and stabilising loose areas.",
+    alternates: { canonical: "/services/subfloor-repairs" },
+    robots: { index: true, follow: true },
 };
 
 export default function SubfloorRepairs() {

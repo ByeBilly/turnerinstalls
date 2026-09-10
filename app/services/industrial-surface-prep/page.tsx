@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Industrial Surface Preparation Brisbane | Large Scale Grinding",
     description: "Large scale industrial floor preparation. Shot blasting, heavy grinding, and make-good services for warehouses and factories.",
+    alternates: { canonical: "/services/industrial-surface-prep" },
+    robots: { index: true, follow: true },
 };
 
 export default function IndustrialPrep() {

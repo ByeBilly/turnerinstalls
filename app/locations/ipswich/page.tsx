@@ -8,6 +8,8 @@ export const metadata = {
     title: "Ipswich Timber Flooring & Floor Prep | Turner Installs",
     description:
         "Expert floor preparation, concrete grinding, and timber flooring installation in Ipswich, QLD. Local master installers with 3 generations of experience.",
+    alternates: { canonical: "/locations/ipswich" },
+    robots: { index: true, follow: true },
 };
 
 export default function Ipswich() {

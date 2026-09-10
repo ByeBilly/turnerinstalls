@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Floor Preparation Gold Coast | Concrete Grinding & Levelling",
     description: "Expert floor prep on the Gold Coast. Servicing from Southport to Coolangatta. Concrete grinding, adhesive removal, and levelling.",
+    alternates: { canonical: "/locations/gold-coast" },
+    robots: { index: true, follow: true },
 };
 
 export default function GoldCoast() {

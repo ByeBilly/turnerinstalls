@@ -3,6 +3,13 @@ import Section from "@/components/Section";
 export const metadata = {
   title: "Privacy Policy | Turner Installs",
   description: "Privacy policy for Turner Installs - how we collect, use and protect your personal information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -148,4 +155,3 @@ export default function PrivacyPolicyPage() {
     </>
   );
 }
-

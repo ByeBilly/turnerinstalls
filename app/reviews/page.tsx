@@ -9,6 +9,13 @@ import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 export const metadata: Metadata = {
     title: "Client Reviews | Turner Installs Flooring Brisbane",
     description: "See what our clients say about our floor preparation, grinding, and installation services across Brisbane and SE QLD.",
+    alternates: {
+        canonical: "/reviews",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 async function getReviews() {

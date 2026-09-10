@@ -8,6 +8,13 @@ export const metadata = {
   title: "Commercial Flooring Brisbane | Turner Installs",
   description:
     "Reliable commercial flooring contractors. We partner with property managers, shop fitters, and businesses for on-time, on-budget installations.",
+  alternates: {
+    canonical: "/commercial",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function Commercial() {

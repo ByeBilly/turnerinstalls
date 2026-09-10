@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Moisture Barriers Brisbane | Damp Proofing Concrete Slabs",
     description: "Protect your flooring from rising damp. Professional epoxy moisture barrier application for concrete slabs in Brisbane & SE QLD.",
+    alternates: { canonical: "/services/moisture-barriers" },
+    robots: { index: true, follow: true },
 };
 
 export default function MoistureBarriers() {

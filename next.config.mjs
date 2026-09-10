@@ -20,6 +20,11 @@ const nextConfig = {
                 destination: '/pumpposts/:path*',
                 permanent: true,
             },
+            {
+                source: '/services/industrial-prep',
+                destination: '/services/industrial-surface-prep',
+                statusCode: 301,
+            },
         ];
     },
     async rewrites() {

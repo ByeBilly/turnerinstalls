@@ -1,0 +1,46 @@
+{
+  "count": 157,
+  "nonPage": [],
+  "badStatus": [],
+  "missingCanonCount": 0,
+  "canonMismatchCount": 0,
+  "noindexCount": 0,
+  "uniqueInternalLinks": 156,
+  "badLinks": [],
+  "special": [
+    {
+      "path": "/pumpposts",
+      "status": 200,
+      "loc": null,
+      "type": "text/html; charset=utf-8",
+      "robots": "<meta name=\"robots\" content=\"noindex, nofollow\"/>"
+    },
+    {
+      "path": "/pumpposts/dashboard",
+      "status": 200,
+      "loc": null,
+      "type": "text/html; charset=utf-8",
+      "robots": "<meta name=\"robots\" content=\"noindex, nofollow\"/>"
+    },
+    {
+      "path": "/pumpposts/accounts",
+      "status": 200,
+      "loc": null,
+      "type": "text/html; charset=utf-8",
+      "robots": "<meta name=\"robots\" content=\"noindex, nofollow\"/>"
+    },
+    {
+      "path": "/pumpposts/posts",
+      "status": 200,
+      "loc": null,
+      "type": "text/html; charset=utf-8",
+      "robots": "<meta name=\"robots\" content=\"noindex, nofollow\"/>"
+    },
+    {
+      "path": "/services/industrial-prep",
+      "status": 301,
+      "loc": "/services/industrial-surface-prep",
+      "type": null
+    }
+  ]
+}

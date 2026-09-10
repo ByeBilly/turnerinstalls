@@ -27,13 +27,22 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
 
     const title = `Floor Preparation ${suburb.name} | Concrete Grinding Specialists`;
     const desc = `Expert floor preparation in ${suburb.name}. Concrete grinding, levelling, and glue removal for renovations in ${suburb.postcode}. Dead flat finish guaranteed.`;
+    const canonical = `/locations/${suburb.region}/${suburb.slug}/floor-preparation`;
 
     return {
         title: title,
         description: desc,
+        alternates: {
+            canonical,
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
         openGraph: {
             title: title,
             description: desc,
+            url: canonical,
             images: suburb.image ? [suburb.image.src] : [],
         }
     };
