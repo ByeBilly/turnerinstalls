@@ -11,10 +11,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Floor Levelling & Grinding Brisbane | Turner Installs",
+    absolute: "Floor Levelling & Concrete Grinding Brisbane | Turner Installs",
   },
   description:
-    "Expert concrete grinding, adhesive uplift and self-levelling across Brisbane and SEQ. 3rd-generation prep specialists getting slabs ready for flooring.",
+    "Expert concrete grinding, adhesive uplift & self-levelling across Brisbane & SEQ. 3rd-generation prep specialists getting slabs ready to Australian Standards.",
   alternates: {
     canonical: "/services/floor-levelling-concrete-grinding",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const proofPoints = [
   "3rd-generation flooring experience",
   "Full dust extraction and diamond tooling",
-  "AS 1884-2021 aware floor preparation",
+  "Compliant with AS 1884-2021 and manufacturer warranties",
   "Residential, retail and commercial capability",
 ];
 
@@ -123,11 +123,13 @@ export default function FloorLevellingConcreteGrindingPage() {
       <ServiceHero
         title={
           <>
-            Floor Levelling & Concrete Grinding{" "}
-            <span className="text-yellow-500">Brisbane</span>
+            Precision Floor Levelling & Concrete Grinding in{" "}
+            <span className="text-yellow-500">
+              Brisbane & South East Queensland
+            </span>
           </>
         }
-        subtitle="High spots, low valleys, old adhesive and slab contamination fixed before your new floor goes down."
+        subtitle="Your new floor is only as stable as the slab beneath it. We eliminate high spots, patch low valleys, strip stubborn adhesives, and pour high-flow self-levelling compounds to create a dead-flat finish that meets Australian Standards."
         imagePath={siteImages.grinding.hero.src}
         label="SUBFLOOR_PREP"
       />
@@ -139,19 +141,26 @@ export default function FloorLevellingConcreteGrindingPage() {
               Subfloor failure prevention
             </p>
             <h2 className="mb-6 text-3xl font-black leading-tight text-slate-900 md:text-5xl">
-              Your new floor is only as stable as the slab beneath it.
+              Protect your flooring investment: why floor failures start below
+              the surface.
             </h2>
             <div className="space-y-5 text-lg font-medium leading-relaxed text-slate-700">
               <p>
-                Most vinyl plank, hybrid, laminate and engineered timber floors
-                fail because the substrate was not flat, clean, dry, or stable
-                enough before installation started.
+                Most luxury vinyl plank, hybrid, laminate and engineered timber
+                floor failures begin because the subfloor was not flat, clean,
+                dry, or stable enough before installation started.
+              </p>
+              <p>
+                If your concrete slab has undulations, high ridges, or hollows,
+                clicking systems can flex, squeak, and snap under foot traffic
+                within months.
               </p>
               <p>
                 Turner Installs does not lay over a problem slab and hope for
-                the best. We use diamond grinding, adhesive removal, patching,
-                priming, and high-flow levelling compounds to turn uneven or
-                glue-caked concrete into a floor-ready surface.
+                the best. We use heavy commercial diamond grinders, adhesive
+                removal, patching, priming, and premium polymer-modified
+                self-levelling compounds to turn warped, uneven, or glue-caked
+                concrete into a floor-ready surface.
               </p>
             </div>
 
