@@ -159,6 +159,7 @@ export default async function FlooringInstallationSuburbPage({
                 description={`Real Turner Installs project photos used as workmanship examples for ${data.name}. Captions name the location where it is known.`}
                 images={siteImages.home.transformations}
                 limit={4}
+                showCaptions
             />
 
             <InternalLinks type="services" />

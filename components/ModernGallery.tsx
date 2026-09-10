@@ -10,13 +10,15 @@ interface ModernGalleryProps {
     title?: string;
     description?: string;
     limit?: number;
+    showCaptions?: boolean;
 }
 
 export default function ModernGallery({
     images,
     title = "Recent Projects",
     description = "See the quality of our preparation and finishing work. Real projects, real results.",
-    limit = 4
+    limit = 4,
+    showCaptions = false
 }: ModernGalleryProps) {
     const displayImages = limit > 0 ? images.slice(0, limit) : images;
 
@@ -53,8 +55,8 @@ export default function ModernGallery({
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-                                <div className="absolute bottom-0 left-0 right-0 p-6">
-                                    <p className="rounded bg-slate-950/75 px-3 py-2 text-sm font-semibold leading-5 text-white shadow-lg backdrop-blur-sm md:text-base">
+                                <div className={`absolute bottom-0 left-0 right-0 p-6 ${showCaptions ? "" : "translate-y-4 transition-transform duration-500 group-hover:translate-y-0"}`}>
+                                    <p className={`${showCaptions ? "rounded bg-slate-950/75 px-3 py-2 shadow-lg backdrop-blur-sm" : "opacity-0 transition-opacity duration-500 delay-100 group-hover:opacity-100"} text-sm font-medium text-white md:text-base`}>
                                         {img.alt}
                                     </p>
                                 </div>
