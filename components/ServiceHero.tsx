@@ -4,6 +4,8 @@ interface ServiceHeroProps {
     title: React.ReactNode;
     subtitle: string;
     imagePath: string;
+    imageAlt?: string;
+    imageNote?: string;
     label?: string;
     overlayOpacity?: number;
     children?: React.ReactNode; // Content to inject (e.g. Form)
@@ -13,6 +15,8 @@ export default function ServiceHero({
     title,
     subtitle,
     imagePath,
+    imageAlt = "Service Background",
+    imageNote,
     label = "TECHNICAL_SERVICES",
     overlayOpacity = 40,
     children
@@ -22,7 +26,7 @@ export default function ServiceHero({
             <div className="absolute inset-0 z-0">
                 <Image
                     src={imagePath}
-                    alt="Service Background"
+                    alt={imageAlt}
                     fill
                     sizes="100vw"
                     className="object-cover"
@@ -55,6 +59,12 @@ export default function ServiceHero({
                     </div>
                 )}
             </div>
+
+            {imageNote && (
+                <div className="absolute bottom-4 right-4 z-10 rounded bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700 shadow-sm backdrop-blur-sm">
+                    {imageNote}
+                </div>
+            )}
         </section>
     );
 }

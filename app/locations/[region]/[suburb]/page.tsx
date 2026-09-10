@@ -160,6 +160,8 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
                 subtitle={content.heroSubtitle}
                 imagePath={heroImage}
+                imageAlt={suburb.image?.alt}
+                imageNote={suburb.image?.caption}
                 label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
             >
                 {/* INJECT HERO FORM */}
@@ -219,8 +221,8 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
             />
 
             <ModernGallery
-                title={`Recent transformations in and around ${suburb.name}`}
-                description="See the quality of our preparation and finishing work. Real projects, real results."
+                title="Recent Turner Installs transformations"
+                description={`Real Turner Installs project photos used as proof of workmanship for ${suburb.name}. Captions name the location where it is known.`}
                 images={galleryImages}
                 limit={4}
             />

@@ -53,8 +53,8 @@ export default function ModernGallery({
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-                                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                    <p className="text-white text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <p className="rounded bg-slate-950/75 px-3 py-2 text-sm font-semibold leading-5 text-white shadow-lg backdrop-blur-sm md:text-base">
                                         {img.alt}
                                     </p>
                                 </div>

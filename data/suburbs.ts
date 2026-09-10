@@ -11,7 +11,7 @@ export interface SuburbData {
     description: string;
     archetype: HousingArchetype;
     landmarks?: string[];
-    image?: { src: string; alt: string };
+    image?: { src: string; alt: string; caption?: string };
     galleryImages?: { src: string; alt: string }[];
 }
 
@@ -121,7 +121,11 @@ export const suburbs: SuburbData[] = [
         description: "Restoring floors in historic New Farm Queenslanders requires care. We specialize in subfloor strengthening, removing old lino glue, and ramping for seamless extensions.",
         archetype: "historic",
         landmarks: ["New Farm Park", "Powerhouse"],
-        image: siteImages.home.transformations[1],
+        image: {
+            src: "/images/Timber-Oxley.jpeg",
+            alt: "Gold Coast timber-look flooring project by Turner Installs",
+            caption: "Gold Coast project shown"
+        },
         galleryImages: [
             { src: "/installspics/finished/newfarm.jpg", alt: "New Farm Renovation" },
             { src: "/installspics/finished/newfarm1.jpeg", alt: "New Farm Timber Prep" },
@@ -177,7 +181,11 @@ export const suburbs: SuburbData[] = [
         description: "Turner Installs' home base. We specialise in both classic brick-and-tile homes and modern townhouses in Oxley. Our central proximity ensures rapid response for all local floor preparation needs.",
         archetype: "historic",
         landmarks: ["Oxley Station", "The Station Oxley"],
-        image: siteImages.home.transformations[0]
+        image: {
+            src: "/images/Showroom-Carrara-Gold-Coast.jpeg",
+            alt: "Carrara Gold Coast showroom flooring installation by Turner Installs",
+            caption: "Carrara Gold Coast project shown"
+        }
     },
     {
         name: "Corinda",
@@ -187,7 +195,11 @@ export const suburbs: SuburbData[] = [
         description: "High-end heritage and modern luxury. From sprawling estates to boutique apartments, Corinda demands a high standard of finish. We provide precision levelling for premium flooring installs.",
         archetype: "historic",
         landmarks: ["Corinda State High", "Dunlop Park"],
-        image: siteImages.home.transformations[1]
+        image: {
+            src: "/images/Showroom-Carrara-Gold-Coast1.jpeg",
+            alt: "Carrara Gold Coast showroom flooring install detail by Turner Installs",
+            caption: "Carrara Gold Coast project shown"
+        }
     },
     {
         name: "Sherwood",

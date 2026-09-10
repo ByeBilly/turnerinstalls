@@ -90,6 +90,8 @@ export default async function FlooringInstallationSuburbPage({
                     siteImages.home.transformations[0]?.src ||
                     "/installspics/finished/brisbane views.jpg"
                 }
+                imageAlt={siteImages.home.transformations[0]?.alt || "Turner Installs flooring project"}
+                imageNote="Carrara Gold Coast project shown"
                 label={`${data.name.toUpperCase()} (${data.postcode})`}
             />
 
@@ -153,7 +155,8 @@ export default async function FlooringInstallationSuburbPage({
             </section>
 
             <ModernGallery
-                title={`Recent flooring projects in ${data.name} and surrounds`}
+                title="Recent Turner Installs flooring projects"
+                description={`Real Turner Installs project photos used as workmanship examples for ${data.name}. Captions name the location where it is known.`}
                 images={siteImages.home.transformations}
                 limit={4}
             />
