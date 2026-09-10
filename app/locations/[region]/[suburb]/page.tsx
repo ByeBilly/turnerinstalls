@@ -225,7 +225,6 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 description={`Real Turner Installs project photos used as proof of workmanship for ${suburb.name}. Captions name the location where it is known.`}
                 images={galleryImages}
                 limit={4}
-                showCaptions
             />
 
             <FAQSection items={[
