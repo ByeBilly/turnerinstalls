@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { suburbs, getSuburb } from '@/data/suburbs';
+import { floorPreparationSuburbs, getFloorPreparationSuburb } from '@/data/suburbs';
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
@@ -16,15 +16,15 @@ import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-    return suburbs.map((suburb) => ({
+    return floorPreparationSuburbs.map((suburb) => ({
         region: suburb.region,
         suburb: suburb.slug,
     }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ region: string; suburb: string }> }): Promise<Metadata> {
-    const { suburb: suburbSlug } = await params;
-    const suburb = getSuburb(suburbSlug);
+    const { region, suburb: suburbSlug } = await params;
+    const suburb = getFloorPreparationSuburb(suburbSlug, region);
     if (!suburb) return {};
 
     const title = `Floor Preparation ${suburb.name} | Uplift, Removal, Grinding & Levelling`;
@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
 }
 
 export default async function SuburbFloorPrepPage({ params }: { params: Promise<{ region: string; suburb: string }> }) {
-    const { suburb: suburbSlug } = await params;
-    const suburb = getSuburb(suburbSlug);
+    const { region, suburb: suburbSlug } = await params;
+    const suburb = getFloorPreparationSuburb(suburbSlug, region);
 
     if (!suburb) {
         notFound();

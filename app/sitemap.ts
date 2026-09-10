@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { suburbs } from '@/data/suburbs';
+import { floorPreparationSuburbs, suburbs } from '@/data/suburbs';
 import { flooringInstallationSuburbs } from '@/data/flooringInstallationSuburbs';
 import { getAllBlogSlugs } from '@/data/blogPosts';
 
@@ -60,26 +60,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
     // 4. Dynamic Location Pages (The "Twin Engine")
-    const locationPages = suburbs.flatMap((suburb) => {
+    const locationPages = suburbs.map((suburb) => {
         const suburbPath = `/locations/${suburb.region}/${suburb.slug}`;
 
-        return [
-            // Engine 1: Suburb Home
-            {
-                url: `${baseUrl}${suburbPath}`,
-                lastModified: new Date(),
-                changeFrequency: 'weekly' as const,
-                priority: 0.9, // High priority for local domination
-            },
-            // Engine 2: Floor Prep Specialist
-            {
-                url: `${baseUrl}${suburbPath}/floor-preparation`,
-                lastModified: new Date(),
-                changeFrequency: 'weekly' as const,
-                priority: 0.9, // High priority for "money keywords"
-            }
-        ];
+        return {
+            url: `${baseUrl}${suburbPath}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.9, // High priority for local domination
+        };
     });
 
-    return [...staticPages, ...flooringInstallationPages, ...blogPages, ...locationPages];
+    // 5. Floor preparation suburb pages.
+    const floorPreparationPages = floorPreparationSuburbs.map((suburb) => {
+        const suburbPath = `/locations/${suburb.region}/${suburb.slug}`;
+
+        return {
+            url: `${baseUrl}${suburbPath}/floor-preparation`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.9, // High priority for "money keywords"
+        };
+    });
+
+    return [...staticPages, ...flooringInstallationPages, ...blogPages, ...locationPages, ...floorPreparationPages];
 }

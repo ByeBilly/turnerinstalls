@@ -1,4 +1,5 @@
 import { siteImages } from './siteImages';
+import { flooringInstallationSuburbs } from './flooringInstallationSuburbs';
 
 export type Region = 'brisbane' | 'gold-coast' | 'sunshine-coast' | 'toowoomba' | 'gympie';
 export type HousingArchetype = 'historic' | 'apartment' | 'new-build' | 'commercial';
@@ -261,3 +262,27 @@ export const suburbs: SuburbData[] = [
 
 export const getSuburb = (slug: string) => suburbs.find(s => s.slug === slug);
 export const getSuburbsByRegion = (region: Region) => suburbs.filter(s => s.region === region);
+
+const curatedSuburbSlugs = new Set(suburbs.map((suburb) => suburb.slug));
+
+export const floorPreparationSuburbs: SuburbData[] = [
+    ...suburbs,
+    ...flooringInstallationSuburbs
+        .filter((suburb) => !curatedSuburbSlugs.has(suburb.slug))
+        .map((suburb) => ({
+            name: suburb.name,
+            slug: suburb.slug,
+            region: 'brisbane' as const,
+            postcode: suburb.postcode,
+            description: suburb.localRelevance,
+            archetype: 'historic' as const,
+            landmarks: [],
+            image: siteImages.floorPrep.process[0],
+        })),
+];
+
+export const getFloorPreparationSuburb = (slug: string, region?: string) => {
+    return floorPreparationSuburbs.find((suburb) => {
+        return suburb.slug === slug && (!region || suburb.region === region);
+    });
+};
