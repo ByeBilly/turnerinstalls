@@ -67,7 +67,11 @@ export const suburbs: SuburbData[] = [
         description: "Luxury apartment floor preparation. From removing old tiles to checking acoustic standards for renovation, we are Broadbeach's preferred prep team.",
         archetype: "apartment",
         landmarks: ["The Star", "Oasis"],
-        image: siteImages.home.transformations[0]
+        image: {
+            src: "/images/Showroom-Carrara-Gold-Coast1.jpeg",
+            alt: "Gold Coast showroom flooring project by Turner Installs",
+            caption: "Gold Coast project shown"
+        }
     },
     {
         name: "Carrara",
@@ -77,12 +81,16 @@ export const suburbs: SuburbData[] = [
         description: "Commercial showroom and residential flooring installation on the Gold Coast. Carrara projects often need tidy floor covering removal, clean substrate preparation, and a sharp finish that is ready for customers, tenants, or handover.",
         archetype: "commercial",
         landmarks: ["Carrara Markets", "Nerang-Broadbeach Road", "Metricon Stadium precinct"],
-        image: { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Carrara Gold Coast showroom flooring installation" },
+        image: {
+            src: "/images/Showroom-Carrara-Gold-Coast.jpeg",
+            alt: "Gold Coast showroom flooring project by Turner Installs",
+            caption: "Gold Coast project shown"
+        },
         galleryImages: [
-            { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Carrara showroom flooring installation on the Gold Coast" },
-            { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Carrara showroom flooring install detail" },
-            { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Commercial vinyl flooring install detail" },
-            { src: "/images/Timber-Oxley.jpeg", alt: "Professional timber flooring installation detail" }
+            { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Gold Coast showroom flooring project" },
+            { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Gold Coast showroom flooring project detail" },
+            { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Browns Plains commercial vinyl flooring install detail" },
+            { src: "/images/Timber-Oxley.jpeg", alt: "Gold Coast timber-look flooring project detail" }
         ]
     },
     {
