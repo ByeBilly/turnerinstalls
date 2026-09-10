@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div data-nosnippet>
             <h4 className="text-slate-900 font-bold uppercase tracking-wider mb-6 border-b border-slate-200 pb-2 inline-block">Contact</h4>
             <div className="flex flex-col gap-4">
               <div>
