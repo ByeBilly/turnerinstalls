@@ -40,14 +40,43 @@ export const siteImages = {
             { src: "/installspics/prep/uplift/messy-uplift-clean-web.jpg", alt: "Clean Uplift & Removal" },
             { src: "/installspics/prep/level/filling-low-parts-for-perfect-install.jpg", alt: "Filling Low Spots for Perfect Install" },
             { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
-            { src: "/installspics/prep/uplift/exact description required.jpg", alt: "Floor Covering Uplift in Progress" },
-            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old Flooring Removed for Subfloor Prep" },
+            { src: "/installspics/prep/uplift/old planks removed.jpg", alt: "Old Flooring Removed for Subfloor Prep" },
+            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old Flooring Cleared Before Prep" },
             { src: "/installspics/prep/uplift/smoothedge required to be removed.jpg", alt: "Carpet Smoothedge Removal" },
             { src: "/installspics/prep/level/quick mix of engineered cement will sort lows requiring just  light sanding.jpg", alt: "Engineered Cement Application" },
             { src: "/installspics/prep/level/prepping the lows.jpg", alt: "Pre-filling Low Spots" },
             { src: "/installspics/prep/floorprep.jpg", alt: "Professional Subfloor Preparation" },
             { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Floor Levelled Out — Mirror Flat Finish" },
             { src: "/installspics/prep/floods/floodprep.jpg", alt: "Flood Levelling Compound Application" }
+        ] as ImageAsset[],
+        // Broader real-photo pool for the 19 suburb floor-prep pages to rotate
+        // through, so pages don't all render the same three photos. Each entry
+        // is an actual Turner Installs job photo pulled from previously-unused
+        // files in public/installspics — none of this pool duplicates the
+        // curated hero/turnerDifference/unacceptable/process sets above.
+        gallery: [
+            { src: "/installspics/prep/uplift/messy-uplift-clean-web.jpg", alt: "Clean uplift and removal, site kept controlled" },
+            { src: "/installspics/prep/uplift/old planks removed.jpg", alt: "Old flooring planks removed before subfloor prep" },
+            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old flooring cleared back to bare substrate" },
+            { src: "/installspics/prep/uplift/smoothedge required to be removed.jpg", alt: "Carpet smoothedge and staples removed" },
+            { src: "/installspics/prep/uplift/glue.jpg", alt: "Old adhesive residue before mechanical removal" },
+            { src: "/installspics/prep/uplift/ceramic tile uplifts.jpeg", alt: "Ceramic tile uplift ahead of substrate prep" },
+            { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Controlled, tidy uplift even on messy jobs" },
+            { src: "/installspics/prep/level/filling-low-parts-for-perfect-install.jpg", alt: "Filling low spots for a perfect install" },
+            { src: "/installspics/prep/level/prepping-the-lows.jpg", alt: "Prepping low areas ahead of levelling" },
+            { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Subfloor levelled out to a flat finish" },
+            { src: "/installspics/prep/level/yellowtongue-levelling-buildup.jpg", alt: "Yellow tongue subfloor levelling build-up" },
+            { src: "/installspics/prep/level/engineered-cement-mix-application.jpg", alt: "Engineered cement mix applied to correct lows" },
+            { src: "/installspics/prep/floods/absolute-perfect-flood-levelling.jpg", alt: "Flood levelling poured for a dead-flat finish" },
+            { src: "/installspics/prep/floods/floodprep.jpg", alt: "Flood levelling compound application in progress" },
+            { src: "/installspics/prep/floods/mirror-glass-level-flood.jpg", alt: "Mirror-glass level finish after flood levelling" },
+            { src: "/installspics/prep/grinding/619904184_2167234590687272_1260573441369883843_n.jpg", alt: "Diamond grinding to open up the surface profile" },
+            { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Dustless concrete grinding in progress" },
+            { src: "/installspics/prep/grinding/621198149_912693617936405_2497899494714228508_n.jpg", alt: "Slab rectification by mechanical grinding" },
+            { src: "/installspics/prep/damage/needs descript.jpg", alt: "Substrate condition assessed before preparation" },
+            { src: "/installspics/prep/repair/repair.jpg", alt: "Cracked substrate repaired before levelling" },
+            { src: "/installspics/prep/prepare/Often on new builds we find slabs requiring work.jpg", alt: "New-build slab requiring correction before flooring" },
+            { src: "/installspics/prep/prepare/we can make even this slab look brand new.jpg", alt: "Damaged slab restored to a like-new finish" },
         ] as ImageAsset[],
         upliftRemoval: [
             {
@@ -120,7 +149,7 @@ export const siteImages = {
         ] as ImageAsset[],
         installation: [
             // Work In Progress / Laying Shots
-            { src: "/installspics/laying/619925254_908172228218921_6998300752197139231_n.jpg", alt: "Installation in Progress" },
+            { src: "/installspics/laying/620002964_1404919931328854_4306718358574087892_n.jpg", alt: "Installation in Progress" },
             { src: "/installspics/laying/621997835_1505921570505186_593915977347517883_n.jpg", alt: "Precision Cuts" },
             { src: "/installspics/laying/619973203_911868691790640_5245926640594864581_n.jpg", alt: "Substrate Checking" },
             { src: "/installspics/laying/622122337_2401358896985815_216730946828062350_n.jpg", alt: "Plank Laying" },

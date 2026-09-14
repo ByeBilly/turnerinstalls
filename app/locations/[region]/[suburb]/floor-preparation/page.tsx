@@ -12,6 +12,7 @@ import TrustBar from "@/components/TrustBar";
 import HeroForm from "@/components/HeroForm";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -59,7 +60,17 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
     }
 
     const variantSeed = `${suburb.region}-${suburb.slug}`;
-    const variant = variantSeed.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0) % 4;
+    const seedSum = variantSeed.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
+    const variant = seedSum % 4;
+    // Rotate through the real-photo gallery pool so each suburb page shows a
+    // different set of job photos instead of the same three on all 19 pages.
+    const galleryPool = siteImages.floorPrep.gallery;
+    const rotateFrom = (offset: number) => {
+        const start = ((seedSum + offset) % galleryPool.length + galleryPool.length) % galleryPool.length;
+        return [...galleryPool.slice(start), ...galleryPool.slice(0, start)];
+    };
+    const turnerDifferenceImages = rotateFrom(0).slice(0, 3);
+    const readyForInstallImages = rotateFrom(7).slice(0, 3).map((img) => ({ ...img, caption: img.alt }));
     const regionLabel = suburb.region
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -183,8 +194,17 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
         }
     ];
 
+    const regionSlug = suburb.region;
+
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: regionLabel, url: `/locations/${regionSlug}` },
+                { name: suburb.name, url: `/locations/${regionSlug}/${suburb.slug}` },
+                { name: "Floor Preparation", url: `/locations/${regionSlug}/${suburb.slug}/floor-preparation` },
+            ]} />
             <ServiceHero
                 title={<>Floor Preparation <span className="text-yellow-500">{suburb.name}</span>.</>}
                 subtitle={`The secret to a flawless floor in ${suburb.name} is what lies beneath. We create mirror-flat substrates for renovations and new builds.`}
@@ -200,7 +220,8 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                 title={`Don't Risk Your ${suburb.name} Floor.`}
                 description={<>
                     <p className="mb-4">{prepAngles.intro}</p>
-                    <p>{prepAngles.standard}</p>
+                    <p className="mb-4">{prepAngles.standard}</p>
+                    <p>{suburb.description}{suburb.landmarks?.length ? ` Homes and jobs near ${suburb.landmarks.join(" and ")} are typical of the prep work we do in ${suburb.name}.` : ""}</p>
                 </>}
                 features={specs}
             />
@@ -208,7 +229,7 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             <ImageGrid
                 title="The Turner Difference"
                 description={`Why ${suburb.name} homeowners choose us.`}
-                images={siteImages.floorPrep.turnerDifference}
+                images={turnerDifferenceImages}
                 columns={2}
             />
 
@@ -232,7 +253,7 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             <ImageGrid
                 title="Ready for Installation"
                 description="The standard we deliver. Clean, flat, and structurally sound."
-                images={siteImages.floorPrep.process.slice(0, 3).map(img => ({ ...img, caption: img.alt }))}
+                images={readyForInstallImages}
                 columns={3}
                 variant="success"
             />
@@ -256,7 +277,7 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61 413 592 054",
                             "address": {
                                 "@type": "PostalAddress",
                                 "addressLocality": suburb.name,

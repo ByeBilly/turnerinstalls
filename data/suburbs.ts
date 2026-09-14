@@ -69,8 +69,8 @@ export const suburbs: SuburbData[] = [
         archetype: "apartment",
         landmarks: ["The Star", "Oasis"],
         image: {
-            src: "/images/Showroom-Carrara-Gold-Coast1.jpeg",
-            alt: "Gold Coast showroom flooring project by Turner Installs",
+            src: "/installspics/locations/goldcoast.jpg",
+            alt: "Gold Coast flooring project by Turner Installs",
             caption: "Gold Coast project shown"
         }
     },
@@ -265,6 +265,13 @@ export const getSuburbsByRegion = (region: Region) => suburbs.filter(s => s.regi
 
 const curatedSuburbSlugs = new Set(suburbs.map((suburb) => suburb.slug));
 
+// Real-photo pool the auto-generated suburb entries below rotate through, so
+// each of the ~73 flooringInstallationSuburbs-derived floor-prep pages gets a
+// distinct job photo instead of every single one sharing one hardcoded image.
+const autoSuburbImagePool = siteImages.floorPrep.gallery;
+const hashSlug = (slug: string) =>
+    slug.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
+
 export const floorPreparationSuburbs: SuburbData[] = [
     ...suburbs,
     ...flooringInstallationSuburbs
@@ -277,7 +284,7 @@ export const floorPreparationSuburbs: SuburbData[] = [
             description: suburb.localRelevance,
             archetype: 'historic' as const,
             landmarks: [],
-            image: siteImages.floorPrep.process[0],
+            image: autoSuburbImagePool[hashSlug(suburb.slug) % autoSuburbImagePool.length],
         })),
 ];
 
