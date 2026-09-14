@@ -100,27 +100,73 @@ effect, doesn't touch the production build) plus a defensive per-instance
 - **`lib/business.ts`** is now where BASE_URL/address/geo/founder live.
   If you're touching schema anywhere, import from there — don't hardcode.
 - **`data/flooringInstallationSuburbs.ts`** (90 entries) and
-  **`data/suburbs.ts`** (19 curated + `floorPreparationSuburbs` = the
-  merged 90) both feed suburb pages. `getFloorPreparationSuburb(slug,
+  **`data/suburbs.ts`** (17 curated + `floorPreparationSuburbs` = the
+  merged ~94) both feed suburb pages. `getFloorPreparationSuburb(slug,
   region)` is what `/locations/[region]/[suburb]/floor-preparation`
-  actually uses — not `getSuburb`.
+  actually uses — not `getSuburb`. (Corrected from "19 curated" above —
+  it's 17.)
 - **`siteImages.floorPrep.gallery`** is the rotation pool for floor-prep
   suburb photos. Add new real job photos there, don't hand-pick per page.
 - **Jack (`jack@calculationtime.com`) has push access to this repo** and
-  pushes directly to `main` without a PR. Worth a `git fetch` + `git log
-  origin/main -3` at the start of any future session before assuming local
-  HEAD matches production.
-- Known remaining gaps, not yet fixed: floor-prep pages' meta `<title>`/
-  `<meta description>` are still 100% templated across all ~94 pages
-  (only the suburb name/postcode vary); the `prepAngles` body-paragraph
-  system only rotates through 4 buckets. Neither was in scope for this
-  pass but both are the same class of issue as the text problem above.
-  `seoTitle`/`metaDescription` fields on `flooringInstallationSuburbs`
+  pushes directly to `main` without a PR — confirmed with Liam this is
+  expected. Worth a `git fetch` + `git log origin/main -3` at the start
+  of any future session before assuming local HEAD matches production.
+- `seoTitle`/`metaDescription` fields on `flooringInstallationSuburbs`
   entries are dead code (never rendered) — don't bother "fixing" those.
 - No QBCC licence number anywhere on the site despite "Fully Licensed &
   Insured" being claimed (`components/TrustBar.tsx`) — needs Liam to
   confirm the actual number. `sameAs` in `lib/business.ts` only has the
   Google review URL; add GBP/Facebook/Instagram once those are live.
+  Liam confirmed the business has no social media channels yet, so live
+  Facebook Sharing Debugger / LinkedIn Post Inspector / Twitter Card
+  Validator checks were parked — do them once a channel exists, or the
+  first time anyone actually shares a page link anywhere.
+
+### [2026-09-15, later same day] Meta titles/descriptions, OG coverage, suburb interlinking, dynamic OG images
+
+Follow-up pass, commits `e52effc` and `3444b7e`.
+
+- **Fixed the title/description templating flagged above**: both suburb
+  page templates were producing titles/descriptions that exceeded safe
+  SERP display limits on nearly every suburb (90/90 titles over ~60
+  chars, 87/90 descriptions over ~158 chars) — meaning most were being
+  truncated in the actual search snippet, or long enough that Google
+  would likely rewrite them entirely. Shortened both templates and
+  verified against the longest suburb name in each list.
+- **OG/Twitter coverage gap**: found 24 pages — every service page, all
+  6 regional hubs, and about/reviews/commercial/residential/contact/blog
+  /flooring-installation-brisbane/service-areas — had no `openGraph` or
+  `twitter` metadata at all, so every social/message-app share fell back
+  to one generic sitewide image regardless of the page. Added
+  page-specific OG + Twitter Card blocks to all 24, reusing each page's
+  own already-written title/description, paired with a contextually
+  relevant real photo (proper width/height/alt, not a bare URL string).
+- **Neighbouring-suburb link mesh**: added `nearbySuburbs` to
+  `SuburbData`, wrote real verified adjacency lists for all 17 curated
+  suburbs (checked against the actual set of suburbs with a floor-prep
+  page — no dead links, no padding to a fake count), carried the field
+  through the merge for the other 73. New
+  `components/NearbySuburbsMesh.tsx` renders "Serving X & Surrounding
+  Suburbs" on every floor-prep suburb page.
+- **Dynamic per-suburb OG images**: added
+  `.../floor-preparation/opengraph-image.tsx` using the Next.js file
+  convention (`ImageResponse`) — composites the suburb name onto that
+  suburb's real, already-assigned photo. Actually fetched and visually
+  checked the generated PNG for two different suburbs before calling it
+  done, not just trusting it compiled. Build stays fast (~6s) because
+  the image renders on-demand per request rather than pre-rendering all
+  90+ suburbs.
+- **Declined a pasted "elite SEO" brief's fabricated claims** rather than
+  implementing them: it asserted "Liam Turner, QBCC Licensed" (still
+  unverified — see above), a "≤3mm over 3m" tolerance that contradicts
+  the site's own published "1mm over 2m" figure, and
+  AS/NZS 1080.1 / ASTM F2170 as compliance standards not verified as
+  actually used. Also declined restructuring URLs into a new nested
+  `/services/floor-preparation/{suburb}` scheme, since that would mean
+  rebuilding the routing for all 235 already-indexed pages for no
+  verified benefit. If asked to revisit any of this, verify first —
+  don't take a pasted brief's technical claims at face value just
+  because they read confidently.
 
 ## [2026-01-30] Image Consolidation and Refactor
 - Consolidated all flooring images from various folders (`/public/images`, `/public/new_gen`, etc.) into a structured `/public/installspics/{prep, damage, finished, etc}` directory.
