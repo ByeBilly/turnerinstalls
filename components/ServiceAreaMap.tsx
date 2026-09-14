@@ -18,6 +18,13 @@ const icon = L.icon({
 
 export default function ServiceAreaMap() {
     const [isMounted, setIsMounted] = useState(false);
+    // Leaflet stamps the DOM node it mounts into with a `_leaflet_id` and
+    // refuses to re-init a node that already has one. React dev remounts
+    // (Strict Mode's double-invoke, Fast Refresh after an unrelated layout
+    // edit) can reuse that same node, tripping "Map container is already
+    // initialized." A key that's fresh per component instance forces React
+    // to hand MapContainer a brand-new node on every real remount instead.
+    const [mapKey] = useState(() => Math.random().toString(36).slice(2));
 
     useEffect(() => {
         setIsMounted(true);
@@ -41,6 +48,7 @@ export default function ServiceAreaMap() {
     return (
         <div className="h-[300px] lg:h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200 relative z-0 shadow-md">
             <MapContainer
+                key={mapKey}
                 center={position}
                 zoom={7}
                 scrollWheelZoom={false}

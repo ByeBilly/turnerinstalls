@@ -5,6 +5,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // react-leaflet's MapContainer doesn't support React 18/19 Strict Mode's
+    // dev-only double-invoke of the mount cycle — it throws "Map container
+    // is already initialized" on the second invoke. Strict Mode is dev-only
+    // (no effect on the production build); this only disables the extra
+    // dev-time double-render safety check app-wide to work around that.
+    reactStrictMode: false,
     turbopack: {
         root: __dirname,
     },
