@@ -13,6 +13,7 @@ import HeroForm from "@/components/HeroForm";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NearbySuburbsMesh from "@/components/NearbySuburbsMesh";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
@@ -28,10 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     const suburb = getFloorPreparationSuburb(suburbSlug, region);
     if (!suburb) return {};
 
-    const title = `Floor Preparation ${suburb.name} | Uplift, Removal, Grinding & Levelling`;
-    const desc = `Expert floor preparation in ${suburb.name}. Old floor uplift, rubbish removal, adhesive removal, concrete grinding, levelling and glue removal for renovations in ${suburb.postcode}.`;
+    const title = `${suburb.name} Floor Preparation`;
+    const desc = `Floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding and levelling. Free quotes across Brisbane and SE QLD.`;
     const canonical = `/locations/${suburb.region}/${suburb.slug}/floor-preparation`;
 
+    // og:image/twitter:image come from the sibling opengraph-image.tsx file
+    // convention (dynamic, suburb-name-on-photo) — not set manually here to
+    // avoid emitting duplicate og:image tags alongside it.
     return {
         title: title,
         description: desc,
@@ -46,8 +50,12 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
             title: title,
             description: desc,
             url: canonical,
-            images: suburb.image ? [suburb.image.src] : [],
-        }
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: title,
+            description: desc,
+        },
     };
 }
 
@@ -58,6 +66,11 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
     if (!suburb) {
         notFound();
     }
+
+    const nearbyLinks = (suburb.nearbySuburbs ?? [])
+        .map((slug) => floorPreparationSuburbs.find((s) => s.slug === slug))
+        .filter((s): s is NonNullable<typeof s> => Boolean(s))
+        .map((s) => ({ name: s.name, slug: s.slug, region: s.region }));
 
     const variantSeed = `${suburb.region}-${suburb.slug}`;
     const seedSum = variantSeed.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
@@ -259,6 +272,8 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             />
 
             <FAQSection items={faqs} />
+
+            <NearbySuburbsMesh suburbName={suburb.name} neighbors={nearbyLinks} />
 
             <InternalLinks type="locations" />
 

@@ -14,6 +14,8 @@ export interface SuburbData {
     landmarks?: string[];
     image?: { src: string; alt: string; caption?: string };
     galleryImages?: { src: string; alt: string }[];
+    /** Slugs of real, adjacent suburbs for the "Serving X & Surrounding Suburbs" link mesh. */
+    nearbySuburbs?: string[];
 }
 
 export const suburbs: SuburbData[] = [
@@ -30,7 +32,8 @@ export const suburbs: SuburbData[] = [
         galleryImages: [
             { src: "/new_gen/hero/graceville1.png", alt: "Graceville Subfloor Correction" },
             { src: "/new_gen/hero/gracevillechelmer.png", alt: "Graceville & Chelmer Renovation" }
-        ]
+        ],
+        nearbySuburbs: ["oxley","sherwood","chelmer","corinda","indooroopilly"]
     },
 
     // BRISBANE - THE GAP
@@ -46,7 +49,8 @@ export const suburbs: SuburbData[] = [
         galleryImages: [
             { src: "/installspics/finished/thegap1.jpg", alt: "The Gap Flooring" },
             { src: "/installspics/finished/thegap_staircase.jpg", alt: "The Gap Staircase Upgrade" }
-        ]
+        ],
+        nearbySuburbs: ["ashgrove","bardon","enoggera","red-hill","paddington"]
     },
 
     // GOLD COAST - HIGHLIFE / APARTMENTS
@@ -58,7 +62,8 @@ export const suburbs: SuburbData[] = [
         description: "Specializing in high-rise floor preparation. We handle strict body corporate acoustic requirements, dust control, and balcony leveling for Surfers Paradise apartments.",
         archetype: "apartment",
         landmarks: ["Q1", "Cavill Avenue"],
-        image: siteImages.commercial.projectShots[0] // Use a commercial shot
+        image: siteImages.commercial.projectShots[0], // Use a commercial shot
+        nearbySuburbs: ["broadbeach", "carrara", "burleigh-heads"]
     },
     {
         name: "Broadbeach",
@@ -72,7 +77,8 @@ export const suburbs: SuburbData[] = [
             src: "/installspics/locations/goldcoast.jpg",
             alt: "Gold Coast flooring project by Turner Installs",
             caption: "Gold Coast project shown"
-        }
+        },
+        nearbySuburbs: ["surfers-paradise","carrara","burleigh-heads"]
     },
     {
         name: "Carrara",
@@ -92,7 +98,8 @@ export const suburbs: SuburbData[] = [
             { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Gold Coast showroom flooring project detail" },
             { src: "/images/vinyl_install-browns-plains.jpeg", alt: "Browns Plains commercial vinyl flooring install detail" },
             { src: "/images/Timber-Oxley.jpeg", alt: "Youngs Crossing timber-look flooring project" }
-        ]
+        ],
+        nearbySuburbs: ["surfers-paradise","broadbeach","burleigh-heads"]
     },
     {
         name: "Burleigh Heads",
@@ -106,7 +113,8 @@ export const suburbs: SuburbData[] = [
             src: "/installspics/finished/large-open-plan-timber-floor.jpg",
             alt: "Gold Coast flooring project example by Turner Installs",
             caption: "Gold Coast project example shown"
-        }
+        },
+        nearbySuburbs: ["surfers-paradise","broadbeach","carrara"]
     },
 
     // BRISBANE - KENMORE
@@ -122,7 +130,8 @@ export const suburbs: SuburbData[] = [
         galleryImages: [
             { src: "/installspics/finished/kenmore.jpg", alt: "Kenmore Project" },
             { src: "/installspics/finished/kenmore1.jpg", alt: "Kenmore Flooring Upgrade" }
-        ]
+        ],
+        nearbySuburbs: ["chapel-hill","fig-tree-pocket","indooroopilly","kenmore-hills","pinjarra-hills"]
     },
 
     // BRISBANE - RENOVATION BELT
@@ -144,7 +153,8 @@ export const suburbs: SuburbData[] = [
             { src: "/installspics/finished/newfarm1.jpeg", alt: "New Farm Timber Prep" },
             { src: "/installspics/finished/newfarm2.jpg", alt: "New Farm Flooring" },
             { src: "/installspics/finished/newfarm_kitchen.jpg", alt: "New Farm Kitchen Prep" }
-        ]
+        ],
+        nearbySuburbs: ["teneriffe","fortitude-valley","newstead","kangaroo-point"]
     },
     {
         name: "Paddington",
@@ -160,7 +170,8 @@ export const suburbs: SuburbData[] = [
             { src: "/installspics/finished/paddington1.jpg", alt: "Paddington Subfloor" },
             { src: "/installspics/finished/paddington2.jpg", alt: "Paddington Ramping" },
             { src: "/installspics/finished/paddingtonstairs.jpeg", alt: "Paddington Staircase" }
-        ]
+        ],
+        nearbySuburbs: ["milton","red-hill","bardon","the-gap"]
     },
     {
         name: "Teneriffe",
@@ -170,7 +181,8 @@ export const suburbs: SuburbData[] = [
         description: "Woolstore apartment renovations demand precision. We offer low-dust grinding and acoustic matting installation for Teneriffe's heritage listed buildings.",
         archetype: "apartment",
         landmarks: ["Woolstores"],
-        image: siteImages.grinding.actionShots[0]
+        image: siteImages.grinding.actionShots[0],
+        nearbySuburbs: ["new-farm","newstead","fortitude-valley"]
     },
 
     // GROWTH / NEW BUILD
@@ -182,7 +194,8 @@ export const suburbs: SuburbData[] = [
         description: "Fixing humps and hollows in new concrete slabs regarding handover. We grind and flood level new homes in North Lakes to meet flooring warranty specs.",
         archetype: "new-build",
         landmarks: [],
-        image: siteImages.floorPrep.process[1]
+        image: siteImages.floorPrep.process[1],
+        nearbySuburbs: ["narangba"]
     },
 
     // OXLEY & WESTERN UP-MARKET METRO
@@ -198,7 +211,8 @@ export const suburbs: SuburbData[] = [
             src: "/installspics/finished/finished-timber-floor-display.jpg",
             alt: "Turner Installs finished timber flooring display project",
             caption: "Turner Installs project example"
-        }
+        },
+        nearbySuburbs: ["graceville","sherwood","corinda"]
     },
     {
         name: "Corinda",
@@ -212,7 +226,8 @@ export const suburbs: SuburbData[] = [
             src: "/installspics/finished/finishedfloor.jpg",
             alt: "Turner Installs finished flooring project example",
             caption: "Turner Installs project example"
-        }
+        },
+        nearbySuburbs: ["oxley","graceville","sherwood"]
     },
     {
         name: "Sherwood",
@@ -226,7 +241,8 @@ export const suburbs: SuburbData[] = [
             src: "/installspics/finished/brisbane-city-view-flooring.jpg",
             alt: "Brisbane flooring project example by Turner Installs",
             caption: "Brisbane project example shown"
-        }
+        },
+        nearbySuburbs: ["oxley","graceville","corinda","chelmer"]
     },
     {
         name: "Chelmer",
@@ -236,7 +252,8 @@ export const suburbs: SuburbData[] = [
         description: "Prestige riverfront properties. Chelmer's high-value renovations require meticulous floor preparation. We specialize in large-format tile prep and engineered timber subfloors.",
         archetype: "historic",
         landmarks: ["Chelmer Bridge", "Honour Ave"],
-        image: { src: "/new_gen/hero/gracevillechelmer.png", alt: "Chelmer Floor Prep" }
+        image: { src: "/new_gen/hero/gracevillechelmer.png", alt: "Chelmer Floor Prep" },
+        nearbySuburbs: ["graceville","sherwood","indooroopilly","toowong"]
     },
     {
         name: "Fig Tree Pocket",
@@ -246,7 +263,8 @@ export const suburbs: SuburbData[] = [
         description: "Rural charm meets modern luxury. Fig Tree Pocket's large estates often feature expansive concrete slabs. We ensure they are perfectly level and moisture-protected.",
         archetype: "new-build",
         landmarks: ["Lone Pine Koala Sanctuary", "Fig Tree Pocket Rd"],
-        image: siteImages.floorPrep.process[0]
+        image: siteImages.floorPrep.process[0],
+        nearbySuburbs: ["kenmore","chapel-hill","indooroopilly","jindalee"]
     },
     {
         name: "Indooroopilly",
@@ -256,7 +274,8 @@ export const suburbs: SuburbData[] = [
         description: "A mix of classic homes and premium apartments. We provide noise-compliant grinding for high-rises and heritage-correct subfloor repairs for Indooroopilly renovations.",
         archetype: "apartment",
         landmarks: ["Indooroopilly Shopping Centre", "St Lucia Golf Links"],
-        image: siteImages.grinding.actionShots[1]
+        image: siteImages.grinding.actionShots[1],
+        nearbySuburbs: ["chelmer", "taringa", "st-lucia", "toowong", "fig-tree-pocket"]
     }
 ];
 
@@ -264,6 +283,13 @@ export const getSuburb = (slug: string) => suburbs.find(s => s.slug === slug);
 export const getSuburbsByRegion = (region: Region) => suburbs.filter(s => s.region === region);
 
 const curatedSuburbSlugs = new Set(suburbs.map((suburb) => suburb.slug));
+
+// Every slug that actually has a floor-prep page (curated + auto-generated),
+// so nearbySuburbs links never point at a suburb with no page to land on.
+const allKnownSlugs = new Set([
+    ...suburbs.map((suburb) => suburb.slug),
+    ...flooringInstallationSuburbs.map((suburb) => suburb.slug),
+]);
 
 // Real-photo pool the auto-generated suburb entries below rotate through, so
 // each of the ~73 flooringInstallationSuburbs-derived floor-prep pages gets a
@@ -285,6 +311,7 @@ export const floorPreparationSuburbs: SuburbData[] = [
             archetype: 'historic' as const,
             landmarks: [],
             image: autoSuburbImagePool[hashSlug(suburb.slug) % autoSuburbImagePool.length],
+            nearbySuburbs: suburb.nearbySuburbs.filter((slug) => allKnownSlugs.has(slug)),
         })),
 ];
 
