@@ -9,11 +9,27 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import type { Metadata } from "next";
 
+const ogTitle = "Floor Preparation Gold Coast | Concrete Grinding & Levelling";
+const ogDescription = "Expert floor prep on the Gold Coast. Servicing from Southport to Coolangatta. Concrete grinding, adhesive removal, and levelling.";
+const ogImageUrl = "/installspics/locations/goldcoastcleanfinish.jpg";
+
 export const metadata: Metadata = {
-    title: "Floor Preparation Gold Coast | Concrete Grinding & Levelling",
-    description: "Expert floor prep on the Gold Coast. Servicing from Southport to Coolangatta. Concrete grinding, adhesive removal, and levelling.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/locations/gold-coast" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/locations/gold-coast",
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Gold Coast" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImageUrl],
+    },
 };
 
 export default function GoldCoast() {

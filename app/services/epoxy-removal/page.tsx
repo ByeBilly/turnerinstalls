@@ -10,11 +10,27 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Epoxy Removal Services Brisbane | Coating Stripping";
+const ogDescription = "Specialised removal of epoxy coatings, polyurethane, and garage flake systems. Grind back to clean concrete.";
+const ogImage = { url: siteImages.grinding.actionShots[0].src, width: 1200, height: 630, alt: siteImages.grinding.actionShots[0].alt };
+
 export const metadata: Metadata = {
-    title: "Epoxy Removal Services Brisbane | Coating Stripping",
-    description: "Specialised removal of epoxy coatings, polyurethane, and garage flake systems. Grind back to clean concrete.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/services/epoxy-removal" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/epoxy-removal",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
+    },
 };
 
 export default function EpoxyRemoval() {

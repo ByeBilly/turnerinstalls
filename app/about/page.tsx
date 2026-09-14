@@ -3,18 +3,31 @@ import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+const ogTitle = "About Turner Installs | Brisbane Flooring Specialists";
+const ogDescription = "Meet Turner Installs, Brisbane flooring specialists with 15+ years of experience and three generations of expertise in preparation and installation.";
+const ogImageUrl = "/installspics/finished/brisbane views.jpg";
+
 export const metadata = {
-  title: {
-    absolute: "About Turner Installs | Brisbane Flooring Specialists",
-  },
-  description:
-    "Meet Turner Installs, Brisbane flooring specialists with 15+ years of experience and three generations of expertise in preparation and installation.",
+  title: { absolute: ogTitle },
+  description: ogDescription,
   alternates: {
     canonical: "/about",
   },
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    title: ogTitle,
+    description: ogDescription,
+    url: "/about",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs — third-generation Brisbane flooring specialists" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImageUrl],
   },
 };
 

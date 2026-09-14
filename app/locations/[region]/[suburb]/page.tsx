@@ -32,9 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     const suburb = getSuburb(suburbSlug);
     if (!suburb) return {};
 
-    const title = `Floor Preparation ${suburb.name} | Uplift, Removal & Flooring Installation`;
-    const desc = `Specialist flooring contractors in ${suburb.name}. Floor preparation, old flooring uplift, adhesive removal, concrete grinding, levelling and installation in ${suburb.postcode}.`;
+    const title = `${suburb.name} Flooring & Floor Prep`;
+    const desc = `Flooring installation and floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding, levelling and installation.`;
     const canonical = `/locations/${suburb.region}/${suburb.slug}`;
+    const ogImage = suburb.image ?? siteImages.floorPrep.hero;
 
     return {
         title: title,
@@ -50,8 +51,14 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
             title: title,
             description: desc,
             url: canonical,
-            images: suburb.image ? [suburb.image.src] : [],
-        }
+            images: [{ url: ogImage.src, width: 1200, height: 630, alt: ogImage.alt }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: title,
+            description: desc,
+            images: [ogImage.src],
+        },
     };
 }
 

@@ -10,11 +10,27 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Floor Preparation Toowoomba | Concrete Grinding & Prep";
+const ogDescription = "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.";
+const ogImageUrl = "/installspics/finished/finished-timber-floor-display.jpg";
+
 export const metadata: Metadata = {
-    title: "Floor Preparation Toowoomba | Concrete Grinding & Prep",
-    description: "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/locations/toowoomba" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/locations/toowoomba",
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Toowoomba" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImageUrl],
+    },
 };
 
 export default function Toowoomba() {

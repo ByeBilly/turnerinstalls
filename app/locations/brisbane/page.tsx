@@ -9,11 +9,27 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import type { Metadata } from "next";
 
+const ogTitle = "Floor Preparation Brisbane | Concrete Grinding & Levelling Services";
+const ogDescription = "Premier floor preparation in Brisbane. Servicing all suburbs from Northside to Southside. Concrete grinding, levelling, and subfloor repairs.";
+const ogImageUrl = "/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png";
+
 export const metadata: Metadata = {
-    title: "Floor Preparation Brisbane | Concrete Grinding & Levelling Services",
-    description: "Premier floor preparation in Brisbane. Servicing all suburbs from Northside to Southside. Concrete grinding, levelling, and subfloor repairs.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/locations/brisbane" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/locations/brisbane",
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Brisbane" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImageUrl],
+    },
 };
 
 export default function Brisbane() {

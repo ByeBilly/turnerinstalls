@@ -7,16 +7,31 @@ import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
 import type { Metadata } from "next";
 
+const ogTitle = "Flooring Installation Brisbane";
+const ogDescription = "Professional flooring installation in Brisbane for timber, laminate and residential renovations, with expert preparation and quality workmanship.";
+const ogImage = { url: "/installspics/finished/finished-timber-floor-display.jpg", width: 1200, height: 630, alt: "Turner Installs finished timber flooring, Brisbane" };
+
 export const metadata: Metadata = {
-    title: "Flooring Installation Brisbane",
-    description:
-        "Professional flooring installation in Brisbane for timber, laminate and residential renovations, with expert preparation and quality workmanship.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: {
         canonical: "/flooring-installation-brisbane",
     },
     robots: {
         index: true,
         follow: true,
+    },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/flooring-installation-brisbane",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
     },
 };
 

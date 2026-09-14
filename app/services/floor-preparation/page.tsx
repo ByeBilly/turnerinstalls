@@ -13,15 +13,31 @@ import FAQSchema from "@/components/FAQSchema";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Floor Preparation Brisbane";
+const ogDescription = "Professional floor preparation in Brisbane for timber, laminate and other flooring, including grinding, levelling, repairs and substrate preparation.";
+const ogImage = { url: siteImages.floorPrep.hero.src, width: 1200, height: 630, alt: siteImages.floorPrep.hero.alt };
+
 export const metadata: Metadata = {
-  title: "Floor Preparation Brisbane",
-  description: "Professional floor preparation in Brisbane for timber, laminate and other flooring, including grinding, levelling, repairs and substrate preparation.",
+  title: ogTitle,
+  description: ogDescription,
   alternates: {
     canonical: "/services/floor-preparation",
   },
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    title: ogTitle,
+    description: ogDescription,
+    url: "/services/floor-preparation",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImage.url],
   },
 };
 

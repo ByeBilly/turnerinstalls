@@ -10,11 +10,27 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Adhesive & Glue Removal Brisbane | Tile, Carpet, Vinyl Removal";
+const ogDescription = "Professional removal of floor adhesives. We grind off tile glue, carpet adhesive, vinyl residue, and bitumen coatings.";
+const ogImage = { url: siteImages.floorPrep.process[0].src, width: 1200, height: 630, alt: siteImages.floorPrep.process[0].alt };
+
 export const metadata: Metadata = {
-    title: "Adhesive & Glue Removal Brisbane | Tile, Carpet, Vinyl Removal",
-    description: "Professional removal of floor adhesives. We grind off tile glue, carpet adhesive, vinyl residue, and bitumen coatings.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/services/adhesive-removal" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/adhesive-removal",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
+    },
 };
 
 export default function AdhesiveRemoval() {

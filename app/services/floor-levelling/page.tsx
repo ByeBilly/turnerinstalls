@@ -10,15 +10,31 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Floor Levelling Brisbane";
+const ogDescription = "Expert floor levelling in Brisbane for uneven concrete and subfloors. Get a smooth, stable base ready for timber, laminate and other flooring.";
+const ogImage = { url: siteImages.floorPrep.beforeAfter[2].after.src, width: 1200, height: 630, alt: siteImages.floorPrep.beforeAfter[2].after.alt };
+
 export const metadata: Metadata = {
-    title: "Floor Levelling Brisbane",
-    description: "Expert floor levelling in Brisbane for uneven concrete and subfloors. Get a smooth, stable base ready for timber, laminate and other flooring.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: {
         canonical: "/services/floor-levelling",
     },
     robots: {
         index: true,
         follow: true,
+    },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/floor-levelling",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
     },
 };
 

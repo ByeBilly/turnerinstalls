@@ -5,18 +5,31 @@ import CTAButton from "@/components/CTAButton";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+const ogTitle = "Contact Turner Installs | Brisbane Flooring Specialists";
+const ogDescription = "Contact Turner Installs for professional flooring installation, preparation and levelling in Brisbane. Request a quote for your residential project.";
+const ogImageUrl = "/Liams-trucks/truck.jpeg";
+
 export const metadata = {
-  title: {
-    absolute: "Contact Turner Installs | Brisbane Flooring Specialists",
-  },
-  description:
-    "Contact Turner Installs for professional flooring installation, preparation and levelling in Brisbane. Request a quote for your residential project.",
+  title: { absolute: ogTitle },
+  description: ogDescription,
   alternates: {
     canonical: "/contact",
   },
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    title: ogTitle,
+    description: ogDescription,
+    url: "/contact",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs truck ready for a flooring job" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImageUrl],
   },
 };
 

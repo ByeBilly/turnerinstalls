@@ -10,11 +10,27 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Subfloor Repairs Brisbane | Crack Fixing & Concrete Repair";
+const ogDescription = "Expert subfloor repair services in Brisbane. Fixing cracks, divots, ramping height differences, and stabilising loose areas.";
+const ogImage = { url: siteImages.floorPrep.unacceptable[1].src, width: 1200, height: 630, alt: siteImages.floorPrep.unacceptable[1].alt };
+
 export const metadata: Metadata = {
-    title: "Subfloor Repairs Brisbane | Crack Fixing & Concrete Repair",
-    description: "Expert subfloor repair services in Brisbane. Fixing cracks, divots, ramping height differences, and stabilising loose areas.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/services/subfloor-repairs" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/subfloor-repairs",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
+    },
 };
 
 export default function SubfloorRepairs() {

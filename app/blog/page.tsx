@@ -3,16 +3,31 @@ import { blogPosts } from "@/data/blogPosts";
 import ServiceHero from "@/components/ServiceHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+const ogTitle = "Flooring Blog | Guides & Local Tips | Turner Installs";
+const ogDescription = "Expert flooring guides for Brisbane, Ipswich, and Logan. Queenslander flooring, humidity, renovation tips, and local suburb guides from Oxley-based installers.";
+const ogImageUrl = "/installspics/laying/layingthefloor.jpg";
+
 export const metadata = {
-    title: { absolute: "Flooring Blog | Guides & Local Tips | Turner Installs" },
-    description:
-        "Expert flooring guides for Brisbane, Ipswich, and Logan. Queenslander flooring, humidity, renovation tips, and local suburb guides from Oxley-based installers.",
+    title: { absolute: ogTitle },
+    description: ogDescription,
     alternates: {
         canonical: "/blog",
     },
     robots: {
         index: true,
         follow: true,
+    },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/blog",
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs laying a new floor" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImageUrl],
     },
 };
 

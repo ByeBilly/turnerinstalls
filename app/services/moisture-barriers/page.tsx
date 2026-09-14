@@ -10,11 +10,27 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Moisture Barriers Brisbane | Damp Proofing Concrete Slabs";
+const ogDescription = "Protect your flooring from rising damp. Professional epoxy moisture barrier application for concrete slabs in Brisbane & SE QLD.";
+const ogImage = { url: siteImages.floorPrep.turnerDifference[0].src, width: 1200, height: 630, alt: siteImages.floorPrep.turnerDifference[0].alt };
+
 export const metadata: Metadata = {
-    title: "Moisture Barriers Brisbane | Damp Proofing Concrete Slabs",
-    description: "Protect your flooring from rising damp. Professional epoxy moisture barrier application for concrete slabs in Brisbane & SE QLD.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/services/moisture-barriers" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/moisture-barriers",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
+    },
 };
 
 export default function MoistureBarriers() {

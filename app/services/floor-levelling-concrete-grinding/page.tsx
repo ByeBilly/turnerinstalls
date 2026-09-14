@@ -10,18 +10,33 @@ import { siteImages } from "@/data/siteImages";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 import type { Metadata } from "next";
 
+const ogTitle = "Floor Levelling & Concrete Grinding Brisbane | Turner Installs";
+const ogDescription = "Expert concrete grinding, adhesive uplift & self-levelling across Brisbane & SEQ. 3rd-generation prep specialists getting slabs ready to Australian Standards.";
+const ogImage = { url: siteImages.grinding.hero.src, width: 1200, height: 630, alt: siteImages.grinding.hero.alt };
+
 export const metadata: Metadata = {
   title: {
-    absolute: "Floor Levelling & Concrete Grinding Brisbane | Turner Installs",
+    absolute: ogTitle,
   },
-  description:
-    "Expert concrete grinding, adhesive uplift & self-levelling across Brisbane & SEQ. 3rd-generation prep specialists getting slabs ready to Australian Standards.",
+  description: ogDescription,
   alternates: {
     canonical: "/services/floor-levelling-concrete-grinding",
   },
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    title: ogTitle,
+    description: ogDescription,
+    url: "/services/floor-levelling-concrete-grinding",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImage.url],
   },
 };
 

@@ -29,8 +29,9 @@ export async function generateMetadata({
     const data = getFlooringInstallationSuburb(suburb);
     if (!data) return {};
 
-    const title = `${data.name} Flooring Installation, Floor Prep, Uplift & Removal`;
-    const description = `Flooring installation in ${data.name} with floor preparation, old floor uplift, adhesive removal, rubbish removal, levelling and clean subfloor handover. Free quote.`;
+    const title = `${data.name} Flooring Installation`;
+    const description = `Flooring installation in ${data.name}: timber, hybrid, vinyl and laminate, plus floor prep and old floor removal. Free quote.`;
+    const ogImage = projectExampleImages[projectIndex(data.slug)];
 
     return {
         title,
@@ -46,6 +47,13 @@ export async function generateMetadata({
             title,
             description,
             url: `/flooring-installation/${data.slug}`,
+            images: [{ url: ogImage.src, width: 1200, height: 630, alt: ogImage.alt }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [ogImage.src],
         },
     };
 }

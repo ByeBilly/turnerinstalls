@@ -10,11 +10,27 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Industrial Surface Preparation Brisbane | Large Scale Grinding";
+const ogDescription = "Large scale industrial floor preparation. Shot blasting, heavy grinding, and make-good services for warehouses and factories.";
+const ogImage = { url: siteImages.commercial.hero.src, width: 1200, height: 630, alt: siteImages.commercial.hero.alt };
+
 export const metadata: Metadata = {
-    title: "Industrial Surface Preparation Brisbane | Large Scale Grinding",
-    description: "Large scale industrial floor preparation. Shot blasting, heavy grinding, and make-good services for warehouses and factories.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: { canonical: "/services/industrial-surface-prep" },
     robots: { index: true, follow: true },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/industrial-surface-prep",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
+    },
 };
 
 export default function IndustrialPrep() {

@@ -10,15 +10,31 @@ import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Concrete Grinding Brisbane";
+const ogDescription = "Professional concrete grinding in Brisbane to remove high spots, adhesives and contaminants, creating a clean surface ready for flooring installation.";
+const ogImage = { url: siteImages.grinding.hero.src, width: 1200, height: 630, alt: siteImages.grinding.hero.alt };
+
 export const metadata: Metadata = {
-    title: "Concrete Grinding Brisbane",
-    description: "Professional concrete grinding in Brisbane to remove high spots, adhesives and contaminants, creating a clean surface ready for flooring installation.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: {
         canonical: "/services/concrete-grinding",
     },
     robots: {
         index: true,
         follow: true,
+    },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services/concrete-grinding",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
     },
 };
 

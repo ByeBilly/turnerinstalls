@@ -2,17 +2,34 @@ import ServiceHero from "@/components/ServiceHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTAButton from "@/components/CTAButton";
 import Link from "next/link";
+import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
+const ogTitle = "Flooring Services Brisbane";
+const ogDescription = "Explore Brisbane flooring services including installation, preparation, levelling, concrete grinding and floor removal. Request expert advice today.";
+const ogImage = { url: siteImages.floorPrep.hero.src, width: 1200, height: 630, alt: siteImages.floorPrep.hero.alt };
+
 export const metadata: Metadata = {
-    title: "Flooring Services Brisbane",
-    description: "Explore Brisbane flooring services including installation, preparation, levelling, concrete grinding and floor removal. Request expert advice today.",
+    title: ogTitle,
+    description: ogDescription,
     alternates: {
         canonical: "/services",
     },
     robots: {
         index: true,
         follow: true,
+    },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/services",
+        images: [ogImage],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImage.url],
     },
 };
 

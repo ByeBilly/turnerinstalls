@@ -8,15 +8,31 @@ import path from 'path';
 import type { Metadata } from "next";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 
+const ogTitle = "Client Reviews | Turner Installs Flooring Brisbane";
+const ogDescription = "See what our clients say about our floor preparation, grinding, and installation services across Brisbane and SE QLD.";
+const ogImageUrl = "/installspics/finished/finishedfloor.jpg";
+
 export const metadata: Metadata = {
-    title: { absolute: "Client Reviews | Turner Installs Flooring Brisbane" },
-    description: "See what our clients say about our floor preparation, grinding, and installation services across Brisbane and SE QLD.",
+    title: { absolute: ogTitle },
+    description: ogDescription,
     alternates: {
         canonical: "/reviews",
     },
     robots: {
         index: true,
         follow: true,
+    },
+    openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: "/reviews",
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs finished flooring project" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: ogTitle,
+        description: ogDescription,
+        images: [ogImageUrl],
     },
 };
 
