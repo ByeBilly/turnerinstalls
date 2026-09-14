@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -83,6 +84,11 @@ export default function AdhesiveRemoval() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Adhesive Removal", url: "/services/adhesive-removal" },
+            ]} />
             <ServiceHero
                 title={<>Adhesive <span className="text-yellow-500">Removal</span>.</>}
                 subtitle="The worst job in flooring, done right. We strip stubborn glues so you don't have to."
@@ -134,7 +140,7 @@ export default function AdhesiveRemoval() {
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61 413 592 054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "description": "Mechanical removal of floor adhesives including tile glue, carpet glue, and vinyl adhesive.",

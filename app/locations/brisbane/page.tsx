@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -6,7 +7,6 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
-import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -60,10 +60,15 @@ export default function Brisbane() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: "Brisbane", url: "/locations/brisbane" },
+            ]} />
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Brisbane</span>.</>}
                 subtitle="Your local experts for concrete grinding and floor levelling across the River City."
-                imagePath="/images/resource_9fVqoabE10H5PDfVW4rOXY.png"
+                imagePath="/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png"
                 label="BRISBANE_METRO"
             />
 
@@ -92,10 +97,10 @@ export default function Brisbane() {
             <ModernGallery
                 title="Recent Brisbane Projects"
                 images={[
-                    siteImages.home.transformations[0],
-                    siteImages.home.transformations[1],
                     { src: "/installspics/locations/brisbane.jpg", alt: "Brisbane Transformation" },
-                    { src: "/installspics/locations/brisbane1.jpg", alt: "Modern Brisbane Living" }
+                    { src: "/installspics/locations/brisbane1.jpg", alt: "Modern Brisbane Living" },
+                    { src: "/installspics/finished/brisbane-city-view-flooring.jpg", alt: "Brisbane finished flooring project example" },
+                    { src: "/installspics/finished/brisbane views.jpg", alt: "Brisbane flooring project view" }
                 ]}
                 limit={4}
             />
@@ -116,7 +121,7 @@ export default function Brisbane() {
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Brisbane",
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61 413 592 054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",

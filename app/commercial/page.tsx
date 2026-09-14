@@ -2,10 +2,11 @@ import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ModernGallery from "@/components/ModernGallery";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { siteImages } from "@/data/siteImages";
 
 export const metadata = {
-  title: "Commercial Flooring Brisbane | Turner Installs",
+  title: { absolute: "Commercial Flooring Brisbane | Turner Installs" },
   description:
     "Reliable commercial flooring contractors. We partner with property managers, shop fitters, and businesses for on-time, on-budget installations.",
   alternates: {
@@ -20,6 +21,10 @@ export const metadata = {
 export default function Commercial() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "/" },
+        { name: "Commercial", url: "/commercial" },
+      ]} />
       {/* HERO SECTION */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -98,6 +99,11 @@ export default function FloorLevelling() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Floor Levelling", url: "/services/floor-levelling" },
+            ]} />
             <ServiceHero
                 title={<>Floor Levelling <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Achieve a glass-smooth, structural finish for your new floor coverings."

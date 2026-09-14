@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -74,6 +75,11 @@ export default function EpoxyRemoval() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Epoxy Removal", url: "/services/epoxy-removal" },
+            ]} />
             <ServiceHero
                 title={<>Epoxy <span className="text-yellow-500">Removal</span>.</>}
                 subtitle="Stripping back failed coatings and old garage floors."
@@ -125,7 +131,7 @@ export default function EpoxyRemoval() {
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61 413 592 054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]

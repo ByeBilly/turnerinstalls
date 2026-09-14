@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -96,6 +97,11 @@ export default function ConcreteGrinding() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Concrete Grinding", url: "/services/concrete-grinding" },
+            ]} />
             <ServiceHero
                 title={<>Concrete Grinding <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Dust-free mechanical preparation to clean, flatten, and profile your slab."

@@ -1,3 +1,5 @@
+import { BASE_URL } from "@/lib/business";
+
 export interface BreadcrumbItem {
   name: string;
   url: string;
@@ -11,7 +13,7 @@ export default function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] })
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": item.url.startsWith("http") ? item.url : `https://www.turnerinstalls.com.au${item.url}`,
+      "item": item.url.startsWith("http") ? item.url : `${BASE_URL}${item.url}`,
     })),
   };
 

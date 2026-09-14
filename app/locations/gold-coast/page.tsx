@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -6,7 +7,6 @@ import ModernGallery from "@/components/ModernGallery";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
-import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -62,6 +62,11 @@ export default function GoldCoast() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: "Gold Coast", url: "/locations/gold-coast" },
+            ]} />
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Gold Coast</span>.</>}
                 subtitle="High-end floor preparation for the Coast's luxury homes and apartments."
@@ -87,9 +92,9 @@ export default function GoldCoast() {
             <ModernGallery
                 title="Gold Coast Projects"
                 images={[
-                    { src: "/installspics/finished/new-farm-kitchen-flooring.jpg", alt: "Luxury Kitchen Flooring" },
+                    { src: "/images/Showroom-Carrara-Gold-Coast.jpeg", alt: "Gold Coast showroom flooring project" },
+                    { src: "/images/Showroom-Carrara-Gold-Coast1.jpeg", alt: "Gold Coast showroom flooring project detail" },
                     { src: "/installspics/prep/floods/mirror-glass-level-flood.jpg", alt: "Mirror Level Flood Prep" },
-                    { src: "/installspics/locations/goldcoast.jpg", alt: "Gold Coast Interior" },
                     { src: "/installspics/locations/goldcoastcleanfinish.jpg", alt: "Clean Gold Coast Finish" }
                 ]}
                 limit={4}
@@ -111,7 +116,7 @@ export default function GoldCoast() {
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Gold Coast",
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61 413 592 054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",

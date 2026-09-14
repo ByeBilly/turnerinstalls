@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
-    title: "Flooring Blog | Guides & Local Tips | Turner Installs",
+    title: { absolute: "Flooring Blog | Guides & Local Tips | Turner Installs" },
     description:
         "Expert flooring guides for Brisbane, Ipswich, and Logan. Queenslander flooring, humidity, renovation tips, and local suburb guides from Oxley-based installers.",
     alternates: {
@@ -27,6 +28,10 @@ export default function BlogPage() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Blog", url: "/blog" },
+            ]} />
             <ServiceHero
                 title={
                     <>

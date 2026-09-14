@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -87,6 +88,11 @@ export default function MoistureBarriers() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Moisture Barriers", url: "/services/moisture-barriers" },
+            ]} />
             <ServiceHero
                 title={<>Moisture <span className="text-yellow-500">Barriers</span>.</>}
                 subtitle="Seal your slab against rising damp and protect your flooring investment."
@@ -138,7 +144,7 @@ export default function MoistureBarriers() {
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61 413 592 054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "description": "Application of epoxy moisture barriers to prevent rising damp in concrete slabs.",

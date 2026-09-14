@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs";
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOCTA from "@/components/SEOCTA";
 import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
@@ -22,6 +23,10 @@ export const metadata: Metadata = {
 export default function FlooringInstallationBrisbanePage() {
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Flooring Installation Brisbane", url: "/flooring-installation-brisbane" },
+            ]} />
             <ServiceHero
                 title={
                     <>
@@ -29,10 +34,9 @@ export default function FlooringInstallationBrisbanePage() {
                     </>
                 }
                 subtitle="Premium timber, hybrid, vinyl and laminate flooring across Brisbane, Ipswich, Logan, and Moreton Bay. Oxley-based. 30+ suburbs."
-                imagePath={
-                    siteImages.home.transformations[0]?.src ||
-                    "/installspics/finished/brisbane views.jpg"
-                }
+                imagePath="/installspics/finished/brisbane-city-view-flooring.jpg"
+                imageAlt="Turner Installs finished flooring project example"
+                imageNote="Turner Installs project example"
                 label="BRISBANE WIDE"
             />
 
@@ -104,7 +108,8 @@ export default function FlooringInstallationBrisbanePage() {
             </section>
 
             <ModernGallery
-                title="Recent Brisbane Projects"
+                title="Turner Installs Project Examples"
+                description="Finished flooring examples from known Turner Installs projects. Location-specific pages identify projects where the exact location is known."
                 images={siteImages.home.transformations}
                 limit={4}
             />
@@ -145,7 +150,7 @@ export default function FlooringInstallationBrisbanePage() {
                         "@type": "LocalBusiness",
                         "name": "Turner Installs - Flooring Installation Brisbane",
                         "description": "Professional flooring installation across Brisbane. Timber, hybrid, vinyl & laminate. Oxley-based.",
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61 413 592 054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",

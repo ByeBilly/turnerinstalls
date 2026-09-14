@@ -3,6 +3,7 @@ import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: {
@@ -22,6 +23,10 @@ export const metadata = {
 export default function Contact() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "/" },
+        { name: "Contact", url: "/contact" },
+      ]} />
       <section className="min-h-screen pt-20 pb-24 flex flex-col justify-center relative bg-slate-50">
         {/* Header Section - Trade Style (Navy) */}
         <div className="bg-white border-b border-slate-200 py-16 mb-12">

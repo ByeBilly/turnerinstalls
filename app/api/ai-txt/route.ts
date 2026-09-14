@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { BASE_URL } from "@/lib/business";
 
-const BASE = "https://turnerinstalls.com.au";
+const BASE = BASE_URL;
 
 function aiTxtContent(): string {
     return `# ai.txt for Turner Installs

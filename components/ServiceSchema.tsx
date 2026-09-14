@@ -9,7 +9,7 @@ export default function ServiceSchema({ title, description, url }: { title: stri
             "telephone": "+61413592054",
             "email": "liam@turnerinstalls.com",
             "url": "https://www.turnerinstalls.com.au",
-            "image": "https://www.turnerinstalls.com.au/logo.png",
+            "image": "https://www.turnerinstalls.com.au/images/logo.png",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Brisbane",

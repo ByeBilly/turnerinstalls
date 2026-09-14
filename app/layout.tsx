@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Turner Installs",
     images: [
       {
-        url: "/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
+        url: "/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png",
         width: 1200,
         height: 630,
         alt: "Turner Installs Premium Flooring",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Turner Installs | Expert Flooring & Professional Floor Preparation",
     description: "Expert flooring installation and professional preparation in Brisbane.",
-    images: ["/images/resource_9fVqoabE10H5PDfVW4rOXY.png"],
+    images: ["/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png"],
   },
   icons: {
     icon: "/favicon.png",

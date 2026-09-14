@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -83,6 +84,11 @@ export default function SubfloorRepairs() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Subfloor Repairs", url: "/services/subfloor-repairs" },
+            ]} />
             <ServiceHero
                 title={<>Subfloor <span className="text-yellow-500">Repairs</span>.</>}
                 subtitle="Fixing the cracks, holes, and hazards before the new floor goes down."
@@ -134,7 +140,7 @@ export default function SubfloorRepairs() {
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61 413 592 054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "description": "Subfloor repair services including crack stitching, ramping, and patching in Brisbane.",

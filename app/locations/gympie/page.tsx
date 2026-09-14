@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -61,6 +62,11 @@ export default function Gympie() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: "Gympie", url: "/locations/gympie" },
+            ]} />
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Gympie</span>.</>}
                 subtitle="High-quality concrete preparation for the Gold City region."
@@ -110,7 +116,7 @@ export default function Gympie() {
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Gympie",
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61 413 592 054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",

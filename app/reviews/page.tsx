@@ -1,13 +1,15 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ReviewCard from "@/components/ReviewCard";
 import CTAButton from "@/components/CTAButton";
+import ReviewsSchema from "@/components/ReviewsSchema";
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from "next";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 
 export const metadata: Metadata = {
-    title: "Client Reviews | Turner Installs Flooring Brisbane",
+    title: { absolute: "Client Reviews | Turner Installs Flooring Brisbane" },
     description: "See what our clients say about our floor preparation, grinding, and installation services across Brisbane and SE QLD.",
     alternates: {
         canonical: "/reviews",
@@ -35,6 +37,10 @@ export default async function ReviewsPage() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Reviews", url: "/reviews" },
+            ]} />
             <ServiceHero
                 title={<>Client <span className="text-yellow-500">Reviews</span>.</>}
                 subtitle="Real feedback from real flooring projects across South East Queensland."
@@ -78,6 +84,7 @@ export default async function ReviewsPage() {
                     </CTAButton>
                 </div>
             </section>
+            <ReviewsSchema />
         </>
     );
 }

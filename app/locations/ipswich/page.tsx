@@ -3,9 +3,10 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
-    title: "Ipswich Timber Flooring & Floor Prep | Turner Installs",
+    title: { absolute: "Ipswich Timber Flooring & Floor Prep | Turner Installs" },
     description:
         "Expert floor preparation, concrete grinding, and timber flooring installation in Ipswich, QLD. Local master installers with 3 generations of experience.",
     alternates: { canonical: "/locations/ipswich" },
@@ -15,6 +16,11 @@ export const metadata = {
 export default function Ipswich() {
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: "Ipswich", url: "/locations/ipswich" },
+            ]} />
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900">
                 <div className="absolute inset-0 z-0">

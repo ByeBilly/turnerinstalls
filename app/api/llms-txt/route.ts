@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs";
 import { suburbs } from "@/data/suburbs";
 import { blogPosts } from "@/data/blogPosts";
+import { BASE_URL } from "@/lib/business";
 
-const BASE = "https://turnerinstalls.com.au";
+const BASE = BASE_URL;
 
 function llmsTxtContent(): string {
     const flooringLinks = flooringInstallationSuburbs

@@ -8,7 +8,7 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import ImageGrid from "@/components/ImageGrid";
 import BeforeAfterGallery from "@/components/BeforeAfterGallery";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
@@ -106,11 +106,20 @@ export default function FloorPreparation() {
     {
       question: "What is the cost of floor preparation?",
       answer: "It varies based on the condition of the slab. We provide a fixed-price quote after a site inspection so there are no surprises."
+    },
+    {
+      question: "Can I lay hybrid flooring over uneven or old tiles?",
+      answer: "Not directly if the tiles are uneven, drummy (hollow-sounding) or lippy at the edges — hybrid's rigid core will telegraph those defects and can flex or click apart over time. We either grind the tile bed back flat, skim it with self-levelling compound, or uplift the tiles entirely, so the finished substrate meets the flatness tolerance the flooring manufacturer's warranty requires."
     }
   ];
 
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Floor Preparation", url: "/services/floor-preparation" }
+      ]} />
       <ServiceHero
         title={<>Floor Preparation <span className="text-yellow-500">Brisbane</span></>}
         subtitle="The secret to a flawless floor is what lies beneath. We create mirror-flat, structural substrates for high-end installations."
@@ -211,11 +220,6 @@ export default function FloorPreparation() {
         subtitle="Don't compromise on the foundation. Contact Turner Installs for expert floor preparation."
         buttonText="Get a Prep Quote"
       />
-      <BreadcrumbSchema items={[
-        { name: "Home", url: "/" },
-        { name: "Services", url: "/services" },
-        { name: "Floor Preparation", url: "/services/floor-preparation" }
-      ]} />
       <FAQSchema faqs={faqs} />
       <script
         type="application/ld+json"

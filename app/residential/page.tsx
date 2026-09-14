@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "Residential Flooring Brisbane",
@@ -18,6 +19,10 @@ export const metadata = {
 export default function Residential() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "/" },
+        { name: "Residential", url: "/residential" },
+      ]} />
       {/* HERO SECTION */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

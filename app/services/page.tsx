@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CTAButton from "@/components/CTAButton";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -83,6 +84,10 @@ export default function ServicesIndex() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+            ]} />
             <ServiceHero
                 title={<>Flooring Services <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Expert floor preparation solutions for every substrate challenge."
@@ -137,8 +142,8 @@ export default function ServicesIndex() {
                         Not sure what your floor needs? Send us a photo or give us a call.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <CTAButton href="tel:+61748022388" variant="primary">
-                            Call Now
+                        <CTAButton href="tel:0413592054" variant="primary">
+                            Call Liam
                         </CTAButton>
                         <CTAButton href="/contact" variant="secondary">
                             Email Us

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ModernGallery from "@/components/ModernGallery";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
@@ -52,44 +53,93 @@ const failureSignals = [
 
 const workflow = [
   {
-    step: "Assess",
+    step: "Detailed straight-edge and laser audit",
     detail:
-      "We inspect the slab, existing floor, glue residue, moisture risk, access, power, and the flooring product being installed.",
+      "We inspect the slab, existing floor, glue residue, moisture risk, access, power and the flooring product, using straight edges and laser lines to map high ridges and low hollows.",
   },
   {
-    step: "Grind",
+    step: "Dust-controlled diamond grinding",
     detail:
-      "High ridges, glue, paint, soft laitance, and contamination are removed with diamond tooling and dust extraction.",
+      "High points are ground down and the concrete surface is mechanically profiled for bond strength using diamond tooling and dust extraction.",
   },
   {
-    step: "Patch",
+    step: "Substrate cleaning and priming",
     detail:
-      "Cracks, divots, ramps, and local lows are repaired before primer or self-levelling compound is applied.",
+      "Residual dust is extracted, porosity is controlled and the correct acrylic or epoxy primer is applied before patching or levelling.",
   },
   {
-    step: "Level",
+    step: "Precision pour and gauging",
     detail:
-      "Primer and high-flow levelling compound are used where the floor needs a flatter, more stable installation base.",
+      "Levelling compound is mixed to the correct water ratio, poured or pumped, then worked with gauge tools and spiked rollers to remove trapped air.",
   },
   {
-    step: "Handover",
+    step: "Cure and final inspection",
     detail:
-      "The surface is vacuumed, checked, and left ready for hybrid, vinyl plank, timber, laminate, carpet tiles, or commercial flooring.",
+      "The surface is checked before handover and left ready for hybrid, vinyl plank, timber, laminate, carpet tiles or commercial flooring once moisture readings are suitable.",
   },
 ];
 
-const applications = [
-  "Tile glue removal",
-  "Vinyl plank preparation",
-  "Hybrid flooring subfloors",
-  "Timber installation bases",
-  "Commercial make-good work",
-  "Rain-damaged slab grinding",
-  "Garage coating removal",
-  "Flood levelling before install",
+const serviceOfferings = [
+  {
+    title: "Precision concrete diamond grinding",
+    text: "Heavy-duty grinding to knock down high ridges, concrete bumps, rain-damaged screeds and expansion-joint humps.",
+    proof: "Industrial vacuum systems and diamond tooling keep slab correction controlled on occupied homes and commercial sites.",
+  },
+  {
+    title: "Adhesive, tile glue and paint removal",
+    text: "Removal of old ceramic tile mortar, black adhesive, carpet glue, epoxy coatings and paint overspray.",
+    proof: "New adhesives and levelling compounds need clean, porous concrete so they can bond properly.",
+  },
+  {
+    title: "Self-levelling underlayments and bulk fills",
+    text: "Moisture-tolerant primers followed by high-flow cementitious levellers for feather-finish work through to deeper fills.",
+    proof: "Useful for dished slabs, sloping rooms, renovation transitions and large open-plan flooring areas.",
+  },
+  {
+    title: "Crack stitching and joint repair",
+    text: "Non-structural slab cracks can be chased, sealed and treated before levelling.",
+    proof: "This reduces the risk of hairline reflection cracking through the finished floor system.",
+  },
+];
+
+const comparisonRows = [
+  {
+    feature: "Typical projects",
+    residential:
+      "Home extensions, tile uplifts, Queenslander renovations and garage conversions.",
+    commercial:
+      "Office defits, retail shopfronts, medical centres and warehouse office spaces.",
+  },
+  {
+    feature: "Common problem",
+    residential:
+      "Inconsistent slab joins, old glue and 10-20mm level differences between rooms.",
+    commercial:
+      "Large square metre pours, strict handover dates and high foot-traffic specifications.",
+  },
+  {
+    feature: "Noise and dust control",
+    residential:
+      "Domestic dust control and clean work practices inside occupied homes.",
+    commercial:
+      "Industrial dust containment with night or weekend work discussed where the project requires it.",
+  },
+  {
+    feature: "Flooring compatibility",
+    residential:
+      "Hybrid planks, glue-down vinyl, direct-stick timber and carpet.",
+    commercial:
+      "Commercial sheet vinyl, carpet tiles, engineered oak and resilient flooring systems.",
+  },
 ];
 
 const faqs = [
+  {
+    question:
+      "How flat does a subfloor need to be for hybrid or vinyl plank flooring?",
+    answer:
+      "Many flooring manufacturers require tight flatness tolerances, commonly around 3mm over 3 metres and tighter local checks. Even small dips can make locking joints feel hollow or shear under traffic.",
+  },
   {
     question: "Do I need grinding or floor levelling?",
     answer:
@@ -101,9 +151,19 @@ const faqs = [
       "Yes. Turner Installs uses mechanical grinding and adhesive-removal tooling to strip old glue and expose a clean surface for primer, levelling compound, or direct-stick flooring.",
   },
   {
-    question: "Is the work dust-free?",
+    question: "Is concrete grinding going to fill my home with dust?",
     answer:
-      "Concrete preparation creates dust, but the grinding setup uses commercial dust extraction to capture it at the source and keep the job controlled.",
+      "No. Concrete preparation creates dust, but Turner Installs uses diamond grinders connected to high-efficiency dust extraction to capture dust at the cutting head and keep the work controlled.",
+  },
+  {
+    question: "Can you just put extra underlay down instead of levelling?",
+    answer:
+      "No. Underlay can help with acoustic or thermal performance, but it does not bridge low spots or remove high humps. Too much vertical movement can accelerate board failure.",
+  },
+  {
+    question: "How soon after self-levelling can the new floor be laid?",
+    answer:
+      "Many premium self-levellers are walkable within 2 to 4 hours, but hard flooring usually waits until the compound has cured enough and moisture readings are suitable. On many jobs that means 24 to 48 hours.",
   },
   {
     question: "Does this help with flooring warranties?",
@@ -111,15 +171,20 @@ const faqs = [
       "Yes. Proper substrate preparation supports manufacturer requirements and reduces the risk of flexing, hollow spots, bond failure, and avoidable installation defects.",
   },
   {
-    question: "Do you handle commercial sites?",
+    question: "What service areas do you cover across South East Queensland?",
     answer:
-      "Yes. The same preparation logic applies to homes, retail spaces, offices, tenancy make-goods, and larger commercial flooring projects across Brisbane and South East Queensland.",
+      "Turner Installs is based around the Brisbane western suburbs and services Brisbane, Ipswich, Logan, northern Gold Coast corridors and surrounding South East Queensland areas.",
   },
 ];
 
 export default function FloorLevellingConcreteGrindingPage() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Floor Levelling & Concrete Grinding", url: "/services/floor-levelling-concrete-grinding" },
+      ]} />
       <ServiceHero
         title={
           <>
@@ -141,8 +206,8 @@ export default function FloorLevellingConcreteGrindingPage() {
               Subfloor failure prevention
             </p>
             <h2 className="mb-6 text-3xl font-black leading-tight text-slate-900 md:text-5xl">
-              Protect your flooring investment: why floor failures start below
-              the surface.
+              Protect your flooring investment: why 80% of floor failures start
+              below the surface.
             </h2>
             <div className="space-y-5 text-lg font-medium leading-relaxed text-slate-700">
               <p>
@@ -201,6 +266,32 @@ export default function FloorLevellingConcreteGrindingPage() {
         </div>
       </section>
 
+      <section className="border-y border-slate-200 bg-slate-950 py-16 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-yellow-400">
+              The standard we work to
+            </p>
+            <h2 className="text-3xl font-black leading-tight md:text-5xl">
+              AS 1884-2021 aware slab preparation before the floor goes down.
+            </h2>
+          </div>
+          <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-sm">
+            <p className="text-lg font-medium leading-relaxed text-slate-100">
+              Under AS 1884-2021 for resilient flooring and common Australian
+              hard-flooring manufacturer requirements, subfloors are expected to
+              be flat, clean and stable before installation. Many product specs
+              require no more than a 3mm deviation over a 3-metre straight edge.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate-300">
+              Turner Installs checks the slab, identifies where grinding ends
+              and levelling begins, and prepares the surface so the finished
+              flooring system has a real chance of performing.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-slate-200 bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-5">
           <div className="mb-10 max-w-3xl">
@@ -230,6 +321,37 @@ export default function FloorLevellingConcreteGrindingPage() {
       </section>
 
       <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="mb-10 max-w-3xl">
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-yellow-600">
+              Core service offerings
+            </p>
+            <h2 className="text-3xl font-black leading-tight text-slate-900 md:text-5xl">
+              Comprehensive subfloor prep and remediation services.
+            </h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            {serviceOfferings.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm"
+              >
+                <h3 className="mb-3 text-xl font-black text-slate-900">
+                  {item.title}
+                </h3>
+                <p className="mb-4 text-sm leading-relaxed text-slate-600">
+                  {item.text}
+                </p>
+                <p className="rounded border border-yellow-200 bg-yellow-50 p-4 text-sm font-bold leading-relaxed text-slate-800">
+                  {item.proof}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-slate-50 py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-lg">
             <Image
@@ -246,7 +368,8 @@ export default function FloorLevellingConcreteGrindingPage() {
               Site workflow
             </p>
             <h2 className="mb-8 text-3xl font-black leading-tight text-slate-900 md:text-5xl">
-              From slab inspection to floor-ready handover.
+              How we prepare your subfloor: from rough slab to laser-flat
+              finish.
             </h2>
             <div className="grid gap-4">
               {workflow.map((item, index) => (
@@ -272,6 +395,41 @@ export default function FloorLevellingConcreteGrindingPage() {
         </div>
       </section>
 
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="mb-10 max-w-3xl">
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-yellow-600">
+              Residential and commercial capability
+            </p>
+            <h2 className="text-3xl font-black leading-tight text-slate-900 md:text-5xl">
+              Built for domestic renovations and high-demand commercial
+              fit-outs.
+            </h2>
+          </div>
+          <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+            <div className="grid bg-slate-900 text-sm font-black uppercase tracking-wide text-white md:grid-cols-[0.7fr_1fr_1fr]">
+              <div className="p-4">Feature</div>
+              <div className="p-4">Residential renovations</div>
+              <div className="p-4">Commercial and multi-residential</div>
+            </div>
+            {comparisonRows.map((row) => (
+              <div
+                key={row.feature}
+                className="grid border-t border-slate-200 text-sm leading-relaxed md:grid-cols-[0.7fr_1fr_1fr]"
+              >
+                <div className="bg-slate-50 p-4 font-black text-slate-900">
+                  {row.feature}
+                </div>
+                <div className="p-4 text-slate-700">{row.residential}</div>
+                <div className="border-t border-slate-100 p-4 text-slate-700 md:border-l md:border-t-0">
+                  {row.commercial}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-slate-200 bg-slate-900 py-20 text-white">
         <div className="mx-auto max-w-7xl px-5">
           <div className="mb-10 max-w-3xl">
@@ -284,7 +442,16 @@ export default function FloorLevellingConcreteGrindingPage() {
             </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {applications.map((item) => (
+            {[
+              "Tile glue removal",
+              "Vinyl plank preparation",
+              "Hybrid flooring subfloors",
+              "Timber installation bases",
+              "Commercial make-good work",
+              "Rain-damaged slab grinding",
+              "Garage coating removal",
+              "Flood levelling before install",
+            ].map((item) => (
               <div
                 key={item}
                 className="rounded border border-white/10 bg-white/5 px-4 py-4 text-sm font-bold text-slate-100"
@@ -308,9 +475,9 @@ export default function FloorLevellingConcreteGrindingPage() {
       <InternalLinks type="locations" />
 
       <SEOCTA
-        title="Get the slab right before the floor goes down."
-        subtitle="Send through the job details and Turner Installs can assess the right grinding, patching and levelling path."
-        buttonText="Request a Subfloor Assessment"
+        title="Don't risk your new floors on an uneven slab."
+        subtitle="Whether you are a builder preparing a commercial handover or a homeowner starting a major renovation, get the subfloor done right the first time."
+        buttonText="Get a Free On-Site Slab Measure & Quote"
       />
 
       <script

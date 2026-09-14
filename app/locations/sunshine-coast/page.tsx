@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -61,6 +62,11 @@ export default function SunshineCoast() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: "Sunshine Coast", url: "/locations/sunshine-coast" },
+            ]} />
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Sunshine Coast</span>.</>}
                 subtitle="From Caloundra to Noosa, we deliver premium subfloors."
@@ -110,7 +116,7 @@ export default function SunshineCoast() {
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Sunshine Coast",
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61 413 592 054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",

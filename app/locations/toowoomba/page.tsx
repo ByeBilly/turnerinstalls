@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -61,6 +62,11 @@ export default function Toowoomba() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: "Toowoomba", url: "/locations/toowoomba" },
+            ]} />
             <ServiceHero
                 title={<>Floor Prep <span className="text-yellow-500">Toowoomba</span>.</>}
                 subtitle="Bringing high-spec floor preparation to the Darling Downs."
@@ -110,7 +116,7 @@ export default function Toowoomba() {
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Turner Installs Toowoomba",
-                        "telephone": "+61 7480 223 88",
+                        "telephone": "+61 413 592 054",
                         "email": "liam@turnerinstalls.com",
                         "address": {
                             "@type": "PostalAddress",

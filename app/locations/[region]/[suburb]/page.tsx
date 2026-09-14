@@ -12,7 +12,7 @@ import TrustBar from "@/components/TrustBar";
 import HeroForm from "@/components/HeroForm";
 import StorySection from "@/components/StorySection";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
@@ -156,6 +156,12 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+                { name: suburb.region.replace('-', ' ').toUpperCase(), url: `/locations/${suburb.region}` },
+                { name: suburb.name, url: `/locations/${suburb.region}/${suburb.slug}` }
+            ]} />
             <ServiceHero
                 title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
                 subtitle={content.heroSubtitle}
@@ -272,13 +278,6 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 subtitle="Get a free quote from the local experts today."
                 buttonText="Get Local Quote"
             />
-
-            <BreadcrumbSchema items={[
-                { name: "Home", url: "/" },
-                { name: "Service Areas", url: "/service-areas" },
-                { name: suburb.region.replace('-', ' ').toUpperCase(), url: `/locations/${suburb.region}` },
-                { name: suburb.name, url: `/locations/${suburb.region}/${suburb.slug}` }
-            ]} />
 
             <FAQSchema faqs={[
                 {

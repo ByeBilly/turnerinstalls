@@ -8,6 +8,8 @@ import {
 import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs";
 import BlogContent from "@/components/BlogContent";
 import SEOCTA from "@/components/SEOCTA";
+import BlogPostingSchema from "@/components/BlogPostingSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -63,6 +65,18 @@ export default async function BlogPostPage({
 
     return (
         <>
+            <BlogPostingSchema
+                slug={post.slug}
+                title={post.title}
+                description={post.metaDescription}
+                author={post.author}
+                datePublished={post.publishedAt}
+            />
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Blog", url: "/blog" },
+                { name: post.title, url: `/blog/${post.slug}` },
+            ]} />
             <article className="py-16 bg-white">
                 <div className="max-w-3xl mx-auto px-5">
                     <Link

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: {
@@ -44,6 +45,10 @@ const supportPhoneHref = "tel:0413592054";
 export default function About() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "/" },
+        { name: "About", url: "/about" },
+      ]} />
       {/* HERO SECTION */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

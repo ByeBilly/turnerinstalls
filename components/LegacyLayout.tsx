@@ -30,7 +30,7 @@ export default function LegacyLayout() {
 
                         <div className="flex flex-wrap gap-4">
                             <CTAButton href="/contact" variant="primary">Request a Quote</CTAButton>
-                            <span className="text-gray-400 self-center text-sm">Or call: <span className="text-yellow-500 font-bold">07 4802 2388</span></span>
+                            <span className="text-gray-400 self-center text-sm">Or call: <span className="text-yellow-500 font-bold">0413 592 054</span></span>
                         </div>
 
                         <div className="mt-6 flex items-center gap-2 text-xs text-gray-500">

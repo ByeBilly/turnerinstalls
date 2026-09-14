@@ -3,6 +3,7 @@ import Link from "next/link";
 import { suburbs, getSuburbsByRegion } from "@/data/suburbs";
 import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs";
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
     title: "Flooring Service Areas Brisbane",
@@ -22,6 +23,10 @@ export default function ServiceAreas() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Service Areas", url: "/service-areas" },
+            ]} />
             <ServiceHero
                 title={<>Flooring Service Areas <span className="text-yellow-500">Brisbane</span></>}
                 subtitle="Our active service locations across South East Queensland."

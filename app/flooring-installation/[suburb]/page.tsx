@@ -7,9 +7,8 @@ import {
 import ServiceHero from "@/components/ServiceHero";
 import SEOCTA from "@/components/SEOCTA";
 import InternalLinks from "@/components/InternalLinks";
-import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
@@ -64,6 +63,51 @@ const services = [
     "Renovation flooring upgrades",
 ];
 
+const projectExampleImages = [
+    {
+        src: "/installspics/finished/finished-timber-floor-display.jpg",
+        alt: "Turner Installs finished timber flooring project example",
+        caption: "Turner Installs project example",
+    },
+    {
+        src: "/installspics/finished/finishedfloor.jpg",
+        alt: "Turner Installs finished flooring project example",
+        caption: "Turner Installs project example",
+    },
+    {
+        src: "/installspics/finished/new-farm-apartment-flooring.jpg",
+        alt: "New Farm apartment flooring project by Turner Installs",
+        caption: "New Farm project shown",
+    },
+    {
+        src: "/installspics/finished/paddington-queenslander-flooring.jpg",
+        alt: "Paddington Queenslander timber flooring project by Turner Installs",
+        caption: "Paddington project shown",
+    },
+    {
+        src: "/installspics/finished/the-gap-timber-flooring.jpg",
+        alt: "The Gap timber flooring project by Turner Installs",
+        caption: "The Gap project shown",
+    },
+    {
+        src: "/images/Timber-Oxley.jpeg",
+        alt: "Youngs Crossing timber-look flooring project by Turner Installs",
+        caption: "Youngs Crossing project shown",
+    },
+];
+
+function projectIndex(slug: string) {
+    return Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0) % projectExampleImages.length;
+}
+
+function rotatedProjectExamples(slug: string) {
+    const start = projectIndex(slug);
+    return [
+        ...projectExampleImages.slice(start),
+        ...projectExampleImages.slice(0, start),
+    ];
+}
+
 export default async function FlooringInstallationSuburbPage({
     params,
 }: {
@@ -80,18 +124,22 @@ export default async function FlooringInstallationSuburbPage({
         .map((slug) => flooringInstallationSuburbs.find((s) => s.slug === slug))
         .filter(Boolean);
     const serviceDescription = `Flooring installation in ${data.name} with floor preparation, old floor uplift, adhesive removal, rubbish removal, levelling and clean subfloor handover.`;
+    const heroProject = projectExampleImages[projectIndex(data.slug)];
+    const galleryProjects = rotatedProjectExamples(data.slug);
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Flooring Installation Brisbane", url: "/flooring-installation-brisbane" },
+                { name: data.name, url: `/flooring-installation/${data.slug}` }
+            ]} />
             <ServiceHero
                 title={data.h1Title || <>Flooring Installation in <span className="text-yellow-500">{data.name}</span></>}
                 subtitle={`Premium timber, hybrid, vinyl and laminate flooring for ${data.name} homes. Local installer based near Oxley.`}
-                imagePath={
-                    siteImages.home.transformations[0]?.src ||
-                    "/installspics/finished/brisbane views.jpg"
-                }
-                imageAlt={siteImages.home.transformations[0]?.alt || "Turner Installs flooring project"}
-                imageNote="Carrara Gold Coast project shown"
+                imagePath={heroProject.src}
+                imageAlt={heroProject.alt}
+                imageNote={heroProject.caption}
                 label={`${data.name.toUpperCase()} (${data.postcode})`}
             />
 
@@ -157,7 +205,7 @@ export default async function FlooringInstallationSuburbPage({
             <ModernGallery
                 title="Recent Turner Installs flooring projects"
                 description={`Real Turner Installs project photos used as workmanship examples for ${data.name}. Captions name the location where it is known.`}
-                images={siteImages.home.transformations}
+                images={galleryProjects}
                 limit={4}
             />
 
@@ -191,12 +239,6 @@ export default async function FlooringInstallationSuburbPage({
                 subtitle="Get a free quote from the local flooring experts. Fast response, quality finish."
                 buttonText={`Get ${data.name} Quote`}
             />
-
-            <BreadcrumbSchema items={[
-                { name: "Home", url: "/" },
-                { name: "Flooring Installation Brisbane", url: "/flooring-installation-brisbane" },
-                { name: data.name, url: `/flooring-installation/${data.slug}` }
-            ]} />
 
             <FAQSchema faqs={[
                 {

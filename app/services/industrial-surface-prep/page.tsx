@@ -1,4 +1,5 @@
 import ServiceHero from "@/components/ServiceHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -70,6 +71,11 @@ export default function IndustrialPrep() {
 
     return (
         <>
+            <Breadcrumbs items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services" },
+                { name: "Industrial Surface Preparation", url: "/services/industrial-surface-prep" },
+            ]} />
             <ServiceHero
                 title={<>Industrial <span className="text-yellow-500">Prep</span>.</>}
                 subtitle="Large scale solutions for big concrete spaces."
@@ -120,7 +126,7 @@ export default function IndustrialPrep() {
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Turner Installs",
-                            "telephone": "+61 7480 223 88",
+                            "telephone": "+61 413 592 054",
                             "email": "liam@turnerinstalls.com"
                         },
                         "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]

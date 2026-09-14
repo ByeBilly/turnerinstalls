@@ -5,6 +5,8 @@ import ServiceAreaMapWrapper from "@/components/ServiceAreaMapWrapper";
 import { siteImages } from "@/data/siteImages";
 import HeroForm from "@/components/HeroForm";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
+import { BASE_URL, BUSINESS } from "@/lib/business";
+import { buildAggregateRating } from "@/lib/reviews";
 
 export const metadata = {
   title: {
@@ -51,23 +53,19 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FlooringContractor",
-            name: "Turner Installs",
+            name: BUSINESS.name,
             description: "Expert flooring contractor specialising in vinyl plank, timber, hybrid installation, floor levelling, and diamond grinding in Brisbane.",
-            url: "https://www.turnerinstalls.com.au",
-            telephone: "+61413592054",
-            email: "liam@turnerinstalls.com",
-            image: "https://www.turnerinstalls.com.au/images/resource_9fVqoabE10H5PDfVW4rOXY.png",
+            url: BASE_URL,
+            telephone: BUSINESS.telephone,
+            email: BUSINESS.email,
+            image: BUSINESS.image,
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Brisbane",
-              addressRegion: "QLD",
-              postalCode: "4074",
-              addressCountry: "AU",
+              ...BUSINESS.address,
             },
             geo: {
               "@type": "GeoCoordinates",
-              latitude: -27.4698,
-              longitude: 153.0251,
+              ...BUSINESS.geo,
             },
             areaServed: [
               { "@type": "City", name: "Brisbane" },
@@ -75,7 +73,8 @@ export default function Home() {
               { "@type": "City", name: "Gold Coast" },
               { "@type": "City", name: "Sunshine Coast" }
             ],
-            priceRange: "$$",
+            priceRange: BUSINESS.priceRange,
+            founder: BUSINESS.founder,
             openingHoursSpecification: [
               {
                 "@type": "OpeningHoursSpecification",
@@ -84,6 +83,7 @@ export default function Home() {
                 closes: "17:00"
               }
             ],
+            ...(buildAggregateRating() ? { aggregateRating: buildAggregateRating() } : {}),
             sameAs: [
               GOOGLE_REVIEW_URL
             ]
