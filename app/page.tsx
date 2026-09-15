@@ -108,15 +108,44 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-left text-slate-900 w-full overflow-hidden">
             <div className="inline-block bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6 max-w-full whitespace-normal leading-relaxed">
-              Brisbane & Ipswich Flooring Specialists
+              Servicing SE QLD
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900 break-words">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Perfect Floor</span>{" "}<br />
-              <span className="text-yellow-500">Preparation.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl font-black mb-8 leading-tight tracking-tight text-slate-900 break-words lg:whitespace-nowrap">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Your Flooring</span>{" "}
+              <span className="text-yellow-500">Expert.</span>
             </h1>
-            <p className="text-xl text-slate-700 max-w-lg mb-8 leading-relaxed font-medium">
-              Don't risk your new floor on a bad foundation. We deliver mirror-flat subfloors and precision installation.
-            </p>
+            <div className="mb-8 space-y-6 max-w-lg">
+              <div>
+                <p className="text-sm font-black uppercase tracking-widest text-slate-500 mb-3">Specialising In</p>
+                <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-lg text-slate-700 font-medium">
+                  {["Timber", "Laminate", "Hybrid", "Vinyl Plank", "Bamboo", "& More"].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-yellow-500">●</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm font-black uppercase tracking-widest text-slate-500 mb-3">Efficient Removal Of All Floor Coverings</p>
+                <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-lg text-slate-700 font-medium">
+                  {["Ceramic Tiles", "Slate", "Carpet", "Vinyl", "& More"].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-yellow-500">●</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm font-black uppercase tracking-widest text-slate-500 mb-3">Floor Preparation</p>
+                <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-lg text-slate-700 font-medium">
+                  {["Levelling", "Flood Levelling", "Grinding", "Rubbish Removal", "& More"].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-yellow-500">●</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
