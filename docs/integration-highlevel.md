@@ -1,96 +1,74 @@
-# HighLevel CRM Integration
+# Lead Form Email Delivery
 
-This Next.js site is integrated with HighLevel CRM to automatically capture website enquiries and provide AI chat support.
+Turner Installs no longer depends on GoHighLevel for website form delivery.
 
-## Overview
+The public forms submit to the local Next.js API route at `/api/lead`, and that route sends a direct email using Resend.
 
-- **Contact Form Submissions**: All contact form submissions are automatically sent to HighLevel as contacts/opportunities
-- **AI Chat Widget**: HighLevel's AI chat widget appears on every page for instant customer support
+## Flow
 
-## Environment Variables
+- Homepage and suburb fast quote forms: `components/HeroForm.tsx`
+- Contact page form: `components/ContactForm.tsx`
+- Shared API endpoint: `app/api/lead/route.ts`
+- Email provider: Resend
 
-Create a `.env.local` file in the root of the project (it's already in `.gitignore` to keep secrets safe).
+Request flow:
 
-The following environment variables must be set in `.env.local`:
-
-### `NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET`
-
-The HighLevel web chat script snippet that enables the AI chat widget on all pages.
-
-**How to get it:**
-1. Log into your HighLevel account
-2. Navigate to **Sites → Chat Widget**
-3. Copy the web chat script snippet
-4. Paste it into `NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET` in your `.env.local` file
-
-**Example `.env.local`:**
-```
-NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET="<script>(function(w,d,s,o,f,js,fjs){w['GoHighLevel']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)},js=d.createElement(s),fjs=d.getElementsByTagName(s)[0],js.id=o,js.src=f,js.async=1,fjs.parentNode.insertBefore(js,fjs)}(window,document,'script','ghl','https://cdn.gohighlevel.com/widget.js'));ghl('init', 'YOUR_LOCATION_ID');</script>"
+```text
+Website form -> /api/lead -> Resend -> Liam's inbox
 ```
 
-### `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL`
+The fast quote form also sends analytics/tracking to `/api/fast-quote-submit`, but that route only logs a tracking event. It is not the lead delivery path.
 
-The HighLevel webhook URL that receives contact form submissions.
+## Vercel Environment Variables
 
-**How to get it:**
-1. Log into your HighLevel account
-2. Navigate to **Automations → Webhooks** (or the appropriate Form/Workflow section)
-3. Create a new **Inbound Webhook** or configure a Form integration
-4. Copy the webhook URL
-5. Paste it into `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL` in your `.env.local` file
+Set these in Vercel for Production, Preview, and Development as needed:
 
-**Example `.env.local`:**
-```
-NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL="https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID"
+```bash
+RESEND_API_KEY="re_..."
+LEAD_EMAIL_TO="billiamglobal@gmail.com,liam@turnerinstalls.com"
+LEAD_EMAIL_FROM="Turner Installs <leads@turnerinstalls.com.au>"
 ```
 
-## Form Submission Payload
+Use a comma-separated `LEAD_EMAIL_TO` value when leads should go to more than one inbox.
 
-When a contact form is submitted, the following data is sent to HighLevel:
+`LEAD_EMAIL_FROM` must be a sender/domain verified in the Resend account. If the domain is not verified yet, add and verify the sending domain in Resend before relying on production delivery.
 
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "phone": "0412345678",
-  "propertyType": "Homeowner",
-  "serviceInterest": "Vinyl plank installs, Floor preparation & levelling",
-  "message": "I need a quote for my living room...",
-  "source": "Turner Installs Website"
-}
+For Liam's live-only handover later, change `LEAD_EMAIL_TO` to Liam's preferred inbox.
+
+For local non-sending tests only:
+
+```bash
+LEAD_EMAIL_DRY_RUN="true"
 ```
 
-## Graceful Degradation
+When dry run is enabled, `/api/lead` returns success and logs the email content instead of sending it.
 
-Both integrations are optional and fail gracefully:
+## Chat Widget
 
-- **If `NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET` is not set**: The chat widget simply won't appear. The site functions normally.
-- **If `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL` is not set**: Form submissions are logged to the console (for development) and the user still sees a success message.
+The LeadConnector chat widget is separate from form delivery. If still wanted, it uses:
+
+```bash
+NEXT_PUBLIC_GHL_CHAT_WIDGET_ID="..."
+```
+
+If GoHighLevel/LeadConnector is no longer used, remove this variable or remove the `HighLevelChat` component from `app/layout.tsx`.
 
 ## Testing
 
-1. **Test Chat Widget**:
-   - Set `NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET` in `.env.local`
-   - Run `npm run dev`
-   - Visit any page - the chat widget should appear
+Local dry-run test:
 
-2. **Test Form Submission**:
-   - Set `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL` in `.env.local`
-   - Submit the contact form
-   - Check your HighLevel account - a new contact/opportunity should be created
+```bash
+LEAD_EMAIL_DRY_RUN=true npm run dev
+```
 
-## Troubleshooting
+Then submit a form, or POST a test payload to `/api/lead`. A successful dry run returns:
 
-- **Chat widget not appearing**: Check that `NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET` is set correctly and includes the full script tag
-- **Form submissions not reaching HighLevel**: 
-  - Verify the webhook URL is correct
-  - Check browser console for errors
-  - Ensure the webhook is active in HighLevel
-  - Check HighLevel webhook logs for incoming requests
+```json
+{ "success": true, "dryRun": true }
+```
 
-## Files Modified
+Production test after configuring Resend:
 
-- `components/HighLevelChat.tsx` - Chat widget component
-- `app/layout.tsx` - Includes HighLevelChat component
-- `app/contact/page.tsx` - Form submission handler with HighLevel webhook integration
-
+1. Submit the live contact form with a clear test name.
+2. Confirm the email arrives in `LEAD_EMAIL_TO`.
+3. Check Vercel function logs for `/api/lead` if delivery fails.
