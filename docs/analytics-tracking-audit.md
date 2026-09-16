@@ -60,7 +60,8 @@ This can track chat starts, chat messages, contact details entered through the w
 ### Lead Forms
 
 - API route: `app/api/lead/route.ts`
-- Destination webhook env var: `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL`
+- Delivery provider: Resend
+- Required delivery env vars: `RESEND_API_KEY`, `LEAD_EMAIL_TO`, `LEAD_EMAIL_FROM`
 - Homepage form ID: `hero_fast_quote`
 - Contact page form ID: `contact_page`
 
@@ -98,11 +99,10 @@ Where to see it:
    - Check `Admin > Data streams > Web > Enhanced measurement` to see automatic events.
    - Check `Admin > Events` and `Admin > Key events` for conversions.
 
-3. HighLevel:
-   - Open the relevant HighLevel sub-account.
-   - Check Chat Widget settings for the widget matching `NEXT_PUBLIC_GHL_CHAT_WIDGET_ID`.
-   - Check Automations/Webhooks for the URL stored in `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL`.
-   - Submit a test form and confirm the contact appears with the right page URL and form source.
+3. Lead delivery:
+   - Check Vercel has `RESEND_API_KEY`, `LEAD_EMAIL_TO`, and `LEAD_EMAIL_FROM` set.
+   - Submit a test form and confirm the email arrives in every address listed in `LEAD_EMAIL_TO`.
+   - If the LeadConnector chat widget is still used, check the widget matching `NEXT_PUBLIC_GHL_CHAT_WIDGET_ID`.
 
 ## Recommendation
 

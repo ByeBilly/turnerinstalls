@@ -67,7 +67,7 @@ turnerinstallswebsite/
 - **SEO Optimized**: Metadata, Open Graph tags, and JSON-LD schema
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Accessibility**: Semantic HTML, proper heading hierarchy, ARIA where needed
-- **Contact Form**: Client-side validation (TODO: integrate with email service)
+- **Contact Form**: Website forms submit to `/api/lead`, which emails leads through Resend
 - **Modern UI**: Dark theme with high-contrast design matching brand aesthetics
 
 ## Contact Information
@@ -82,13 +82,14 @@ turnerinstallswebsite/
 
 This site is configured for deployment on Vercel. Simply connect your repository to Vercel and deploy.
 
-## HighLevel CRM Integration
+## Lead Form Email Delivery
 
-This site is integrated with HighLevel CRM for lead capture and AI chat support.
+Website form delivery uses Resend directly. GoHighLevel is no longer required for lead capture.
 
 **Required Environment Variables** (set in `.env.local`):
-- `NEXT_PUBLIC_GHL_WEBCHAT_SNIPPET` - HighLevel chat widget script (from Sites → Chat Widget)
-- `NEXT_PUBLIC_GHL_FORM_WEBHOOK_URL` - HighLevel webhook URL (from Automations → Webhooks)
+- `RESEND_API_KEY` - Resend API key for sending lead emails
+- `LEAD_EMAIL_TO` - Comma-separated recipient list, such as `billiamglobal@gmail.com,liam@turnerinstalls.com`
+- `LEAD_EMAIL_FROM` - Verified Resend sender, such as `Turner Installs <leads@turnerinstalls.com.au>`
 
 See [docs/integration-highlevel.md](docs/integration-highlevel.md) for detailed setup instructions.
 
@@ -102,7 +103,6 @@ See [docs/integration-highlevel.md](docs/integration-highlevel.md) for detailed 
 ## Notes
 
 - Images are stored in `/public/images/` and can be referenced as `/images/filename.png`
-- The contact form currently logs to console - see `app/contact/page.tsx` for integration points
+- The contact form delivery route is `app/api/lead/route.ts`
 - All pages include proper metadata for SEO
 - JSON-LD schema is included on the home page for local business SEO
-
