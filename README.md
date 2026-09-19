@@ -67,7 +67,7 @@ turnerinstallswebsite/
 - **SEO Optimized**: Metadata, Open Graph tags, and JSON-LD schema
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Accessibility**: Semantic HTML, proper heading hierarchy, ARIA where needed
-- **Contact Form**: Website forms submit to `/api/lead`, which emails leads through Resend
+- **Contact Form**: Website forms post directly from the browser to FormSubmit, which emails leads to Liam (the contact form also accepts pasted/attached photos)
 - **Modern UI**: Dark theme with high-contrast design matching brand aesthetics
 
 ## Contact Information
@@ -103,6 +103,6 @@ See [docs/integration-highlevel.md](docs/integration-highlevel.md) for detailed 
 ## Notes
 
 - Images are stored in `/public/images/` and can be referenced as `/images/filename.png`
-- The contact form delivery route is `app/api/lead/route.ts`
+- Form delivery uses FormSubmit via `lib/formSubmit.ts` (destination is `BUSINESS.email`); `app/api/lead/route.ts` (Resend) is no longer used by the forms
 - All pages include proper metadata for SEO
 - JSON-LD schema is included on the home page for local business SEO

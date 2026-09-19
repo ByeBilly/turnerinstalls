@@ -2,19 +2,21 @@
 
 Turner Installs no longer depends on GoHighLevel for website form delivery.
 
-The public forms submit to the local Next.js API route at `/api/lead`, and that route sends a direct email using Resend.
+The public forms post directly from the browser to FormSubmit, which emails Liam. No server route or API key is involved.
+
+> `app/api/lead/route.ts` (Resend) still exists but is no longer used by either form. The Resend notes below only apply if a form is pointed back at it.
 
 ## Flow
 
 - Homepage and suburb fast quote forms: `components/HeroForm.tsx`
 - Contact page form: `components/ContactForm.tsx`
-- Shared API endpoint: `app/api/lead/route.ts`
-- Email provider: Resend
+- Shared endpoint: `lib/formSubmit.ts` (`https://formsubmit.co/<BUSINESS.email>`)
+- Email provider: FormSubmit
 
 Request flow:
 
 ```text
-Website form -> /api/lead -> Resend -> Liam's inbox
+Website form -> FormSubmit -> Liam's inbox
 ```
 
 The fast quote form also sends analytics/tracking to `/api/fast-quote-submit`, but that route only logs a tracking event. It is not the lead delivery path.

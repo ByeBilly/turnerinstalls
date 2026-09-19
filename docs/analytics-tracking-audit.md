@@ -59,9 +59,8 @@ This can track chat starts, chat messages, contact details entered through the w
 
 ### Lead Forms
 
-- API route: `app/api/lead/route.ts`
-- Delivery provider: Resend
-- Required delivery env vars: `RESEND_API_KEY`, `LEAD_EMAIL_TO`, `LEAD_EMAIL_FROM`
+- Delivery: FormSubmit, posted directly from `components/HeroForm.tsx` and `components/ContactForm.tsx` (endpoint in `lib/formSubmit.ts`)
+- `app/api/lead/route.ts` (Resend) is no longer used by the forms
 - Homepage form ID: `hero_fast_quote`
 - Contact page form ID: `contact_page`
 
@@ -74,7 +73,7 @@ The submitted payload includes name, phone, email, page URL, form ID, source lab
 - First-party log endpoint: `app/api/fast-quote-submit/route.ts`
 - Form ID: `hero_fast_quote`
 
-The counter is intentionally hidden from the public website. After the homepage fast quote form successfully posts to `/api/lead`, it sends `fast_quote_submit` to `dataLayer`/GTM, direct GA4 `gtag`, and `/api/fast-quote-submit`.
+The counter is intentionally hidden from the public website. After the homepage fast quote form successfully posts to FormSubmit, it sends `fast_quote_submit` to `dataLayer`/GTM, direct GA4 `gtag`, and `/api/fast-quote-submit`.
 
 The extra counter log avoids duplicating personal contact details. It records form ID, source, page path, page URL, contact method type, referrer, user agent, and timestamp.
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { FORMSUBMIT_ENDPOINT } from "@/lib/formSubmit";
 
 type TrackingWindow = Window &
     typeof globalThis & {
@@ -9,12 +9,14 @@ type TrackingWindow = Window &
         gtag?: (command: string, eventName: string, parameters: Record<string, string>) => void;
     };
 
+const SEND_FAILED_MESSAGE = "Sorry, we couldn't send your request. Please try again or call Liam on 0413 592 054.";
+
 export default function HeroForm({ location }: { location?: string }) {
-    const router = useRouter();
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
-        email: "" // Added Email field
+        email: "", // Optional
+        _honey: ""
     });
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
@@ -71,39 +73,36 @@ export default function HeroForm({ location }: { location?: string }) {
             return;
         }
 
+        // Honeypot tripped: pretend success and drop the submission silently.
+        if (formData._honey) {
+            setStatus("success");
+            return;
+        }
+
         setStatus("submitting");
 
         try {
             // NORMALIZE PHONE: Remove spaces
             const normalizedPhone = formData.phone.replace(/\s+/g, '');
 
-            // CONSTRUCT STANDARD PAYLOAD
-            const payload = {
-                schema_version: 1,
-                event: "lead.submitted",
-                occurred_at: new Date().toISOString(),
-                lead: {
-                    name: formData.name,
-                    phone: normalizedPhone,
-                    email: formData.email
-                },
-                meta: {
-                    form_id: "hero_fast_quote",
-                    source: location ? `Turner Installs Homepage Hero - ${location}` : "Turner Installs Homepage Hero",
-                    page_url: window.location.href
-                },
-                custom_fields: {
-                    service_name: "Fast Callback Request",
-                    message: "Callback requested from Homepage Hero.",
-                    flooring_type: "Not Specified"
-                },
-                raw: { ...formData, location }
-            };
+            const source = location ? `Turner Installs Homepage Hero - ${location}` : "Turner Installs Homepage Hero";
 
-            const response = await fetch("/api/lead", {
+            const body = new FormData();
+            body.append("name", formData.name);
+            body.append("phone", normalizedPhone);
+            // FormSubmit uses the "email" field as the reply-to address, so only send it when given.
+            if (formData.email.trim()) body.append("email", formData.email.trim());
+            body.append("message", "Callback requested from Homepage Hero.");
+            body.append("source", source);
+            body.append("page_url", window.location.href);
+            body.append("_honey", formData._honey);
+            body.append("_captcha", "false");
+            body.append("_subject", `Callback request: ${formData.name}`);
+
+            const response = await fetch(FORMSUBMIT_ENDPOINT, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
+                headers: { Accept: "application/json" },
+                body
             });
 
             if (response.ok) {
@@ -111,10 +110,12 @@ export default function HeroForm({ location }: { location?: string }) {
                 setStatus("success");
             } else {
                 setStatus("error");
+                setErrorMessage(SEND_FAILED_MESSAGE);
             }
         } catch (error) {
             console.error("Form submission error:", error);
             setStatus("error");
+            setErrorMessage(SEND_FAILED_MESSAGE);
         }
     };
 
@@ -138,8 +139,20 @@ export default function HeroForm({ location }: { location?: string }) {
             <p className="text-slate-500 text-sm mb-6">Enter your details and Liam will call you back as soon as he can.</p>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
+                {/* Honeypot field: hidden from real users, bots tend to fill it in */}
+                <input
+                    type="text"
+                    name="_honey"
+                    value={formData._honey}
+                    onChange={handleChange}
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                />
+
                 {errorMessage && (
-                    <div className="bg-red-50 text-red-600 text-xs p-3 rounded-lg border border-red-200 font-semibold">
+                    <div role="alert" className="bg-red-50 text-red-600 text-xs p-3 rounded-lg border border-red-200 font-semibold">
                         {errorMessage}
                     </div>
                 )}
