@@ -23,7 +23,7 @@ function llmsTxtContent(): string {
 
     return `# Turner Installs
 
-> Brisbane's premier flooring installation and floor preparation specialists. Family-owned, third-generation craftsmanship: the family has been in the Brisbane flooring trade since 1979, starting with Turners Floorcoverings Pty Ltd at 360 Newman Road, Geebung, then Carpet Craft (BT Traders Pty Ltd) in Adelaide's southern suburbs in the 1990s. Based in Oxley, with crew leaders based in Sherwood and Eagleby, and easy access to the Ipswich Motorway, Centenary Highway, and Gateway—our central location means 30 minutes covers most of Brisbane and Ipswich, with Logan and Moreton Bay (including Narangba) within easy reach. We install timber, hybrid, vinyl, and laminate flooring across Brisbane, Ipswich, Logan, Moreton Bay, Gold Coast, and Sunshine Coast.
+> Brisbane's premier flooring installation and floor preparation specialists. Family-owned, third-generation craftsmanship: the family has been in the Brisbane flooring trade since 1979, starting with Turners Floorcoverings Pty Ltd at 360 Newman Road, Geebung, then Carpet Craft (BT Traders Pty Ltd) in Adelaide's southern suburbs in the 1990s and Fleurieu Floorcoverings in Aldinga Beach, SA. Based in Oxley, with crew leaders based in Sherwood and Eagleby, and easy access to the Ipswich Motorway, Centenary Highway, and Gateway—our central location means 30 minutes covers most of Brisbane and Ipswich, with Logan and Moreton Bay (including Narangba) within easy reach. We install timber, hybrid, vinyl, and laminate flooring across Brisbane, Ipswich, Logan, Moreton Bay, Gold Coast, and Sunshine Coast.
 
 ## Contact
 
