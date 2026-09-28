@@ -17,16 +17,17 @@ export const BUSINESS = {
     telephoneDisplay: "0413 592 054",
     email: "liam@turnerinstalls.com",
     address: {
+        streetAddress: "11 Holmedale St",
         addressLocality: "Oxley",
         addressRegion: "QLD",
         postalCode: "4075",
         addressCountry: "AU",
     },
-    // Oxley, Brisbane QLD 4075 (matches the Google Business Profile). Kept as one constant so the homepage LocalBusiness
+    // 11 Holmedale St, Oxley QLD 4075, exactly as on the Google Business Profile. Kept as one constant so the homepage LocalBusiness
     // block, service/location schema, and identity.json can't disagree again.
     geo: {
-        latitude: -27.5536,
-        longitude: 152.9769,
+        latitude: -27.5634,
+        longitude: 152.9669,
     },
     areaServed: ["Brisbane", "Ipswich", "Logan", "Moreton Bay", "Gold Coast", "Sunshine Coast"],
     // Names the real, already-public founder so schema.org can nest a

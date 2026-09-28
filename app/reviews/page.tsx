@@ -69,23 +69,34 @@ export default async function ReviewsPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-6">What Locals Say</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            We pride ourselves on communication, cleanliness, and quality. Here is what our recent customers think of the Turner Installs experience.
+                            We pride ourselves on communication, cleanliness, and quality. Our customer reviews are published on our Google Business Profile.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {reviews.map((review: any) => (
-                            <ReviewCard
-                                key={review.id}
-                                name={review.name}
-                                suburb={review.suburb}
-                                service={review.service}
-                                rating={review.rating}
-                                comment={review.comment}
-                                date={review.date}
-                            />
-                        ))}
-                    </div>
+                    {reviews.length > 0 ? (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {reviews.map((review: any) => (
+                                <ReviewCard
+                                    key={review.id}
+                                    name={review.name}
+                                    suburb={review.suburb}
+                                    service={review.service}
+                                    rating={review.rating}
+                                    comment={review.comment}
+                                    date={review.date}
+                                />
+                            ))}
+                        </div>
+                    ) : (
+                        // data/reviews.json must only ever hold genuine customer reviews
+                        // (copied from Google with the customer's name as shown there).
+                        // Until it does, send visitors to the real Google reviews.
+                        <div className="text-center">
+                            <CTAButton href={GOOGLE_REVIEW_URL} variant="primary">
+                                Read Our Google Reviews
+                            </CTAButton>
+                        </div>
+                    )}
                 </div>
             </section>
 

@@ -1,5 +1,5 @@
 # Turner Installs — llm.txt
-# https://turnerinstalls.com.au/llm.txt
+# https://www.turnerinstalls.com.au/llm.txt
 # This file follows the llm.txt convention to help AI systems accurately
 # understand and represent this website and business.
 # Last updated: June 2026
@@ -20,9 +20,10 @@ clients across South East Queensland.
 **Business Name:** Turner Installs
 **Owner/Operator:** Liam Turner
 **Type:** Local trade business — flooring contractor
-**ABN:** Australian-registered business
+**ABN:** 36 623 763 566 (Turner Installs Pty Ltd)
+**Address:** 11 Holmedale St, Oxley QLD 4075
 **Location:** Brisbane, QLD, Australia
-**Website:** https://turnerinstalls.com.au
+**Website:** https://www.turnerinstalls.com.au
 **Phone (Main):** 07 4802 2388
 **Phone (Liam Direct):** 0413 592 054
 **Email:** liam@turnerinstalls.com
@@ -94,7 +95,7 @@ Westlake, Jindalee, Chandler, Manly, Wakerley, Gumdale, and many more.
 **Gold Coast suburbs:** Surfers Paradise, Broadbeach, Carrara, Burleigh Heads.
 
 A complete list of 110 suburb landing pages is available at:
-- https://turnerinstalls.com.au/service-areas
+- https://www.turnerinstalls.com.au/service-areas
 
 ---
 
@@ -199,7 +200,7 @@ Avoid:
 ## Contact & Booking
 
 To get a quote or book a job:
-- **Online:** https://turnerinstalls.com.au/contact
+- **Online:** https://www.turnerinstalls.com.au/contact
 - **Phone:** 0413 592 054 (Liam direct)
 - **Phone:** 07 4802 2388 (reception)
 - **Email:** liam@turnerinstalls.com
@@ -214,9 +215,11 @@ Monday–Saturday, 7am–5pm AEST.
 The homepage includes JSON-LD LocalBusiness schema with:
 - @type: LocalBusiness
 - name: Turner Installs
-- url: https://turnerinstalls.com.au
-- telephone: +61748022388
-- addressLocality: Brisbane
+- url: https://www.turnerinstalls.com.au
+- telephone: +61413592054
+- streetAddress: 11 Holmedale St
+- addressLocality: Oxley
+- postalCode: 4075
 - addressRegion: QLD
 - addressCountry: AU
 - openingHours: Mo-Sa 07:00-17:00

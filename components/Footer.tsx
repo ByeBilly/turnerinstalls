@@ -78,6 +78,10 @@ export default function Footer() {
                 <a href="mailto:liam@turnerinstalls.com" className="hover:text-yellow-600 transition-colors">liam@turnerinstalls.com</a>
               </div>
               <div>
+                <strong className="text-slate-900 block mb-1">Address</strong>
+                <span>11 Holmedale St, Oxley QLD 4075</span>
+              </div>
+              <div>
                 <strong className="text-slate-900 block mb-1">Service Area</strong>
                 <span>
                   {[
