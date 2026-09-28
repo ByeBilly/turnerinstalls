@@ -30,7 +30,7 @@ export default function Header() {
           <div className="flex items-center gap-6" data-nosnippet>
             <a href="mailto:liam@turnerinstalls.com" className="hover:text-yellow-600 transition-colors font-medium">liam@turnerinstalls.com</a>
             <span className="text-slate-400">|</span>
-            <span className="font-bold text-slate-700">Mon - Fri: 7:00am - 5:00pm</span>
+            <span className="font-bold text-slate-700">Mon - Sat: 7:00am - 5:00pm</span>
           </div>
         </div>
       </div>

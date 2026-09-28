@@ -26,7 +26,7 @@ clients across South East Queensland.
 **Phone (Main):** 07 4802 2388
 **Phone (Liam Direct):** 0413 592 054
 **Email:** liam@turnerinstalls.com
-**Operating Hours:** Monday to Friday, 7:00am – 5:00pm AEST
+**Operating Hours:** Monday to Saturday, 7:00am – 5:00pm AEST
 **Price Range:** Mid–premium ($$)
 
 ---
@@ -205,7 +205,7 @@ To get a quote or book a job:
 - **Email:** liam@turnerinstalls.com
 
 Response is typically within one business day. The business operates
-Monday–Friday, 7am–5pm AEST.
+Monday–Saturday, 7am–5pm AEST.
 
 ---
 
@@ -219,7 +219,7 @@ The homepage includes JSON-LD LocalBusiness schema with:
 - addressLocality: Brisbane
 - addressRegion: QLD
 - addressCountry: AU
-- openingHours: Mo-Fr 07:00-17:00
+- openingHours: Mo-Sa 07:00-17:00
 - priceRange: $$
 
 ---

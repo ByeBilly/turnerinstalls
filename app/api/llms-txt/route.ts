@@ -30,7 +30,7 @@ function llmsTxtContent(): string {
 - **Phone:** 0413 592 054
 - **Email:** liam@turnerinstalls.com
 - **Address:** Oxley, Brisbane QLD 4074
-- **Hours:** Mon–Fri 7:00am–5:00pm
+- **Hours:** Mon–Sat 7:00am–5:00pm
 
 ## Key Services
 

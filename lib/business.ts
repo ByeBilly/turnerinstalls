@@ -41,7 +41,7 @@ export const BUSINESS = {
     // in Sherwood (west) and Eagleby (south, towards Logan/Gold Coast).
     crewBases: ["Sherwood", "Eagleby"],
     priceRange: "$$",
-    openingHours: "Mo-Fr 07:00-17:00",
+    openingHours: "Mo-Sa 07:00-17:00",
     // Actual file lives at /public/installspics/promo/... after the Jan 2026 image
     // consolidation; several pages still pointed at the old /images/ path.
     image: `${BASE_URL}/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png`,
