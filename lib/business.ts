@@ -19,10 +19,10 @@ export const BUSINESS = {
     address: {
         addressLocality: "Oxley",
         addressRegion: "QLD",
-        postalCode: "4074",
+        postalCode: "4075",
         addressCountry: "AU",
     },
-    // Oxley, Brisbane QLD 4074. Kept as one constant so the homepage LocalBusiness
+    // Oxley, Brisbane QLD 4075 (matches the Google Business Profile). Kept as one constant so the homepage LocalBusiness
     // block, service/location schema, and identity.json can't disagree again.
     geo: {
         latitude: -27.5536,

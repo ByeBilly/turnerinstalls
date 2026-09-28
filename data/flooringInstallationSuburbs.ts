@@ -27,7 +27,7 @@ export const flooringInstallationSuburbs: FlooringInstallationSuburb[] = [
     {
         name: "Oxley",
         slug: "oxley",
-        postcode: "4074",
+        postcode: "4075",
         seoTitle: "Flooring Installation Oxley",
         metaDescription: "Professional flooring installation in Oxley for timber, hybrid, vinyl and laminate floors. Trust Turner Installs for quality workmanship. Get a free quote.",
         h1Title: "Professional Flooring Installation in Oxley",
