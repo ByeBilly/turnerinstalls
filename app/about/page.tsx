@@ -100,7 +100,7 @@ export default function About() {
               </h2>
               <div className="prose prose-lg text-gray-600">
                 <p>
-                  It started in 1979 with my grandfather's business, <strong>Turners Floorcoverings Pty Ltd</strong>, on Newman Road in Geebung on Brisbane's northside. My dad started working for him there, doing flooring installations and retail. My grandfather was a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all.
+                  It started in 1979 with my grandfather's business, <strong>Turners Floorcoverings Pty Ltd</strong>, at 360 Newman Road, Geebung, on Brisbane's northside. My dad started his floor-layer training there on 3 March 1979, and went on to do both flooring installations and retail. My grandfather was a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all.
                 </p>
                 <p>
                   My father continued the legacy with <strong>Carpet Craft</strong> in South Australia, where I was born. Growing up, I learned the trade at his side, absorbing the tricks that you can't learn in a classroom.
