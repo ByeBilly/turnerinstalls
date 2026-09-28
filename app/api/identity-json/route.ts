@@ -7,7 +7,7 @@ function identityJsonContent() {
         "@type": "LocalBusiness",
         "name": BUSINESS.name,
         "alternateName": BUSINESS.legalName,
-        "description": "Brisbane's premier flooring installation and floor preparation specialists. Family-owned, third-generation craftsmanship: the family has been in the Brisbane flooring trade since 1979, starting with Turners Floorcoverings Pty Ltd at 360 Newman Road, Geebung. Based in Oxley, with crew leaders based in Sherwood and Eagleby, and easy highway access—30 minutes covers most of Brisbane and Ipswich; Logan and Moreton Bay (including Narangba) within reach.",
+        "description": "Brisbane's premier flooring installation and floor preparation specialists. Family-owned, third-generation craftsmanship: the family has been in the Brisbane flooring trade since 1979, starting with Turners Floorcoverings Pty Ltd at 360 Newman Road, Geebung, then Carpet Craft (BT Traders Pty Ltd) in Adelaide's southern suburbs in the 1990s. Based in Oxley, with crew leaders based in Sherwood and Eagleby, and easy highway access—30 minutes covers most of Brisbane and Ipswich; Logan and Moreton Bay (including Narangba) within reach.",
         "url": BASE_URL,
         "telephone": BUSINESS.telephoneDisplay,
         "email": BUSINESS.email,
