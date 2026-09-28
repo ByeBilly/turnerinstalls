@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import HighLevelChat from "@/components/HighLevelChat";
 import { BASE_URL, BUSINESS, WEBSITE_ID, buildBusinessEntity, businessRef } from "@/lib/business";
 import { buildAggregateRating } from "@/lib/reviews";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ? `https://${process.env.NEXT_PUBLIC_BASE_URL}`
@@ -184,6 +185,7 @@ gtag('config', 'G-T6ZG4K0J3W');`}
           <Footer />
         </div>
         <HighLevelChat />
+        <SpeedInsights />
       </body>
     </html>
   );
