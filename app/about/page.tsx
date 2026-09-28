@@ -100,13 +100,13 @@ export default function About() {
               </h2>
               <div className="prose prose-lg text-gray-600">
                 <p>
-                  It started decades ago with my grandfather, who founded <strong>Turners Floorcoverings Pty Ltd</strong> right here in Brisbane. He was a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all.
+                  It started in 1979 with my grandfather's business, <strong>Turners Floorcoverings Pty Ltd</strong>, on Newman Road in Geebung on Brisbane's northside. My dad started working for him there, doing flooring installations and retail. My grandfather was a master tradesman who believed that if a job wasn't done perfectly, it wasn't done at all.
                 </p>
                 <p>
-                  My father continued the legacy with <strong>Carpet Craft</strong> in South Australia, where I was born. Growing up, I verified the trade at his side, absorbing the tricks that you can't learn in a classroom.
+                  My father continued the legacy with <strong>Carpet Craft</strong> in South Australia, where I was born. Growing up, I learned the trade at his side, absorbing the tricks that you can't learn in a classroom.
                 </p>
                 <p>
-                  Although Brisbane is where our roots are, it took three generations to refine this craft to perfection. Today, <strong>Turner Installs</strong> represents the culmination of that history. We don't just carry the name; we carry the standard. That’s why professionalism is where I excel—because I've spent a lifetime getting rid of the kinks.
+                  Although Brisbane is where our roots are, it took three generations to refine this craft to perfection. Today, <strong>Turner Installs</strong> represents the culmination of that history, and my brother Jye and I are both installers. We don't just carry the name; we carry the standard. That’s why professionalism is where I excel—because I've spent a lifetime getting rid of the kinks.
                 </p>
               </div>
               <div className="pt-4">
@@ -137,7 +137,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">What We Stand For</h2>
-            <p className="text-gray-600">The values that have kept us in business for decades.</p>
+            <p className="text-gray-600">The values that have kept our family in the flooring trade since 1979.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">

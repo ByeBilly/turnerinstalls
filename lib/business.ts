@@ -73,7 +73,7 @@ export function buildBusinessEntity(aggregateRating?: object | null) {
         name: BUSINESS.name,
         legalName: BUSINESS.legalName,
         description:
-            "Oxley-based flooring contractor, with crew leaders based in Sherwood and Eagleby, for flooring installation (timber, hybrid, vinyl plank, laminate), floor preparation, concrete grinding, floor levelling, adhesive removal and old floor uplift across Brisbane, Ipswich, Logan, Moreton Bay, Gold Coast and Sunshine Coast.",
+            "Oxley-based flooring contractor, with crew leaders based in Sherwood and Eagleby and a family flooring trade in Brisbane since 1979 (Turners Floorcoverings Pty Ltd, Geebung), for flooring installation (timber, hybrid, vinyl plank, laminate), floor preparation, concrete grinding, floor levelling, adhesive removal and old floor uplift across Brisbane, Ipswich, Logan, Moreton Bay, Gold Coast and Sunshine Coast.",
         url: BASE_URL,
         telephone: BUSINESS.telephone,
         email: BUSINESS.email,
