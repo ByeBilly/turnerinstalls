@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import { BUSINESS } from "@/lib/business";
 
 export const metadata = {
   title: {
@@ -15,8 +16,8 @@ export const metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  const supportPhone = process.env.NEXT_PUBLIC_SUPPORT_PHONE;
-  const supportPhoneHref = supportPhone?.replace(/\s/g, "");
+  const supportPhone = BUSINESS.telephoneDisplay;
+  const supportPhoneHref = BUSINESS.telephone;
 
   return (
     <>

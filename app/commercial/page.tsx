@@ -4,6 +4,7 @@ import CTAButton from "@/components/CTAButton";
 import ModernGallery from "@/components/ModernGallery";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { siteImages } from "@/data/siteImages";
+import { BUSINESS } from "@/lib/business";
 
 const ogTitle = "Commercial Flooring Brisbane | Turner Installs";
 const ogDescription = "Reliable commercial flooring contractors. We partner with property managers, shop fitters, and businesses for on-time, on-budget installations.";
@@ -149,8 +150,8 @@ export default function Commercial() {
             <CTAButton href="/contact" variant="primary" className="!bg-white !text-blue-900 hover:!bg-blue-50 border-none shadow-xl">
               Get Proposal
             </CTAButton>
-            <CTAButton href={`tel:${process.env.NEXT_PUBLIC_SUPPORT_PHONE?.replace(/\s/g, "")}`} variant="secondary" className="!border-white/20 !text-white hover:!bg-white/10">
-              Call {process.env.NEXT_PUBLIC_SUPPORT_PHONE}
+            <CTAButton href={`tel:${BUSINESS.telephone}`} variant="secondary" className="!border-white/20 !text-white hover:!bg-white/10">
+              Call {BUSINESS.telephoneDisplay}
             </CTAButton>
           </div>
         </div>
