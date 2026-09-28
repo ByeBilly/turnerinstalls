@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Subfloor Repairs Brisbane | Crack Fixing & Concrete Repair";
+const ogTitle = "Subfloor & Concrete Crack Repairs Brisbane";
 const ogDescription = "Expert subfloor repair services in Brisbane. Fixing cracks, divots, ramping height differences, and stabilising loose areas.";
 const ogImage = { url: siteImages.floorPrep.unacceptable[1].src, width: 1200, height: 630, alt: siteImages.floorPrep.unacceptable[1].alt };
 
@@ -106,7 +107,7 @@ export default function SubfloorRepairs() {
                 { name: "Subfloor Repairs", url: "/services/subfloor-repairs" },
             ]} />
             <ServiceHero
-                title={<>Subfloor <span className="text-yellow-500">Repairs</span>.</>}
+                title={<>Subfloor <span className="text-yellow-500">Repairs</span> Brisbane.</>}
                 subtitle="Fixing the cracks, holes, and hazards before the new floor goes down."
                 imagePath="/images/brisbane_skyline.png"
                 label="STRUCTURAL_FIX"
@@ -149,19 +150,12 @@ export default function SubfloorRepairs() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Subfloor Repairs",
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Turner Installs",
-                            "telephone": "+61 413 592 054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "description": "Subfloor repair services including crack stitching, ramping, and patching in Brisbane.",
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Subfloor Repairs",
+ description: "Subfloor repairs including crack repair, patching, ramping and stabilising before flooring installation.",
+ url: "/services/subfloor-repairs",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>

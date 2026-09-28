@@ -9,6 +9,7 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Levelling Brisbane";
 const ogDescription = "Expert floor levelling in Brisbane for uneven concrete and subfloors. Get a smooth, stable base ready for timber, laminate and other flooring.";
@@ -178,19 +179,12 @@ export default function FloorLevelling() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Floor Levelling",
-                        "provider": {
-                            "@type": "FlooringContractor",
-                            "name": "Turner Installs",
-                            "telephone": "+61413592054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "description": "Expert self-levelling and flood coating services to create perfectly flat subfloors in Brisbane.",
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Levelling",
+ description: "Self-levelling compound and flood levelling to correct dips, humps and slab waves so hybrid, vinyl plank and timber floors sit flat.",
+ url: "/services/floor-levelling",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>

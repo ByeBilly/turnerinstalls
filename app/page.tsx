@@ -5,15 +5,13 @@ import ServiceAreaMapWrapper from "@/components/ServiceAreaMapWrapper";
 import { siteImages } from "@/data/siteImages";
 import HeroForm from "@/components/HeroForm";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
-import { BASE_URL, BUSINESS } from "@/lib/business";
-import { buildAggregateRating } from "@/lib/reviews";
 
 export const metadata = {
   title: {
     absolute: "Flooring Specialists Brisbane | Turner Installs",
   },
   description:
-    "Turner Installs handles floor preparation, levelling, grinding, uplift and flooring installation across Brisbane and Ipswich for residential and commercial projects.",
+    "Oxley-based flooring installers and floor prep specialists: timber, hybrid and vinyl plank installs, levelling, grinding and uplift across Brisbane & Ipswich.",
   alternates: {
     canonical: "/",
   },
@@ -47,50 +45,6 @@ const startToFinishLogistics = [
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FlooringContractor",
-            name: BUSINESS.name,
-            description: "Expert flooring contractor specialising in vinyl plank, timber, hybrid installation, floor levelling, and diamond grinding in Brisbane.",
-            url: BASE_URL,
-            telephone: BUSINESS.telephone,
-            email: BUSINESS.email,
-            image: BUSINESS.image,
-            address: {
-              "@type": "PostalAddress",
-              ...BUSINESS.address,
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              ...BUSINESS.geo,
-            },
-            areaServed: [
-              { "@type": "City", name: "Brisbane" },
-              { "@type": "City", name: "Ipswich" },
-              { "@type": "City", name: "Gold Coast" },
-              { "@type": "City", name: "Sunshine Coast" }
-            ],
-            priceRange: BUSINESS.priceRange,
-            founder: BUSINESS.founder,
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                opens: "07:00",
-                closes: "17:00"
-              }
-            ],
-            ...(buildAggregateRating() ? { aggregateRating: buildAggregateRating() } : {}),
-            sameAs: [
-              GOOGLE_REVIEW_URL
-            ]
-          }),
-        }}
-      />
-
       {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -99,7 +53,8 @@ export default function Home() {
             alt="Premium Finished Flooring - Turner Installs"
             fill
             className="object-cover"
-            priority
+            preload
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-white/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
@@ -110,8 +65,8 @@ export default function Home() {
             <div className="inline-block bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6 max-w-full whitespace-normal leading-relaxed">
               Servicing SE QLD
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl font-black mb-8 leading-tight tracking-tight text-slate-900 break-words lg:whitespace-nowrap">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Your Flooring</span>{" "}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl font-black mb-8 leading-tight tracking-tight text-slate-900 break-words">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700">Your Brisbane Flooring</span>{" "}
               <span className="text-yellow-500">Expert.</span>
             </h1>
             <div className="mb-8 space-y-6 max-w-lg">
@@ -295,7 +250,6 @@ export default function Home() {
                           fill
                           sizes="(min-width: 1024px) 240px, (min-width: 640px) 33vw, 100vw"
                           className="object-cover"
-                          priority={index === 0}
                         />
                       </div>
                       <div className="p-5">

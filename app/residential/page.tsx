@@ -46,7 +46,8 @@ export default function Residential() {
             alt="Beautiful Residential Flooring"
             fill
             className="object-cover"
-            priority
+            preload
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-white/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40" />

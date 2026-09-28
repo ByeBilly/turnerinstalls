@@ -70,7 +70,8 @@ export default function About() {
             alt="Brisbane Views - Turner Installs Projects"
             fill
             className="object-cover"
-            priority
+            preload
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />

@@ -27,7 +27,8 @@ export async function generateMetadata({
 
     return {
         title: {
-            absolute: `${post.title} | Turner Installs Blog`,
+            // Suffix only when it fits; long post titles were being truncated in SERPs.
+            absolute: post.title.length <= 42 ? `${post.title} | Turner Installs` : post.title,
         },
         description: post.metaDescription,
         alternates: {

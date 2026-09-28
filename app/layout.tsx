@@ -4,10 +4,12 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HighLevelChat from "@/components/HighLevelChat";
+import { BASE_URL, BUSINESS, WEBSITE_ID, buildBusinessEntity, businessRef } from "@/lib/business";
+import { buildAggregateRating } from "@/lib/reviews";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ? `https://${process.env.NEXT_PUBLIC_BASE_URL}`
-  : "https://www.turnerinstalls.com.au";
+  : BASE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -148,6 +150,25 @@ gtag('config', 'G-T6ZG4K0J3W');`}
         </Script>
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                buildBusinessEntity(buildAggregateRating()),
+                {
+                  "@type": "WebSite",
+                  "@id": WEBSITE_ID,
+                  url: BASE_URL,
+                  name: BUSINESS.name,
+                  inLanguage: "en-AU",
+                  publisher: businessRef,
+                },
+              ],
+            }),
+          }}
+        />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

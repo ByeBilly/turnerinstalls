@@ -8,8 +8,9 @@ import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Floor Preparation Brisbane | Concrete Grinding & Levelling Services";
+const ogTitle = "Floor Prep & Concrete Grinding Brisbane";
 const ogDescription = "Premier floor preparation in Brisbane. Servicing all suburbs from Northside to Southside. Concrete grinding, levelling, and subfloor repairs.";
 const ogImageUrl = "/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png";
 
@@ -133,20 +134,12 @@ export default function Brisbane() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Turner Installs Brisbane",
-                        "telephone": "+61 413 592 054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Brisbane",
-                            "addressRegion": "QLD",
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": "Brisbane"
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Preparation Brisbane",
+ description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Brisbane.",
+ url: "/locations/brisbane",
+ areaServed: ["Brisbane"],
+ }))
                 }}
             />
         </>

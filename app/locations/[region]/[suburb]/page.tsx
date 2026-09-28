@@ -14,10 +14,12 @@ import StorySection from "@/components/StorySection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
+import RecentJobs from "@/components/RecentJobs";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 // 1. Generate StaticParams & Metadata (Unchanged)
 export async function generateStaticParams() {
@@ -161,6 +163,23 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
         ? suburb.galleryImages
         : siteImages.home.transformations;
 
+    // Shared by the visible FAQ and FAQPage schema so they can't drift apart.
+    const faqs = [
+                suburb.region === "brisbane"
+                    ? {
+                        question: `Do you charge for travel to ${suburb.name}?`,
+                        answer: `No. Turner Installs is based in Oxley and our crew leaders are based in Sherwood and Eagleby, so ${suburb.name} is part of our everyday Brisbane service area with no extra travel fee.`
+                    }
+                    : {
+                        question: `Do you service ${suburb.name}?`,
+                        answer: `Yes. Turner Installs is based in Oxley and one of our crew leaders is based in Eagleby, on the southern side of Brisbane towards the Gold Coast, so ${suburb.name} is within our regular reach. Call to confirm availability for your job.`
+                    },
+                {
+                    question: `How quickly can you start floor preparation in ${suburb.name}?`,
+                    answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
+                }
+    ];
+
     return (
         <>
             <Breadcrumbs items={[
@@ -240,16 +259,9 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 limit={4}
             />
 
-            <FAQSection items={[
-                {
-                    question: `Do you charge for travel to ${suburb.name}?`,
-                    answer: "No, we have teams stationed across Brisbane and the Gold Coast, so we don't charge extra travel fees."
-                },
-                {
-                    question: "How quickly can you start?",
-                    answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
-                }
-            ]} />
+            <RecentJobs suburbName={suburb.name} jobs={suburb.recentJobs} />
+
+            <FAQSection items={faqs} />
 
             <InternalLinks type="services" />
 
@@ -286,36 +298,17 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 buttonText="Get Local Quote"
             />
 
-            <FAQSchema faqs={[
-                {
-                    question: `Do you charge for travel to ${suburb.name}?`,
-                    answer: "No, we have teams stationed across Brisbane and the Gold Coast, so we don't charge extra travel fees."
-                },
-                {
-                    question: `How quickly can you start floor preparation in ${suburb.name}?`,
-                    answer: "We often have capacity for urgent jobs in the area. Contact us to check our schedule."
-                }
-            ]} />
+            <FAQSchema faqs={faqs} />
 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FlooringContractor",
-                        "name": `Turner Installs - ${suburb.name}`,
-                        "description": `Professional floor preparation services in ${suburb.name}, ${suburb.region}.`,
-                        "telephone": "+61413592054",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": suburb.name,
-                            "addressRegion": "QLD",
-                            "postalCode": suburb.postcode,
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": [suburb.name],
-                        "priceRange": "$$"
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: `Floor Preparation ${suburb.name}`,
+ description: `Floor preparation, concrete grinding, levelling and adhesive removal in ${suburb.name}.`,
+ url: `/locations/${suburb.region}/${suburb.slug}`,
+ areaServed: [`${suburb.name} ${suburb.postcode}`],
+ }))
                 }}
             />
         </>

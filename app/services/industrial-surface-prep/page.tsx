@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Industrial Surface Preparation Brisbane | Large Scale Grinding";
+const ogTitle = "Industrial Concrete Grinding Brisbane";
 const ogDescription = "Large scale industrial floor preparation. Shot blasting, heavy grinding, and make-good services for warehouses and factories.";
 const ogImage = { url: siteImages.commercial.hero.src, width: 1200, height: 630, alt: siteImages.commercial.hero.alt };
 
@@ -93,7 +94,7 @@ export default function IndustrialPrep() {
                 { name: "Industrial Surface Preparation", url: "/services/industrial-surface-prep" },
             ]} />
             <ServiceHero
-                title={<>Industrial <span className="text-yellow-500">Prep</span>.</>}
+                title={<>Industrial Surface <span className="text-yellow-500">Prep</span> Brisbane.</>}
                 subtitle="Large scale solutions for big concrete spaces."
                 imagePath="/images/brisbane_skyline.png"
                 label="INDUSTRIAL_SERVICES"
@@ -135,18 +136,12 @@ export default function IndustrialPrep() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Industrial Surface Preparation",
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Turner Installs",
-                            "telephone": "+61 413 592 054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Industrial Surface Preparation",
+ description: "Large-area concrete grinding and coating removal for warehouses, workshops and commercial slabs.",
+ url: "/services/industrial-surface-prep",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>

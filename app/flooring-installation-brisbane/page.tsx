@@ -6,6 +6,7 @@ import SEOCTA from "@/components/SEOCTA";
 import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Flooring Installation Brisbane";
 const ogDescription = "Professional flooring installation in Brisbane for timber, laminate and residential renovations, with expert preparation and quality workmanship.";
@@ -160,31 +161,12 @@ export default function FlooringInstallationBrisbanePage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Turner Installs - Flooring Installation Brisbane",
-                        "description": "Professional flooring installation across Brisbane. Timber, hybrid, vinyl & laminate. Oxley-based.",
-                        "telephone": "+61 413 592 054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Oxley",
-                            "addressRegion": "QLD",
-                            "postalCode": "4074",
-                            "addressCountry": "AU",
-                        },
-                        "areaServed": {
-                            "@type": "GeoCircle",
-                            "geoMidpoint": {
-                                "@type": "GeoCoordinates",
-                                "latitude": -27.5536,
-                                "longitude": 152.9769,
-                            },
-                            "geoRadius": "50000",
-                        },
-                        "priceRange": "$$",
-                    }),
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Flooring Installation Brisbane",
+ description: "Timber, hybrid, vinyl plank and laminate flooring installation across Brisbane, with floor preparation and old floor removal. Based in Oxley.",
+ url: "/flooring-installation-brisbane",
+ areaServed: ["Brisbane", "Ipswich", "Logan"],
+ })),
                 }}
             />
         </>

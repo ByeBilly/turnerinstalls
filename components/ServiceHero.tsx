@@ -30,7 +30,8 @@ export default function ServiceHero({
                     fill
                     sizes="100vw"
                     className="object-cover"
-                    priority
+                    preload
+                    fetchPriority="high"
                 />
                 {/* Light Overlay for Daytime Look */}
                 <div className={`absolute inset-0 bg-white/80 md:bg-white/70`} />

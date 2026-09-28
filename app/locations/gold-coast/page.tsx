@@ -8,8 +8,9 @@ import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Floor Preparation Gold Coast | Concrete Grinding & Levelling";
+const ogTitle = "Floor Prep & Concrete Grinding Gold Coast";
 const ogDescription = "Expert floor prep on the Gold Coast. Servicing from Southport to Coolangatta. Concrete grinding, adhesive removal, and levelling.";
 const ogImageUrl = "/installspics/locations/goldcoastcleanfinish.jpg";
 
@@ -128,20 +129,12 @@ export default function GoldCoast() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Turner Installs Gold Coast",
-                        "telephone": "+61 413 592 054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Gold Coast",
-                            "addressRegion": "QLD",
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": "Gold Coast"
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Preparation Gold Coast",
+ description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Gold Coast.",
+ url: "/locations/gold-coast",
+ areaServed: ["Gold Coast"],
+ }))
                 }}
             />
         </>

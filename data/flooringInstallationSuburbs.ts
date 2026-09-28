@@ -1,3 +1,5 @@
+import type { RecentJob } from "@/components/RecentJobs";
+
 /**
  * Flooring Installation suburb landing pages
  * Target: "flooring installation + suburb" searches in Brisbane
@@ -17,6 +19,8 @@ export interface FlooringInstallationSuburb {
     ctaText: string;
     /** Nearby suburbs for internal linking */
     nearbySuburbs: string[];
+    /** Real completed jobs in this suburb. Renders a "Recent Jobs" section when present. */
+    recentJobs?: RecentJob[];
 }
 
 export const flooringInstallationSuburbs: FlooringInstallationSuburb[] = [

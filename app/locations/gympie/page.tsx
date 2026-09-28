@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Floor Preparation Gympie | Concrete Grinding & Levelling";
+const ogTitle = "Floor Prep & Concrete Grinding Gympie";
 const ogDescription = "Reliable floor preparation in Gympie. Servicing the Wide Bay region. Concrete grinding, floor levelling, and adhesive removal.";
 const ogImageUrl = "/installspics/finished/paddington-staircase-timber.jpg";
 
@@ -128,20 +129,12 @@ export default function Gympie() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Turner Installs Gympie",
-                        "telephone": "+61 413 592 054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Gympie",
-                            "addressRegion": "QLD",
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": "Gympie"
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Preparation Gympie",
+ description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Gympie.",
+ url: "/locations/gympie",
+ areaServed: ["Gympie"],
+ }))
                 }}
             />
         </>

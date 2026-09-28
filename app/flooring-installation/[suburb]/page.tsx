@@ -10,9 +10,12 @@ import InternalLinks from "@/components/InternalLinks";
 import ModernGallery from "@/components/ModernGallery";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
+import FAQSection from "@/components/FAQSection";
+import RecentJobs from "@/components/RecentJobs";
 import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 export async function generateStaticParams() {
     return flooringInstallationSuburbs.map((suburb) => ({
@@ -133,6 +136,18 @@ export default async function FlooringInstallationSuburbPage({
         .filter(Boolean);
     const serviceDescription = `Flooring installation in ${data.name} with floor preparation, old floor uplift, adhesive removal, rubbish removal, levelling and clean subfloor handover.`;
     const heroProject = projectExampleImages[projectIndex(data.slug)];
+    // One list drives both the visible FAQ and the FAQPage schema: Google only
+    // honours FAQ markup whose questions are actually shown on the page.
+    const faqs = [
+                {
+                    question: `Do you provide flooring installation quotes in ${data.name}?`,
+                    answer: `Yes, Turner Installs provides free site measures and detailed quotes for homes and businesses in ${data.name} and surrounding suburbs.`
+                },
+                {
+                    question: `What flooring types do you install in ${data.name}?`,
+                    answer: "We specialise in luxury vinyl plank (LVP), hybrid flooring, engineered timber, laminate, and commercial plank installation."
+                }
+    ];
     const galleryProjects = rotatedProjectExamples(data.slug);
 
     return (
@@ -242,62 +257,27 @@ export default async function FlooringInstallationSuburbPage({
                 </section>
             )}
 
+            <RecentJobs suburbName={data.name} jobs={data.recentJobs} />
+
+            <FAQSection items={faqs} />
+
             <SEOCTA
                 title={data.ctaText}
                 subtitle="Get a free quote from the local flooring experts. Fast response, quality finish."
                 buttonText={`Get ${data.name} Quote`}
             />
 
-            <FAQSchema faqs={[
-                {
-                    question: `Do you provide flooring installation quotes in ${data.name}?`,
-                    answer: `Yes, Turner Installs provides free site measures and detailed quotes for homes and businesses in ${data.name} and surrounding suburbs.`
-                },
-                {
-                    question: `What flooring types do you install in ${data.name}?`,
-                    answer: "We specialise in luxury vinyl plank (LVP), hybrid flooring, engineered timber, laminate, and commercial plank installation."
-                }
-            ]} />
+            <FAQSchema faqs={faqs} />
 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FlooringContractor",
-                        "name": `Turner Installs - Flooring Installation ${data.name}`,
-                        "description": serviceDescription,
-                        "telephone": "+61413592054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": data.name,
-                            "addressRegion": "QLD",
-                            "postalCode": data.postcode,
-                            "addressCountry": "AU",
-                        },
-                        "areaServed": [data.name, "Brisbane"],
-                        "priceRange": "$$",
-                        "hasOfferCatalog": {
-                            "@type": "OfferCatalog",
-                            "name": `${data.name} flooring preparation and installation services`,
-                            "itemListElement": [
-                                "Flooring installation",
-                                "Old flooring uplift and removal",
-                                "Carpet tile removal",
-                                "Adhesive removal",
-                                "Concrete grinding",
-                                "Floor levelling"
-                            ].map((name) => ({
-                                "@type": "Offer",
-                                "itemOffered": {
-                                    "@type": "Service",
-                                    "name": `${name} ${data.name}`,
-                                    "areaServed": data.name
-                                }
-                            }))
-                        }
-                    }),
+                    __html: JSON.stringify(buildServiceSchema({
+ name: `Flooring Installation ${data.name}`,
+ description: serviceDescription,
+ url: `/flooring-installation/${data.slug}`,
+ areaServed: [`${data.name} ${data.postcode}`],
+ })),
                 }}
             />
         </>

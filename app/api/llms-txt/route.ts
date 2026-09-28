@@ -23,7 +23,7 @@ function llmsTxtContent(): string {
 
     return `# Turner Installs
 
-> Brisbane's premier flooring installation and floor preparation specialists. Family-owned, third-generation craftsmanship. Based in Oxley with easy access to the Ipswich Motorway, Centenary Highway, and Gateway—our central location means 30 minutes covers most of Brisbane and Ipswich, with Logan and Moreton Bay (including Narangba) within easy reach. We install timber, hybrid, vinyl, and laminate flooring across Brisbane, Ipswich, Logan, Moreton Bay, Gold Coast, and Sunshine Coast.
+> Brisbane's premier flooring installation and floor preparation specialists. Family-owned, third-generation craftsmanship. Based in Oxley, with crew leaders based in Sherwood and Eagleby, and easy access to the Ipswich Motorway, Centenary Highway, and Gateway—our central location means 30 minutes covers most of Brisbane and Ipswich, with Logan and Moreton Bay (including Narangba) within easy reach. We install timber, hybrid, vinyl, and laminate flooring across Brisbane, Ipswich, Logan, Moreton Bay, Gold Coast, and Sunshine Coast.
 
 ## Contact
 

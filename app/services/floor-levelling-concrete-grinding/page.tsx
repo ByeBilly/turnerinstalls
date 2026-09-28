@@ -9,14 +9,15 @@ import SEOCTA from "@/components/SEOCTA";
 import { siteImages } from "@/data/siteImages";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Floor Levelling & Concrete Grinding Brisbane | Turner Installs";
+const ogTitle = "Floor Levelling & Concrete Grinding Brisbane";
 const ogDescription = "Expert concrete grinding, adhesive uplift & self-levelling across Brisbane & SEQ. 3rd-generation prep specialists getting slabs ready to Australian Standards.";
 const ogImage = { url: siteImages.grinding.hero.src, width: 1200, height: 630, alt: siteImages.grinding.hero.alt };
 
 export const metadata: Metadata = {
   title: {
-    absolute: ogTitle,
+    absolute: `${ogTitle} | Turner Installs`,
   },
   description: ogDescription,
   alternates: {
@@ -498,35 +499,12 @@ export default function FloorLevellingConcreteGrindingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Floor Levelling and Concrete Grinding Brisbane",
-            provider: {
-              "@type": "FlooringContractor",
-              name: "Turner Installs",
-              telephone: "+61413592054",
-              email: "liam@turnerinstalls.com",
-              url: "https://www.turnerinstalls.com.au",
-            },
-            areaServed: [
-              "Brisbane",
-              "Ipswich",
-              "Gold Coast",
-              "Sunshine Coast",
-              "South East Queensland",
-            ],
-            serviceType: [
-              "Floor levelling",
-              "Concrete grinding",
-              "Subfloor preparation",
-              "Adhesive removal",
-              "Self levelling compound",
-            ],
-            description:
-              "Concrete grinding, adhesive uplift, floor levelling, patching and subfloor preparation for flooring installation across Brisbane and South East Queensland.",
-            sameAs: [GOOGLE_REVIEW_URL],
-          }),
+          __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Levelling and Concrete Grinding",
+ description: "Concrete grinding, adhesive uplift, floor levelling, patching and subfloor preparation for flooring installation across Brisbane and South East Queensland.",
+ url: "/services/floor-levelling-concrete-grinding",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ })),
         }}
       />
     </>

@@ -48,7 +48,8 @@ export default function Commercial() {
             alt={siteImages.commercial.hero.alt}
             fill
             className="object-cover"
-            priority
+            preload
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-white/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/50" />
@@ -59,7 +60,7 @@ export default function Commercial() {
             Business Solutions
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight">
-            Built for <span className="text-blue-600">Time-Critical</span> <br />Commercial Projects.
+            Commercial Flooring Brisbane, <br />Built for <span className="text-blue-600">Time-Critical</span> Projects.
           </h1>
           <p className="text-xl text-slate-700 leading-relaxed max-w-3xl mx-auto mb-10 font-medium">
             We understand that downtime is lost revenue. That's why we deliver reliable, high-speed installations for offices, retail, and multi-site fit-outs.

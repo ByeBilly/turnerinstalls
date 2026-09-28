@@ -1,3 +1,4 @@
+import type { RecentJob } from '@/components/RecentJobs';
 import { siteImages } from './siteImages';
 import { flooringInstallationSuburbs } from './flooringInstallationSuburbs';
 
@@ -16,6 +17,8 @@ export interface SuburbData {
     galleryImages?: { src: string; alt: string }[];
     /** Slugs of real, adjacent suburbs for the "Serving X & Surrounding Suburbs" link mesh. */
     nearbySuburbs?: string[];
+    /** Real completed jobs in this suburb. Renders a "Recent Jobs" section when present. */
+    recentJobs?: RecentJob[];
 }
 
 export const suburbs: SuburbData[] = [
@@ -312,6 +315,7 @@ export const floorPreparationSuburbs: SuburbData[] = [
             landmarks: [],
             image: autoSuburbImagePool[hashSlug(suburb.slug) % autoSuburbImagePool.length],
             nearbySuburbs: suburb.nearbySuburbs.filter((slug) => allKnownSlugs.has(slug)),
+            recentJobs: suburb.recentJobs,
         })),
 ];
 

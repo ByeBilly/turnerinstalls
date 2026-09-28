@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Floor Preparation Sunshine Coast | Grinding & Levelling";
+const ogTitle = "Floor Preparation Sunshine Coast";
 const ogDescription = "Professional floor preparation Sunshine Coast. Caloundra to Noosa. Concrete grinding, floor levelling, and subfloor rectification.";
 const ogImageUrl = "/installspics/locations/sunshinecoast.jpg";
 
@@ -128,20 +129,12 @@ export default function SunshineCoast() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Turner Installs Sunshine Coast",
-                        "telephone": "+61 413 592 054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Sunshine Coast",
-                            "addressRegion": "QLD",
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": "Sunshine Coast"
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Preparation Sunshine Coast",
+ description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Sunshine Coast.",
+ url: "/locations/sunshine-coast",
+ areaServed: ["Sunshine Coast"],
+ }))
                 }}
             />
         </>

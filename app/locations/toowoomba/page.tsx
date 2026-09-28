@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Floor Preparation Toowoomba | Concrete Grinding & Prep";
+const ogTitle = "Floor Prep & Concrete Grinding Toowoomba";
 const ogDescription = "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.";
 const ogImageUrl = "/installspics/finished/finished-timber-floor-display.jpg";
 
@@ -128,20 +129,12 @@ export default function Toowoomba() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Turner Installs Toowoomba",
-                        "telephone": "+61 413 592 054",
-                        "email": "liam@turnerinstalls.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Toowoomba",
-                            "addressRegion": "QLD",
-                            "addressCountry": "AU"
-                        },
-                        "areaServed": "Toowoomba"
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Preparation Toowoomba",
+ description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Toowoomba.",
+ url: "/locations/toowoomba",
+ areaServed: ["Toowoomba"],
+ }))
                 }}
             />
         </>

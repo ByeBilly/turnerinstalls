@@ -54,6 +54,7 @@ export default function Footer() {
               <Link href="/" className="hover:text-yellow-600 transition-colors">Home</Link>
               <Link href="/flooring-installation-brisbane" className="hover:text-yellow-600 transition-colors">Flooring Brisbane</Link>
               <Link href="/service-areas" className="hover:text-yellow-600 transition-colors">Service Areas</Link>
+              <Link href="/reviews" className="hover:text-yellow-600 transition-colors">Reviews</Link>
               <Link href="/blog" className="hover:text-yellow-600 transition-colors">Blog</Link>
               <Link href="/services" className="hover:text-yellow-600 transition-colors">Services</Link>
               <Link href="/about" className="hover:text-yellow-600 transition-colors">About Us</Link>
@@ -78,7 +79,22 @@ export default function Footer() {
               </div>
               <div>
                 <strong className="text-slate-900 block mb-1">Service Area</strong>
-                <span>Brisbane, Ipswich, Gold Coast, Sunshine Coast (Commercial)</span>
+                <span>
+                  {[
+                    { name: "Brisbane", href: "/locations/brisbane" },
+                    { name: "Ipswich", href: "/locations/ipswich" },
+                    { name: "Gold Coast", href: "/locations/gold-coast" },
+                    { name: "Sunshine Coast", href: "/locations/sunshine-coast" },
+                  ].map((area, index) => (
+                    <span key={area.href}>
+                      {index > 0 && ", "}
+                      <Link href={area.href} className="hover:text-yellow-600 transition-colors underline-offset-2 hover:underline">
+                        {area.name}
+                      </Link>
+                    </span>
+                  ))}{" "}
+                  (Commercial)
+                </span>
               </div>
             </div>
           </div>

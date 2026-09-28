@@ -44,7 +44,8 @@ export default function Ipswich() {
                         alt="Timber Flooring Ipswich"
                         fill
                         className="object-cover opacity-30"
-                        priority
+                        preload
+                        fetchPriority="high"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
                 </div>

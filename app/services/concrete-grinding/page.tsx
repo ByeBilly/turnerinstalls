@@ -9,6 +9,7 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Concrete Grinding Brisbane";
 const ogDescription = "Professional concrete grinding in Brisbane to remove high spots, adhesives and contaminants, creating a clean surface ready for flooring installation.";
@@ -175,19 +176,12 @@ export default function ConcreteGrinding() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Concrete Grinding",
-                        "provider": {
-                            "@type": "FlooringContractor",
-                            "name": "Turner Installs",
-                            "telephone": "+61413592054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "description": "Dust-free concrete grinding services for adhesive removal, surface prep, and slab rectification in Brisbane.",
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Concrete Grinding",
+ description: "Diamond concrete grinding with dust extraction for adhesive removal, surface preparation and slab rectification before flooring installation.",
+ url: "/services/concrete-grinding",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>

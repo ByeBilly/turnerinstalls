@@ -1,11 +1,14 @@
 import { notFound } from 'next/navigation';
-import { floorPreparationSuburbs, getFloorPreparationSuburb } from '@/data/suburbs';
+import { floorPreparationSuburbs, getFloorPreparationSuburb, suburbs } from '@/data/suburbs';
+import { getFlooringInstallationSuburb } from '@/data/flooringInstallationSuburbs';
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
+import FAQSchema from "@/components/FAQSchema";
+import RecentJobs from "@/components/RecentJobs";
 import InternalLinks from "@/components/InternalLinks";
 import ImageGrid from "@/components/ImageGrid";
 import TrustBar from "@/components/TrustBar";
@@ -16,6 +19,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import NearbySuburbsMesh from "@/components/NearbySuburbsMesh";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 export async function generateStaticParams() {
     return floorPreparationSuburbs.map((suburb) => ({
@@ -195,7 +199,9 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
     const faqs = [
         {
             question: `Do you cover ${suburb.name}?`,
-            answer: `Yes, ${suburb.name} is a key service area for us. We have teams operating in ${suburb.region.replace('-', ' ')} daily.`
+            answer: suburb.region === "brisbane"
+                ? `Yes. Turner Installs is based in Oxley and our crew leaders are based in Sherwood and Eagleby, so ${suburb.name} is part of our everyday Brisbane service area.`
+                : `Yes. Turner Installs is based in Oxley and one of our crew leaders is based in Eagleby, on the southern side of Brisbane towards the Gold Coast, so ${suburb.name} is within our regular reach.`
         },
         {
             question: "How long does the prep take?",
@@ -208,6 +214,15 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
     ];
 
     const regionSlug = suburb.region;
+    // Only the curated suburbs.ts entries have a /locations/<region>/<suburb>
+    // page; the rest of floorPreparationSuburbs come from the flooring
+    // installation list, so their suburb crumb must point at that page instead
+    // of a 404.
+    const suburbHubUrl = suburbs.some((s) => s.slug === suburb.slug && s.region === suburb.region)
+        ? `/locations/${regionSlug}/${suburb.slug}`
+        : getFlooringInstallationSuburb(suburb.slug)
+            ? `/flooring-installation/${suburb.slug}`
+            : null;
 
     return (
         <>
@@ -215,7 +230,7 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                 { name: "Home", url: "/" },
                 { name: "Service Areas", url: "/service-areas" },
                 { name: regionLabel, url: `/locations/${regionSlug}` },
-                { name: suburb.name, url: `/locations/${regionSlug}/${suburb.slug}` },
+                ...(suburbHubUrl ? [{ name: suburb.name, url: suburbHubUrl }] : []),
                 { name: "Floor Preparation", url: `/locations/${regionSlug}/${suburb.slug}/floor-preparation` },
             ]} />
             <ServiceHero
@@ -271,7 +286,10 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
                 variant="success"
             />
 
+            <RecentJobs suburbName={suburb.name} jobs={suburb.recentJobs} />
+
             <FAQSection items={faqs} />
+            <FAQSchema faqs={faqs} />
 
             <NearbySuburbsMesh suburbName={suburb.name} neighbors={nearbyLinks} />
 
@@ -285,24 +303,12 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": `Floor Preparation ${suburb.name}`,
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Turner Installs",
-                            "telephone": "+61 413 592 054",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": suburb.name,
-                                "addressRegion": "QLD",
-                                "postalCode": suburb.postcode
-                            }
-                        },
-                        "description": `Expert floor preparation in ${suburb.name}.`,
-                        "areaServed": [suburb.name]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: `Floor Preparation ${suburb.name}`,
+ description: `Floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding, repairs and self-levelling before new flooring.`,
+ url: `/locations/${suburb.region}/${suburb.slug}/floor-preparation`,
+ areaServed: [`${suburb.name} ${suburb.postcode}`],
+ }))
                 }}
             />
         </>

@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Epoxy Removal Services Brisbane | Coating Stripping";
+const ogTitle = "Epoxy & Floor Coating Removal Brisbane";
 const ogDescription = "Specialised removal of epoxy coatings, polyurethane, and garage flake systems. Grind back to clean concrete.";
 const ogImage = { url: siteImages.grinding.actionShots[0].src, width: 1200, height: 630, alt: siteImages.grinding.actionShots[0].alt };
 
@@ -97,7 +98,7 @@ export default function EpoxyRemoval() {
                 { name: "Epoxy Removal", url: "/services/epoxy-removal" },
             ]} />
             <ServiceHero
-                title={<>Epoxy <span className="text-yellow-500">Removal</span>.</>}
+                title={<>Epoxy <span className="text-yellow-500">Removal</span> Brisbane.</>}
                 subtitle="Stripping back failed coatings and old garage floors."
                 imagePath="/images/brisbane_skyline.png"
                 label="COATING_REMOVAL"
@@ -140,18 +141,12 @@ export default function EpoxyRemoval() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Epoxy Removal",
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Turner Installs",
-                            "telephone": "+61 413 592 054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Epoxy Removal",
+ description: "Removal of epoxy, paint and floor coatings from concrete slabs by diamond grinding, leaving a clean profile for levelling or new flooring.",
+ url: "/services/epoxy-removal",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>

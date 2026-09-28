@@ -1,4 +1,4 @@
-import { BASE_URL, BUSINESS } from "@/lib/business";
+import { BUSINESS_ID } from "@/lib/business";
 import { buildAggregateRating, buildReviewSchema } from "@/lib/reviews";
 
 /**
@@ -12,14 +12,10 @@ export default function ReviewsSchema() {
 
     const schema = {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        name: BUSINESS.name,
-        url: BASE_URL,
-        telephone: BUSINESS.telephone,
-        address: {
-            "@type": "PostalAddress",
-            ...BUSINESS.address,
-        },
+        // Same @id as the sitewide business node in the root layout, so these
+        // reviews attach to that entity instead of declaring a second business.
+        "@type": ["FlooringContractor", "LocalBusiness"],
+        "@id": BUSINESS_ID,
         aggregateRating,
         review: buildReviewSchema(),
     };

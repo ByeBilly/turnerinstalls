@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Adhesive & Glue Removal Brisbane | Tile, Carpet, Vinyl Removal";
+const ogTitle = "Floor Glue & Adhesive Removal Brisbane";
 const ogDescription = "Professional removal of floor adhesives. We grind off tile glue, carpet adhesive, vinyl residue, and bitumen coatings.";
 const ogImage = { url: siteImages.floorPrep.process[0].src, width: 1200, height: 630, alt: siteImages.floorPrep.process[0].alt };
 
@@ -106,7 +107,7 @@ export default function AdhesiveRemoval() {
                 { name: "Adhesive Removal", url: "/services/adhesive-removal" },
             ]} />
             <ServiceHero
-                title={<>Adhesive <span className="text-yellow-500">Removal</span>.</>}
+                title={<>Adhesive <span className="text-yellow-500">Removal</span> Brisbane.</>}
                 subtitle="The worst job in flooring, done right. We strip stubborn glues so you don't have to."
                 imagePath="/images/brisbane_skyline.png"
                 label="DEMOLITION_PREP"
@@ -149,19 +150,12 @@ export default function AdhesiveRemoval() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Adhesive Removal",
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Turner Installs",
-                            "telephone": "+61 413 592 054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "description": "Mechanical removal of floor adhesives including tile glue, carpet glue, and vinyl adhesive.",
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Adhesive Removal",
+ description: "Mechanical removal of tile adhesive, carpet glue, vinyl adhesive and underlay residue by diamond grinding before new flooring is installed.",
+ url: "/services/adhesive-removal",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>

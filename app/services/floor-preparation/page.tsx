@@ -12,6 +12,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Preparation Brisbane";
 const ogDescription = "Professional floor preparation in Brisbane for timber, laminate and other flooring, including grinding, levelling, repairs and substrate preparation.";
@@ -240,26 +241,12 @@ export default function FloorPreparation() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Floor Preparation",
-            "provider": {
-              "@type": "FlooringContractor",
-              "name": "Turner Installs",
-              "telephone": "+61413592054",
-              "email": "liam@turnerinstalls.com",
-              "url": "https://www.turnerinstalls.com.au",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Brisbane",
-                "addressRegion": "QLD",
-                "addressCountry": "AU"
-              }
-            },
-            "description": "Professional floor preparation services including concrete grinding, levelling, and moisture barriers.",
-            "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-          })
+          __html: JSON.stringify(buildServiceSchema({
+ name: "Floor Preparation",
+ description: "Floor preparation before new flooring: old floor uplift, adhesive removal, concrete grinding, crack repair, self-levelling and moisture barriers.",
+ url: "/services/floor-preparation",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
         }}
       />
     </>

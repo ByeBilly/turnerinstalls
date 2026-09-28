@@ -1,4 +1,4 @@
-import { BASE_URL, BUSINESS } from "@/lib/business";
+import { BASE_URL, BUSINESS, businessRef } from "@/lib/business";
 
 export default function BlogPostingSchema({
     slug,
@@ -27,15 +27,10 @@ export default function BlogPostingSchema({
         author: {
             "@type": "Person",
             name: author,
+            worksFor: businessRef,
         },
-        publisher: {
-            "@type": "Organization",
-            name: BUSINESS.name,
-            logo: {
-                "@type": "ImageObject",
-                url: BUSINESS.logo,
-            },
-        },
+        publisher: businessRef,
+        image: BUSINESS.image,
     };
 
     return (

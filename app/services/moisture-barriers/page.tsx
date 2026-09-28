@@ -9,8 +9,9 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildServiceSchema } from "@/lib/business";
 
-const ogTitle = "Moisture Barriers Brisbane | Damp Proofing Concrete Slabs";
+const ogTitle = "Slab Moisture Barriers Brisbane";
 const ogDescription = "Protect your flooring from rising damp. Professional epoxy moisture barrier application for concrete slabs in Brisbane & SE QLD.";
 const ogImage = { url: siteImages.floorPrep.turnerDifference[0].src, width: 1200, height: 630, alt: siteImages.floorPrep.turnerDifference[0].alt };
 
@@ -110,7 +111,7 @@ export default function MoistureBarriers() {
                 { name: "Moisture Barriers", url: "/services/moisture-barriers" },
             ]} />
             <ServiceHero
-                title={<>Moisture <span className="text-yellow-500">Barriers</span>.</>}
+                title={<>Moisture <span className="text-yellow-500">Barriers</span> Brisbane.</>}
                 subtitle="Seal your slab against rising damp and protect your flooring investment."
                 imagePath="/images/brisbane_skyline.png"
                 label="DAMP_PROOFING"
@@ -153,19 +154,12 @@ export default function MoistureBarriers() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Moisture Barriers",
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Turner Installs",
-                            "telephone": "+61 413 592 054",
-                            "email": "liam@turnerinstalls.com"
-                        },
-                        "description": "Application of epoxy moisture barriers to prevent rising damp in concrete slabs.",
-                        "areaServed": ["Brisbane", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"]
-                    })
+                    __html: JSON.stringify(buildServiceSchema({
+ name: "Moisture Barriers",
+ description: "Epoxy moisture barrier systems for damp concrete slabs, protecting adhesives, timber and vinyl flooring from rising moisture.",
+ url: "/services/moisture-barriers",
+ areaServed: ["Brisbane", "Ipswich", "Logan", "Gold Coast", "Sunshine Coast", "Toowoomba", "Gympie"],
+ }))
                 }}
             />
         </>
