@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { FORMSUBMIT_ENDPOINT } from "@/lib/formSubmit";
 
 type TrackingWindow = Window &
     typeof globalThis & {
@@ -90,16 +89,14 @@ export default function HeroForm({ location }: { location?: string }) {
             const body = new FormData();
             body.append("name", formData.name);
             body.append("phone", normalizedPhone);
-            // FormSubmit uses the "email" field as the reply-to address, so only send it when given.
             if (formData.email.trim()) body.append("email", formData.email.trim());
             body.append("message", "Callback requested from Homepage Hero.");
             body.append("source", source);
             body.append("page_url", window.location.href);
+            body.append("form_id", "hero_fast_quote");
             body.append("_honey", formData._honey);
-            body.append("_captcha", "false");
-            body.append("_subject", `Callback request: ${formData.name}`);
 
-            const response = await fetch(FORMSUBMIT_ENDPOINT, {
+            const response = await fetch("/api/lead", {
                 method: "POST",
                 headers: { Accept: "application/json" },
                 body

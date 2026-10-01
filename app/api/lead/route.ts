@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+const FORM_FROM = 'Turner Installs Website <website@forms.turnerinstalls.com.au>';
+const FORM_TO = 'liam@turnerinstalls.com';
+const MAX_TEXT_BYTES = 25_000;
+const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
+const MAX_ATTACHMENTS = 5;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 type LeadPayload = {
     schema_version?: number;
     event?: string;
@@ -40,11 +47,39 @@ function formatLine(label: string, value: string) {
     return `${label}: ${value || 'Not provided'}`;
 }
 
-function parseEmailList(value: string | undefined) {
-    return (value || '')
-        .split(',')
-        .map(email => email.trim())
-        .filter(Boolean);
+async function payloadFromRequest(request: Request) {
+    const contentType = request.headers.get('content-type') || '';
+    if (contentType.includes('multipart/form-data')) {
+        const form = await request.formData();
+        const attachments: { filename: string; content: Buffer; contentType?: string }[] = [];
+        let attachmentBytes = 0;
+        for (const file of form.getAll('attachment')) {
+            if (!(file instanceof File)) continue;
+            attachmentBytes += file.size;
+            if (attachments.length >= MAX_ATTACHMENTS || attachmentBytes > MAX_ATTACHMENT_BYTES) {
+                throw new Error('Attachment limit exceeded');
+            }
+            attachments.push({
+                filename: file.name || 'attachment',
+                content: Buffer.from(await file.arrayBuffer()),
+                contentType: file.type || undefined,
+            });
+        }
+        const text = (name: string) => String(form.get(name) || '').trim();
+        return {
+            payload: {
+                lead: { name: text('name'), phone: text('phone'), email: text('email') },
+                meta: { form_id: text('form_id'), source: text('source'), page_url: text('page_url') },
+                custom_fields: { message: text('message') },
+                occurred_at: new Date().toISOString(),
+                raw: { _honey: text('_honey') },
+            } as LeadPayload,
+            attachments,
+        };
+    }
+    const textBody = await request.text();
+    if (textBody.length > MAX_TEXT_BYTES) throw new Error('Request too large');
+    return { payload: JSON.parse(textBody) as LeadPayload, attachments: [] };
 }
 
 function buildLeadEmail(payload: LeadPayload) {
@@ -111,40 +146,24 @@ function buildLeadEmail(payload: LeadPayload) {
         subject: `New Turner Installs lead: ${name}`,
         text: lines.join('\n'),
         html,
-        replyTo: email || undefined,
+        replyTo: EMAIL_RE.test(email) ? email : undefined,
     };
 }
 
 export async function POST(request: Request) {
     try {
-        const payload = await request.json() as LeadPayload;
+        const { payload, attachments } = await payloadFromRequest(request);
+        if (payload.raw && typeof payload.raw._honey === 'string' && payload.raw._honey.trim()) {
+            return NextResponse.json({ success: true });
+        }
 
-        // Log incoming payload for debugging (Vercel logs)
-        console.log('[API/Lead] Incoming payload:', JSON.stringify(payload));
-
-        const to = parseEmailList(process.env.LEAD_EMAIL_TO);
-        const from = process.env.LEAD_EMAIL_FROM;
         const resendApiKey = process.env.RESEND_API_KEY;
-        const dryRun = process.env.LEAD_EMAIL_DRY_RUN === 'true';
 
         const email = buildLeadEmail(payload);
 
-        if (dryRun) {
-            console.info('[API/Lead] Dry run email payload:', {
-                to: to.length ? to : 'not configured',
-                from: from || 'not configured',
-                subject: email.subject,
-                text: email.text,
-            });
-
-            return NextResponse.json({ success: true, dryRun: true });
-        }
-
-        if (!resendApiKey || !to.length || !from) {
+        if (!resendApiKey) {
             console.error('[API/Lead] Missing email configuration', {
                 hasResendApiKey: Boolean(resendApiKey),
-                hasLeadEmailTo: Boolean(to.length),
-                hasLeadEmailFrom: Boolean(from),
             });
             return NextResponse.json(
                 { error: 'Configuration error' },
@@ -154,12 +173,13 @@ export async function POST(request: Request) {
 
         const resend = new Resend(resendApiKey);
         const result = await resend.emails.send({
-            from,
-            to,
+            from: FORM_FROM,
+            to: FORM_TO,
             replyTo: email.replyTo,
             subject: email.subject,
             text: email.text,
             html: email.html,
+            attachments,
         });
 
         if (result.error) {

@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FORMSUBMIT_ENDPOINT } from "@/lib/formSubmit";
 
 
-// FormSubmit caps attachments at 5MB per submission.
+// Server-side email delivery accepts up to 5MB of photos per submission.
 const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
 const MAX_ATTACHMENTS = 5;
 
@@ -138,11 +137,12 @@ export default function ContactForm() {
             body.append("email", formData.email);
             body.append("message", formData.message);
             attachments.forEach(a => body.append("attachment", a.file, a.file.name));
+            body.append("source", "Turner Installs Contact Page");
+            body.append("page_url", window.location.href);
+            body.append("form_id", "contact_page");
             body.append("_honey", formData._honey);
-            body.append("_captcha", "false");
-            body.append("_subject", "New enquiry from turnerinstalls.com.au");
 
-            const response = await fetch(FORMSUBMIT_ENDPOINT, {
+            const response = await fetch("/api/lead", {
                 method: "POST",
                 headers: { Accept: "application/json" },
                 body
