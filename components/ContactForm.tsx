@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 
-// Server-side email delivery accepts up to 5MB of photos per submission.
-const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
+// Vercel rejects request bodies over 4.5MB, so keep photos to 4MB to leave room for the other fields.
+const MAX_ATTACHMENT_BYTES = 4 * 1024 * 1024;
 const MAX_ATTACHMENTS = 5;
 
 // Photos larger than this are downscaled in the browser so phone camera shots fit under the cap.
@@ -89,7 +89,7 @@ export default function ContactForm() {
                 break;
             }
             if (total + image.size > MAX_ATTACHMENT_BYTES) {
-                error = "Those images are too large (5MB total). Try fewer photos or call us instead.";
+                error = "Those images are too large (4MB total). Try fewer photos or call us instead.";
                 break;
             }
             const id = nextAttachmentId.current++;

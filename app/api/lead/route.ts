@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 const FORM_FROM = 'Turner Installs Website <website@forms.turnerinstalls.com.au>';
 const FORM_TO = 'liam@turnerinstalls.com';
 const MAX_TEXT_BYTES = 25_000;
-const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
+const MAX_ATTACHMENT_BYTES = 4 * 1024 * 1024; // Vercel caps request bodies at 4.5MB
 const MAX_ATTACHMENTS = 5;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
