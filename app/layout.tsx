@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HighLevelChat from "@/components/HighLevelChat";
+import TrackingScripts from "@/components/TrackingScripts";
 import { BASE_URL, BUSINESS, WEBSITE_ID, buildBusinessEntity, businessRef } from "@/lib/business";
 import { buildAggregateRating } from "@/lib/reviews";
 
@@ -72,83 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Tag Manager */}
-        <Script id="gtm-script" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NMJJSS86');`}
-        </Script>
-        {/* Google Analytics (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-T6ZG4K0J3W"
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-script" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-T6ZG4K0J3W');`}
-        </Script>
-        <Script id="call-liam-click-tracking" strategy="afterInteractive">
-          {`(function () {
-  var liamNumbers = ['0413592054', '+61413592054', '61413592054'];
-
-  function cleanPhone(value) {
-    return String(value || '').replace(/^tel:/i, '').replace(/[^+\\d]/g, '');
-  }
-
-  function isLiamNumber(href) {
-    var phone = cleanPhone(href);
-    return liamNumbers.indexOf(phone) !== -1;
-  }
-
-  function trackCallClick(link) {
-    var payload = {
-      event: 'call_liam_click',
-      phone_number: '0413592054',
-      link_text: (link.textContent || '').trim().slice(0, 120),
-      page_path: window.location.pathname,
-      page_url: window.location.href
-    };
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(payload);
-
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'call_liam_click', {
-        phone_number: payload.phone_number,
-        link_text: payload.link_text,
-        page_path: payload.page_path
-      });
-    }
-
-    try {
-      var body = JSON.stringify(payload);
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon('/api/call-liam-click', new Blob([body], { type: 'application/json' }));
-      } else {
-        fetch('/api/call-liam-click', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: body,
-          keepalive: true
-        });
-      }
-    } catch (error) {}
-  }
-
-  document.addEventListener('click', function (event) {
-    var target = event.target && event.target.closest ? event.target.closest('a[href^="tel:"]') : null;
-    if (target && isLiamNumber(target.getAttribute('href'))) {
-      trackCallClick(target);
-    }
-  }, true);
-})();`}
-        </Script>
-      </head>
+      <head />
       <body>
         <script
           type="application/ld+json"
@@ -169,15 +93,7 @@ gtag('config', 'G-T6ZG4K0J3W');`}
             }),
           }}
         />
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NMJJSS86"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        <TrackingScripts />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">{children}</main>
