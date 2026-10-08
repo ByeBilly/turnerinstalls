@@ -22,8 +22,8 @@ export default function ServiceHero({
     children
 }: ServiceHeroProps) {
     return (
-        <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-20">
-            <div className="absolute inset-0 z-0">
+        <section className="relative overflow-hidden bg-white md:flex md:min-h-[70vh] md:items-center md:justify-center md:py-20">
+            <div className="relative h-56 w-full md:absolute md:inset-0 md:z-0 md:h-auto">
                 <Image
                     src={imagePath}
                     alt={imageAlt}
@@ -38,17 +38,17 @@ export default function ServiceHero({
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/50" />
             </div>
 
-            <div className={`relative z-10 max-w-7xl mx-auto px-5 w-full ${children ? 'grid lg:grid-cols-2 gap-12 items-center' : 'text-center'}`}>
+            <div className={`relative z-10 mx-auto -mt-20 w-full max-w-7xl px-5 pb-12 pt-0 md:mt-0 md:py-0 ${children ? 'grid gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center' : 'text-center'}`}>
 
                 {/* Left Column (Text) */}
-                <div className={children ? 'text-left' : 'max-w-4xl mx-auto'}>
-                    <div className="text-slate-700 font-mono text-xs font-bold mb-4 tracking-widest border border-slate-300 inline-block px-3 py-1 rounded bg-white/60 backdrop-blur-sm uppercase shadow-sm">
+                <div className={`${children ? 'text-left' : 'mx-auto max-w-4xl'} rounded-lg bg-white/90 p-5 shadow-sm ring-1 ring-slate-200 backdrop-blur-sm md:bg-transparent md:p-0 md:shadow-none md:ring-0`}>
+                    <div className="text-slate-700 font-mono text-xs font-bold mb-4 tracking-widest border border-slate-300 inline-block px-3 py-1 rounded bg-white/70 backdrop-blur-sm uppercase shadow-sm">
                         Service
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900 leading-tight drop-shadow-sm">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-6 text-slate-900 leading-tight drop-shadow-sm">
                         {title}
                     </h1>
-                    <p className="text-xl text-slate-700 leading-relaxed mb-10 font-medium">
+                    <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-0 md:mb-10 font-medium">
                         {subtitle}
                     </p>
                 </div>
@@ -62,7 +62,7 @@ export default function ServiceHero({
             </div>
 
             {imageNote && (
-                <div className="absolute bottom-4 right-4 z-10 rounded bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700 shadow-sm backdrop-blur-sm">
+                <div className="absolute right-4 top-48 z-10 rounded bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700 shadow-sm backdrop-blur-sm md:bottom-4 md:top-auto">
                     {imageNote}
                 </div>
             )}
