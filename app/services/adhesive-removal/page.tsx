@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Glue & Adhesive Removal Brisbane";
 const ogDescription = "Professional removal of floor adhesives. We grind off tile glue, carpet adhesive, vinyl residue, and bitumen coatings.";
 const ogImage = { url: siteImages.floorPrep.process[0].src, width: 1200, height: 630, alt: siteImages.floorPrep.process[0].alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/services/adhesive-removal" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/adhesive-removal",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/adhesive-removal",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function AdhesiveRemoval() {
     const specs = [
@@ -150,7 +140,7 @@ export default function AdhesiveRemoval() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Adhesive Removal",
  description: "Mechanical removal of tile adhesive, carpet glue, vinyl adhesive and underlay residue by diamond grinding before new flooring is installed.",
  url: "/services/adhesive-removal",

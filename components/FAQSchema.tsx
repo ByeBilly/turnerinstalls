@@ -3,6 +3,8 @@ export interface FAQItem {
   answer: string;
 }
 
+import { safeJsonLd } from "@/lib/seo";
+
 export default function FAQSchema({ faqs }: { faqs: FAQItem[] }) {
   if (!faqs || faqs.length === 0) return null;
 
@@ -22,7 +24,7 @@ export default function FAQSchema({ faqs }: { faqs: FAQItem[] }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
     />
   );
 }

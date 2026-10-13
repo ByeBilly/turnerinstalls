@@ -11,6 +11,7 @@ import SEOCTA from "@/components/SEOCTA";
 import BlogPostingSchema from "@/components/BlogPostingSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
     return getAllBlogSlugs().map((slug) => ({ slug }));
@@ -25,25 +26,16 @@ export async function generateMetadata({
     const post = getBlogPost(slug);
     if (!post) return {};
 
-    return {
+    return buildPageMetadata({
         title: {
-            // Suffix only when it fits; long post titles were being truncated in SERPs.
             absolute: post.title.length <= 42 ? `${post.title} | Turner Installs` : post.title,
         },
         description: post.metaDescription,
-        alternates: {
-            canonical: `/blog/${post.slug}`,
-        },
-        robots: {
-            index: true,
-            follow: true,
-        },
-        openGraph: {
-            title: post.title,
-            description: post.metaDescription,
-            url: `/blog/${post.slug}`,
-        },
-    };
+        path: `/blog/${post.slug}`,
+        ogTitle: post.title,
+        ogSubtitle: `${post.category} by ${post.author} · Turner Installs`,
+        type: "article",
+    });
 }
 
 export default async function BlogPostPage({

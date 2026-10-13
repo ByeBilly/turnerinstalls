@@ -1,35 +1,20 @@
 import Image from "next/image";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import { buildPageMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 const ogTitle = "About Turner Installs | Brisbane Flooring Specialists";
 const ogDescription = "Meet Turner Installs, Brisbane flooring specialists with 15+ years of experience and three generations of expertise in preparation and installation.";
-const ogImageUrl = "/installspics/finished/brisbane views.jpg";
+const ogImageUrl = "/installspics/finished/brisbane-city-view-flooring.jpg";
 
-export const metadata = {
-  title: { absolute: ogTitle },
-  description: ogDescription,
-  alternates: {
-    canonical: "/about",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: ogTitle,
+export const metadata = buildPageMetadata({
+    title: { absolute: ogTitle },
     description: ogDescription,
-    url: "/about",
-    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs — third-generation Brisbane flooring specialists" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ogTitle,
-    description: ogDescription,
-    images: [ogImageUrl],
-  },
-};
+    path: "/about",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 import ModernGallery from "@/components/ModernGallery";
 
@@ -66,7 +51,7 @@ export default function About() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/installspics/finished/brisbane views.jpg"
+            src="/installspics/finished/brisbane-city-view-flooring.jpg"
             alt="Brisbane Views - Turner Installs Projects"
             fill
             className="object-cover"

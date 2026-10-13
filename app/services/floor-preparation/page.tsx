@@ -12,35 +12,20 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSchema from "@/components/FAQSchema";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Preparation Brisbane";
 const ogDescription = "Professional floor preparation in Brisbane for timber, laminate and other flooring, including grinding, levelling, repairs and substrate preparation.";
 const ogImage = { url: siteImages.floorPrep.hero.src, width: 1200, height: 630, alt: siteImages.floorPrep.hero.alt };
 
-export const metadata: Metadata = {
-  title: ogTitle,
-  description: ogDescription,
-  alternates: {
-    canonical: "/services/floor-preparation",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    url: "/services/floor-preparation",
-    images: [ogImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ogTitle,
-    description: ogDescription,
-    images: [ogImage.url],
-  },
-};
+    path: "/services/floor-preparation",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function FloorPreparation() {
   const specs = [
@@ -241,7 +226,7 @@ export default function FloorPreparation() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildServiceSchema({
+          __html: safeJsonLd(buildServiceSchema({
  name: "Floor Preparation",
  description: "Floor preparation before new flooring: old floor uplift, adhesive removal, concrete grinding, crack repair, self-levelling and moisture barriers.",
  url: "/services/floor-preparation",

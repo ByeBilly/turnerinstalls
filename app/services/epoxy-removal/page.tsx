@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Epoxy & Floor Coating Removal Brisbane";
 const ogDescription = "Specialised removal of epoxy coatings, polyurethane, and garage flake systems. Grind back to clean concrete.";
 const ogImage = { url: siteImages.grinding.actionShots[0].src, width: 1200, height: 630, alt: siteImages.grinding.actionShots[0].alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/services/epoxy-removal" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/epoxy-removal",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/epoxy-removal",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function EpoxyRemoval() {
     const specs = [
@@ -141,7 +131,7 @@ export default function EpoxyRemoval() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Epoxy Removal",
  description: "Removal of epoxy, paint and floor coatings from concrete slabs by diamond grinding, leaving a clean profile for levelling or new flooring.",
  url: "/services/epoxy-removal",

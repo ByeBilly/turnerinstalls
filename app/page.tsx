@@ -5,21 +5,16 @@ import ServiceAreaMapWrapper from "@/components/ServiceAreaMapWrapper";
 import { siteImages } from "@/data/siteImages";
 import HeroForm from "@/components/HeroForm";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: {
-    absolute: "Flooring Specialists Brisbane | Turner Installs",
-  },
+export const metadata = buildPageMetadata({
+  title: { absolute: "Flooring Specialists Brisbane | Turner Installs" },
   description:
     "Oxley-based flooring installers and floor prep specialists: timber, hybrid and vinyl plank installs, levelling, grinding and uplift across Brisbane & Ipswich.",
-  alternates: {
-    canonical: "/",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  path: "/",
+  ogTitle: "Flooring Specialists Brisbane",
+  ogSubtitle: "Oxley-based flooring installers and floor prep specialists across Brisbane and Ipswich.",
+});
 
 const startToFinishLogistics = [
   {

@@ -23,6 +23,140 @@ export interface FlooringInstallationSuburb {
     recentJobs?: RecentJob[];
 }
 
+export const richlandsRecentJobs: RecentJob[] = [
+    {
+        title: "Plank flooring laid on Richlands stairs",
+        summary: "Recent Richlands stair job with plank flooring carried through the staircase. The stair edges were finished with custom matching nosings so the steps read as one clean, continuous flooring detail.",
+        date: "2026-10",
+        services: ["Plank flooring", "Stair installation", "Custom matching nosings"],
+        image: {
+            src: "/installspics/suburbs/richlands/richlands-job-1.webp",
+            alt: "Plank flooring laid on Richlands stairs with custom matching nosings"
+        }
+    },
+    {
+        title: "Custom nosing detail on Richlands stairs",
+        summary: "A closer look at the stair run after the plank flooring was installed. Matching nosings help protect the stair edge while keeping the finished look consistent from tread to tread.",
+        date: "2026-10",
+        services: ["Stair nosings", "Plank flooring", "Detail finishing"],
+        image: {
+            src: "/installspics/suburbs/richlands/richlands-job-2.webp",
+            alt: "Custom matching nosing detail on Richlands plank flooring stairs"
+        }
+    }
+];
+
+export const springHillRecentJobs: RecentJob[] = [
+    {
+        title: "Uneven Spring Hill slab prepared with a flood coat",
+        summary: "Recent Spring Hill floor preparation job where the slab was very uneven. The worst high spots were ground down first, then an engineered self-levelling compound was flood coated across the floor to create the right base for a flat flooring installation.",
+        date: "2026-09",
+        services: ["Concrete grinding", "Engineered self-levelling", "Flood coat preparation"],
+        image: {
+            src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-1.webp",
+            alt: "Spring Hill uneven slab prepared with engineered self-levelling flood coat"
+        }
+    },
+    {
+        title: "Engineered self-levelling compound in Spring Hill",
+        summary: "After grinding the worst of the high spots, the self-levelling compound gave the floor a smoother, flatter plane ready for the next flooring stage.",
+        date: "2026-09",
+        services: ["Self-levelling", "Floor preparation", "Slab correction"],
+        image: {
+            src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-2.webp",
+            alt: "Engineered self-levelling compound used on a Spring Hill floor preparation job"
+        }
+    },
+    {
+        title: "Flood coat continued through the Spring Hill doorway",
+        summary: "The engineered self-levelling compound was carried through the doorway so the prepared floor stayed consistent between spaces instead of leaving a high or hollow transition.",
+        date: "2026-09",
+        services: ["Engineered self-levelling", "Flood coat preparation", "Doorway levelling"],
+        image: {
+            src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-3.webp",
+            alt: "Spring Hill flood coat carried through a doorway during floor preparation"
+        }
+    }
+];
+
+/** Toowong apartment job, Oct 2026: prep-led photos for the floor preparation pages. */
+export const toowongPrepJobs: RecentJob[] = [
+    {
+        title: "Toowong apartment slab patched before plank flooring",
+        summary: "Recent Toowong apartment job where the concrete slab was patched and smoothed across the living area before the new plank flooring went down. Getting the slab right first is what stops planks rocking, clicking or showing dips under the light from the big windows.",
+        date: "2026-10",
+        services: ["Slab patching", "Floor preparation", "Apartment flooring"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-slab-patching.webp",
+            alt: "Toowong apartment concrete slab patched and prepared before plank flooring installation"
+        }
+    },
+    {
+        title: "Prepared slab meeting the new floor in Toowong",
+        summary: "The prepared slab and the finished plank flooring side by side in the same Toowong apartment. Prep and installation were done as one job, so the new floor ran straight onto a surface that had already been patched and checked.",
+        date: "2026-10",
+        services: ["Floor preparation", "Plank flooring installation", "Apartment renovation"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-slab-prep-and-install.webp",
+            alt: "Patched concrete slab beside newly installed plank flooring in a Toowong apartment"
+        }
+    },
+    {
+        title: "Kitchen and living areas protected during the Toowong install",
+        summary: "The kitchen benchtop and feature wall were covered before work started, so the apartment stayed protected while the planks were cut and laid through the open-plan living area.",
+        date: "2026-10",
+        services: ["Site protection", "Plank flooring installation", "Open-plan layout"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-living-install.webp",
+            alt: "Plank flooring being installed through a Toowong apartment living area with the kitchen covered for protection"
+        }
+    }
+];
+
+/** Toowong apartment job, Oct 2026: finished-floor photos for the flooring installation page. */
+export const toowongInstallJobs: RecentJob[] = [
+    {
+        title: "Plank flooring through a Toowong apartment hallway",
+        summary: "Recent Toowong apartment install with plank flooring run in one continuous line from the entry hallway to the balcony doors. Artwork and joinery were wrapped and covered before work began, so the owner's fittings were protected for the whole job.",
+        date: "2026-10",
+        services: ["Plank flooring installation", "Apartment flooring", "Site protection"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-hallway-planks.webp",
+            alt: "Finished plank flooring running down a Toowong apartment hallway with artwork wrapped for protection"
+        }
+    },
+    {
+        title: "Open-plan living area laid in Toowong",
+        summary: "The same planks were carried through the open-plan kitchen and living area. The benchtop and feature wall stayed covered while boards were cut and fitted around the joinery and balcony door tracks.",
+        date: "2026-10",
+        services: ["Plank flooring installation", "Open-plan layout", "Site protection"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-living-install.webp",
+            alt: "Plank flooring being installed through a Toowong apartment living area with the kitchen covered for protection"
+        }
+    },
+    {
+        title: "Private lift lobby finished in Toowong",
+        summary: "The flooring continues into the apartment's private lift lobby, finished neatly to the lift threshold, skirting and door frames. Walls and joinery were draped with protective blankets while the work was done.",
+        date: "2026-10",
+        services: ["Plank flooring installation", "Threshold detailing", "Site protection"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-lift-lobby-planks.webp",
+            alt: "Plank flooring finished to the private lift lobby of a Toowong apartment"
+        }
+    },
+    {
+        title: "Clean edges around the Toowong lift entry",
+        summary: "A wider view of the lift lobby, showing straight board lines running into the corners and clean edges along the skirting and lift surround.",
+        date: "2026-10",
+        services: ["Plank flooring installation", "Edge finishing"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-lift-lobby-finish.webp",
+            alt: "Plank flooring with clean edges around the lift entry of a Toowong apartment"
+        }
+    }
+];
+
 export const flooringInstallationSuburbs: FlooringInstallationSuburb[] = [
     {
         name: "Oxley",
@@ -36,6 +170,20 @@ export const flooringInstallationSuburbs: FlooringInstallationSuburb[] = [
         whyChooseLocal: "Being based in Oxley with easy access to the Ipswich Motorway, Centenary Highway, and Gateway means we can reach a wide area quickly—30 minutes covers most of Brisbane and Ipswich, with Logan and Moreton Bay within reach. We offer fast site visits for quotes and measurements, and our high-end finish is suited to both heritage restorations and modern renovations. With years of experience in Oxley and surrounding suburbs, we know how to work with local builders, real estate agents, and homeowners to deliver flooring that lasts.",
         ctaText: "If you’re in Oxley and looking for a professional flooring installer, contact us today for a quote.",
         nearbySuburbs: ["graceville", "sherwood", "corinda"],
+    },
+    {
+        name: "Richlands",
+        slug: "richlands",
+        postcode: "4077",
+        seoTitle: "Flooring Installation Richlands | Timber, Hybrid & Vinyl Floors",
+        metaDescription: "Flooring installation in Richlands with real local job photos from Turner Installs. Timber, hybrid, vinyl, laminate, stair detailing and floor preparation.",
+        h1Title: "Flooring Installation in Richlands",
+        introParagraph: "Turner Installs provides flooring installation and preparation across Richlands for homes, townhouses and renovation projects. Based in Oxley, we are close enough for fast site visits and practical advice before installation begins.",
+        localRelevance: "Richlands properties often need a mix of straightforward installation work, stair detailing, slab checks, old floor uplift and tidy preparation before new flooring is installed. Stairs need especially careful finishing, with plank layout and matching nosings planned so the detail looks intentional and wears properly.",
+        whyChooseLocal: "Our Oxley base puts us close to Richlands, with fast access through the western corridor. We can inspect the existing floor, advise on prep, and complete timber, hybrid, vinyl or laminate installation with clean site habits.",
+        ctaText: "If you are in Richlands and need flooring installation or floor preparation, contact Turner Installs for a quote.",
+        nearbySuburbs: ["oxley", "inala", "darra", "forest-lake", "springfield"],
+        recentJobs: richlandsRecentJobs,
     },
     {
         name: "Graceville",
@@ -178,6 +326,20 @@ export const flooringInstallationSuburbs: FlooringInstallationSuburb[] = [
         whyChooseLocal: "Our Oxley base puts us within reach of New Farm. We offer fast site visits and our high-end finish suits both heritage restorations and modern renovations. We understand the expectations of New Farm homeowners investing in quality flooring.",
         ctaText: "If you're in New Farm and looking for a professional flooring installer, contact us today for a quote.",
         nearbySuburbs: ["teneriffe", "paddington", "bulimba", "indooroopilly"],
+    },
+    {
+        name: "Spring Hill",
+        slug: "spring-hill",
+        postcode: "4000",
+        seoTitle: "Flooring Installation Spring Hill | Floor Prep, Levelling & Installation",
+        metaDescription: "Flooring installation and floor preparation in Spring Hill, including flood coat levelling, concrete prep, timber, hybrid, vinyl and laminate installs.",
+        h1Title: "Flooring Installation in Spring Hill",
+        introParagraph: "Turner Installs provides flooring installation and floor preparation across Spring Hill, including apartment, townhouse and inner-city renovation work. Recent Spring Hill prep work included grinding down the worst high spots on an uneven slab before flood coating with engineered self-levelling compound.",
+        localRelevance: "Spring Hill's older buildings, apartments and tight-access renovation sites often need careful floor preparation before the finished flooring stage. Where the slab is uneven, grinding and engineered self-levelling can be the right way to create a flatter base before flooring is installed.",
+        whyChooseLocal: "We service Spring Hill from our Oxley base and plan inner-city work around access, parking, dust control and building constraints. The aim is a clean, flat substrate before timber, hybrid, vinyl or laminate flooring is installed.",
+        ctaText: "If you are in Spring Hill and need floor preparation or flooring installation, contact Turner Installs for a quote.",
+        nearbySuburbs: ["new-farm", "paddington", "teneriffe", "fortitude-valley", "kangaroo-point"],
+        recentJobs: springHillRecentJobs,
     },
     {
         name: "The Gap",
@@ -328,12 +490,14 @@ export const flooringInstallationSuburbs: FlooringInstallationSuburb[] = [
         slug: "toowong",
         postcode: "4066",
         seoTitle: "Flooring Installation in Toowong | Timber, Hybrid & Vinyl Floors",
-        metaDescription: "Expert flooring installation in Toowong. Timber, hybrid, vinyl & laminate for apartments and homes. Oxley-based—Toowong Village.",
-        introParagraph: "Turner Installs delivers premium flooring installation throughout Toowong. We install timber flooring, hybrid flooring, vinyl plank flooring, and laminate flooring for apartments, units, and houses. Based in Oxley, we service Toowong and Brisbane's inner west.",
-        localRelevance: "Toowong's mix of apartments near Toowong Village, heritage homes, and riverside properties creates diverse flooring needs. We're experienced with concrete slabs, timber subfloors, and acoustic requirements for apartments.",
-        whyChooseLocal: "We service Toowong from our Oxley base. Fast site visits and experience with inner west Brisbane housing.",
+        metaDescription: "Flooring installation in Toowong with real local job photos. Timber, hybrid, vinyl & laminate for apartments and homes, with slab prep done properly first.",
+        h1Title: "Flooring Installation in Toowong",
+        introParagraph: "Turner Installs delivers premium flooring installation throughout Toowong. We install timber flooring, hybrid flooring, vinyl plank flooring, and laminate flooring for apartments, units, and houses. Based in Oxley, we service Toowong and Brisbane's inner west, and we prepare the slab or subfloor ourselves before a single board goes down.",
+        localRelevance: "Toowong's mix of high-rise apartments near Toowong Village, heritage homes, and riverside properties creates diverse flooring needs. Apartment jobs mean lift access, body corporate rules, protecting finished joinery and making sure the concrete slab is patched and flat before installation. We're experienced with concrete slabs, timber subfloors, and acoustic requirements for apartments.",
+        whyChooseLocal: "We service Toowong from our Oxley base, with fast site visits and recent apartment work in the suburb. Prep and installation are handled by the same team, so there's no gap between the slab being ready and the floor going down.",
         ctaText: "If you're in Toowong and looking for a professional flooring installer, contact us today for a quote.",
         nearbySuburbs: ["indooroopilly", "st-lucia", "bardon", "chelmer"],
+        recentJobs: toowongInstallJobs,
     },
     {
         name: "St Lucia",

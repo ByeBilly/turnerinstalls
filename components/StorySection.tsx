@@ -4,28 +4,39 @@ import { siteImages } from "@/data/siteImages";
 interface StorySectionProps {
     className?: string;
     locationName?: string;
+    image?: {
+        src: string;
+        alt?: string;
+    } | null;
 }
 
-export default function StorySection({ className = "", locationName }: StorySectionProps) {
+export default function StorySection({ className = "", locationName, image }: StorySectionProps) {
+    const storyImage = image === undefined ? {
+        src: siteImages.commercial.projectShots[2].src,
+        alt: "Quality flooring installation"
+    } : image;
+
     return (
         <section className={`py-24 md:py-32 relative bg-slate-50 border-y border-slate-200 ${className}`}>
             <div className="max-w-7xl mx-auto px-5">
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                    <div className="relative">
-                        <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white shadow-2xl">
-                            <div className="absolute inset-0 border-2 border-slate-900/10 z-10 pointer-events-none rounded-lg"></div>
-                            <Image
-                                src={siteImages.commercial.projectShots[2].src}
-                                alt="Quality Flooring Installation"
-                                fill
-                                className="object-cover"
-                            />
+                <div className={`grid ${storyImage ? "md:grid-cols-2" : ""} gap-16 items-center`}>
+                    {storyImage ? (
+                        <div className="relative">
+                            <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white shadow-2xl">
+                                <div className="absolute inset-0 border-2 border-slate-900/10 z-10 pointer-events-none rounded-lg"></div>
+                                <Image
+                                    src={storyImage.src}
+                                    alt={storyImage.alt ?? "Quality flooring installation"}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="absolute -bottom-6 right-0 sm:-right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
+                                <div className="text-3xl font-black text-yellow-400">15+</div>
+                                <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
+                            </div>
                         </div>
-                        <div className="absolute -bottom-6 right-0 sm:-right-6 bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-yellow-400">
-                            <div className="text-3xl font-black text-yellow-400">15+</div>
-                            <div className="text-sm font-bold uppercase tracking-wide">Years Experience</div>
-                        </div>
-                    </div>
+                    ) : null}
                     <div>
                         <div className="inline-block bg-white border border-slate-200 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-slate-900 mb-6 shadow-sm">
                             The Turner Standard

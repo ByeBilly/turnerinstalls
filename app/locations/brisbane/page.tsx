@@ -8,30 +8,20 @@ import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Prep & Concrete Grinding Brisbane";
 const ogDescription = "Premier floor preparation in Brisbane. Servicing all suburbs from Northside to Southside. Concrete grinding, levelling, and subfloor repairs.";
 const ogImageUrl = "/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/locations/brisbane" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/locations/brisbane",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Brisbane" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/locations/brisbane",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function Brisbane() {
     const specs = [
@@ -117,7 +107,7 @@ export default function Brisbane() {
                     { src: "/installspics/locations/brisbane.jpg", alt: "Brisbane Transformation" },
                     { src: "/installspics/locations/brisbane1.jpg", alt: "Modern Brisbane Living" },
                     { src: "/installspics/finished/brisbane-city-view-flooring.jpg", alt: "Brisbane finished flooring project example" },
-                    { src: "/installspics/finished/brisbane views.jpg", alt: "Brisbane flooring project view" }
+                    { src: "/installspics/finished/brisbane-city-view-flooring.jpg", alt: "Brisbane flooring project view" }
                 ]}
                 limit={4}
             />
@@ -134,7 +124,7 @@ export default function Brisbane() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Floor Preparation Brisbane",
  description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Brisbane.",
  url: "/locations/brisbane",

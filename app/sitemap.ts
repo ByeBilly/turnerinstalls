@@ -8,7 +8,7 @@ import { BASE_URL } from '@/lib/business';
 // letting every build stamp `lastmod` with the current instant — a lastmod
 // that changes on every deploy regardless of content changes tells crawlers
 // nothing about real freshness.
-const CONTENT_LAST_UPDATED = new Date('2026-09-15');
+const CONTENT_LAST_UPDATED = new Date('2026-10-13');
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = BASE_URL;

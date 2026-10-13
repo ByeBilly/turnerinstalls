@@ -16,6 +16,7 @@ import FloorPrepUpliftModule from "@/components/FloorPrepUpliftModule";
 import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import type { Metadata } from "next";
 import { buildServiceSchema } from "@/lib/business";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
     return flooringInstallationSuburbs.map((suburb) => ({
@@ -34,31 +35,13 @@ export async function generateMetadata({
 
     const title = `${data.name} Flooring Installation`;
     const description = `Flooring installation in ${data.name}: timber, hybrid, vinyl and laminate, plus floor prep and old floor removal. Free quote.`;
-    const ogImage = projectExampleImages[projectIndex(data.slug)];
-
-    return {
+    return buildPageMetadata({
         title,
         description,
-        alternates: {
-            canonical: `/flooring-installation/${data.slug}`,
-        },
-        robots: {
-            index: true,
-            follow: true,
-        },
-        openGraph: {
-            title,
-            description,
-            url: `/flooring-installation/${data.slug}`,
-            images: [{ url: ogImage.src, width: 1200, height: 630, alt: ogImage.alt }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title,
-            description,
-            images: [ogImage.src],
-        },
-    };
+        path: `/flooring-installation/${data.slug}`,
+        ogTitle: `${data.name} Flooring Installation`,
+        ogSubtitle: `Timber, hybrid, vinyl and laminate flooring with floor prep in ${data.name}.`,
+    });
 }
 
 const services = [
@@ -119,6 +102,14 @@ function rotatedProjectExamples(slug: string) {
     ];
 }
 
+function neutralProjectExamples(slug: string) {
+    return rotatedProjectExamples(slug).map((image) => ({
+        ...image,
+        alt: "Turner Installs finished flooring project example",
+        caption: "Finished flooring project example",
+    }));
+}
+
 export default async function FlooringInstallationSuburbPage({
     params,
 }: {
@@ -135,7 +126,17 @@ export default async function FlooringInstallationSuburbPage({
         .map((slug) => flooringInstallationSuburbs.find((s) => s.slug === slug))
         .filter(Boolean);
     const serviceDescription = `Flooring installation in ${data.name} with floor preparation, old floor uplift, adhesive removal, rubbish removal, levelling and clean subfloor handover.`;
-    const heroProject = projectExampleImages[projectIndex(data.slug)];
+    const useRecentJobImages = data.slug !== "spring-hill";
+    const recentJobImages = (useRecentJobImages ? (data.recentJobs ?? []) : [])
+        .map((job) => job.image)
+        .filter((image): image is NonNullable<typeof image> => Boolean(image));
+    const fallbackProjectImages = neutralProjectExamples(data.slug);
+    const heroProject = recentJobImages[0]
+        ? {
+            ...recentJobImages[0],
+            caption: `${data.name} recent flooring project`,
+        }
+        : fallbackProjectImages[0];
     // One list drives both the visible FAQ and the FAQPage schema: Google only
     // honours FAQ markup whose questions are actually shown on the page.
     const faqs = [
@@ -148,7 +149,12 @@ export default async function FlooringInstallationSuburbPage({
                     answer: "We specialise in luxury vinyl plank (LVP), hybrid flooring, engineered timber, laminate, and commercial plank installation."
                 }
     ];
-    const galleryProjects = rotatedProjectExamples(data.slug);
+    const galleryProjects = recentJobImages.length
+        ? [
+            ...recentJobImages,
+            ...fallbackProjectImages,
+        ]
+        : fallbackProjectImages;
 
     return (
         <>
@@ -227,7 +233,7 @@ export default async function FlooringInstallationSuburbPage({
 
             <ModernGallery
                 title="Recent Turner Installs flooring projects"
-                description={`Real Turner Installs project photos used as workmanship examples for ${data.name}. Captions name the location where it is known.`}
+                description={`Turner Installs flooring examples shown without claiming they are ${data.name} jobs unless the location is verified.`}
                 images={galleryProjects}
                 limit={4}
             />
@@ -257,7 +263,7 @@ export default async function FlooringInstallationSuburbPage({
                 </section>
             )}
 
-            <RecentJobs suburbName={data.name} jobs={data.recentJobs} />
+            <RecentJobs suburbName={data.name} jobs={useRecentJobImages ? data.recentJobs : undefined} />
 
             <FAQSection items={faqs} />
 
@@ -272,7 +278,7 @@ export default async function FlooringInstallationSuburbPage({
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: `Flooring Installation ${data.name}`,
  description: serviceDescription,
  url: `/flooring-installation/${data.slug}`,

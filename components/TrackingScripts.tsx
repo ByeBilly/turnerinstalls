@@ -5,11 +5,9 @@ import { useEffect } from "react";
 declare global {
   interface Window {
     dataLayer?: unknown[];
-    gtag?: (command: string, eventName: string, parameters?: Record<string, string>) => void;
   }
 }
 
-const GA_MEASUREMENT_ID = "G-T6ZG4K0J3W";
 const GTM_CONTAINER_ID = "GTM-NMJJSS86";
 const BOT_USER_AGENT_PATTERN =
   /googlebot|google-inspectiontool|adsbot-google|mediapartners-google|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|pinterest|semrushbot|ahrefsbot|mj12bot|dotbot/i;
@@ -46,19 +44,10 @@ export default function TrackingScripts() {
       return;
     }
 
+    // GA4 (G-T6ZG4K0J3W) and Google Ads are both configured inside the GTM
+    // container, so GTM is the only tag loaded here. A separate gtag.js load
+    // would add ~190KB per visit and risks double-counted page views.
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag(...args) {
-      window.dataLayer?.push(args);
-    };
-
-    window.gtag("js", new Date().toISOString());
-    window.gtag("config", GA_MEASUREMENT_ID);
-
-    installScript(
-      "ga4-script",
-      `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
-    );
-
     window.dataLayer.push({
       "gtm.start": new Date().getTime(),
       event: "gtm.js",
@@ -79,11 +68,6 @@ export default function TrackingScripts() {
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(payload);
-      window.gtag?.("event", "call_liam_click", {
-        phone_number: payload.phone_number,
-        link_text: payload.link_text,
-        page_path: payload.page_path,
-      });
 
       try {
         const body = JSON.stringify(payload);

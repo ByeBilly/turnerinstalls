@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Preparation Sunshine Coast";
 const ogDescription = "Professional floor preparation Sunshine Coast. Caloundra to Noosa. Concrete grinding, floor levelling, and subfloor rectification.";
 const ogImageUrl = "/installspics/locations/sunshinecoast.jpg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/locations/sunshine-coast" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/locations/sunshine-coast",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Sunshine Coast" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/locations/sunshine-coast",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function SunshineCoast() {
     const specs = [
@@ -129,7 +119,7 @@ export default function SunshineCoast() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Floor Preparation Sunshine Coast",
  description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Sunshine Coast.",
  url: "/locations/sunshine-coast",

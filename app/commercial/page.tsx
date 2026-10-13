@@ -4,35 +4,20 @@ import CTAButton from "@/components/CTAButton";
 import ModernGallery from "@/components/ModernGallery";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { siteImages } from "@/data/siteImages";
+import { buildPageMetadata } from "@/lib/seo";
 import { BUSINESS } from "@/lib/business";
 
 const ogTitle = "Commercial Flooring Brisbane | Turner Installs";
 const ogDescription = "Reliable commercial flooring contractors. We partner with property managers, shop fitters, and businesses for on-time, on-budget installations.";
 const ogImage = { url: siteImages.commercial.hero.src, width: 1200, height: 630, alt: siteImages.commercial.hero.alt };
 
-export const metadata = {
-  title: { absolute: ogTitle },
-  description: ogDescription,
-  alternates: {
-    canonical: "/commercial",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: ogTitle,
+export const metadata = buildPageMetadata({
+    title: { absolute: ogTitle },
     description: ogDescription,
-    url: "/commercial",
-    images: [ogImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ogTitle,
-    description: ogDescription,
-    images: [ogImage.url],
-  },
-};
+    path: "/commercial",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function Commercial() {
   return (

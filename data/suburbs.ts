@@ -1,6 +1,11 @@
 import type { RecentJob } from '@/components/RecentJobs';
 import { siteImages } from './siteImages';
-import { flooringInstallationSuburbs } from './flooringInstallationSuburbs';
+import {
+    flooringInstallationSuburbs,
+    richlandsRecentJobs,
+    springHillRecentJobs,
+    toowongPrepJobs,
+} from './flooringInstallationSuburbs';
 
 export type Region = 'brisbane' | 'gold-coast' | 'sunshine-coast' | 'toowoomba' | 'gympie';
 export type HousingArchetype = 'historic' | 'apartment' | 'new-build' | 'commercial';
@@ -187,6 +192,27 @@ export const suburbs: SuburbData[] = [
         image: siteImages.grinding.actionShots[0],
         nearbySuburbs: ["new-farm","newstead","fortitude-valley"]
     },
+    {
+        name: "Spring Hill",
+        slug: "spring-hill",
+        region: "brisbane",
+        postcode: "4000",
+        description: "Inner-city apartments, older buildings and tight-access renovations in Spring Hill need careful floor preparation before the finished flooring goes down. Recent Spring Hill prep work included grinding down high spots on an uneven slab before flood coating with engineered self-levelling compound.",
+        archetype: "apartment",
+        landmarks: ["Wickham Terrace", "St Andrew's War Memorial Hospital"],
+        image: {
+            src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-1.webp",
+            alt: "Spring Hill uneven slab prepared with engineered self-levelling flood coat",
+            caption: "Spring Hill flood coat floor preparation"
+        },
+        galleryImages: [
+            { src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-1.webp", alt: "Spring Hill uneven slab prepared with engineered self-levelling flood coat" },
+            { src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-2.webp", alt: "Engineered self-levelling compound used on a Spring Hill floor preparation job" },
+            { src: "/installspics/suburbs/spring-hill/spring-hill-flood-coat-3.webp", alt: "Spring Hill flood coat carried through a doorway during floor preparation" }
+        ],
+        nearbySuburbs: ["new-farm","teneriffe","paddington","kangaroo-point"],
+        recentJobs: springHillRecentJobs
+    },
 
     // GROWTH / NEW BUILD
     {
@@ -216,6 +242,26 @@ export const suburbs: SuburbData[] = [
             caption: "Turner Installs project example"
         },
         nearbySuburbs: ["graceville","sherwood","corinda"]
+    },
+    {
+        name: "Richlands",
+        slug: "richlands",
+        region: "brisbane",
+        postcode: "4077",
+        description: "Western-corridor homes, townhouses and renovations often need practical floor preparation, stair detailing and clean installation work. Richlands stair projects need plank layout and custom matching nosings planned carefully so the finished stair run looks clean and wears properly.",
+        archetype: "new-build",
+        landmarks: ["Richlands Station", "Progress Road"],
+        image: {
+            src: "/installspics/suburbs/richlands/richlands-job-1.webp",
+            alt: "Plank flooring laid on Richlands stairs with custom matching nosings",
+            caption: "Richlands plank flooring stairs with matching nosings"
+        },
+        galleryImages: [
+            { src: "/installspics/suburbs/richlands/richlands-job-1.webp", alt: "Plank flooring laid on Richlands stairs with custom matching nosings" },
+            { src: "/installspics/suburbs/richlands/richlands-job-2.webp", alt: "Custom matching nosing detail on Richlands plank flooring stairs" }
+        ],
+        nearbySuburbs: ["oxley","springfield","redbank-plains"],
+        recentJobs: richlandsRecentJobs
     },
     {
         name: "Corinda",
@@ -279,6 +325,27 @@ export const suburbs: SuburbData[] = [
         landmarks: ["Indooroopilly Shopping Centre", "St Lucia Golf Links"],
         image: siteImages.grinding.actionShots[1],
         nearbySuburbs: ["chelmer", "taringa", "st-lucia", "toowong", "fig-tree-pocket"]
+    },
+    {
+        name: "Toowong",
+        slug: "toowong",
+        region: "brisbane",
+        postcode: "4066",
+        description: "High-rise apartments, riverside units and older homes make Toowong floor preparation work varied. Recent Toowong apartment work included patching and smoothing the concrete slab through the living areas, then installing plank flooring from the hallway to the private lift lobby with the owner's joinery and artwork protected throughout.",
+        archetype: "apartment",
+        landmarks: ["Toowong Village", "Coronation Drive"],
+        image: {
+            src: "/installspics/suburbs/toowong/toowong-apartment-slab-patching.webp",
+            alt: "Toowong apartment concrete slab patched and prepared before plank flooring installation",
+            caption: "Toowong apartment slab preparation"
+        },
+        galleryImages: [
+            { src: "/installspics/suburbs/toowong/toowong-apartment-slab-patching.webp", alt: "Toowong apartment concrete slab patched and prepared before plank flooring installation" },
+            { src: "/installspics/suburbs/toowong/toowong-apartment-slab-prep-and-install.webp", alt: "Patched concrete slab beside newly installed plank flooring in a Toowong apartment" },
+            { src: "/installspics/suburbs/toowong/toowong-apartment-hallway-planks.webp", alt: "Finished plank flooring running down a Toowong apartment hallway with artwork wrapped for protection" }
+        ],
+        nearbySuburbs: ["indooroopilly", "st-lucia", "chelmer", "bardon", "paddington"],
+        recentJobs: toowongPrepJobs
     }
 ];
 

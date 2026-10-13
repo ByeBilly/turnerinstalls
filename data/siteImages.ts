@@ -9,18 +9,18 @@ export type ImageAsset = {
 export const siteImages = {
     floorPrep: {
         hero: {
-            src: "/installspics/prep/prepare/we can make even this slab look brand new.jpg",
+            src: "/installspics/prep/prepare/rough-slab-before-preparation.jpg",
             alt: "Restoring Damaged Concrete Slabs to Like-New Condition",
             // tags removed as requested
         },
         beforeAfter: [
             {
-                before: { src: "/installspics/prep/damage/damage 1.jpg", alt: "Severely Damaged Substrate" },
-                after: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Mirror Finish Flood Levelling on Suspended Slab" }
+                before: { src: "/installspics/prep/damage/subfloor-damage.jpg", alt: "Severely Damaged Substrate" },
+                after: { src: "/installspics/prep/floods/perfect-flood-level-mirror-finish.jpg", alt: "Mirror Finish Flood Levelling on Suspended Slab" }
             },
             {
-                before: { src: "/installspics/prep/level/lows identified and filled.jpg", alt: "Identifying Low Spots in Slab" },
-                after: { src: "/installspics/prep/level/levelled area using engineered floor levelling compounds.jpg", alt: "Levelled with Engineered Compounds" }
+                before: { src: "/installspics/prep/level/lows-identified-and-filled.jpg", alt: "Identifying Low Spots in Slab" },
+                after: { src: "/installspics/prep/level/levelled-area-engineered-compounds.jpg", alt: "Levelled with Engineered Compounds" }
             },
             {
                 before: { src: "/installspics/prep/floorprep.jpg", alt: "Floor Preparation in Progress" },
@@ -28,23 +28,23 @@ export const siteImages = {
             }
         ],
         turnerDifference: [
-            { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Mirror Finish Flood Levelling" },
-            { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
+            { src: "/installspics/prep/floods/perfect-flood-level-mirror-finish.jpg", alt: "Mirror Finish Flood Levelling" },
+            { src: "/installspics/prep/floods/absolute-perfect-flood-levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
             { src: "/installspics/prep/floods/floodprep.jpg", alt: "Professional Flood Levelling Preparation" }
         ],
         unacceptable: [
-            { src: "/installspics/prep/damage/water damage.jpg", alt: "Water Damaged Substrate" },
-            { src: "/installspics/prep/repair/We would prefer not to have to fix other installers installations. These sorts of issues are avoided by choosing us first. Obvious cause non levelled floor.jpg", alt: "Zoom in on the yellow straight edge: Severe unevenness causing failure" }
+            { src: "/installspics/prep/damage/water-damaged-floor.jpg", alt: "Water Damaged Substrate" },
+            { src: "/installspics/prep/repair/failed-install-unlevelled-floor.jpg", alt: "Zoom in on the yellow straight edge: Severe unevenness causing failure" }
         ] as ImageAsset[],
         process: [
             { src: "/installspics/prep/uplift/messy-uplift-clean-web.jpg", alt: "Clean Uplift & Removal" },
             { src: "/installspics/prep/level/filling-low-parts-for-perfect-install.jpg", alt: "Filling Low Spots for Perfect Install" },
-            { src: "/installspics/prep/floods/absolute perfect flood levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
-            { src: "/installspics/prep/uplift/old planks removed.jpg", alt: "Old Flooring Removed for Subfloor Prep" },
-            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old Flooring Cleared Before Prep" },
-            { src: "/installspics/prep/uplift/smoothedge required to be removed.jpg", alt: "Carpet Smoothedge Removal" },
-            { src: "/installspics/prep/level/quick mix of engineered cement will sort lows requiring just  light sanding.jpg", alt: "Engineered Cement Application" },
-            { src: "/installspics/prep/level/prepping the lows.jpg", alt: "Pre-filling Low Spots" },
+            { src: "/installspics/prep/floods/absolute-perfect-flood-levelling.jpg", alt: "Absolute Perfect Flood Levelling" },
+            { src: "/installspics/prep/uplift/old-planks-removed.jpg", alt: "Old Flooring Removed for Subfloor Prep" },
+            { src: "/installspics/prep/uplift/floor-uplift-in-progress.jpg", alt: "Old Flooring Cleared Before Prep" },
+            { src: "/installspics/prep/uplift/smoothedge-removal.jpg", alt: "Carpet Smoothedge Removal" },
+            { src: "/installspics/prep/level/engineered-cement-mix-application.jpg", alt: "Engineered Cement Application" },
+            { src: "/installspics/prep/level/prepping-the-lows.jpg", alt: "Pre-filling Low Spots" },
             { src: "/installspics/prep/floorprep.jpg", alt: "Professional Subfloor Preparation" },
             { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Floor Levelled Out — Mirror Flat Finish" },
             { src: "/installspics/prep/floods/floodprep.jpg", alt: "Flood Levelling Compound Application" }
@@ -56,12 +56,12 @@ export const siteImages = {
         // curated hero/turnerDifference/unacceptable/process sets above.
         gallery: [
             { src: "/installspics/prep/uplift/messy-uplift-clean-web.jpg", alt: "Clean uplift and removal, site kept controlled" },
-            { src: "/installspics/prep/uplift/old planks removed.jpg", alt: "Old flooring planks removed before subfloor prep" },
-            { src: "/installspics/prep/uplift/advise please on text to go with this image.jpg", alt: "Old flooring cleared back to bare substrate" },
-            { src: "/installspics/prep/uplift/smoothedge required to be removed.jpg", alt: "Carpet smoothedge and staples removed" },
+            { src: "/installspics/prep/uplift/old-planks-removed.jpg", alt: "Old flooring planks removed before subfloor prep" },
+            { src: "/installspics/prep/uplift/floor-uplift-in-progress.jpg", alt: "Old flooring cleared back to bare substrate" },
+            { src: "/installspics/prep/uplift/smoothedge-removal.jpg", alt: "Carpet smoothedge and staples removed" },
             { src: "/installspics/prep/uplift/glue.jpg", alt: "Old adhesive residue before mechanical removal" },
-            { src: "/installspics/prep/uplift/ceramic tile uplifts.jpeg", alt: "Ceramic tile uplift ahead of substrate prep" },
-            { src: "/installspics/prep/uplift/We aim for minimal mess on the messiest uplifts.jpeg", alt: "Controlled, tidy uplift even on messy jobs" },
+            { src: "/installspics/prep/uplift/ceramic-tile-uplift.jpeg", alt: "Ceramic tile uplift ahead of substrate prep" },
+            { src: "/installspics/prep/uplift/minimal-mess-floor-uplift.jpeg", alt: "Controlled, tidy uplift even on messy jobs" },
             { src: "/installspics/prep/level/filling-low-parts-for-perfect-install.jpg", alt: "Filling low spots for a perfect install" },
             { src: "/installspics/prep/level/prepping-the-lows.jpg", alt: "Prepping low areas ahead of levelling" },
             { src: "/installspics/prep/level/floorlevelsout.jpg", alt: "Subfloor levelled out to a flat finish" },
@@ -73,10 +73,10 @@ export const siteImages = {
             { src: "/installspics/prep/grinding/619904184_2167234590687272_1260573441369883843_n.jpg", alt: "Diamond grinding to open up the surface profile" },
             { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Dustless concrete grinding in progress" },
             { src: "/installspics/prep/grinding/621198149_912693617936405_2497899494714228508_n.jpg", alt: "Slab rectification by mechanical grinding" },
-            { src: "/installspics/prep/damage/needs descript.jpg", alt: "Substrate condition assessed before preparation" },
+            { src: "/installspics/prep/damage/floor-damage-before-repair.jpg", alt: "Substrate condition assessed before preparation" },
             { src: "/installspics/prep/repair/repair.jpg", alt: "Cracked substrate repaired before levelling" },
-            { src: "/installspics/prep/prepare/Often on new builds we find slabs requiring work.jpg", alt: "New-build slab requiring correction before flooring" },
-            { src: "/installspics/prep/prepare/we can make even this slab look brand new.jpg", alt: "Damaged slab restored to a like-new finish" },
+            { src: "/installspics/prep/prepare/new-build-slab-requiring-prep.jpg", alt: "New-build slab requiring correction before flooring" },
+            { src: "/installspics/prep/prepare/rough-slab-before-preparation.jpg", alt: "Damaged slab restored to a like-new finish" },
         ] as ImageAsset[],
         upliftRemoval: [
             {
@@ -104,27 +104,27 @@ export const siteImages = {
         },
         actionShots: [
             { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Dustless Grinding System" },
-            { src: "/installspics/prep/level/showing how sliding doors are installed too low, if they cant be raised or replaced concrete needs grinding down to suitable height.jpg", alt: "Grinding for Height Clearance" },
+            { src: "/installspics/prep/level/sliding-door-height-grinding-solution.jpg", alt: "Grinding for Height Clearance" },
             { src: "/installspics/prep/grinding/619904184_2167234590687272_1260573441369883843_n.jpg", alt: "Surface Preparation Grinding" },
             { src: "/installspics/prep/grinding/621198149_912693617936405_2497899494714228508_n.jpg", alt: "Slab Rectification Grinding" }
         ] as ImageAsset[],
         closeups: [
-            { src: "/installspics/prep/level/filled lowsand high spots grinded.jpg", alt: "Filled Lows and Grinded Highs" },
-            { src: "/installspics/prep/level/levelled area using engineered floor levelling compounds.jpg", alt: "Prepared Surface for Flooring" }
+            { src: "/installspics/prep/level/filled-lows-grinded-highs.jpg", alt: "Filled Lows and Grinded Highs" },
+            { src: "/installspics/prep/level/levelled-area-engineered-compounds.jpg", alt: "Prepared Surface for Flooring" }
         ] as ImageAsset[]
     },
     commercial: {
         hero: {
-            src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg",
+            src: "/installspics/commercial/commercial-install-working-with-trades.jpg",
             alt: "Professional Commercial Installation Working with Other Trades",
             tags: ["commercial", "hero"]
         },
         projectShots: [
-            { src: "/installspics/commercial/Commercial installations whilst working productively with other trades always.jpg", alt: "Coordinated Commercial Work" },
-            { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Large Scale Commercial Flooring" },
+            { src: "/installspics/commercial/commercial-install-alongside-other-trades.jpg", alt: "Coordinated Commercial Work" },
+            { src: "/installspics/commercial/commercial-install-working-with-trades.jpg", alt: "Large Scale Commercial Flooring" },
             { src: "/installspics/commercial/commercial_liam.jpg", alt: "Commercial Flooring Installation" },
             { src: "/installspics/prep/grinding/621164508_1665500128138991_4555687774613313366_n.jpg", alt: "Commercial Concrete Preparation" },
-            { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Industrial Grade Levelling" },
+            { src: "/installspics/prep/floods/perfect-flood-level-mirror-finish.jpg", alt: "Industrial Grade Levelling" },
         ] as ImageAsset[],
         teamShots: [] as ImageAsset[]
     },
@@ -154,16 +154,16 @@ export const siteImages = {
             { src: "/installspics/laying/619973203_911868691790640_5245926640594864581_n.jpg", alt: "Substrate Checking" },
             { src: "/installspics/laying/622122337_2401358896985815_216730946828062350_n.jpg", alt: "Plank Laying" },
             { src: "/installspics/laying/624294133_1572505330566282_4397485069894811667_n.jpg", alt: "Detail Work" },
-            { src: "/installspics/laying/minimal mess and always a tidy up.jpg", alt: "Clean Worksite" },
-            { src: "/installspics/laying/staircases require time for adhesives to set before being climbed.jpg", alt: "Staircase Alignment" },
+            { src: "/installspics/laying/tidy-workspace-during-install.jpg", alt: "Clean Worksite" },
+            { src: "/installspics/laying/staircase-adhesive-setting.jpg", alt: "Staircase Alignment" },
             { src: "/installspics/finished/stairs_laid.jpg", alt: "Components & Transitions" },
             { src: "/installspics/laying/layingthefloor.jpg", alt: "Laying the Floor — Precision Plank Placement" },
             { src: "/installspics/laying/floorstep.jpg", alt: "Step-by-Step Floor Installation" }
         ] as ImageAsset[],
         services: {
             residential: { src: "/installspics/finished/image6.jpeg", alt: "Residential Flooring" },
-            commercial: { src: "/installspics/commercial/Commercial installations whilst working productively with other trades.jpg", alt: "Commercial Flooring" },
-            prep: { src: "/installspics/prep/floods/Perfect flood level for mirror finish on suspended slab.jpeg", alt: "Floor Preparation" }
+            commercial: { src: "/installspics/commercial/commercial-install-working-with-trades.jpg", alt: "Commercial Flooring" },
+            prep: { src: "/installspics/prep/floods/perfect-flood-level-mirror-finish.jpg", alt: "Floor Preparation" }
         },
         removalProjects: [
             {

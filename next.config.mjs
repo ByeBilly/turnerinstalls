@@ -14,6 +14,14 @@ const nextConfig = {
     turbopack: {
         root: __dirname,
     },
+    images: {
+        // AVIF is ~20-30% smaller than WebP; browsers without it get WebP.
+        formats: ['image/avif', 'image/webp'],
+        // Job photos never change in place (new photos get new file names),
+        // so cache optimised versions for 31 days instead of the 4h default.
+        // This also cuts Vercel image transformation usage.
+        minimumCacheTTL: 2678400,
+    },
     async redirects() {
         return [
             {
@@ -30,6 +38,35 @@ const nextConfig = {
                 source: '/services/industrial-prep',
                 destination: '/services/industrial-surface-prep',
                 statusCode: 301,
+            },
+        ];
+    },
+    async headers() {
+        return [
+            {
+                source: '/:path*',
+                headers: [
+                    {
+                        key: 'Strict-Transport-Security',
+                        value: 'max-age=63072000; includeSubDomains; preload',
+                    },
+                    {
+                        key: 'X-Content-Type-Options',
+                        value: 'nosniff',
+                    },
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN',
+                    },
+                    {
+                        key: 'Referrer-Policy',
+                        value: 'strict-origin-when-cross-origin',
+                    },
+                    {
+                        key: 'Permissions-Policy',
+                        value: 'camera=(), microphone=(), geolocation=()',
+                    },
+                ],
             },
         ];
     },

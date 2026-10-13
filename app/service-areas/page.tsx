@@ -4,34 +4,19 @@ import { suburbs, getSuburbsByRegion } from "@/data/suburbs";
 import { flooringInstallationSuburbs } from "@/data/flooringInstallationSuburbs";
 import ServiceHero from "@/components/ServiceHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { buildPageMetadata } from "@/lib/seo";
 
 const ogTitle = "Flooring Service Areas Brisbane";
 const ogDescription = "View Turner Installs' Brisbane flooring service areas for professional installation, floor preparation, levelling and residential flooring projects.";
 const ogImageUrl = "/images/brisbane_skyline.png";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: {
-        canonical: "/service-areas",
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/service-areas",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs Brisbane and South East Queensland service area" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/service-areas",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function ServiceAreas() {
     const brisbaneSuburbs = getSuburbsByRegion("brisbane");

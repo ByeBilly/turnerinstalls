@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Slab Moisture Barriers Brisbane";
 const ogDescription = "Protect your flooring from rising damp. Professional epoxy moisture barrier application for concrete slabs in Brisbane & SE QLD.";
 const ogImage = { url: siteImages.floorPrep.turnerDifference[0].src, width: 1200, height: 630, alt: siteImages.floorPrep.turnerDifference[0].alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/services/moisture-barriers" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/moisture-barriers",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/moisture-barriers",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function MoistureBarriers() {
     const specs = [
@@ -154,7 +144,7 @@ export default function MoistureBarriers() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Moisture Barriers",
  description: "Epoxy moisture barrier systems for damp concrete slabs, protecting adhesives, timber and vinyl flooring from rising moisture.",
  url: "/services/moisture-barriers",

@@ -8,30 +8,20 @@ import SEOCTA from "@/components/SEOCTA";
 import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Prep & Concrete Grinding Gold Coast";
 const ogDescription = "Expert floor prep on the Gold Coast. Servicing from Southport to Coolangatta. Concrete grinding, adhesive removal, and levelling.";
 const ogImageUrl = "/installspics/locations/goldcoastcleanfinish.jpg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/locations/gold-coast" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/locations/gold-coast",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Gold Coast" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/locations/gold-coast",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function GoldCoast() {
     const specs = [
@@ -129,7 +119,7 @@ export default function GoldCoast() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Floor Preparation Gold Coast",
  description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Gold Coast.",
  url: "/locations/gold-coast",

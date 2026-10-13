@@ -3,30 +3,20 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import ContactForm from "@/components/ContactForm";
+import { buildPageMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 const ogTitle = "Ipswich Timber Flooring & Floor Prep | Turner Installs";
 const ogDescription = "Expert floor preparation, concrete grinding, and timber flooring installation in Ipswich, QLD. Local master installers with 3 generations of experience.";
 const ogImageUrl = "/installspics/finished/paddington-queenslander-flooring.jpg";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
     title: { absolute: ogTitle },
     description: ogDescription,
-    alternates: { canonical: "/locations/ipswich" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/locations/ipswich",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Ipswich" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/locations/ipswich",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function Ipswich() {
     return (

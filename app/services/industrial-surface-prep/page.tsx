@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Industrial Concrete Grinding Brisbane";
 const ogDescription = "Large scale industrial floor preparation. Shot blasting, heavy grinding, and make-good services for warehouses and factories.";
 const ogImage = { url: siteImages.commercial.hero.src, width: 1200, height: 630, alt: siteImages.commercial.hero.alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/services/industrial-surface-prep" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/industrial-surface-prep",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/industrial-surface-prep",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function IndustrialPrep() {
     const specs = [
@@ -136,7 +126,7 @@ export default function IndustrialPrep() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Industrial Surface Preparation",
  description: "Large-area concrete grinding and coating removal for warehouses, workshops and commercial slabs.",
  url: "/services/industrial-surface-prep",

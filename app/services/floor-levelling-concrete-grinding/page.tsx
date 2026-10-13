@@ -9,37 +9,20 @@ import SEOCTA from "@/components/SEOCTA";
 import { siteImages } from "@/data/siteImages";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Levelling & Concrete Grinding Brisbane";
 const ogDescription = "Expert concrete grinding, adhesive uplift & self-levelling across Brisbane & SEQ. 3rd-generation prep specialists getting slabs ready to Australian Standards.";
 const ogImage = { url: siteImages.grinding.hero.src, width: 1200, height: 630, alt: siteImages.grinding.hero.alt };
 
-export const metadata: Metadata = {
-  title: {
-    absolute: `${ogTitle} | Turner Installs`,
-  },
-  description: ogDescription,
-  alternates: {
-    canonical: "/services/floor-levelling-concrete-grinding",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    url: "/services/floor-levelling-concrete-grinding",
-    images: [ogImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ogTitle,
-    description: ogDescription,
-    images: [ogImage.url],
-  },
-};
+    path: "/services/floor-levelling-concrete-grinding",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 const proofPoints = [
   "3rd-generation flooring experience",
@@ -499,7 +482,7 @@ export default function FloorLevellingConcreteGrindingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildServiceSchema({
+          __html: safeJsonLd(buildServiceSchema({
  name: "Floor Levelling and Concrete Grinding",
  description: "Concrete grinding, adhesive uplift, floor levelling, patching and subfloor preparation for flooring installation across Brisbane and South East Queensland.",
  url: "/services/floor-levelling-concrete-grinding",

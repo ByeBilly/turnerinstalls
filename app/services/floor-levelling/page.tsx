@@ -9,35 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Levelling Brisbane";
 const ogDescription = "Expert floor levelling in Brisbane for uneven concrete and subfloors. Get a smooth, stable base ready for timber, laminate and other flooring.";
 const ogImage = { url: siteImages.floorPrep.beforeAfter[2].after.src, width: 1200, height: 630, alt: siteImages.floorPrep.beforeAfter[2].after.alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: {
-        canonical: "/services/floor-levelling",
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/floor-levelling",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/floor-levelling",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function FloorLevelling() {
     const specs = [
@@ -179,7 +164,7 @@ export default function FloorLevelling() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Floor Levelling",
  description: "Self-levelling compound and flood levelling to correct dips, humps and slab waves so hybrid, vinyl plank and timber floors sit flat.",
  url: "/services/floor-levelling",

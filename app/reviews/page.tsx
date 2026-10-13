@@ -6,35 +6,20 @@ import ReviewsSchema from "@/components/ReviewsSchema";
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { GOOGLE_REVIEW_URL } from "@/lib/businessLinks";
 
 const ogTitle = "Client Reviews | Turner Installs Flooring Brisbane";
 const ogDescription = "See what our clients say about our floor preparation, grinding, and installation services across Brisbane and SE QLD.";
 const ogImageUrl = "/installspics/finished/finishedfloor.jpg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: { absolute: ogTitle },
     description: ogDescription,
-    alternates: {
-        canonical: "/reviews",
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/reviews",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs finished flooring project" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/reviews",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 async function getReviews() {
     // For SSG/SSR, we can read directly from file system if strictly server-side, 
@@ -60,7 +45,7 @@ export default async function ReviewsPage() {
             <ServiceHero
                 title={<>Client <span className="text-yellow-500">Reviews</span>.</>}
                 subtitle="Real feedback from real flooring projects across South East Queensland."
-                imagePath="/images/resource_bcHx5yFfMiH6FiD4JYkOpV.png" // Using one of the gallery images
+                imagePath="/installspics/promo/resource_bcHx5yFfMiH6FiD4JYkOpV.png" // Using one of the gallery images
                 label="TESTIMONIALS"
             />
 

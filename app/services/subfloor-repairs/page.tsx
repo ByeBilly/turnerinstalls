@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Subfloor & Concrete Crack Repairs Brisbane";
 const ogDescription = "Expert subfloor repair services in Brisbane. Fixing cracks, divots, ramping height differences, and stabilising loose areas.";
 const ogImage = { url: siteImages.floorPrep.unacceptable[1].src, width: 1200, height: 630, alt: siteImages.floorPrep.unacceptable[1].alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/services/subfloor-repairs" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/subfloor-repairs",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/subfloor-repairs",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function SubfloorRepairs() {
     const specs = [
@@ -150,7 +140,7 @@ export default function SubfloorRepairs() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Subfloor Repairs",
  description: "Subfloor repairs including crack repair, patching, ramping and stabilising before flooring installation.",
  url: "/services/subfloor-repairs",

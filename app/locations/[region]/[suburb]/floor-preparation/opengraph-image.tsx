@@ -23,7 +23,7 @@ export default async function Image({
 }) {
     const { region, suburb: suburbSlug } = await params;
     const suburb = getFloorPreparationSuburb(suburbSlug, region);
-    const imageSrc = suburb?.image?.src ?? "/installspics/prep/prepare/we can make even this slab look brand new.jpg";
+    const imageSrc = suburb?.image?.src ?? "/installspics/prep/prepare/rough-slab-before-preparation.jpg";
     const bg = toDataUri(imageSrc);
 
     return new ImageResponse(

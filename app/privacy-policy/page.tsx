@@ -1,19 +1,14 @@
 import Section from "@/components/Section";
 import { BUSINESS } from "@/lib/business";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: {
-    absolute: "Privacy Policy | Turner Installs",
-  },
+export const metadata = buildPageMetadata({
+  title: { absolute: "Privacy Policy | Turner Installs" },
   description: "Privacy policy for Turner Installs - how we collect, use and protect your personal information.",
-  alternates: {
-    canonical: "/privacy-policy",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  path: "/privacy-policy",
+  ogTitle: "Privacy Policy | Turner Installs",
+  ogSubtitle: "How Turner Installs collects, uses and protects personal information.",
+});
 
 export default function PrivacyPolicyPage() {
   const supportPhone = BUSINESS.telephoneDisplay;

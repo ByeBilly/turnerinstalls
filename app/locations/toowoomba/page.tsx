@@ -9,30 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Floor Prep & Concrete Grinding Toowoomba";
 const ogDescription = "Toowoomba's floor prep specialists. Handling red soil slab movement, grinding, and levelling for The Garden City.";
 const ogImageUrl = "/installspics/finished/finished-timber-floor-display.jpg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: { canonical: "/locations/toowoomba" },
-    robots: { index: true, follow: true },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/locations/toowoomba",
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Turner Installs floor preparation, Toowoomba" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImageUrl],
-    },
-};
+    path: "/locations/toowoomba",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function Toowoomba() {
     const specs = [
@@ -129,7 +119,7 @@ export default function Toowoomba() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Floor Preparation Toowoomba",
  description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Toowoomba.",
  url: "/locations/toowoomba",

@@ -6,10 +6,19 @@ import HighLevelChat from "@/components/HighLevelChat";
 import TrackingScripts from "@/components/TrackingScripts";
 import { BASE_URL, BUSINESS, WEBSITE_ID, buildBusinessEntity, businessRef } from "@/lib/business";
 import { buildAggregateRating } from "@/lib/reviews";
+import { buildOgImageUrl, safeJsonLd } from "@/lib/seo";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ? `https://${process.env.NEXT_PUBLIC_BASE_URL}`
   : BASE_URL;
+
+// The old default share image was a 1080x1920 portrait promo that social
+// cards cropped badly; use the generated 1200x630 card instead.
+const defaultOgImage = buildOgImageUrl({
+  title: "Expert Flooring & Professional Floor Preparation",
+  subtitle: "Brisbane, Ipswich & South East Queensland",
+  path: "/",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -41,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "Turner Installs",
     images: [
       {
-        url: "/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png",
+        url: defaultOgImage,
         width: 1200,
         height: 630,
         alt: "Turner Installs Premium Flooring",
@@ -54,10 +63,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Turner Installs | Expert Flooring & Professional Floor Preparation",
     description: "Expert flooring installation and professional preparation in Brisbane.",
-    images: ["/installspics/promo/resource_9fVqoabE10H5PDfVW4rOXY.png"],
+    images: [defaultOgImage],
   },
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -77,7 +90,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: safeJsonLd({
               "@context": "https://schema.org",
               "@graph": [
                 buildBusinessEntity(buildAggregateRating()),

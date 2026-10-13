@@ -1,5 +1,6 @@
 import { BUSINESS_ID } from "@/lib/business";
 import { buildAggregateRating, buildReviewSchema } from "@/lib/reviews";
+import { safeJsonLd } from "@/lib/seo";
 
 /**
  * LocalBusiness schema carrying AggregateRating + individual Review nodes,
@@ -23,7 +24,7 @@ export default function ReviewsSchema() {
     return (
         <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
         />
     );
 }

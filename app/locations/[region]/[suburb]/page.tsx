@@ -20,6 +20,7 @@ import SuburbLogisticsProof from "@/components/SuburbLogisticsProof";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 import { buildServiceSchema } from "@/lib/business";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 
 // 1. Generate StaticParams & Metadata (Unchanged)
 export async function generateStaticParams() {
@@ -37,31 +38,13 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     const title = `${suburb.name} Flooring & Floor Prep`;
     const desc = `Flooring installation and floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding, levelling and installation.`;
     const canonical = `/locations/${suburb.region}/${suburb.slug}`;
-    const ogImage = suburb.image ?? siteImages.floorPrep.hero;
-
-    return {
-        title: title,
+    return buildPageMetadata({
+        title,
         description: desc,
-        alternates: {
-            canonical,
-        },
-        robots: {
-            index: true,
-            follow: true,
-        },
-        openGraph: {
-            title: title,
-            description: desc,
-            url: canonical,
-            images: [{ url: ogImage.src, width: 1200, height: 630, alt: ogImage.alt }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: title,
-            description: desc,
-            images: [ogImage.src],
-        },
-    };
+        path: canonical,
+        ogTitle: `${suburb.name} Flooring Specialists`,
+        ogSubtitle: `Floor preparation, levelling, uplift and installation in ${suburb.name}.`,
+    });
 }
 
 // 3. Page Component
@@ -147,12 +130,13 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
     // 1. Suburb Specific Image (Highest Priority)
     // 2. Region Specific Fallback (Gold Coast vs Brisbane)
     // 3. Default Site Hero
-    let heroImage = suburb.image?.src;
+    const verifiedSuburbImage = suburb.image;
+    let heroImage = verifiedSuburbImage?.src;
     if (!heroImage) {
         if (suburb.region === 'gold-coast') {
             heroImage = "/images/gold_coast_skyline.jpg"; // You'll need to ensure this image exists or use a placeholder
         } else {
-            heroImage = "/installspics/finished/brisbane views.jpg";
+            heroImage = "/installspics/finished/brisbane-city-view-flooring.jpg";
         }
     }
 
@@ -192,8 +176,8 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
                 title={<>{suburb.name} <span className="text-yellow-500">Flooring Specialists</span>.</>}
                 subtitle={content.heroSubtitle}
                 imagePath={heroImage}
-                imageAlt={suburb.image?.alt}
-                imageNote={suburb.image?.caption}
+                imageAlt={verifiedSuburbImage?.alt}
+                imageNote={verifiedSuburbImage?.caption}
                 label={`${suburb.region.toUpperCase().replace('-', ' ')}`}
             >
                 {/* INJECT HERO FORM */}
@@ -204,7 +188,7 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
             <TrustBar />
 
             {/* INJECT STORY SECTION */}
-            <StorySection locationName={suburb.name} />
+            <StorySection locationName={suburb.name} image={suburb.image} />
 
             <TechSpecs
                 title={content.introTitle}
@@ -254,7 +238,7 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
 
             <ModernGallery
                 title="Recent Turner Installs transformations"
-                description={`Real Turner Installs project photos used as proof of workmanship for ${suburb.name}. Captions name the location where it is known.`}
+                description={`Real Turner Installs project photos used as workmanship examples for ${suburb.name}.`}
                 images={galleryImages}
                 limit={4}
             />
@@ -303,7 +287,7 @@ export default async function SuburbPage({ params }: { params: Promise<{ region:
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: `Floor Preparation ${suburb.name}`,
  description: `Floor preparation, concrete grinding, levelling and adhesive removal in ${suburb.name}.`,
  url: `/locations/${suburb.region}/${suburb.slug}`,

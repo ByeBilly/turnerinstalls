@@ -9,35 +9,20 @@ import FAQSection from "@/components/FAQSection";
 import InternalLinks from "@/components/InternalLinks";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Concrete Grinding Brisbane";
 const ogDescription = "Professional concrete grinding in Brisbane to remove high spots, adhesives and contaminants, creating a clean surface ready for flooring installation.";
 const ogImage = { url: siteImages.grinding.hero.src, width: 1200, height: 630, alt: siteImages.grinding.hero.alt };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: {
-        canonical: "/services/concrete-grinding",
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/services/concrete-grinding",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/services/concrete-grinding",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function ConcreteGrinding() {
     const specs = [
@@ -176,7 +161,7 @@ export default function ConcreteGrinding() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Concrete Grinding",
  description: "Diamond concrete grinding with dust extraction for adhesive removal, surface preparation and slab rectification before flooring installation.",
  url: "/services/concrete-grinding",

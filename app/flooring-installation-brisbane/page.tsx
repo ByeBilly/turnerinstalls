@@ -6,35 +6,20 @@ import SEOCTA from "@/components/SEOCTA";
 import { siteImages } from "@/data/siteImages";
 import ModernGallery from "@/components/ModernGallery";
 import type { Metadata } from "next";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Flooring Installation Brisbane";
 const ogDescription = "Professional flooring installation in Brisbane for timber, laminate and residential renovations, with expert preparation and quality workmanship.";
 const ogImage = { url: "/installspics/finished/finished-timber-floor-display.jpg", width: 1200, height: 630, alt: "Turner Installs finished timber flooring, Brisbane" };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
     title: ogTitle,
     description: ogDescription,
-    alternates: {
-        canonical: "/flooring-installation-brisbane",
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
-    openGraph: {
-        title: ogTitle,
-        description: ogDescription,
-        url: "/flooring-installation-brisbane",
-        images: [ogImage],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: ogTitle,
-        description: ogDescription,
-        images: [ogImage.url],
-    },
-};
+    path: "/flooring-installation-brisbane",
+    ogTitle,
+    ogSubtitle: ogDescription,
+});
 
 export default function FlooringInstallationBrisbanePage() {
     return (
@@ -161,7 +146,7 @@ export default function FlooringInstallationBrisbanePage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: "Flooring Installation Brisbane",
  description: "Timber, hybrid, vinyl plank and laminate flooring installation across Brisbane, with floor preparation and old floor removal. Based in Oxley.",
  url: "/flooring-installation-brisbane",

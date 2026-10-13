@@ -1,4 +1,5 @@
 import { BASE_URL, BUSINESS, businessRef } from "@/lib/business";
+import { safeJsonLd } from "@/lib/seo";
 
 export default function BlogPostingSchema({
     slug,
@@ -36,7 +37,7 @@ export default function BlogPostingSchema({
     return (
         <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
         />
     );
 }

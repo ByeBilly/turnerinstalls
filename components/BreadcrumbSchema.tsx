@@ -1,4 +1,5 @@
 import { BASE_URL } from "@/lib/business";
+import { safeJsonLd } from "@/lib/seo";
 
 export interface BreadcrumbItem {
   name: string;
@@ -20,7 +21,7 @@ export default function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] })
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
     />
   );
 }

@@ -20,6 +20,7 @@ import NearbySuburbsMesh from "@/components/NearbySuburbsMesh";
 import { siteImages } from "@/data/siteImages";
 import type { Metadata } from "next";
 import { buildServiceSchema } from "@/lib/business";
+import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
     return floorPreparationSuburbs.map((suburb) => ({
@@ -37,30 +38,13 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
     const desc = `Floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding and levelling. Free quotes across Brisbane and SE QLD.`;
     const canonical = `/locations/${suburb.region}/${suburb.slug}/floor-preparation`;
 
-    // og:image/twitter:image come from the sibling opengraph-image.tsx file
-    // convention (dynamic, suburb-name-on-photo) — not set manually here to
-    // avoid emitting duplicate og:image tags alongside it.
-    return {
-        title: title,
+    return buildPageMetadata({
+        title,
         description: desc,
-        alternates: {
-            canonical,
-        },
-        robots: {
-            index: true,
-            follow: true,
-        },
-        openGraph: {
-            title: title,
-            description: desc,
-            url: canonical,
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: title,
-            description: desc,
-        },
-    };
+        path: canonical,
+        ogTitle: `${suburb.name} Floor Preparation`,
+        ogSubtitle: `Uplift, adhesive removal, concrete grinding and levelling in ${suburb.name}.`,
+    });
 }
 
 export default async function SuburbFloorPrepPage({ params }: { params: Promise<{ region: string; suburb: string }> }) {
@@ -86,8 +70,17 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
         const start = ((seedSum + offset) % galleryPool.length + galleryPool.length) % galleryPool.length;
         return [...galleryPool.slice(start), ...galleryPool.slice(0, start)];
     };
-    const turnerDifferenceImages = rotateFrom(0).slice(0, 3);
-    const readyForInstallImages = rotateFrom(7).slice(0, 3).map((img) => ({ ...img, caption: img.alt }));
+    const recentJobImages = (suburb.recentJobs ?? [])
+        .map((job) => job.image ? { ...job.image, caption: job.title } : null)
+        .filter((image): image is { src: string; alt: string; caption: string } => Boolean(image));
+    const turnerDifferenceImages = recentJobImages.length
+        ? [...recentJobImages, ...rotateFrom(0).map((img) => ({ ...img, caption: img.alt }))].slice(0, 3)
+        : rotateFrom(0).slice(0, 3);
+    const readyForInstallImages = suburb.slug === "spring-hill" && recentJobImages.length >= 3
+        ? recentJobImages.slice(0, 3)
+        : recentJobImages.length
+        ? [...recentJobImages.slice(1), ...rotateFrom(7).map((img) => ({ ...img, caption: img.alt }))].slice(0, 3)
+        : rotateFrom(7).slice(0, 3).map((img) => ({ ...img, caption: img.alt }));
     const regionLabel = suburb.region
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -236,7 +229,9 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             <ServiceHero
                 title={<>Floor Preparation <span className="text-yellow-500">{suburb.name}</span>.</>}
                 subtitle={`The secret to a flawless floor in ${suburb.name} is what lies beneath. We create mirror-flat substrates for renovations and new builds.`}
-                imagePath={siteImages.floorPrep.hero.src}
+                imagePath={suburb.image?.src ?? siteImages.floorPrep.hero.src}
+                imageAlt={suburb.image?.alt ?? siteImages.floorPrep.hero.alt}
+                imageNote={suburb.image?.caption}
                 label="TECHNICAL_SPECIALIST"
             >
                 <HeroForm />
@@ -303,7 +298,7 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(buildServiceSchema({
+                    __html: safeJsonLd(buildServiceSchema({
  name: `Floor Preparation ${suburb.name}`,
  description: `Floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding, repairs and self-levelling before new flooring.`,
  url: `/locations/${suburb.region}/${suburb.slug}/floor-preparation`,
