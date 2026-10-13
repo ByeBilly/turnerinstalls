@@ -257,11 +257,16 @@ export async function GET(request: NextRequest) {
     );
 
     // PNG cards run 500-850KB; WhatsApp drops preview images over ~300KB.
-    const jpeg = await sharp(Buffer.from(await card.arrayBuffer())).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+    // Baseline (non-progressive) JPEG with an explicit length: Facebook's
+    // image fetcher rejected the streamed progressive version as "corrupted".
+    const jpeg = await sharp(Buffer.from(await card.arrayBuffer()))
+        .jpeg({ quality: 82, progressive: false, mozjpeg: false })
+        .toBuffer();
 
     return new Response(new Uint8Array(jpeg), {
         headers: {
             "Content-Type": "image/jpeg",
+            "Content-Length": String(jpeg.length),
             // Cards only change on deploy; let the CDN keep them so
             // Facebook/Messenger scrapes get a fast cached image.
             "Cache-Control": "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=86400",

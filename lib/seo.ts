@@ -48,6 +48,9 @@ export function buildOgImageUrl({
         title,
         path,
         image: image ?? pickOgPhoto(path),
+        // Bump when the card design or encoding changes: Facebook caches each
+        // image URL (including failed fetches) and won't refetch it otherwise.
+        v: "2",
     });
 
     if (subtitle) {
