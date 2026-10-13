@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BASE_URL } from "@/lib/business";
+import { OG_INSTALL_PHOTOS, OG_PREP_PHOTOS } from "@/data/ogPhotos";
 
 const OG_IMAGE_WIDTH = 1200;
 const OG_IMAGE_HEIGHT = 630;
@@ -13,18 +14,40 @@ export function safeJsonLd(value: unknown) {
     return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
+const PREP_PATH = /prep|level|grind|epoxy|adhesive|moisture|subfloor|industrial/;
+
+/** FNV-1a: spreads similar paths (e.g. neighbouring suburbs) across the pool. */
+function hashPath(path: string) {
+    let hash = 0x811c9dc5;
+    for (let i = 0; i < path.length; i++) {
+        hash ^= path.charCodeAt(i);
+        hash = Math.imul(hash, 0x01000193);
+    }
+    return hash >>> 0;
+}
+
+/** Stable per-page share photo: prep shots for prep pages, finished floors elsewhere. */
+export function pickOgPhoto(path: string) {
+    const pool = PREP_PATH.test(path) ? OG_PREP_PHOTOS : OG_INSTALL_PHOTOS;
+    return pool[hashPath(path) % pool.length];
+}
+
 export function buildOgImageUrl({
     title,
     subtitle,
     path,
+    image,
 }: {
     title: string;
     subtitle?: string;
     path: string;
+    /** A /public photo for the card background; defaults to a pick from the job photo pool. */
+    image?: string;
 }) {
     const params = new URLSearchParams({
         title,
         path,
+        image: image ?? pickOgPhoto(path),
     });
 
     if (subtitle) {
@@ -40,6 +63,7 @@ export function buildPageMetadata({
     path,
     ogTitle,
     ogSubtitle,
+    ogImage,
     type = "website",
 }: {
     title: string | Metadata["title"];
@@ -47,6 +71,8 @@ export function buildPageMetadata({
     path: string;
     ogTitle?: string;
     ogSubtitle?: string;
+    /** Page-specific job photo for the share card, e.g. a suburb's own job photo. */
+    ogImage?: string;
     type?: "website" | "article";
 }): Metadata {
     const titleText =
@@ -59,6 +85,7 @@ export function buildPageMetadata({
         title: ogTitle ?? titleText,
         subtitle: ogSubtitle ?? description,
         path,
+        image: ogImage,
     });
 
     return {

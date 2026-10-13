@@ -41,6 +41,7 @@ export async function generateMetadata({
         path: `/flooring-installation/${data.slug}`,
         ogTitle: `${data.name} Flooring Installation`,
         ogSubtitle: `Timber, hybrid, vinyl and laminate flooring with floor prep in ${data.name}.`,
+        ogImage: data.recentJobs?.[0]?.image?.src,
     });
 }
 

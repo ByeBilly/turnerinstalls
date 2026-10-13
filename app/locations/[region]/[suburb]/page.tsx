@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
         path: canonical,
         ogTitle: `${suburb.name} Flooring Specialists`,
         ogSubtitle: `Floor preparation, levelling, uplift and installation in ${suburb.name}.`,
+        ogImage: suburb.recentJobs?.[0]?.image?.src,
     });
 }
 

@@ -14,6 +14,10 @@ const nextConfig = {
     turbopack: {
         root: __dirname,
     },
+    // The share-card route reads its fonts from disk at runtime.
+    outputFileTracingIncludes: {
+        '/api/og': ['./assets/fonts/**'],
+    },
     images: {
         // AVIF is ~20-30% smaller than WebP; browsers without it get WebP.
         formats: ['image/avif', 'image/webp'],
