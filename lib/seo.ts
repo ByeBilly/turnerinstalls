@@ -50,14 +50,14 @@ export function buildOgImageUrl({
         image: image ?? pickOgPhoto(path),
         // Bump when the card design or encoding changes: Facebook caches each
         // image URL (including failed fetches) and won't refetch it otherwise.
-        v: "2",
+        v: "3",
     });
 
     if (subtitle) {
         params.set("subtitle", subtitle);
     }
 
-    return `${BASE_URL}/api/og?${params.toString()}`;
+    return `${BASE_URL}/og?${params.toString()}`;
 }
 
 export function buildPageMetadata({
