@@ -9,29 +9,28 @@ The sitewide tracking snippets live in `app/layout.tsx`, so they are loaded on e
 ### Google Tag Manager
 
 - Container ID: `GTM-NMJJSS86`
-- Code location: `app/layout.tsx`
+- Code location: `components/TrackingScripts.tsx` (rendered from `app/layout.tsx`; skipped for crawler user agents)
 - Loads: `https://www.googletagmanager.com/gtm.js?id=GTM-NMJJSS86`
-- Noscript fallback: `https://www.googletagmanager.com/ns.html?id=GTM-NMJJSS86`
+- This is the only Google tag the site loads directly (since 2026-10-13).
 
 What it can track depends on what is configured inside the Google Tag Manager container. Common GTM use cases include GA4 events, Google Ads conversions, Meta Pixel, call-click events, form-submit events, scroll depth, and outbound-link clicks.
 
 ### Google Analytics 4
 
 - Measurement ID: `G-T6ZG4K0J3W`
-- Code location: `app/layout.tsx`
-- Loads: `https://www.googletagmanager.com/gtag/js?id=G-T6ZG4K0J3W`
-- Current config call: `gtag('config', 'G-T6ZG4K0J3W')`
+- Loaded by the GTM container, not by site code. The direct `gtag.js` load was removed on 2026-10-13: its config never fired (it pushed arrays to `dataLayer`, which gtag ignores) and it cost ~190KB per visit. Verified afterwards: one GA4 `page_view` per visit, plus Google Ads (`AW-18124448741`) tags, all from GTM.
+- The GTM container and GA4 property are not in Billy's own Google account (checked 2026-10-14); they are likely owned by Liam's account or the agency that set up GTM.
 
 GA4 will normally track page views, sessions, traffic source, device, browser, country/city, engagement time, and enhanced-measurement events if enabled in the GA4 web stream.
 
 ### Call Liam Click Counter
 
 - Event name: `call_liam_click`
-- Code location: `app/layout.tsx`
+- Code location: `components/TrackingScripts.tsx`
 - First-party log endpoint: `app/api/call-liam-click/route.ts`
 - Tracked numbers: `0413592054`, `+61413592054`, `61413592054`
 
-The counter is intentionally hidden from the public website. It listens for clicks on Liam phone links, then sends the event to both `dataLayer`/GTM and direct GA4 `gtag`. It also sends a first-party POST to `/api/call-liam-click`, which logs the click in the site host's server/function logs with page path, page URL, link text, referrer, user agent, and timestamp.
+The counter is intentionally hidden from the public website. It listens for clicks on Liam phone links, then pushes the event to `dataLayer` for GTM (GA4 only receives it if a GTM tag forwards `call_liam_click`). It also sends a first-party POST to `/api/call-liam-click`, which logs the click in the site host's server/function logs with page path, page URL, link text, referrer, user agent, and timestamp.
 
 Where to see it:
 
@@ -45,7 +44,7 @@ Dynamic Number Insertion (DNI) is when a marketing script swaps the displayed ph
 
 No obvious DNI code is present in the repo as of this audit. Liam's phone number is hard-coded in `app/page.tsx`, and there are no local scripts named for DNI, call tracking, or number replacement. However, GTM can load third-party DNI from inside the remote container without that script appearing in this repository. To confirm whether Just Digital Marketing is using DNI, inspect the live GTM container in Preview mode or load the live page and check whether the visible phone number or `tel:` link changes after GTM finishes running.
 
-If DNI is active, the `call_liam_click` listener still tracks Liam's direct number only. Add any DNI tracking numbers to the `liamNumbers` array in `app/layout.tsx` if those calls should also count as Liam call clicks.
+If DNI is active, the `call_liam_click` listener still tracks Liam's direct number only. Add any DNI tracking numbers to `isLiamNumber` in `components/TrackingScripts.tsx` if those calls should also count as Liam call clicks.
 
 ## Lead And Chat Tracking
 
