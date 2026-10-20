@@ -10,11 +10,11 @@ import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
 import { buildServiceSchema } from "@/lib/business";
 
 const ogTitle = "Flooring Installation Brisbane";
-const ogDescription = "Professional flooring installation in Brisbane for timber, laminate and residential renovations, with expert preparation and quality workmanship.";
+const ogDescription = "Flooring installation in Brisbane with the floor prep included: uplift, grinding and self-levelling, then timber, hybrid, vinyl or laminate laid by the same crew.";
 const ogImage = { url: "/installspics/finished/finished-timber-floor-display.jpg", width: 1200, height: 630, alt: "Turner Installs finished timber flooring, Brisbane" };
 
 export const metadata: Metadata = buildPageMetadata({
-    title: ogTitle,
+    title: "Flooring Installation Brisbane, Floor Prep Included",
     description: ogDescription,
     path: "/flooring-installation-brisbane",
     ogTitle,
@@ -52,6 +52,31 @@ export default function FlooringInstallationBrisbanePage() {
                     <p className="text-slate-700 leading-relaxed">
                         With 15+ years of experience and three generations of flooring expertise, we bring local knowledge, fast site visits, and a high-end finish to every project. Whether you're in a heritage Queenslander in Paddington or a new build in Springfield, we've got you covered.
                     </p>
+                </div>
+            </section>
+
+            <section className="py-16 bg-slate-900 text-white">
+                <div className="max-w-4xl mx-auto px-5">
+                    <h2 className="text-2xl md:text-3xl font-black mb-6">
+                        Flooring installation when the floor needs prep first
+                    </h2>
+                    <p className="text-slate-300 leading-relaxed mb-4">
+                        Tiles coming up, an uneven slab, old glue under the carpet, a springy Queenslander subfloor: most
+                        Brisbane installs need some preparation before the new floor can go down. We do the uplift, grinding,
+                        repairs and self-levelling ourselves, then lay the new floor on the surface we prepared. One quote
+                        covers both, and the floor is checked against your product&apos;s installation guide before we start.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                        <Link href="/services/floor-preparation" className="rounded-full bg-yellow-400 px-5 py-3 text-sm font-black text-slate-950 hover:bg-yellow-300">
+                            Floor preparation Brisbane
+                        </Link>
+                        <Link href="/blog/do-you-need-floor-preparation-before-new-flooring" className="rounded-full border border-white/20 px-5 py-3 text-sm font-bold hover:border-yellow-400 hover:text-yellow-300">
+                            Does my floor need prep?
+                        </Link>
+                        <Link href="/blog/hybrid-flooring-over-tiles-brisbane" className="rounded-full border border-white/20 px-5 py-3 text-sm font-bold hover:border-yellow-400 hover:text-yellow-300">
+                            Hybrid over tiles
+                        </Link>
+                    </div>
                 </div>
             </section>
 

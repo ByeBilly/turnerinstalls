@@ -2,15 +2,15 @@ import Link from "next/link";
 
 export interface NearbySuburbLink {
     name: string;
-    slug: string;
-    region: string;
+    href: string;
+    label: string;
 }
 
 /**
  * "Serving X & Surrounding Suburbs" internal-link block for floor-prep
- * suburb pages — links only to suburbs that actually have their own
- * floor-preparation page (resolved by the caller against
- * floorPreparationSuburbs), so it never points at a dead route.
+ * suburb pages. The caller resolves each neighbour to a live page (its
+ * floor-prep page, else its installation page), so it never points at a
+ * dead or redirecting route.
  */
 export default function NearbySuburbsMesh({
     suburbName,
@@ -30,11 +30,11 @@ export default function NearbySuburbsMesh({
                 <div className="flex flex-wrap gap-3">
                     {neighbors.map((n) => (
                         <Link
-                            key={n.slug}
-                            href={`/locations/${n.region}/${n.slug}/floor-preparation`}
+                            key={n.href}
+                            href={n.href}
                             className="text-sm text-yellow-400 hover:text-yellow-300 transition-colors border border-yellow-400/30 hover:border-yellow-400/60 px-4 py-2 rounded"
                         >
-                            Floor Preparation {n.name}
+                            {n.label}
                         </Link>
                     ))}
                 </div>

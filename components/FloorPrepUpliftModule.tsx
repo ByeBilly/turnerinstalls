@@ -59,14 +59,14 @@ export default function FloorPrepUpliftModule({
         .map((point) => typeof point === "function" ? point(suburbName) : point);
 
     return (
-        <section className="bg-slate-950 py-20 text-white">
+        <section id="floor-preparation" className="scroll-mt-24 bg-slate-950 py-20 text-white">
             <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <div>
                     <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-yellow-400">
                         Floor preparation, uplift and removal
                     </p>
                     <h2 className="mb-5 text-3xl font-black leading-tight md:text-5xl">
-                        Old floor out. Subfloor made ready in {areaLabel}.
+                        Floor preparation in {suburbName}: old floor out, subfloor made ready.
                     </h2>
                     <p className="mb-7 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
                         {intro}

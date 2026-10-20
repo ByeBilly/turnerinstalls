@@ -354,37 +354,55 @@ export const getSuburbsByRegion = (region: Region) => suburbs.filter(s => s.regi
 
 const curatedSuburbSlugs = new Set(suburbs.map((suburb) => suburb.slug));
 
-// Every slug that actually has a floor-prep page (curated + auto-generated),
-// so nearbySuburbs links never point at a suburb with no page to land on.
-const allKnownSlugs = new Set([
-    ...suburbs.map((suburb) => suburb.slug),
-    ...flooringInstallationSuburbs.map((suburb) => suburb.slug),
-]);
-
-// Real-photo pool the auto-generated suburb entries below rotate through, so
-// each of the ~73 flooringInstallationSuburbs-derived floor-prep pages gets a
-// distinct job photo instead of every single one sharing one hardcoded image.
+// Real-photo pool the generated suburb entries below rotate through, so each
+// generated floor-prep page gets a distinct job photo.
 const autoSuburbImagePool = siteImages.floorPrep.gallery;
 const hashSlug = (slug: string) =>
     slug.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
 
+// Oct 2026 consolidation: a flooringInstallationSuburbs suburb only gets its
+// own floor-prep page once it has real jobs. Without them the page was a
+// near-copy of /flooring-installation/<slug> (which already carries the prep
+// section) and the two competed for the same searches; Search Console showed
+// most of these sitting in "Discovered - currently not indexed". The rest now
+// 308 to the installation page (see consolidatedPrepRedirect).
+const generatedPrepSuburbs = flooringInstallationSuburbs.filter(
+    (suburb) => !curatedSuburbSlugs.has(suburb.slug) && Boolean(suburb.recentJobs?.length),
+);
+
+// Every slug that has a floor-prep page, so nearbySuburbs links never point
+// at a suburb with no page to land on.
+const allKnownSlugs = new Set([
+    ...suburbs.map((suburb) => suburb.slug),
+    ...generatedPrepSuburbs.map((suburb) => suburb.slug),
+]);
+
 export const floorPreparationSuburbs: SuburbData[] = [
     ...suburbs,
-    ...flooringInstallationSuburbs
-        .filter((suburb) => !curatedSuburbSlugs.has(suburb.slug))
-        .map((suburb) => ({
-            name: suburb.name,
-            slug: suburb.slug,
-            region: 'brisbane' as const,
-            postcode: suburb.postcode,
-            description: suburb.localRelevance,
-            archetype: 'historic' as const,
-            landmarks: [],
-            image: autoSuburbImagePool[hashSlug(suburb.slug) % autoSuburbImagePool.length],
-            nearbySuburbs: suburb.nearbySuburbs.filter((slug) => allKnownSlugs.has(slug)),
-            recentJobs: suburb.recentJobs,
-        })),
+    ...generatedPrepSuburbs.map((suburb) => ({
+        name: suburb.name,
+        slug: suburb.slug,
+        region: 'brisbane' as const,
+        postcode: suburb.postcode,
+        description: suburb.localRelevance,
+        archetype: 'historic' as const,
+        landmarks: [],
+        image: autoSuburbImagePool[hashSlug(suburb.slug) % autoSuburbImagePool.length],
+        nearbySuburbs: suburb.nearbySuburbs.filter((slug) => allKnownSlugs.has(slug)),
+        recentJobs: suburb.recentJobs,
+    })),
 ];
+
+/**
+ * Where a retired floor-prep URL now lives: the suburb's flooring
+ * installation page, or undefined if the URL never existed.
+ */
+export const consolidatedPrepRedirect = (slug: string, region: string) => {
+    if (region !== 'brisbane' || allKnownSlugs.has(slug)) return undefined;
+    return flooringInstallationSuburbs.some((suburb) => suburb.slug === slug)
+        ? `/flooring-installation/${slug}`
+        : undefined;
+};
 
 export const getFloorPreparationSuburb = (slug: string, region?: string) => {
     return floorPreparationSuburbs.find((suburb) => {

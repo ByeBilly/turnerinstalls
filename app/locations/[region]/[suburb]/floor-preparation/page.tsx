@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
-import { floorPreparationSuburbs, getFloorPreparationSuburb, suburbs } from '@/data/suburbs';
-import { getFlooringInstallationSuburb } from '@/data/flooringInstallationSuburbs';
+import { notFound, permanentRedirect } from 'next/navigation';
+import { consolidatedPrepRedirect, floorPreparationSuburbs, getFloorPreparationSuburb, suburbs } from '@/data/suburbs';
+import { flooringInstallationSuburbs, getFlooringInstallationSuburb } from '@/data/flooringInstallationSuburbs';
 import ServiceHero from "@/components/ServiceHero";
 import TechSpecs from "@/components/TechSpecs";
 import ProcessSteps from "@/components/ProcessSteps";
@@ -32,7 +32,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ region: string; suburb: string }> }): Promise<Metadata> {
     const { region, suburb: suburbSlug } = await params;
     const suburb = getFloorPreparationSuburb(suburbSlug, region);
-    if (!suburb) return {};
+    if (!suburb) {
+        const target = consolidatedPrepRedirect(suburbSlug, region);
+        if (target) permanentRedirect(target);
+        return {};
+    }
 
     const title = `${suburb.name} Floor Preparation`;
     const desc = `Floor preparation in ${suburb.name}: uplift, adhesive removal, concrete grinding and levelling. Free quotes across Brisbane and SE QLD.`;
@@ -53,13 +57,25 @@ export default async function SuburbFloorPrepPage({ params }: { params: Promise<
     const suburb = getFloorPreparationSuburb(suburbSlug, region);
 
     if (!suburb) {
+        const target = consolidatedPrepRedirect(suburbSlug, region);
+        if (target) permanentRedirect(target);
         notFound();
     }
 
+    // Neighbours with their own floor-prep page link there; the rest link to
+    // their installation page, which carries the prep section.
     const nearbyLinks = (suburb.nearbySuburbs ?? [])
-        .map((slug) => floorPreparationSuburbs.find((s) => s.slug === slug))
-        .filter((s): s is NonNullable<typeof s> => Boolean(s))
-        .map((s) => ({ name: s.name, slug: s.slug, region: s.region }));
+        .map((slug) => {
+            const prep = floorPreparationSuburbs.find((s) => s.slug === slug);
+            if (prep) {
+                return { name: prep.name, href: `/locations/${prep.region}/${prep.slug}/floor-preparation`, label: `Floor Preparation ${prep.name}` };
+            }
+            const install = flooringInstallationSuburbs.find((s) => s.slug === slug);
+            return install
+                ? { name: install.name, href: `/flooring-installation/${install.slug}`, label: `Flooring & Floor Prep ${install.name}` }
+                : undefined;
+        })
+        .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
     const variantSeed = `${suburb.region}-${suburb.slug}`;
     const seedSum = variantSeed.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);

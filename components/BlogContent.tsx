@@ -1,12 +1,23 @@
+import Link from "next/link";
+
 interface BlogContentProps {
     content: string;
 }
 
 function renderInlineBold(text: string) {
-    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g);
     return parts.map((part, j) => {
         if (part.startsWith("**") && part.endsWith("**")) {
             return <strong key={j}>{part.slice(2, -2)}</strong>;
+        }
+        // Internal links only: [text](/path)
+        const link = part.match(/^\[([^\]]+)\]\((\/[^)\s]*)\)$/);
+        if (link) {
+            return (
+                <Link key={j} href={link[2]} className="font-semibold text-yellow-700 underline underline-offset-2 hover:text-yellow-600">
+                    {link[1]}
+                </Link>
+            );
         }
         return part;
     });

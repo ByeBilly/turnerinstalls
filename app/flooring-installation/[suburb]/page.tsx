@@ -33,8 +33,8 @@ export async function generateMetadata({
     const data = getFlooringInstallationSuburb(suburb);
     if (!data) return {};
 
-    const title = `${data.name} Flooring Installation`;
-    const description = `Flooring installation in ${data.name}: timber, hybrid, vinyl and laminate, plus floor prep and old floor removal. Free quote.`;
+    const title = `${data.name} Flooring Installation & Floor Prep`;
+    const description = `Flooring installation in ${data.name} with the floor prep done by the same crew: uplift, grinding, levelling, then timber, hybrid, vinyl or laminate. Free quote.`;
     return buildPageMetadata({
         title,
         description,
