@@ -34,7 +34,7 @@ export async function generateMetadata({
     if (!data) return {};
 
     const title = `${data.name} Flooring Installation & Floor Prep`;
-    const description = `Flooring installation in ${data.name} with the floor prep done by the same crew: uplift, grinding, levelling, then timber, hybrid, vinyl or laminate. Free quote.`;
+    const description = `Flooring installation in ${data.name} with floor prep by the same crew: uplift, grinding and levelling, then timber, hybrid, vinyl or laminate. Free quote.`;
     return buildPageMetadata({
         title,
         description,

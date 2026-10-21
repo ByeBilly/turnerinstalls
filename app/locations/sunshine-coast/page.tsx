@@ -1,132 +1,104 @@
-import ServiceHero from "@/components/ServiceHero";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import TechSpecs from "@/components/TechSpecs";
-import ProcessSteps from "@/components/ProcessSteps";
-import FeaturesGrid from "@/components/FeaturesGrid";
-import ModernGallery from "@/components/ModernGallery";
-import SEOCTA from "@/components/SEOCTA";
-import FAQSection from "@/components/FAQSection";
-import InternalLinks from "@/components/InternalLinks";
-import { siteImages } from "@/data/siteImages";
+import RegionPrepPage from "@/components/RegionPrepPage";
 import type { Metadata } from "next";
-import { buildPageMetadata, safeJsonLd } from "@/lib/seo";
-import { buildServiceSchema } from "@/lib/business";
+import { buildPageMetadata } from "@/lib/seo";
 
 const ogTitle = "Floor Preparation Sunshine Coast";
-const ogDescription = "Professional floor preparation Sunshine Coast. Caloundra to Noosa. Concrete grinding, floor levelling, and subfloor rectification.";
-const ogImageUrl = "/installspics/locations/sunshinecoast.jpg";
+const ogDescription = "Floor preparation on the Sunshine Coast: uplift, adhesive removal, concrete grinding and floor re-levelling before new flooring, with the install done by the same crew.";
 
 export const metadata: Metadata = buildPageMetadata({
-    title: ogTitle,
-    description: ogDescription,
+    title: "Floor Preparation Sunshine Coast: Levelling & Grinding",
+    description: "Floor preparation on the Sunshine Coast: uplift, adhesive removal, concrete grinding and floor re-levelling, then your new floor laid by the same crew.",
     path: "/locations/sunshine-coast",
     ogTitle,
     ogSubtitle: ogDescription,
 });
 
+const faqs = [
+    {
+        question: "Do you do floor preparation on the Sunshine Coast?",
+        answer: "Yes. We travel up from Brisbane for Sunshine Coast floor prep and installation. Send the suburb, the floor area and a few photos and we will confirm timing and quote the job.",
+    },
+    {
+        question: "What does floor re-levelling involve?",
+        answer: "For new flooring, re-levelling means making the floor surface flat enough for the product going down: grinding the high spots, then filling the lows or flood-coating with self-levelling compound. It is not house restumping. If the house itself has moved, that is a job for a builder or restumper first.",
+    },
+    {
+        question: "Can you prepare the floor and install the new flooring?",
+        answer: "Yes. The same crew uplifts the old floor, grinds and levels, then lays the new timber, hybrid, vinyl or laminate, so prep and installation are quoted together.",
+    },
+    {
+        question: "Can you fix a floor after water damage?",
+        answer: "We remove the damaged flooring, grind off residue, take moisture readings and add a moisture barrier if the readings call for it, then level the floor ready for the new one. The slab has to be dry enough before new flooring goes down.",
+    },
+    {
+        question: "Do you remove old tiles and carpet?",
+        answer: "Yes. Tiles, carpet, underlay, smoothedge and old vinyl are uplifted and taken away, and the adhesive is ground off the slab before levelling.",
+    },
+];
+
 export default function SunshineCoast() {
-    const specs = [
-        {
-            icon: "☀️",
-            title: "Coast Wide",
-            description: "Servicing Caloundra, Maroochydore, Coolum, and Noosa."
-        },
-        {
-            icon: "🌫️",
-            title: "Humidity Control",
-            description: "Managing cure times and moisture levels in the humid coastal environment."
-        },
-        {
-            icon: "🔨",
-            title: "Renovation Experts",
-            description: "Specializing in the renovation of older beach shacks and modernizing floor plans."
-        },
-        {
-            icon: "🚑",
-            title: "Emergency Prep",
-            description: "Rapid response for water damage or flood rectification work."
-        }
-    ];
-
-    const suitableFor = [
-        { label: "Caloundra" },
-        { label: "Mooloolaba" },
-        { label: "Maroochydore" },
-        { label: "Noosa" },
-        { label: "Hinterland" }
-    ];
-
-    const faqs = [
-        {
-            question: "Do you travel to Noosa?",
-            answer: "Yes, we regularly service Noosa and the northern end of the Sunshine Coast."
-        },
-        {
-            question: "Can you fix a floor after water damage?",
-            answer: "Absolutely. We grind off the residue, test for moisture, apply a barrier if needed, and level it back to new."
-        }
-    ];
-
     return (
-        <>
-            <Breadcrumbs items={[
-                { name: "Home", url: "/" },
-                { name: "Service Areas", url: "/service-areas" },
-                { name: "Sunshine Coast", url: "/locations/sunshine-coast" },
-            ]} />
-            <ServiceHero
-                title={<>Floor Prep <span className="text-yellow-500">Sunshine Coast</span>.</>}
-                subtitle="From Caloundra to Noosa, we deliver premium subfloors."
-                imagePath="/installspics/finished/modern-timber-flooring-living-room.jpg"
-                label="SUNSHINE_COAST"
-            />
-
-            <TechSpecs
-                title="Sunny Coast Specialists."
-                description={<>
-                    <p className="mb-4">The Sunshine Coast lifestyle is all about indoor-outdoor flow. Ensuring your internal floors are level with your outdoor areas starts with precision grinding and ramping.</p>
-                    <p>We work with homeowners and builders across the Coast to deliver defects-free substrates ready for high-end timber and vinyl.</p>
-                </>}
-                features={specs}
-            />
-
-            <FeaturesGrid
-                title="Areas Covered"
-                features={suitableFor}
-                columns={4}
-            />
-
-            <ModernGallery
-                title="Coastal Work"
-                images={[
-                    { src: "/installspics/finished/the-gap-timber-flooring.jpg", alt: "Coastal Timber Style" },
-                    { src: "/installspics/prep/floods/flood-work-preparation.jpg", alt: "Flood Prep Work" },
-                    { src: "/installspics/locations/sunshinecoast.jpg", alt: "Sunshine Coast Flooring" },
-                    { src: "/installspics/locations/sunshinecoast1.jpg", alt: "Sunny Coast Living" }
-                ]}
-                limit={4}
-            />
-
-            <FAQSection items={faqs} />
-
-            <InternalLinks type="services" />
-
-            <SEOCTA
-                title="Coast Class."
-                subtitle="Get the right foundation for your beachside home."
-                buttonText="Get Sunshine Coast Quote"
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: safeJsonLd(buildServiceSchema({
- name: "Floor Preparation Sunshine Coast",
- description: "Floor preparation, concrete grinding, floor levelling and adhesive removal for homes and commercial sites in Sunshine Coast.",
- url: "/locations/sunshine-coast",
- areaServed: ["Sunshine Coast"],
- }))
-                }}
-            />
-        </>
+        <RegionPrepPage
+            region="Sunshine Coast"
+            path="/locations/sunshine-coast"
+            heroImage="/installspics/finished/modern-timber-flooring-living-room.jpg"
+            heroImageAlt="Modern timber flooring in a living room after floor preparation"
+            subtitle="Uplift, grinding and floor re-levelling before your new floor goes down, with the install done by the same crew."
+            intro={<>
+                <p>
+                    Whether it is an older coastal home in Maroochydore, a unit in Mooloolaba or a renovation near Noosa
+                    Heads, a new floor only lasts if the slab or subfloor under it is flat, dry and sound. Coastal homes add
+                    their own problems: old tiles, glued-down vinyl, and slabs that have seen water.
+                </p>
+                <p>
+                    Turner Installs does the floor preparation and the installation. We lift and remove the old floor, grind
+                    and repair the slab, re-level it with self-levelling compound where needed, take moisture readings, and
+                    then lay your new floor on the surface we prepared. One quote covers both.
+                </p>
+                <p>
+                    We are based in Oxley in Brisbane and travel up for Sunshine Coast jobs. Tell us the suburb and the size of
+                    the job and we will confirm timing.
+                </p>
+            </>}
+            jobs={[
+                {
+                    title: "Floor re-levelling",
+                    body: "High spots ground down and low spots filled or flood-coated with self-levelling compound, so the floor is flat enough for the flooring going on top.",
+                },
+                {
+                    title: "Tiles out, new floor in",
+                    body: "Tiles uplifted, the adhesive bed ground back to the slab, and the floor levelled ready for hybrid, vinyl or timber.",
+                },
+                {
+                    title: "Water-damaged floors",
+                    body: "Damaged flooring removed, residue ground off, moisture readings taken and a moisture barrier added where the readings call for it.",
+                },
+                {
+                    title: "Adhesive and glue removal",
+                    body: "Old vinyl adhesive, carpet glue and tile adhesive mechanically removed so new adhesive bonds to clean concrete.",
+                },
+                {
+                    title: "Concrete grinding",
+                    body: "Ridges, trowel marks, paint and weak surface concrete ground off with dust extraction before new flooring.",
+                },
+                {
+                    title: "Carpet uplift",
+                    body: "Carpet, underlay, smoothedge and staples removed, the slab patched and levelled for a hard floor.",
+                },
+            ]}
+            areas={[
+                { name: "Caloundra" },
+                { name: "Mooloolaba" },
+                { name: "Maroochydore" },
+                { name: "Noosa Heads" },
+            ]}
+            gallery={[
+                { src: "/installspics/finished/the-gap-timber-flooring.jpg", alt: "Timber flooring laid on a prepared subfloor" },
+                { src: "/installspics/prep/floods/flood-work-preparation.jpg", alt: "Self-levelling flood coat during floor preparation" },
+                { src: "/installspics/locations/sunshinecoast.jpg", alt: "Sunshine Coast flooring" },
+                { src: "/installspics/locations/sunshinecoast1.jpg", alt: "Sunshine Coast home flooring" },
+            ]}
+            faqs={faqs}
+        />
     );
 }
