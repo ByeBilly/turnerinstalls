@@ -7,6 +7,7 @@ import TrackingScripts from "@/components/TrackingScripts";
 import { BASE_URL, BUSINESS, WEBSITE_ID, buildBusinessEntity, businessRef } from "@/lib/business";
 import { buildAggregateRating } from "@/lib/reviews";
 import { buildOgImageUrl, safeJsonLd } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ? `https://${process.env.NEXT_PUBLIC_BASE_URL}`
@@ -113,6 +114,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <HighLevelChat />
+        <Analytics />
       </body>
     </html>
   );
